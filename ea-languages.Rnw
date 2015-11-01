@@ -9,10 +9,7 @@
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
-library("RCurl") #To download stuff directly from the GitHub repo
-load(".RData") #I'll try to obsolete this to make everything clearer
-agg.top.Spain.evol.file <- getURL("https://raw.githubusercontent.com/JJ/top-github-users-data/master/data/processed/aggregated-top-Spain-evol.csv")
-agg.top.Spain.evol <- read.csv(text = agg.top.Spain.evol.file,sep=";")
+
 @ 
 
 \begin{frontmatter}
@@ -34,6 +31,20 @@ agg.top.Spain.evol <- read.csv(text = agg.top.Spain.evol.file,sep=";")
 %\maketitle
 
 \begin{abstract}
+  It is quite usual when an evolutionary algorithm tool or library
+  uses a language other than C, C++, Java or Matlab that a reviewer or
+  the audience questions its usefulness based on the speed of those
+  other languages, purportedly slower than the aforementioned
+  ones. Despite speed being not everything needed to design an useful
+  evolutionary algorithm application, in this paper we will measure
+  the speed for several very basic evolutionary algorithm operations
+  in several languages which use different virtual machines and
+  approaches, and prove that, in fact, there is no big difference in
+  speed between interpreted and compiled languages, and that in some
+  cases, interpreted languages can be faster than compiled languages
+  such as Java. Besides, tools used by any analyst such as profilers
+  can in fact bring order of magnitude improvements to the speed of an
+  evolutionary algorithm.  
 \end{abstract}
 
 \begin{keyword}
