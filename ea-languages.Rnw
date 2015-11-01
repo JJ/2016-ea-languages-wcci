@@ -79,3 +79,7 @@ the data used to create it can be downloaded from
 \bibliography{geneura}
 
 \end{document}
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% hunspell-local-dictionary: "english"
+%%% End:% 
