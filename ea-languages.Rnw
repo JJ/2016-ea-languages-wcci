@@ -1,0 +1,70 @@
+\documentclass[review]{elsarticle}
+\bibliographystyle{elsarticle-num}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+<<setup, cache=FALSE,echo=FALSE>>=
+library("ggplot2")
+library("RCurl") #To download stuff directly from the GitHub repo
+load(".RData") #I'll try to obsolete this to make everything clearer
+agg.top.Spain.evol.file <- getURL("https://raw.githubusercontent.com/JJ/top-github-users-data/master/data/processed/aggregated-top-Spain-evol.csv")
+agg.top.Spain.evol <- read.csv(text = agg.top.Spain.evol.file,sep=";")
+@ 
+
+\begin{frontmatter}
+
+\title{There is no fast lunch: an examination of the running speed of
+  evolutionary algorithms in several languages}
+
+\author[ugr,geneura,osl]{J.J. Merelo\corref{cor1}}
+\ead{jmerelo@ugr.es}
+
+\cortext[cor1]{Corresponding author. He can be
+    reached at his email address or at the
+    \href{https://github.com/geneura-papers/2015-ea-languages/issues}{issues
+      section} of the repo for this paper}}
+      
+      
+\date{}
+
+%\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\begin{keyword}
+
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+\section{State of the art}
+
+
+\section{Results and analysis}
+\label{sec:res}
+
+
+
+\section{Conclusions}
+
+
+\section{Acknowledgements}
+
+This paper is part of the open science effort at the university of
+Granada. It has been written using {\tt knitr}, and its source as well as
+the data used to create it can be downloaded from
+\href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub repository}. It has been supported in part by 
+\href{http://geneura.wordpress.com}{GeNeura Team}. 
+  
+
+\bibliographystyle{alpha}
+\bibliography{geneura}
+
+\end{document}
