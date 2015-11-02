@@ -95,11 +95,11 @@ In fact, the examination of the running time of an evolutionary
 algorithm has received some attention from early on. Implementation
 matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, which implies that
 paying attention to the particular way an algorithm is implemented
-might result in speed improvements that outclass that achieved by
+might result in speed improvements that outclass that achieved by %Mario: those achieved (improvements)
 using the {\em a priori} fastest language available. In fact, careful
 coding led us to prove \cite{ae09} that Perl,
 an interpreted and not optimized for speed language, could obtain times
-that were on the same order the magnitude than Java. However, that
+that were on the same order the magnitude as Java. However, that 
 paper also proved that, for the particular type of problems used in
 scientific computing in general, the running speed is not as important
 as coding speed or even learning speed, since most scientific programs
@@ -110,6 +110,7 @@ Python are, in many cases, superior to these fast-to-run languages. %Pablo: buen
 However the benchmarks done in those papers were restricted to
 particular problem sizes. Since program speed is the result of many
 factors, including memory management and implementation of loop data %Pablo: Esta frase deberías haberla puesto en la intro también
+%Mario: No sé si loop data structure es muy utilizado, nunca lo había escuchado. 
 structures, in this paper we will examine how fast several languages
 are for different problem sizes. This will be done next. 
 
@@ -122,13 +123,15 @@ program an evolutionary algorithm spends the most time in
 \cite{nesmachnow2011time}. In general, that is the fitness function,
 and then reproduction-related functions: chromosome ranking, for
 instance. However, mutation is the operation that is performed the
+%Mario: Yo creo que este operador de mutación no es el que más se realiza 
+%ya que su aplicación tiene una probabilidad.
 most times on every evolutionary algorithm and is quintessential to
 the algorithm itself, so it allows the comparison of the different
 languages in the proper context. 
 
 Essentially, mutation is performed by \begin{enumerate}
 
-\item Generate a random integer from 0 to the length of the chromosome. %Pablo: Generating
+\item Generating a random integer from 0 to the length of the chromosome. %Pablo: Generating
 \item Choosing the bit in that position and flipping it
 \item Building a chromosome with the value of that bit changed.
 
@@ -140,12 +143,12 @@ be assimilated to it, or as a bitstring using generally ``1'' for true
 values or ``0'' for false values. Different data structures will have
 an impact on the result, since the operations that are applied to them
 are, in many cases, completely different and thus the underlying
-implementation more or less efficient.
+implementation is more or less efficient.
 
 Then, four languages have been chosen for performing the
 benchmark. The primary reason for chosing these languages was the
 availability of open source implementations for the author, but also
-they represent different philosophies in the design of a language.
+they represent different philosophies in language design.
 
 \begin{table}[htb]
     \centering
@@ -164,8 +167,9 @@ they represent different philosophies in the design of a language.
         compiler. \label{tab:files}}
     \end{table}
 %    
-The compiled languages are presented by Scala, a strongly-typed %Pablo: no se quejarán de que no hayamos usado Java directamente? También: presented o represented?
-functional language that compiles to a Java Virtual Machine
+Compiled languages are represented by Scala, a strongly-typed %Pablo: no se quejarán de que no hayamos usado Java directamente? También: presented o represented?
+functional language that compiles to a Java Virtual Machine 
+%Mario:that compiles to a Java Virtual Machine bytecode ?
 binary. Scala is in many cases faster than Java
 \cite{fulghamcomputer} due to its more efficient
 implementation of type handling. Two different representations were
@@ -179,11 +183,15 @@ Interpreted languages are represented by Lua, Perl and Javascript. Lua
 is a popular embedded language that is designed for easy
 implementation; Perl has been used extensively for evolutionary
 algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
-satisfactory results, and node.js, an implementation of JavaScript,
+satisfactory results, and node.js, an implementation of JavaScript, 
+% Mario: and node.js, a JavaScript framework
+% la implementación que usa es Google V8. 
+% Según: https://developers.google.com/v8/design
+% V8 compiles JavaScript source code directly into machine code when it is first executed.   
 has been used lately by our research group as part of our NodEO
 library \cite{DBLP:conf/gecco/GuervosVGES14} and volunteer computing
 framework NodIO \cite{DBLP:journals/corr/GuervosG15}. In fact, this 
-paper is in part a rebuttal to claims made by reviewers of the lack of
+paper is in part a rebuttal to claims made by reviewers of the lack of %Mario: No eran claims eran concerns :)
 speed and thereof adequacy of JavaScript for evolutionary algorithm %Pablo: está bien decir esto? :P
 experimentation. Versions and files are shown in the Table
 \ref{tab:files}. Only Perl used two data structures as in Scala: a
@@ -221,7 +229,7 @@ which was then plotted using R and {\tt ggplot} as shown in Figure
 \ref{fig:time}. The first unexpected behavior shown here is the
 remarkable speed of the Lua language, which is, in fact, much faster
 than any other at any size. Second goes node.js, which uses a very
-efficient implementation of a Just-in-Time interpreter for the
+efficient implementation of a Just-in-Time interpreter for the %Mario: Si se usó V8 es un compilador 
 JavaScript language. Then Perl, with a bitstring representation being
 slightly better than bit vectors, although the difference dilutes with
 time, and eventually Scala, with a bitstring actually faster than
@@ -233,17 +241,18 @@ The behavior of the languages is not linear either. Node.js has an
 interesting feature: its speed is roughly independent of the string size until
 a string size of 1024 is used. The same happens also for several size
 segments for Lua, showing some plateaus that eventually break for the
-bigger sizes. It probably means that creation and accessing strings is
-done in constant time, or roughly constant, giving it a performance
+bigger sizes. It probably means that the creation and accessing of strings is
+done in constant time, or is roughly constant, giving it a performance
 advantage over other languages. Even so, it never manages to beat the
-fastest language in this context, which is for all sizes measured Lua.
+fastest language in this context, which is for all sizes measured Lua. 
 
-The trend is for the differences to keep in more or less the same
+The trend is for the differences to keep in more or less the same   
 style for bigger sizes, so we do not think it would be interesting to
 extend it to $2^16$ and upwards. In any case, these measures allow us %Pablo: confirmado en WR, In any.
 to measure the performance of the most widely used genetic operator in
 four different and popular languages, since all four of them (except
 for Lua) show up in most rankings of the most popular languages.  %Pablo: algún enlace?
+%Mario: Un ranking popular es: http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html
 
 
 \section{Conclusions}
