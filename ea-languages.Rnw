@@ -16,7 +16,7 @@ measures <- read.csv('measures.csv')
 \title{There is no fast lunch: an examination of the running speed of
   evolutionary algorithms in several languages}
 
-\author[ugr,geneura,osl]{J.J. Merelo\corref{cor1}}
+\author[ugr,geneura,osl]{J.J. Merelo\corref{cor1}, P. Garc\'ia-S\'anchez}
 \ead{jmerelo@ugr.es}
 
 \cortext[cor1]{Corresponding author. He can be
