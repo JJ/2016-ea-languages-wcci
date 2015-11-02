@@ -4,12 +4,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 
-
 \begin{document}
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
-
+measures <- read.csv('measures.csv')
 @ 
 
 \begin{frontmatter}
@@ -23,7 +22,7 @@ library("ggplot2")
 \cortext[cor1]{Corresponding author. He can be
     reached at his email address or at the
     \href{https://github.com/geneura-papers/2015-ea-languages/issues}{issues
-      section} of the repo for this paper}}
+      section} of the repository for this paper.}
       
       
 \date{}
@@ -48,12 +47,20 @@ library("ggplot2")
 \end{abstract}
 
 \begin{keyword}
-
+Evolutionary algorithms, implementation, programming, string handling.
 \end{keyword}
 
 \end{frontmatter}
 
 \section{Introduction}
+
+It is a well extended myth in scientific programming to claim that
+compiled languages such as C++ or Java are always, in every
+circumstance, faster than interpreted languages such as Perl,
+JavaScript or Python.
+
+In general and restricting the concept of {\em speed} to {\em speed of
+  the compiled/interpreted application} that might be the case. 
 
 \section{State of the art}
 
@@ -61,7 +68,15 @@ library("ggplot2")
 \section{Results and analysis}
 \label{sec:res}
 
-
+\begin{figure}[h!tb]
+  \centering
+<<results, cache=FALSE,echo=FALSE>>=
+ggplot(measures,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks")+scale_x_log10()+scale_y_log10()
+@ 
+\caption{Plot of time needed to perform 100K mutations in strings with
+lengths increasing by a factor of two from 16 to $2^{15}$. }
+\label{fig:time}
+\end{figure}
 
 \section{Conclusions}
 
@@ -71,7 +86,8 @@ library("ggplot2")
 This paper is part of the open science effort at the university of
 Granada. It has been written using {\tt knitr}, and its source as well as
 the data used to create it can be downloaded from
-\href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub repository}. It has been supported in part by 
+\href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub
+  repository}. It has been supported in part by  
 \href{http://geneura.wordpress.com}{GeNeura Team}. 
   
 
