@@ -59,8 +59,34 @@ compiled languages such as C++ or Java are always, in every
 circumstance, faster than interpreted languages such as Perl,
 JavaScript or Python.
 
-In general and restricting the concept of {\em speed} to {\em speed of
-  the compiled/interpreted application} that might be the case. 
+However, while it is quite clear that efficiency matters, as said in
+ \cite{anderson2010efficiency}, in general and restricting the concept
+ of {\em speed} to {\em speed of 
+  the compiled/interpreted application} it might be the case that some
+languages are faster to others, as evidenced by benhmarks such as
+\cite{prechelt2000empirical,fulghamcomputer}. Taken in general or even
+restricting it to some particular set of problems such as floating
+point computation, some compiled languages tend to be faster than
+interpreted languages.
+
+But, in the same spirit of the {\em There is no free lunch} theorem
+\cite{Wolpert-1997-NFL} we can affirm there is a {\em no fast lunch}
+theorem for the implementation of evolutionary optimization, in the
+sense that, while there are particular languages that might be the
+fastests for particular problem sizes and specially fitness functions,
+in general the fastest language will have those two dependencies, and,
+specially, for non-trivial problem sizes and limiting ourselves to the
+realm of evolutionary algorithm operators, scripting languages such as
+JavaScript might be as fast or even faster than compiled languages
+such as Java.
+
+Coming up next, we will write a brief state of the art of the analysis
+of implementations of evolutionary algorithms. Next we will present
+the test we have used for this paper and its rationale, and finally we
+will present the results of examining four different languages running
+the most widely used evolutionary algorithm operator:
+mutation. Finally, we will draw the conclusions and present future
+lines of work. 
 
 \section{State of the art}
 
@@ -92,7 +118,7 @@ the data used to create it can be downloaded from
   
 
 \bibliographystyle{alpha}
-\bibliography{geneura}
+\bibliography{geneura,languages,GA-general}
 
 \end{document}
 %%% Local Variables:
