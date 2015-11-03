@@ -71,4 +71,16 @@ node-BitString, 4096, 0.515902097
 node-BitString, 8192, 0.991518485
 node-BitString, 16384, 2.025618263
 node-BitString, 32768, 3.815266667
+python-BitString, 16, 0.084355
+python-BitString, 32, 0.085305
+python-BitString, 64, 0.085183
+python-BitString, 128, 0.08618
+python-BitString, 256, 0.087315
+python-BitString, 512, 0.096779
+python-BitString, 1024, 0.10814
+python-BitString, 2048, 0.115889
+python-BitString, 4096, 0.133936
+python-BitString, 8192, 0.164235
+python-BitString, 16384, 0.226656
+python-BitString, 32768, 0.36292
 
