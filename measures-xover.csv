@@ -10,3 +10,16 @@ lua-BitString, 4096, 0.443664
 lua-BitString, 8192, 0.628303
 lua-BitString, 16384, 1.024463
 lua-BitString, 32768, 1.94307
+node-BitString, 16, 0.160806589
+node-BitString, 32, 0.157202745
+node-BitString, 64, 0.157618616
+node-BitString, 128, 0.156915225
+node-BitString, 256, 0.157834305
+node-BitString, 512, 0.15672511
+node-BitString, 1024, 0.156460626
+node-BitString, 2048, 0.157259448
+node-BitString, 4096, 0.157262506
+node-BitString, 8192, 0.157161797
+node-BitString, 16384, 0.160300963
+node-BitString, 32768, 0.168783221
+
