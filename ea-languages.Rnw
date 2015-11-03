@@ -14,7 +14,8 @@
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
-measures <- read.csv('measures.csv')
+measures.bf <- read.csv('measures-bitflip.csv')
+measures.xo <- read.csv('measures-xover.csv')
 @ 
 
 \title{Benchmarking languages for evolutionary algorithms}
@@ -212,13 +213,24 @@ benchmarks within one hour. Results are shown next.
 
 \begin{figure}[h!tb]
   \centering
-<<results, cache=FALSE,echo=FALSE>>=
-ggplot(measures,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks")+scale_y_log10()+scale_x_log10()
+<<results-bf, cache=FALSE,echo=FALSE>>=
+ggplot(measures.bf,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Bitflip")+scale_y_log10()+scale_x_log10()
 @ 
 \caption{Plot of time needed to perform 100K mutations in strings with
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time}
+\end{figure}
+%
+\begin{figure}[h!tb]
+  \centering
+<<results-xo, cache=FALSE,echo=FALSE>>=
+ggplot(measures.xo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Crossover")+scale_y_log10()+scale_x_log10()
+@ 
+\caption{Plot of time needed to perform 100K crossover operations in strings with
+lengths increasing by a factor of two from 16 to $2^{15}$. Please note
+that $x$ and $y$ both have a logarithmic scale.}
+\label{fig:time:xo}
 \end{figure}
 
 All measurements and processing scripts are included in this paper

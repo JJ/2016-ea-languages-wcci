@@ -1,3 +1,4 @@
+languagerepresentation, length, time
 lua-BitString, 16, 0.138472
 lua-BitString, 32, 0.153188
 lua-BitString, 64, 0.189082
