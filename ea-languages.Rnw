@@ -1,9 +1,14 @@
-\documentclass[a4paper]{article}
-
+\documentclass[runningheads,a4paper]{llncs}
 
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage{authblk}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{subfigure}
 
 \begin{document}
 
@@ -12,21 +17,11 @@ library("ggplot2")
 measures <- read.csv('measures.csv')
 @ 
 
-\title{There is no fast lunch: an examination of the running speed of
-  evolutionary algorithms in several languages}
+\title{Benchmarking languages for evolutionary algorithms}
+\titlerunning{Benchmarking EAs}
 
-\author[1]{J.J. Merelo\thanks{{\tt jmerelo@ugr.es}. Reachable also at the
-    \href{https://github.com/geneura-papers/2015-ea-languages/issues}{issues 
-section}
-    of the repository for this paper.}}
-\author[1]{P. Garc\'ia-S\'anchez \thanks{fergunet@gmail.com}}
-\author[2]{M. Garc\'ia-Valdez\thanks{mariosky@gmail.com}}
-\author[1]{I. Blancas\thanks{iblancasa@gmail.com}}
-      
-\affil[1]{University of Granada, Spain}
-\affil[2]{Instituto Tecnológico de Tijuana, Mexico}
-
-\date{}
+\author{A. U. Thor}
+\institute{Midgardian Polytechnic}
 
 \maketitle
 
@@ -36,9 +31,6 @@ section}
   the audience questions its usefulness based on the speed of those
   other languages, purportedly slower than the aforementioned
   ones. Despite speed being not everything needed to design a useful
-  % Pablo: confirmado en Word Reference, es A useful (se pronuncia
-  % yiuseful) 
-  
   evolutionary algorithm application, in this paper we will measure
   the speed for several very basic evolutionary algorithm operations
   in several languages which use different virtual machines and %Pablo: poner "scripting languages" para dejarlo claro?
@@ -311,22 +303,22 @@ as future line of work.
 
 \section{Acknowledgements}
 
-This paper is part of the open science effort at the university of
-Granada. It has been written using {\tt knitr}, and its source as well as
-the data used to create it can be downloaded from
-\href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub
-  repository}. It has been supported in part by  
-\href{http://geneura.wordpress.com}{GeNeura Team}. 
+%% This paper is part of the open science effort at the university of
+%% Granada. It has been written using {\tt knitr}, and its source as well as
+%% the data used to create it can be downloaded from
+%% \href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub
+%%   repository}. It has been supported in part by  
+%% \href{http://geneura.wordpress.com}{GeNeura Team}. 
 
-This work has been supported in part SPIP2014-01437 (Direcci\'on General
-de Tr\'afico), PRY142/14 (Fundaci\'on P\'ublica Andaluza Centro de
-Estudios Andaluces en la IX Convocatoria de Proyectos de
-Investigaci\'on), TIN2014-56494-C4-3-P (Spanish Ministry of Economy
-and Competitivity), and PYR-2014-17 GENIL project (CEI-BIOTIC
-Granada).  
+%% This work has been supported in part SPIP2014-01437 (Direcci\'on General
+%% de Tr\'afico), PRY142/14 (Fundaci\'on P\'ublica Andaluza Centro de
+%% Estudios Andaluces en la IX Convocatoria de Proyectos de
+%% Investigaci\'on), TIN2014-56494-C4-3-P (Spanish Ministry of Economy
+%% and Competitivity), and PYR-2014-17 GENIL project (CEI-BIOTIC
+%% Granada).  
   
 
-\bibliographystyle{elsarticle-num}
+\bibliographystyle{splncs}
 \bibliography{geneura,languages,GA-general}
 
 \end{document}
