@@ -16,6 +16,7 @@
 library("ggplot2")
 measures.bf <- read.csv('measures-bitflip.csv')
 measures.xo <- read.csv('measures-xover.csv')
+measures.mo <- read.csv('measures-maxones.csv')
 @ 
 
 \title{Benchmarking languages for evolutionary algorithms}
@@ -232,6 +233,17 @@ lengths increasing by a factor of two from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time:xo}
 \end{figure}
+%
+\begin{figure}[h!tb]
+  \centering
+<<results-mo, cache=FALSE,echo=FALSE>>=
+ggplot(measures.mo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Onemax")+scale_y_log10()+scale_x_log10()
+@ 
+\caption{Plot of time needed to perform 100K OneMax evaluations in strings with
+lengths increasing by a factor of two from 16 to $2^{15}$. Please note
+that $x$ and $y$ both have a logarithmic scale.}
+\label{fig:time:mo}
+\end{figure}
 
 All measurements and processing scripts are included in this paper
 repository, although in fact the programs were written to directly
@@ -267,8 +279,7 @@ extend it to $2^16$ and upwards. In any case, these measures allow us %Pablo: co
 to measure the performance of the most widely used genetic operator in
 four different and popular languages, since all four of them (except
 for Lua) show up in most rankings of the most popular languages, such
-as the Tiobe ranking \cite{tiobe15}.  %Pablo: algún enlace?
-%Mario: Un ranking popular es: http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html
+as the Tiobe ranking \cite{tiobe15}. 
 
 
 \section{Conclusions}
