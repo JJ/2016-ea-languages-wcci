@@ -1,0 +1,12 @@
+lua-BitString, 16, 0.138472
+lua-BitString, 32, 0.153188
+lua-BitString, 64, 0.189082
+lua-BitString, 128, 0.195775
+lua-BitString, 256, 0.227511
+lua-BitString, 512, 0.260409
+lua-BitString, 1024, 0.287016
+lua-BitString, 2048, 0.345132
+lua-BitString, 4096, 0.443664
+lua-BitString, 8192, 0.628303
+lua-BitString, 16384, 1.024463
+lua-BitString, 32768, 1.94307
