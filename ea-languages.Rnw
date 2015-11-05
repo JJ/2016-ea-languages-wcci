@@ -28,19 +28,23 @@ measures.mo <- read.csv('measures-maxones.csv')
 \maketitle
 
 \begin{abstract}
-  It is quite usual when an evolutionary algorithm tool or library
-  uses a language other than C, C++, Java or Matlab that a reviewer or
-  the audience questions its usefulness based on the speed of those
-  other languages, purportedly slower than the aforementioned
-  ones. Despite speed being not everything needed to design a useful
-  evolutionary algorithm application, in this paper we will measure
-  the speed for several very basic evolutionary algorithm operations
-  in several languages which use different virtual machines and %Pablo: poner "scripting languages" para dejarlo claro?
-  approaches, and prove that, in fact, there is no big difference in
-  speed between interpreted and compiled languages, and that in some
-  cases, interpreted languages such as JavaScript or Python can be faster than compiled languages
-  such as Scala, making them worthy of use for evolutionary algorithm
-  experimentation.  
+  When implementing an evolutionary algorithm, speed is not
+  everything; besides, the speed of different languages when carrying
+  out an operation will depend on several measures, including the size
+  of the operator. However it is usual to rely on compiled languages,
+  namely Java and C/C++, for carrying out any implementation without
+  considering other languages or rejecting them outright on the basis
+  of speed. Since there are a miriad of languages nowadays, it
+  is interesting to find out their speed when performing operations that
+  are usual in evolutionary algorithm. That is why in this paper we have chosen
+  three evolutionary algorithm operations: bitflip mutation, crossover
+  and the fitness function OneMax and measured the speed for several
+  popular, and some not so popular, languages. Our measures confirm
+  that, in fact, Java, C and C++ not only are the fastest, but also
+  have a behaviour that is independent on the size of the
+  chromosome. However, we have found other compiled language such as
+  Go or interpreted languages such as Python to be fast enough for
+  most purposes. 
 \end{abstract}
 
 \section{Introduction}
