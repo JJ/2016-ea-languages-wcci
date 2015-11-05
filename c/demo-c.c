@@ -20,8 +20,10 @@ int main()
 	  
       clock_gettime(CLOCK_REALTIME, &start);
       
-      for (unsigned i = 0; i < ITERATIONS; ++i)
-	bits[rand() & (length - 1)] ^= 1;
+      for (unsigned i = 0; i < ITERATIONS; ++i) {
+	int point_of_mutation = rand() % length;
+	bits[point_of_mutation] = (bits[point_of_mutation] == '0')?'1':'0';
+      }
       
       clock_gettime(CLOCK_REALTIME, &stop);
       
