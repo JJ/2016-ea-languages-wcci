@@ -38,7 +38,7 @@ public class EaLenguajes {
 
             long estimated = timeend - timestart;
 
-            System.out.println("java-bitflip:" + length + " , " + (double) estimated / 1000000000);
+            System.out.println("java-BitSet," + length + " , " + (double) estimated / 1000000000);
 
             b.clear();
         }
