@@ -215,6 +215,8 @@ they represent different philosophies in language design.
       Perl & v5.20.0 & \url{http://git.io/bfperl} \\
       JavaScript & node.js 5.0.0 & \url{http://git.io/bfnode} \\ http://git.io/bfpython
       Python & 2.7.3 & \url{http://git.io/bfpython} \\ 
+      C++ & 4.8.4 & \url{http://git.io/v8T57} \\
+      Java & 1.7.0_45 & \url{http://git.io/v8TdR} \\
       \hline 
       \end{tabular}
       \caption{Languages used and file written to carry out the
