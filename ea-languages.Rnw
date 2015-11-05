@@ -49,13 +49,25 @@ measures.mo <- read.csv('measures-maxones.csv')
 
 \section{Introduction}
 
-It is a well extended myth in scientific programming to claim that
-compiled languages such as C++ or Java are always, in every
-circumstance, faster than interpreted languages such as Perl,
-JavaScript or Python.
+It is usual in soft computing to try and use languages such as C++ or
+Java with the rationale that they are the fastest tools available for
+the kind of algorithms and problems that are solved by them. However,
+while there are benchmarks available for the languages at large and
+they have been tested in a variety of environments, it remains to be
+seen how fast are these languages at the tasks that are done usually
+by evolutionary algorithms. 
 
-However, while it is quite clear that efficiency matters, as said in
- \cite{anderson2010efficiency}, in general and restricting the concept
+Let us enphasize that running speed is not everything. I many cases,
+ease of integration with existing or legacy tools, coding speed or
+availability of parallel or distributed frameworks are much more
+important than how fast a single CPU program runs. However, in some
+case, mainly when the size of the problem or the running time of the
+algorithm call for the maximum running speed available, it is
+interesting at least to know which languages can be used to obtain the
+best performance. 
+
+In this case it is quite clear that efficiency matters, as said in
+ \cite{anderson2010efficiency}. And, as a matter of fact, in general and restricting the concept
  of {\em speed} to {\em speed of 
   the compiled/interpreted application} it might be the case that some
 languages are faster to others, as evidenced by benhmarks such as
@@ -68,14 +80,49 @@ But, in the same spirit of the {\em There is no free lunch} theorem
 \cite{Wolpert-1997-NFL} we can affirm there is a {\em no fast lunch}
 theorem for the implementation of evolutionary optimization, in the
 sense that, while there are particular languages that might be the
-fastests for particular problem sizes and specially fitness functions,
-in general the fastest language will have those two dependencies, and,
+fastest for particular problem sizes and specially fitness functions,
+these two constraints cannot be disregarded, and,
 specially, for non-trivial problem sizes and limiting ourselves to the
-realm of evolutionary algorithm operators, scripting languages such as
-JavaScript might be as fast or even faster than compiled languages
-such as Java.
+realm of evolutionary algorithm operators, some interpreted and
+unpopular languages such as {\tt awk} can be the fastest option
+available for evolving particular data structures such as regular
+expressions \cite{awk}. Besides, benchmarks should include a wide variety
+of sizes, since the implementation of loops and memory management
+might make the time needed to perform particular operations not depend
+linearly on sizes.
 
-Coming up next, we will write a brief state of the art of the analysis
+For the purposes of this paper, we will try to be more extensive on
+the number of languages tested than on the number of operations. In
+general, evolutionary algorithms use fitness functions that can have
+any size and shape, so it is not easy to cover them all and further
+characterization might be needed. We are going to focus on
+combinatorial optimization problems, which are usually represented
+using bit strings and the two most characteristics operators: mutation
+and crossover. Besides, a fitness function usually employed as a
+baseline for evolutionary algorithms will be used: OneMax. 
+
+In general, programs do not spend the majority of the time applying
+them; this post in the ranking rather goes to selection operators and
+other higher-level, population-handling ones, as well as usually the
+fitness function. However, these functions are well covered by usual
+benchmarks so you can usually rely on any of them for choosing a
+language to implement your evolutionary algorithm. This makes the
+scope or interest of this paper certainly restricted to the set of
+problems in which classical bit-wise operations are performed and
+where fitness does not take most of the time: Testing new operators or
+implementing parallel or other kind of algorithms on functions such as
+HIFF, OneMax or Royal Road. 
+
+Finally, our intention is not so much to choose the winner of the
+competition of fastest language for evolutionary algorithms as much as
+to check the variety of speeds available and to know what order of
+magnitude these differences are. This will can be used to aid in the
+decision of choosing a language for implementing an evolutionary
+algorithm, or at least to justify the choice of non-mainstream
+languages such as Python, Lua, Javascript or Go, which, in fact, do
+reach interesting performance marks. 
+
+Coming up next, we will present the state of the art of the analysis
 of implementations of evolutionary algorithms. Next we will present
 the test we have used for this paper and its rationale, and finally we
 will present the results of examining four different languages running
