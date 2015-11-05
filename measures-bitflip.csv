@@ -1,4 +1,16 @@
 languagerepresentation,length,time
+java-BitSet, 16 , 0.006365081
+java-BitSet, 32 , 0.001434606
+java-BitSet, 64 , 0.001450037
+java-BitSet, 128 , 0.001361699
+java-BitSet, 256 , 0.001350813
+java-BitSet, 512 , 0.001240836
+java-BitSet, 1024 , 9.87883E-4
+java-BitSet, 2048 , 9.65223E-4
+java-BitSet, 4096 , 9.8046E-4
+java-BitSet, 8192 , 0.001253525
+java-BitSet, 16384 , 0.001028226
+java-BitSet, 32768 , 9.95842E-4
 C-char[], 16, 0.002878
 C-char[], 32, 0.002853
 C-char[], 64, 0.002882
