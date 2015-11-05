@@ -129,3 +129,6 @@ sympy-plots-for-*.tex/
 *~
 
 auto/
+
+c/demo-c
+c++/demo-c++
