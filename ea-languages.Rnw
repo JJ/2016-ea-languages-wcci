@@ -181,7 +181,15 @@ instance. However, mutation is the operation that is performed the
 %Bueno, quizás menos que crossover. Para el siguiente paper...
 most times on every evolutionary algorithm and is quintessential to
 the algorithm itself, so it allows the comparison of the different
-languages in the proper context. 
+languages in the proper context. In this section we will outline first
+the specifics of the implementation and the rationale behind them in
+subsection \ref{ss:operators}, to proceed to outline the different
+data structures that have been used here in subsection \ref{ss:ds} to
+finally present the different languages that have been tested and the
+peculiarities of its implementation \ref{ss:lang}. 
+
+\subsection{Functions included in the benchmark}
+\label{ss:operators}
 
 Essentially, mutation is performed by \begin{enumerate}
 
@@ -191,50 +199,84 @@ Essentially, mutation is performed by \begin{enumerate}
 
 \end{enumerate}
 
-Chromosomes can be represented in at least two different ways: an
+\subsection{Available data structures}
+\label{ss:ds}
+
+Chromosomes can be represented in at several different ways: an
 array or vector of boolean values, or any other scalar value that can
 be assimilated to it, or as a bitstring using generally ``1'' for true
 values or ``0'' for false values. Different data structures will have
 an impact on the result, since the operations that are applied to them
 are, in many cases, completely different and thus the underlying
-implementation is more or less efficient.
+implementation is more or less efficient. Besides, languages use
+different native data structures to represent this information. In
+general, it can be divided into three different fields:\begin{itemize}
+\item {\em Strings}: representing a set bit by 1 and unset by 0, it is
+  a data structure present in all languages and simple to use in
+  most.
+\item {\em Vector of Boolean values}: not all languages have a
+  specific primitive type for the Boolean false and true values; for
+  those who have, sometimes they have specific implementations that
+  make this data structure the most efficient.
+\item {\em Bitsets}: bits are bits, and you can simply use bits packed
+  into bytes for representing chromosomes, with 32 bits packed in a
+  single 4 byte data structure. Memory-wise the most efficient,
+  without low-level access operators it can indeed be the slowest, and
+  in any case not too efficient for decoding to function parameters. 
+\end{itemize}
 
-Then, four languages have been chosen for performing the
+
+\subsection{Languages tested}
+\label{ss:lang}
+
+Then, ten languages have been chosen for performing the
 benchmark. The primary reason for chosing these languages was the
-availability of open source implementations for the author, but also
-they represent different philosophies in language design.
+availability of open source implementations for the authors, but also
+they represent different philosophies in language design. These
+languages are presented in the next two subsections. 
 
 \begin{table}[htb]
     \centering
-    \begin{tabular}{l|c|l}
+    \begin{tabular}{l|c|l|l}
       \hline
-      Language & Version & URL \\
+      Language & Version & URL & Data structures \\
       \hline
-      Scala & 2.11.7 & \url{http://git.io/bfscala} \\
-      Lua & 5.2.3 & \url{http://git.io/bflua} \\
-      Perl & v5.20.0 & \url{http://git.io/bfperl} \\
-      JavaScript & node.js 5.0.0 & \url{http://git.io/bfnode} \\ http://git.io/bfpython
-      Python & 2.7.3 & \url{http://git.io/bfpython} \\ 
+      Scala & 2.11.7 & URL & String, Bit Vector \\
+      Lua & 5.2.3 & URL & String \\
+      Perl & v5.20.0 & URL & String, Bit Vector \\
+      JavaScript & node.js 5.0.0 & URL & String \\ 
+      Python & 2.7.3 & URL & String\\ 
+      Go & & \\
+      Julia & & \\
+      C & & \\
+      C++ & & \\
+      Java & & \\ 
       \hline 
       \end{tabular}
       \caption{Languages used and file written to carry out the
         benchmark. No special flags were used for the interpreter or
-        compiler. \label{tab:files}}
+        compiler. URLs have been hidden for double-blind revision \label{tab:files}}
     \end{table}
 %    
-Compiled languages are represented by Scala, a strongly-typed %Pablo: no se quejarán de que no hayamos usado Java directamente? También: presented o represented?
-% Puede... para el siguiente paper
+    
+    \subsection{Compiled languages}
+    \label{ss}
+Compiled languages are represented by Scala, Java, Go, C and C++.
+
+Scala \cite{odersky2004overview} is a strongly-typed 
 functional language that compiles to a Java Virtual Machine 
-%Mario:that compiles to a Java Virtual Machine bytecode ?
 bytecode. Scala is in many cases faster than Java
-%fixed
 \cite{fulghamcomputer} due to its more efficient
 implementation of type handling. Two different representations were
 used in Scala: {\tt String} and {\tt Vector[Boolean]}. They both have
 the same underlying type, {\tt IndexedSeq} and in fact the overloading
 of operators allows us to use the same syntax independently of the
 type. The benchmark, {\tt bitflip.scala}, is available under a GPL
-license, at the URL shown in Table \ref{tab:files}. 
+license, at the URL shown in Table \ref{tab:files}. As far as we know,
+there are no published evolutionary algorithm frameworks published in
+Scala; however, its increasing popularity within the programmer, and,
+over all, big data community makes it quite likely to find one in the
+near figure. 
 
 Interpreted languages are represented by Lua, Perl and Javascript. Lua
 is a popular embedded language that is designed for easy
