@@ -136,28 +136,36 @@ In fact, the examination of the running time of an evolutionary
 algorithm has received some attention from early on. Implementation
 matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, which implies that
 paying attention to the particular way an algorithm is implemented
-might result in speed improvements that outclass that achieved by %Mario: those achieved (improvements)
+might result in speed improvements that outclass those achieved by 
 using the {\em a priori} fastest language available. In fact, careful
-coding led us to prove \cite{ae09} that Perl,
-an interpreted and not optimized for speed language, could obtain times
-that were on the same order the magnitude as Java. However, that 
-paper also proved that, for the particular type of problems used in
-scientific computing in general, the running speed is not as important
+coding and choosing the right tools  \cite{ae09,1515367} in
+interpreted languages can make them as fast, or even faster, than
+compiled languages such as Java. 
+
+However, most papers devoted to the implementation of evolutionary
+algorithms in languages other than C or Java try to prove that, for
+the particular type of problems used in scientific computing in general, the running speed is not as important
 as coding speed or even learning speed, since most scientific programs
 are, in fact, run a few times while a lot of time is spent on coding
 them. That is why expressive languages such as Perl, JavaScript or
 Python are, in many cases, superior to these fast-to-run
-languages. %Pablo: bueno, algún reviewer podría decirte que hay
-           %frameworks ya hechos 
-% Es un tech report.
+languages. 
 
-However the benchmarks done in those papers were restricted to
-particular problem sizes. Since program speed is the result of many
-factors, including memory management and implementation of loop control %Pablo: Esta frase deberías haberla puesto en la intro también
-%Mario: No sé si loop data structure es muy utilizado, nunca lo había escuchado. 
-%Cambiado a control structure.
-structures, in this paper we will examine how fast several languages
-are for different problem sizes. This will be done next. 
+Even so and when speed matters, the benchmarks performed in those papers were restricted to
+particular problem sizes and to very specific languages. They also
+test a single language for the whole evolutionary algorithm; however,
+it might happen that, since different operations are involved, the
+ranking varies depending on the operation and on the size. This, in an
+environment such as the Kappa architecture \cite{KappaArch} or
+web-services based frameworks \cite{garcia2010distributed,DBLP:journals/soco/Garcia-SanchezGCAG13} where
+different parts of an application might be written in different
+languages and loosely connected, might make the particular speed in
+particular languages an issue so that they are used to implement
+particular operations, as opposed to monolythic architectures written
+in a single language. 
+
+Next we will explain the operations used for the benchmark and how
+they have been tested. 
 
 \section{Experimental setup}
 
