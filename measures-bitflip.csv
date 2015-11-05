@@ -1,4 +1,16 @@
 languagerepresentation,length,time
+char[], 16, 0.003157
+char[], 32, 0.001953
+char[], 64, 0.002211
+char[], 128, 0.001223
+char[], 256, 0.000727
+char[], 512, 0.000683
+char[], 1024, 0.000772
+char[], 2048, 0.000703
+char[], 4096, 0.000658
+char[], 8192, 0.000656
+char[], 16384, 0.000677
+char[], 32768, 0.000657
 Go-BitVector, 16 ,  0.007175967
 Go-BitVector, 32 ,  0.006622946
 Go-BitVector, 64 ,  0.007004578
