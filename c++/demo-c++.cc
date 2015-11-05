@@ -9,7 +9,7 @@ const unsigned LENGTH     =  32768;
 
 int main()
 {
-    std::default_random_engine engine;
+    std::mt19937 engine;
     std::bitset<LENGTH> bits;
 
     for (unsigned length = 16; length <= LENGTH; length <<= 1)
