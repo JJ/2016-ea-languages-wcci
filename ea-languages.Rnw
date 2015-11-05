@@ -213,7 +213,7 @@ they represent different philosophies in language design.
       Scala & 2.11.7 & \url{http://git.io/bfscala} \\
       Lua & 5.2.3 & \url{http://git.io/bflua} \\
       Perl & v5.20.0 & \url{http://git.io/bfperl} \\
-      JavaScript & node.js 5.0.0 & \url{http://git.io/bfnode} \\ http://git.io/bfpython
+      JavaScript & node.js 5.0.0 & \url{http://git.io/bfnode} \\ % http://git.io/bfpython
       Python & 2.7.3 & \url{http://git.io/bfpython} \\ 
       C++ & 4.8.4 & \url{http://git.io/v8T57} \\
       Java & 1.7.0_45 & \url{http://git.io/v8TdR} \\
