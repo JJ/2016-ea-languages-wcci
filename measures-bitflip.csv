@@ -1,16 +1,28 @@
 languagerepresentation,length,time
-C++-BitString, 16, 0.01753
-C++-BitString, 32, 0.012644
-C++-BitString, 64, 0.012861
-C++-BitString, 128, 0.013049
-C++-BitString, 256, 0.012425
-C++-BitString, 512, 0.01224
-C++-BitString, 1024, 0.012907
-C++-BitString, 2048, 0.012609
-C++-BitString, 4096, 0.01292
-C++-BitString, 8192, 0.012382
-C++-BitString, 16384, 0.013234
-C++-BitString, 32768, 0.012645
+Go-BitVector, 16 ,  0.007175967
+Go-BitVector, 32 ,  0.006622946
+Go-BitVector, 64 ,  0.007004578
+Go-BitVector, 128 ,  0.006591046000000001
+Go-BitVector, 256 ,  0.0067569200000000005
+Go-BitVector, 512 ,  0.009016849
+Go-BitVector, 1024 ,  0.010639969
+Go-BitVector, 2048 ,  0.012898868
+Go-BitVector, 4096 ,  0.016347362
+Go-BitVector, 8192 ,  0.023365120000000003
+Go-BitVector, 16384 ,  0.036971601
+Go-BitVector, 32768 ,  0.064236417
+C++-BitString, 16, 0.03982
+C++-BitString, 32, 0.034755
+C++-BitString, 64, 0.03486
+C++-BitString, 128, 0.034734
+C++-BitString, 256, 0.034732
+C++-BitString, 512, 0.034942
+C++-BitString, 1024, 0.034801
+C++-BitString, 2048, 0.034712
+C++-BitString, 4096, 0.03469
+C++-BitString, 8192, 0.034687
+C++-BitString, 16384, 0.034689
+C++-BitString, 32768, 0.0349
 perlsimple-BitString, 16, 0.273413
 perlsimple-BitString, 32, 0.265994
 perlsimple-BitString, 64, 0.265106
