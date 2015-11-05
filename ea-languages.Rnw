@@ -249,8 +249,10 @@ languages are presented in the next two subsections.
       Go & & \\
       Julia & & \\
       C & & \\
-      C++ & & \\
-      Java & & \\ 
+%      C++ & 4.8.4 & \url{http://git.io/v8T57} \\
+      C++ & 4.8.4 & URL & String  \\
+%      Java & 1.7.0_45 & \url{http://git.io/v8TdR} \\
+      Java & 1.8.0\_66 & URL & Bitset \\
       \hline 
       \end{tabular}
       \caption{Languages used and file written to carry out the
