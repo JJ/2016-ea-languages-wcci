@@ -246,8 +246,8 @@ languages are presented in the next two subsections.
       Perl & v5.20.0 & URL & String, Bit Vector \\
       JavaScript & node.js 5.0.0 & URL & String \\ 
       Python & 2.7.3 & URL & String\\ 
-      Go & & \\
-      Julia & & \\
+      Go & go1.2.1 & URL & Bit Vector \\
+      Julia & 0.2.1 & URL & Bit Vector \\
       C & 4.8.2 & URL & char string \\
 %     C & 4.8.2 & http://git.io/v8kvU
 %      C++ & 4.8.4 & \url{http://git.io/v8T57} \\

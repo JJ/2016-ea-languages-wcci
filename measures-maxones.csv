@@ -23,7 +23,6 @@ lua-BitString, 2048, 87.791264
 lua-BitString, 4096, 219.725184
 lua-BitString, 8192, 596.052684
 lua-BitString, 16384, 1783.868821
-
 perl-BitString, 16, 3.589466
 perl-BitString, 32, 4.210332
 perl-BitString, 64, 5.324933
@@ -36,4 +35,29 @@ perl-BitString, 4096, 131.021463
 perl-BitString, 8192, 260.261898
 perl-BitString, 16384, 516.282376
 perl-BitString, 32768, 1029.909608
-
+Scala-BitString, 16, 0.106083361
+Scala-BitString, 32, 0.138533372
+Scala-BitString, 64, 0.263253553
+Scala-BitString, 128, 0.505751517
+Scala-BitString, 256, 1.070102061
+Scala-BitString, 512, 2.033624344
+Scala-BitString, 1024, 3.99146544
+Scala-BitString, 2048, 8.325956743
+Scala-BitString, 4096, 16.25921805
+Scala-BitString, 8192, 32.141293477
+Scala-BitString, 16384, 64.932744401
+Scala-BitString, 32768, 129.33726306
+Scala-BitString, 65536, 255.591937452
+C++-BitString, 16, 0.320763
+C++-BitString, 32, 0.582954
+C++-BitString, 64, 1.13898
+C++-BitString, 128, 2.21816
+C++-BitString, 256, 4.3551
+C++-BitString, 512, 8.63622
+C++-BitString, 1024, 17.3216
+C++-BitString, 2048, 34.5093
+C++-BitString, 4096, 68.5846
+C++-BitString, 8192, 137.109
+C++-BitString, 16384, 275.517
+C++-BitString, 32768, 545.012
+C++-BitString, 65536, 1079.13
