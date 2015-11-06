@@ -23,6 +23,6 @@
             $b1=substr_replace ( $b1, substr($b2, $p1, $p2-$p1+1), $p1, $p2-$p1+1 );
             $b2=substr_replace ( $b2, substr($tmpB1, $p1, $p2-$p1+1), $p1, $p2-$p1+1 );        }
         $end=microtime(true);
-        echo "PHP-bXOver, ".strlen($b1).", ".($end-$start)."\n";
+        echo "PHP-bitstring, ".strlen($b1).", ".($end-$start)."\n";
     }
     ?>

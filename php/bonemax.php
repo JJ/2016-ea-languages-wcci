@@ -11,6 +11,6 @@
             for( $j=0; $j<$l; ++$j ) $ones+=$b[$j]=="1";
         }
         $end=microtime(true);
-        echo "PHP-bOneMax, ".strlen($b).", ".($end-$start)."\n";
+        echo "PHP-bitstring, ".strlen($b).", ".($end-$start)."\n";
     }
     ?>
