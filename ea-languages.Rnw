@@ -63,7 +63,7 @@ they have been tested in a variety of environments, it remains to be
 seen how fast are these languages at the tasks that are done usually
 by evolutionary algorithms. 
 
-Let us emphasize that running speed is not everything. I many cases, 
+Let us emphasize that running speed is not everything. In many cases, 
 %Pablo: algunas de estas cosas podemos poner en el abstract
 ease of integration with existing or legacy tools, coding speed or
 availability of parallel or distributed frameworks are much more
