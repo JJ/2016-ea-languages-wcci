@@ -14,14 +14,16 @@ int main()
         struct timespec start, stop;
         char bits[length];
 
-        for (unsigned i = 0; i < length; i++ )
-            bits[i] = rand() & 1;
+       
 
         clock_gettime(CLOCK_REALTIME, &start);
 
-        for (unsigned i = 0; i < ITERATIONS; ++i)
-            for (unsigned j = 0; j < length; ++j)
-                result += bits[j];
+	for (unsigned i = 0; i < ITERATIONS; ++i) {
+	  for (unsigned i = 0; i < length; i++ )
+	    bits[i] = rand() & 1;
+	  for (unsigned j = 0; j < length; ++j)
+	    result += bits[j];
+	}
 
         clock_gettime(CLOCK_REALTIME, &stop);
 
