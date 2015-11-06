@@ -1,6 +1,5 @@
 #include <bitset>
 #include <chrono>
-#include <functional>
 #include <iostream>
 #include <random>
 
@@ -14,6 +13,9 @@ int main()
 
     for (unsigned length = 16; length <= LENGTH; length <<= 1)
     {
+        for (unsigned i = 0; i < length; ++i)
+            bits.set(i, engine() & 1);
+
         auto start = std::chrono::high_resolution_clock::now();
 
         for (unsigned i = 0; i < ITERATIONS; ++i)
@@ -21,7 +23,8 @@ int main()
 
         auto stop = std::chrono::high_resolution_clock::now();
 
-        std::cout << "std::bitset, " << length << ", " << std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count() << std::endl;
+        std::chrono::duration<double> t = stop - start;
+        std::cout << "std::bitset, " << length << ", " << t.count() << std::endl;
     }
 
     return bits[0]; // avoid code elision

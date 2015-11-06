@@ -23,4 +23,63 @@ node-BitString, 4096, 0.157262506
 node-BitString, 8192, 0.157161797
 node-BitString, 16384, 0.160300963
 node-BitString, 32768, 0.168783221
-
+julia-BitString, 16, 1.0098631381988525
+julia-BitString, 32, 1.022557020187378
+julia-BitString, 64, 1.0162079334259033
+julia-BitString, 128, 1.014193058013916
+julia-BitString, 256, 1.0335490703582764
+julia-BitString, 512, 1.0296671390533447
+julia-BitString, 1024, 1.155466079711914
+julia-BitString, 2048, 1.4064691066741943
+julia-BitString, 4096, 1.8243751525878906
+julia-BitString, 8192, 2.638934850692749
+julia-BitString, 16384, 4.075515031814575
+julia-BitString, 32768, 6.779500961303711
+C++-BitString, 16, 0.27911
+C++-BitString, 32, 0.507671
+C++-BitString, 64, 0.973914
+C++-BitString, 128, 1.91343
+C++-BitString, 256, 3.73445
+C++-BitString, 512, 7.47594
+C++-BitString, 1024, 14.8943
+C++-BitString, 2048, 29.8744
+C++-BitString, 4096, 58.858
+C++-BitString, 8192, 117.86
+C++-BitString, 16384, 236.469
+C++-BitString, 32768, 469.746
+Go-BitVector, 16 ,  0.015532242000000002
+Go-BitVector, 32 ,  0.014625984000000002
+Go-BitVector, 64 ,  0.013534206
+Go-BitVector, 128 ,  0.013526338
+Go-BitVector, 256 ,  0.014078094000000001
+Go-BitVector, 512 ,  0.017468593
+Go-BitVector, 1024 ,  0.022101227
+Go-BitVector, 2048 ,  0.026558237000000002
+Go-BitVector, 4096 ,  0.033975186000000004
+Go-BitVector, 8192 ,  0.04791809
+Go-BitVector, 16384 ,  0.07555872100000001
+Go-BitVector, 32768 ,  0.16751343400000002
+perlsimple-BitString, 16, 0.093017
+perlsimple-BitString, 32, 0.09311
+perlsimple-BitString, 64, 0.093369
+perlsimple-BitString, 128, 0.096936
+perlsimple-BitString, 256, 0.10122
+perlsimple-BitString, 512, 0.106117
+perlsimple-BitString, 1024, 0.113045
+perlsimple-BitString, 2048, 0.116048
+perlsimple-BitString, 4096, 0.135422
+perlsimple-BitString, 8192, 0.180865
+perlsimple-BitString, 16384, 0.275157
+perlsimple-BitString, 32768, 0.452528
+perl5.20-BitString, 16, 0.090559
+perl5.20-BitString, 32, 0.091816
+perl5.20-BitString, 64, 0.092669
+perl5.20-BitString, 128, 0.096617
+perl5.20-BitString, 256, 0.09943
+perl5.20-BitString, 512, 0.101426
+perl5.20-BitString, 1024, 0.105078
+perl5.20-BitString, 2048, 0.132514
+perl5.20-BitString, 4096, 0.164535
+perl5.20-BitString, 8192, 0.238537
+perl5.20-BitString, 16384, 0.395068
+perl5.20-BitString, 32768, 0.70701

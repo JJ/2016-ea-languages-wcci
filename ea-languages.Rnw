@@ -247,15 +247,16 @@ languages are presented in the next two subsections.
       Perl & v5.20.0 & URL & String, Bit Vector \\
       JavaScript & node.js 5.0.0 & URL & String \\ 
       Python & 2.7.3 & URL & String\\ 
-      Go & & \\
-      Julia & & \\
+      Go & go1.2.1 & URL & Bit Vector \\
+      Julia & 0.2.1 & URL & Bit Vector \\
       C & 4.8.2 & URL & char string \\
 %     C & 4.8.2 & http://git.io/v8kvU
 %      C++ & 4.8.4 & \url{http://git.io/v8T57} \\
       C++ & 4.8.4 & URL & String  \\
 %      Java & 1.7.0_45 & \url{http://git.io/v8TdR} \\
       Java & 1.8.0\_66 & URL & Bitset \\
-      PHP & 5.5.29 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
+%      PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
+      PHP & 5.5.9 & URL & String \\ % vrivas, 5-nov-2015
       \hline 
       \end{tabular}
       \caption{Languages used and file written to carry out the
