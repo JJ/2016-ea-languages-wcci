@@ -3,7 +3,7 @@
 #include <time.h>
 
 const unsigned ITERATIONS = 100000;
-const unsigned LENGTH     =  32768;
+const unsigned LENGTH     =  65536;
 
 int main()
 {
