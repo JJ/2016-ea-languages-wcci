@@ -35,6 +35,18 @@ perl-BitString, 4096, 131.021463
 perl-BitString, 8192, 260.261898
 perl-BitString, 16384, 516.282376
 perl-BitString, 32768, 1029.909608
+perl5.20-BitString, 16, 0.16806
+perl5.20-BitString, 32, 0.272372
+perl5.20-BitString, 64, 0.489
+perl5.20-BitString, 128, 0.907606
+perl5.20-BitString, 256, 1.701757
+perl5.20-BitString, 512, 3.336159
+perl5.20-BitString, 1024, 6.623077
+perl5.20-BitString, 2048, 13.058349
+perl5.20-BitString, 4096, 25.76566
+perl5.20-BitString, 8192, 52.35834
+perl5.20-BitString, 16384, 105.121042
+perl5.20-BitString, 32768, 208.172891
 Scala-BitString, 16, 0.106083361
 Scala-BitString, 32, 0.138533372
 Scala-BitString, 64, 0.263253553
@@ -61,3 +73,39 @@ C++-BitString, 8192, 137.109
 C++-BitString, 16384, 275.517
 C++-BitString, 32768, 545.012
 C++-BitString, 65536, 1079.13
+PHP-bOneMax, 16, 0.37321090698242
+PHP-bOneMax, 32, 0.74878621101379
+PHP-bOneMax, 64, 1.4631321430206
+PHP-bOneMax, 128, 2.9321999549866
+PHP-bOneMax, 256, 5.9571380615234
+PHP-bOneMax, 512, 12.746339082718
+PHP-bOneMax, 1024, 23.992336988449
+PHP-bOneMax, 2048, 47.608592987061
+PHP-bOneMax, 4096, 93.223340034485
+PHP-bOneMax, 8192, 187.4942419529
+PHP-bOneMax, 16384, 370.39104795456
+PHP-bOneMax, 32768, 744.38169622421
+perl5.22-BitString, 16, 0.164675
+perl5.22-BitString, 32, 0.273791
+perl5.22-BitString, 64, 0.488514
+perl5.22-BitString, 128, 0.912635
+perl5.22-BitString, 256, 1.760886
+perl5.22-BitString, 512, 3.380692
+perl5.22-BitString, 1024, 6.563524
+perl5.22-BitString, 2048, 13.081961
+perl5.22-BitString, 4096, 26.193001
+perl5.22-BitString, 8192, 52.089011
+perl5.22-BitString, 16384, 103.609272
+perl5.22-BitString, 32768, 209.121516
+Go-BitVector, 16 ,  0.103817804
+Go-BitVector, 32 ,  0.1843323
+Go-BitVector, 64 ,  0.337457361
+Go-BitVector, 128 ,  0.638677202
+Go-BitVector, 256 ,  1.238751016
+Go-BitVector, 512 ,  2.400940805
+Go-BitVector, 1024 ,  4.733068376
+Go-BitVector, 2048 ,  9.589567408
+Go-BitVector, 4096 ,  19.083063225
+Go-BitVector, 8192 ,  37.943428136
+Go-BitVector, 16384 ,  74.034972572
+Go-BitVector, 32768 ,  147.824960979

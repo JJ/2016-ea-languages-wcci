@@ -59,3 +59,27 @@ Go-BitVector, 4096 ,  0.033975186000000004
 Go-BitVector, 8192 ,  0.04791809
 Go-BitVector, 16384 ,  0.07555872100000001
 Go-BitVector, 32768 ,  0.16751343400000002
+perlsimple-BitString, 16, 0.093017
+perlsimple-BitString, 32, 0.09311
+perlsimple-BitString, 64, 0.093369
+perlsimple-BitString, 128, 0.096936
+perlsimple-BitString, 256, 0.10122
+perlsimple-BitString, 512, 0.106117
+perlsimple-BitString, 1024, 0.113045
+perlsimple-BitString, 2048, 0.116048
+perlsimple-BitString, 4096, 0.135422
+perlsimple-BitString, 8192, 0.180865
+perlsimple-BitString, 16384, 0.275157
+perlsimple-BitString, 32768, 0.452528
+perl5.20-BitString, 16, 0.090559
+perl5.20-BitString, 32, 0.091816
+perl5.20-BitString, 64, 0.092669
+perl5.20-BitString, 128, 0.096617
+perl5.20-BitString, 256, 0.09943
+perl5.20-BitString, 512, 0.101426
+perl5.20-BitString, 1024, 0.105078
+perl5.20-BitString, 2048, 0.132514
+perl5.20-BitString, 4096, 0.164535
+perl5.20-BitString, 8192, 0.238537
+perl5.20-BitString, 16384, 0.395068
+perl5.20-BitString, 32768, 0.70701
