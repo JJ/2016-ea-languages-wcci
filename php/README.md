@@ -28,7 +28,9 @@ Just write:
     PHP-bOneMax, 512, 20.06796002388
     PHP-bOneMax, 1024, 39.232111930847
     PHP-bOneMax, 2048, 79.617526054382
-(wating for longest lengths to finish :) )
+    PHP-bOneMax, 4096, 165.82535195351
+    PHP-bOneMax, 8192, 328.92829585075
+    PHP-bOneMax, 16384, 8991.7104868889
 
 ## XOVER
     PHP-bXOver, 16, 0.13581299781799
