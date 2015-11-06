@@ -28,20 +28,26 @@ measures.mo <- read.csv('measures-maxones.csv')
 \maketitle
 
 \begin{abstract}
-  When implementing an evolutionary algorithm, speed is not
+  When implementing an evolutionary algorithm, speed is not 
+  %Pablo: no me gusta esta intro "La velocidad no lo es todo y
+  % además, varía". Quizás algo mejor sería: "Although the speed 
+  % is important in EA implementation, several issues must be taken 
+  % into account, such as..."
   everything; besides, the speed of different languages when carrying
-  out an operation will depend on several measures, including the size
-  of the operator. However it is usual to rely on compiled languages,
+  out an operation will depend on several measures, including the size 
+  %Pablo: el operador no tiene tamaño, tiene tamaño su entrada. "Input size" mejor?
+  of the operator. However, it is usual to rely on compiled languages,
   namely Java and C/C++, for carrying out any implementation without
   considering other languages or rejecting them outright on the basis
-  of speed. Since there are a miriad of languages nowadays, it
+  of speed. Since there are a myriad of languages nowadays, it
+  %Pablo: podemos añadir "those languages can have other advantages, such as hardware independence, or ..."
   is interesting to find out their speed when performing operations that
-  are usual in evolutionary algorithm. That is why in this paper we have chosen
+  are usual in evolutionary algorithms. That is why in this paper we have chosen
   three evolutionary algorithm operations: bitflip mutation, crossover
   and the fitness function OneMax and measured the speed for several
   popular, and some not so popular, languages. Our measures confirm
   that, in fact, Java, C and C++ not only are the fastest, but also
-  have a behaviour that is independent on the size of the
+  have a behaviour that is independent on the size of the %Pablo: el "on the" no sería "of the"?
   chromosome. However, we have found other compiled language such as
   Go or interpreted languages such as Python to be fast enough for
   most purposes. 
@@ -57,7 +63,8 @@ they have been tested in a variety of environments, it remains to be
 seen how fast are these languages at the tasks that are done usually
 by evolutionary algorithms. 
 
-Let us enphasize that running speed is not everything. I many cases,
+Let us emphasize that running speed is not everything. I many cases, 
+%Pablo: algunas de estas cosas podemos poner en el abstract
 ease of integration with existing or legacy tools, coding speed or
 availability of parallel or distributed frameworks are much more
 important than how fast a single CPU program runs. However, in some
@@ -70,7 +77,7 @@ In this case it is quite clear that efficiency matters, as said in
  \cite{anderson2010efficiency}. And, as a matter of fact, in general and restricting the concept
  of {\em speed} to {\em speed of 
   the compiled/interpreted application} it might be the case that some
-languages are faster to others, as evidenced by benhmarks such as
+languages are faster to others, as evidenced by benchmarks such as
 \cite{prechelt2000empirical,fulghamcomputer}. Taken in general or even
 restricting it to some particular set of problems such as floating
 point computation, some compiled languages tend to be faster than
@@ -161,7 +168,7 @@ web-services based frameworks \cite{garcia2010distributed,DBLP:journals/soco/Gar
 different parts of an application might be written in different
 languages and loosely connected, might make the particular speed in
 particular languages an issue so that they are used to implement
-particular operations, as opposed to monolythic architectures written
+particular operations, as opposed to monolithic architectures written
 in a single language. 
 
 Next we will explain the operations used for the benchmark and how
@@ -231,7 +238,7 @@ general, it can be divided into three different fields:\begin{itemize}
 
 Then, eleven %taking PHP into account
 languages have been chosen for performing the
-benchmark. The primary reason for chosing these languages was the
+benchmark. The primary reason for choosing these languages was the
 availability of open source implementations for the authors, but also
 they represent different philosophies in language design. These
 languages are presented in the next two subsections. 
