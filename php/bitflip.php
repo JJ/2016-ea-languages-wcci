@@ -10,6 +10,6 @@
             $b[$aleat=rand(0,$l-1)]=($b[$aleat]=="0")?"1":"0";
         }
         $end=microtime(true);
-        echo "PHP-bitflip: ".strlen($b).", ".($end-$start)."\n";
+        echo "PHP-bitstring: ".strlen($b).", ".($end-$start)."\n";
     }
     ?>
