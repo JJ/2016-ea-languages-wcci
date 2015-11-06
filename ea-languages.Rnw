@@ -229,7 +229,8 @@ general, it can be divided into three different fields:\begin{itemize}
 \subsection{Languages tested}
 \label{ss:lang}
 
-Then, ten languages have been chosen for performing the
+Then, eleven %taking PHP into account
+languages have been chosen for performing the
 benchmark. The primary reason for chosing these languages was the
 availability of open source implementations for the authors, but also
 they represent different philosophies in language design. These
@@ -283,8 +284,8 @@ Scala; however, its increasing popularity within the programmer, and,
 over all, big data community makes it quite likely to find one in the
 near figure. 
 
-Interpreted languages are represented by Lua, Perl and Javascript. Lua
-is a popular embedded language that is designed for easy
+Interpreted languages are represented by Lua, PHP. Perl and Javascript. Lua and PHP
+are popular embedded languages designed for easy
 implementation; Perl has been used extensively for evolutionary
 algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
 satisfactory results, and node.js, an implementation of JavaScript,
