@@ -371,10 +371,14 @@ benchmarks within one hour. Results are shown next. In some cases and when the w
 
 I most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this unequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
 
+Every program used also native capabilities for measuring time, using system calls to check time before and after operations were performed. This might result in slightly different behavior, but it is the best system available, so it is what we used. 
 
+All programs produced the same ouput, a comma separated value of language, operand length and time. Results were eventually collated and are available in the same repository than this paper, together with the code in several languages that was produced also specially for this.
 
 \section{Results and analysis}
 \label{sec:res}
+
+We will examine first the peformance for the bitflip operation, that is graphed in Figure \ref{fig:time}
 
 \begin{figure}[h!tb]
   \centering
@@ -387,6 +391,10 @@ that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time}
 \end{figure}
 %
+We can look at this figure in several ways. First, let us look at the {\em flat} lines, which represent those languages whose speed is independent of the length. These are C and Java, a fact that can be explained by the fact that the PHP implementation might, in fact, be very close to that of C. The rest of the languages are affected by operand length one way or another, but it is interesting to note that Java and Go are, in fact, faster when the length grows. The rest generally take longer to process longer strings, although some languages such as Perl (in a {\em simple} implementation that uses the {\em Algorithm::Evolutionary::Simple} library), Lua or Python have a {\em flat} segment that goes up to considerable lengths. 
+
+Please note that, although the fastest in this case are always compiled languages, PHP is faster than C++ and some languages such as Python faster than Scala. Perl is the slowest, but the {\em simple} implementation beats Scala for non-trivial lengths of the string. This leads to blurring the clear-cut distinction between {\em fast} compiled languages and {\em slow} scripting languages. 
+
 \begin{figure}[h!tb]
   \centering
 <<results-xo, cache=FALSE,echo=FALSE>>=
