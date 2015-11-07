@@ -29,29 +29,26 @@ measures.mo <- read.csv('measures-maxones.csv')
 \maketitle
 
 \begin{abstract}
-  When implementing an evolutionary algorithm, speed is not 
-  %Pablo: no me gusta esta intro "La velocidad no lo es todo y
-  % además, varía". Quizás algo mejor sería: "Although the speed 
-  % is important in EA implementation, several issues must be taken 
-  % into account, such as..."
-  everything; besides, the speed of different languages when carrying
-  out an operation will depend on several measures, including the size 
-  %Pablo: el operador no tiene tamaño, tiene tamaño su entrada. "Input size" mejor?
-  of the operator. However, it is usual to rely on compiled languages,
+  Although the speed 
+ is important in EA implementation, several issues must be taken 
+  into account
+  such as the fact that the speed of different languages when carrying
+  out an operation will depend on several factors, including the size 
+  of the operands, the version of the language and underlying factors such as the operating system. However, it is usual to rely on compiled languages,
   namely Java and C/C++, for carrying out any implementation without
   considering other languages or rejecting them outright on the basis
-  of speed. Since there are a myriad of languages nowadays, it
+  of performance. Since there are a myriad of languages nowadays, it
   %Pablo: podemos añadir "those languages can have other advantages, such as hardware independence, or ..."
-  is interesting to find out their speed when performing operations that
+  is interesting however to find out their speed when performing operations that
   are usual in evolutionary algorithms. That is why in this paper we have chosen
   three evolutionary algorithm operations: bitflip mutation, crossover
   and the fitness function OneMax and measured the speed for several
   popular, and some not so popular, languages. Our measures confirm
   that, in fact, Java, C and C++ not only are the fastest, but also
-  have a behaviour that is independent on the size of the %Pablo: el "on the" no sería "of the"?
+  have a behaviour that is independent of the size of the 
   chromosome. However, we have found other compiled language such as
   Go or interpreted languages such as Python to be fast enough for
-  most purposes. 
+  most purposes. Besides, these experiments show which of these measures are, in fact, the best for choosing an implementation language based on its performance. 
 \end{abstract}
 
 \section{Introduction}
@@ -66,6 +63,7 @@ by evolutionary algorithms.
 
 Let us emphasize that running speed is not everything. In many cases, 
 %Pablo: algunas de estas cosas podemos poner en el abstract
+% Pablo, cuando pones ``podemos poner'' estás diciendo ``ponlas tú''. O las pones o no las pones, y si las pones, ya veremos si encajan o no. - JJ
 ease of integration with existing or legacy tools, coding speed or
 availability of parallel or distributed frameworks are much more
 important than how fast a single CPU program runs. However, in some
@@ -172,6 +170,8 @@ particular languages an issue so that they are used to implement
 particular operations, as opposed to monolithic architectures written
 in a single language. 
 
+This is, as a matter of fact, the state of the art such as we have found them. That is why we think it is important to take real measures so that decisions on implementation are based on facts strictly related to evolutionary algorithms, instead of relying on common lore. 
+
 Next we will explain the operations used for the benchmark and how
 they have been tested. 
 
@@ -183,29 +183,45 @@ on a binary string. In fact, this is not usually the part of the
 program an evolutionary algorithm spends the most time in
 \cite{nesmachnow2011time}. In general, that is the fitness function,
 and then reproduction-related functions: chromosome ranking, for
-instance. However, mutation is the operation that is performed the
-%Mario: Yo creo que este operador de mutación no es el que más se realiza 
-%ya que su aplicación tiene una probabilidad.
-%Bueno, quizás menos que crossover. Para el siguiente paper...
-most times on every evolutionary algorithm and is quintessential to
-the algorithm itself, so it allows the comparison of the different
-languages in the proper context. In this section we will outline first
+instance. However, mutation is an operation that is performed quite frequently and somentimes once for every newly generated individual; it is also quintessential to
+the algorithm itself and one of the pillars of the canonical genetic algorithm, so it allows the comparison of the different
+languages in the proper context. Crossover is also part of that canonical algorithm, and MaxOnes or Count-Ones or Onemax is a fitness function frequently used as baseline for comparison of evolutionary algorithms. 
+
+In this section we will outline first
 the specifics of the implementation and the rationale behind them in
 subsection \ref{ss:operators}, to proceed to outline the different
 data structures that have been used here in subsection \ref{ss:ds} to
 finally present the different languages that have been tested and the
 peculiarities of its implementation \ref{ss:lang}. 
 
-\subsection{Functions included in the benchmark}
+\subsection{Functions and operators included in the benchmark}
 \label{ss:operators}
 
 Essentially, mutation is performed by \begin{enumerate}
 
-\item Generating a random integer from 0 to the length of the chromosome. %Pablo: Generating
+\item Generating a random integer from 0 to the length of the chromosome. 
 \item Choosing the bit in that position and flipping it
 \item Building a chromosome with the value of that bit changed.
 
 \end{enumerate}
+
+These operations deal mostly with random number generation and then list, string or vector processing. In general, copying and creating strings could depend on the length, but its implementation might vary from one language to another.
+
+The next operation, {\em two-point crossover} is performed as follows:\begin{itemize}
+  \item Generating two random integers with a range from 0 to the length of the chromosomes.
+  \item Building two new chromosomes including the original from position 0 to the first point, interchanged bits from the first point to the second, and the original ones from the second position to the end of the strings.
+\end{itemize}
+
+A priori this operation seems quite similar to the first one. However, it involves copying of strings, an operation that will scale in a different way than simply running over a string and modifying one bit.
+
+Finally, {\em onemax} follows this procedure\begin{itemize}
+\item Generate a random string.
+\item Run over the string. 
+\item If the bit is set to one, add one to a counter.
+\item Return the counter.
+\end{itemize}
+
+
 
 \subsection{Available data structures}
 \label{ss:ds}
