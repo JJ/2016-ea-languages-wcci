@@ -48,7 +48,7 @@ measures.mo <- read.csv('measures-maxones.csv')
   have a behaviour that is independent of the size of the 
   chromosome. However, we have found other compiled language such as
   Go or interpreted languages such as Python to be fast enough for
-  most purposes. Besides, these experiments show which of these measures are, in fact, the best for choosing an implementation language based on its performance. 
+  most purposes. Besides, these experiments show which of these measures are, in fact, the best for choosing an implementation language based on its performance.
 \end{abstract}
 
 \section{Introduction}
@@ -221,6 +221,9 @@ Finally, {\em onemax} follows this procedure\begin{itemize}
 \item Return the counter.
 \end{itemize}
 
+Despite its apparent simplicity, counting the number of ones in a string is an extremely complicated operation, which is in fact used by human resources teams to examine the prowess of candidates in the creation of algorithms and in the knowledge of a language. The straightforward way of carrying it out is using a loop that looks, one by one, at the bits in the string and adds 1 to the counter. However, in most cases that might not be the fastest way. At any rate, this fitness function is quite similar to others that decode the bits of a binary chromosome and, even if it is quite clearly not the only existent fitness function, it is one that is widely used in evolutionary algorithms and whose speed can be applied to other similar functions.
+
+Being as it is a loop, we should expect that the time needed would grow linearly with the chromosome size. We will check whether this is true or not for the different languages below. 
 
 
 \subsection{Available data structures}
@@ -249,15 +252,19 @@ general, it can be divided into three different fields:\begin{itemize}
   in any case not too efficient for decoding to function parameters. 
 \end{itemize}
 
+The memory and speed efficiency of these data structures is different, and it is advisable for anyone implementing an evolutionary algorithm to check all possible data structures before committing, out of inertia, to the easiest one. Once again, implementation matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and differences in evolutionary algorithm performance for different data structures can be, indeed, quite big. 
+
+Not all data structures, however, are easily available for every language, or easy to deal with. We will check in the next subsection which ones have been used in every lauguage. 
+
 
 \subsection{Languages tested}
 \label{ss:lang}
 
-Then, eleven %taking PHP into account
+Eleven 
 languages have been chosen for performing the
 benchmark. The primary reason for choosing these languages was the
-availability of open source implementations for the authors, but also
-they represent different philosophies in language design. These
+availability of open source implementations for the authors, but also we have tried to be inclusive in by considering languages that  
+represent different philosophies in language design and also languages traditionally used in the implementation of evolutionary algorithms together with others that are not so popular. These
 languages are presented in the next two subsections. 
 
 \begin{table}[htb]
@@ -289,55 +296,81 @@ languages are presented in the next two subsections.
     \end{table}
 %    
     
-    \subsection{Compiled languages}
+    \subsubsection{Compiled languages}
     \label{ss}
-Compiled languages are represented by Scala, Java, Go, C and C++.
+Compiled languages are represented by Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. 
 
 Scala \cite{odersky2004overview} is a strongly-typed 
 functional language that compiles to a Java Virtual Machine 
 bytecode. Scala is in many cases faster than Java
 \cite{fulghamcomputer} due to its more efficient
-implementation of type handling. Two different representations were
+implementation of type handling. In this paper, two different representations were
 used in Scala: {\tt String} and {\tt Vector[Boolean]}. They both have
 the same underlying type, {\tt IndexedSeq} and in fact the overloading
 of operators allows us to use the same syntax independently of the
-type. The benchmark, {\tt bitflip.scala}, is available under a GPL
-license, at the URL shown in Table \ref{tab:files}. As far as we know,
-there are no published evolutionary algorithm frameworks published in
+type. The benchmark is available under a GPL
+license, at the URL shown in Table \ref{tab:files}\footnote{All URLs have been hidden for double-blind review}. As far as we know,
+there are no  evolutionary algorithm frameworks published in
 Scala; however, its increasing popularity within the programmer, and,
-over all, big data community makes it quite likely to find one in the
-near figure. 
+over all, data science community makes it quite likely to find one in the
+near future. 
 
-Interpreted languages are represented by Lua, PHP. Perl and Javascript. Lua and PHP
-are popular embedded languages designed for easy
-implementation; Perl has been used extensively for evolutionary
+Java is probably the most popular language within the evolutionary algorithm community, with several well established free software frameworks available, such as jMetal, JCLEC or ECJ. It is a multiplatform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
+
+C is still a popular language, despite being free of the paradigms that are so popular nowaday: object orientation or concurrency. It is not so popular within the EA community, who usually opt for its object-oriented version, C++, that has representatives such as ParadisEO or MALLBA. 
+
+Go was a language initially introduced by Google, but that has dug into the niches that were dominated formerly by C. It is also a compiled language designed for system programming, and is concurrent. 
+
+These four languages will be tested against a set of interpreted languages described below. 
+
+\subsubsection{Interpreted languages}
+
+Interpreted languages are represented by Lua, PHP, Julia, Perl and Javascript. 
+
+Lua is a popular embedded languages designed for easy
+implementation, including a minimalistic grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as % todo
+There are no known frameworks for EAs written in Lua, although an evoluntionary algorithm that runs in a Canon camera has been found in YouTube.
+
+Perl is an interpreted language been used extensively for evolutionary
 algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
-satisfactory results, and node.js, an implementation of JavaScript,
-which uses a the V8 JIT compiler to create bytecode when in reads the
+satisfactory results, although its main enphasis is not on speed, but on freedom for the programmer to code using any style and paradigm. The module and tools ecosystem built around it make it extremely interesting for any kind of programming. Our implementation of Perl uses different open-source libraries and in some cases also different versions of the language. Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
+
+JavaScript is an interpreted language that follows a ECMA standard and with many different implementations, including the different ones embedded in all internet browsers. Node.js is one such implementation of JavaScript with an asynchronous input/output loop and designed to run standalone in servers or the command line. Node.js uses a the V8 JIT compiler to create bytecode when in reads the
 script, and 
 % Mario: and node.js, a JavaScript framework
 % la implementación que usa es Google V8. 
 % Según: https://developers.google.com/v8/design
 % V8 compiles JavaScript source code directly into machine code when it is first executed.   
-has been used lately by our research group as part of our NodEO
-library \cite{DBLP:conf/gecco/GuervosVGES14} and volunteer computing
-framework NodIO \cite{DBLP:journals/corr/GuervosG15}. In fact, this 
-paper is in part a rebuttal to concerns made by reviewers of the lack of %Mario: No eran claims eran concerns :)
-speed and thereof adequacy of JavaScript for evolutionary algorithm
-% Pablo: está bien decir esto? :P JJ: Lo estamos haciendo...
-experimentation. Versions and files are shown in the Table
-\ref{tab:files}. Only Perl used two data structures as in Scala: a
-string, which is a scalar structure in Perl, and an array of
-booleans. 
+has been used lately 
+% by our research group 
+as part the NodEO
+library \cite{DBLP:conf/gecco/GuervosVGES14} and the volunteer computing
+framework NodIO \cite{DBLP:journals/corr/GuervosG15}, as well as other libraries focused on the browser. 
 
+PHP is a language that is most commonly known for the creation of web sites. In fact, it is an interpreted and general-purpose language with enphasis on string processing. There is no known implementation of evolutionary algorithms in PHP.
+
+Python is probably the most popular scripting languages, head to head with JavaScript. It is directly supported by major corporations such as google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as % todo
+use it.
+
+Julia is the last language tested. It is a modern and interpreted language % I really don't know anything about.
+
+The interpreter versions and repositories for these languages are shown in the Table
+\ref{tab:files}. 
+
+\subsection{Implementation notes}
+
+When available, open source implementations of the operators and onemax were used. 
 In all cases except in Scala, implementation took less than one hour and was
 inspired by the initial implementation made in Perl. Adequate data and control
 structures were used for running the application, which applies
 mutation to a single generated chromosome a hundred thousand
 times. The length of the mutated string starts at 16 and is doubled
-until reaching $2^15$, that is, 32768. This upper length was chosen to
+until reaching $2^{15}$, that is, 32768. This upper length was chosen to
 have an ample range, but also so small as to be able to run the
-benchmarks within one hour. Results are shown next.
+benchmarks within one hour. Results are shown next. In some cases and when the whole test took less than one hour, length was taken up to $2^{16}$. 
+
+I most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this unequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
+
 
 
 \section{Results and analysis}
