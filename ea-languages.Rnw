@@ -438,6 +438,12 @@ All these tests leads us to the conclusion that there is no language that is sup
 
 
 
+%Future lines of work might include a more extensive measurement of
+%other operators such as crossover, tournament selection and other  % [pedro] de acuerdo con el abstract, esto se ha hecho, ¿no?
+%selection algorithms. However, they are essentially CPU integer
+%operations and their behavior might be, in principle, very similar to %Pablo: arriba behaviour estaba en americano
+%the one shown here. This remains to be proved, however, but it is left
+%as future line of work. 
 
 
 
