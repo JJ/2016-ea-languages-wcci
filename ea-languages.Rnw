@@ -415,41 +415,13 @@ that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time:mo}
 \end{figure}
 
-All measurements and processing scripts are included in this paper
-repository, although in fact the programs were written to directly
-produce a CSV (comma separated value) representation of measurements,
-which was then plotted using R and {\tt ggplot} as shown in Figure
-\ref{fig:time}. The first unexpected behavior shown here is the
-remarkable speed of the Lua language, which is, in fact, faster
-than any other small sizes, although slower than Python at bigger
-sizes. After these two, next position goes to node.js, which uses a very
-efficient implementation of a Just-in-Time interpreter for the %Mario: Si se usó V8 es un compilador 
-% Es un intérprete, porque se lee cada vez del fuente. - jj
-JavaScript language. Then Perl, with a bitstring representation being
-slightly better than bit vectors, although the difference dilutes with
-time, and eventually Scala, with a bitstring actually faster than
-using bit vectors. In fact, Scala is a bit better than Perl for the
-smallest sizes, less than 128 bits and if a string representation is
-used, but that advantage disappears for greater sizes. 
+This escenario is even more blurred if we look at the results for crossover in Figure \ref{fig:time:xo}. The fastest overall is Go, and the slowest is C++ at least for sizes bigger than 64. The scaling of this performance is similar for C, which becomes the second slowest for sizes bigger than 1024. The node JavaScript interpreter performs quite consistently and independently of size, but Perl and PHP are also quite fast for a significant portion of the size range. 
 
-The behavior of the languages is not linear either. Node.js and Python
-both have an
-interesting feature: its speed is roughly independent of the string
-size up to size 1024. The same happens also for several size
-segments for Lua, showing some plateaus that eventually break for the
-bigger sizes. It probably means that the creation and accessing of strings is
-done in constant time, or is roughly constant, giving it a performance
-advantage over other languages. Even so, it never manages to beat the
-fastest language in this context, which is either Lua or Python,
-depending on the size. 
+In this case, the underlying operation is string copy. Languages such as node, Perl or PHP whose main focus is in data processing are optimized for that kind of thing. System-oriented languages such as C or C++, on the other hand, are not so that they fare much worse in this kind of operation.
 
-The trend from size 1024 on is for the differences to keep in more or less the same   
-style for bigger sizes, so we do not think it would be interesting to
-extend it to $2^16$ and upwards. In any case, these measures allow us %Pablo: confirmado en WR, In any.
-to measure the performance of the most widely used genetic operator in
-four different and popular languages, since all four of them (except
-for Lua) show up in most rankings of the most popular languages, such
-as the Tiobe ranking \cite{tiobe15}. 
+If we proceed to the last benchmark, the OneMax function which is shown in Figure \ref{fig:time:mo} we see that the behavior for all languages is essentially the same, scaling linearly with the chromosome size due to the fact that the only way of counting ones is to loop over the data structure noting them and adding one to a counter. C is now the fastest, followed by node, and Lua the slowest, followed by the implementation of Perl that uses {\tt Algorithm::Evolutionary}. However, in the {\em Simple} implementation of Perl, performance reached is on a par with Scala and Go, both compiled languages. In this case we extended, for some languages, chromosome size up to $2^{16}$. We did not do it for all languages, since it took them more than one hour to perform the 100K function calls. Lua was not even able to complete them for length = $2^{14}$. Besides, Lua performance increased with length faster than the rest of the languages, making it the worst of the set. 
+
+Please note that in these last two tests we have not included the same languages as in the first one. In some cases an implementation was not available. 
 
 
 \section{Conclusions}
