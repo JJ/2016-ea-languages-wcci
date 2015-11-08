@@ -420,7 +420,7 @@ crossover in Figure \ref{fig:time:xo}. The fastest overall are Go and,
 once again, Java, but the slowest is another compiled language, C++,
 at least for sizes bigger than 64. The scaling of 
 this performance is similar for C, which becomes the second slowest
-for sizes bigger than 1024. The node JavaScript interpreter performs
+for sizes bigger than 1024. The Node.js JavaScript interpreter performs
 quite consistently and independently of the size, but Perl and PHP are
 also quite fast for a significant portion of the size range. %Pablo,
                                         %arriba se ha puesto como
@@ -439,7 +439,7 @@ shown in Figure \ref{fig:time:mo} we see that the behaviour for all
 languages except Java is essentially the same, scaling linearly with the
 chromosome size due to the fact that the only way of counting ones is
 to loop over the data structure noting them and adding one to a
-counter. C is now the fastest, followed by node, and Lua the slowest,
+counter. C is now the fastest, followed by Node.js, and Lua the slowest,
 followed by the implementation of Perl that uses {\tt
   Algorithm::Evolutionary}. However, in the {\em Simple}
 implementation of Perl, performance reached is on a par with Scala and
@@ -455,15 +455,33 @@ Please note that in these last two tests we have not included the same languages
 
 \section{Conclusions}
 
-Our main intention in this paper was to measure the performance of usual functions found in evolutionary algorithms: mutation, crossover and OneMax, for several compiled and interpreted languages with a wide range of use and popularity within the evolutionary computation and scientific community and programmers at large. %PABLO: onemax no es una función "found in EAs", más bien, "used in the EA area" o algo así
+Our main intention in this paper was to measure the performance of
+usual functions found in evolutionary algorithm frameworks: mutation, crossover
+and OneMax, for several compiled and interpreted languages with a wide
+range of use and popularity within the evolutionary computation and
+scientific community and programmers at large. %PABLO: onemax no es
+                                        %una función "found in EAs",
+                                        %más bien, "used in the EA
+                                        %area" o algo así 
+% Used in implementations :-) - JJ
 
 In general, performance results do not place interpreted and compiled languages in different categories. The performance of a whole algorithm will depend on the times a particular function is called, and of course the fitness function, which is usually the bottleneck in any evolutionary algorithm. However, for these atomic functions interpreted and compiled languages go on a par, with no clear winners across all three functions tested. If there is one loser, we could say it is Lua, whose performance for OneMax and big sizes is quite disappointing. However, Lua might be the only option for in-game or in-web server evolution. %Pablo: he puesto un punto antes del However, para que no sea tan larga la frase. 
 
 Go has also emerged as a very interesting contender in the arena, with very fast performance for all functions and a graceful degradation with size, even if the implementation is quite novice and can probably be improved with more experience in that area. Scala, in that sense, is also a fast alternative to the more mainstream Java. 
 
-Among interpreted languages, Python and the Node.js implementation of JavaScript offer the best results, although the difference to Perl is not too big; besides, PHP, largely not considered a general-purpose language, is indeed the fastest in some of the tests.
+Among interpreted languages, Python and the Node.js implementation of
+JavaScript offer the best results, although the difference to Perl is
+not too big; besides, PHP, largely not considered a general-purpose
+language, is indeed the fastest in some of the tests. 
 
-All these tests lead us to the conclusion that there is no language that is superior to all others across all sizes and problems considered. There is no free lunch also in the implementation in evolutionary algorithms, and the fact that heterogeneous, asynchronous distributed architectures are now possible leads us to propose them as an alternative to the single-language frameworks that are the most usual nowadays. %Pablo me mola esta frase, me la apunto para el futuro :)
+All these tests lead us to the conclusion that there is no language
+that is superior to all others across all sizes and problems
+considered. There is no free lunch also in the implementation in
+evolutionary algorithms, and the fact that heterogeneous, asynchronous
+distributed architectures are now possible leads us to propose them as
+an alternative to the single-language frameworks that are the most
+usual nowadays. %Pablo me mola esta frase, me la apunto para el futuro
+                %:) 
 
 
 
