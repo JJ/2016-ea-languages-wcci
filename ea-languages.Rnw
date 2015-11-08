@@ -415,11 +415,40 @@ that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time:mo}
 \end{figure}
 
-This scenario is even more blurred if we look at the results for crossover in Figure \ref{fig:time:xo}. The fastest overall is Go, and the slowest is C++ at least for sizes bigger than 64. The scaling of this performance is similar for C, which becomes the second slowest for sizes bigger than 1024. The node JavaScript interpreter performs quite consistently and independently of the size, but Perl and PHP are also quite fast for a significant portion of the size range. %Pablo, arriba se ha puesto como Node.js. Al menos debería ponerse en mayúsculas en todas las ocurrencias, no?
+This scenario is even more blurred if we look at the results for
+crossover in Figure \ref{fig:time:xo}. The fastest overall are Go and,
+once again, Java, but the slowest is another compiled language, C++,
+at least for sizes bigger than 64. The scaling of 
+this performance is similar for C, which becomes the second slowest
+for sizes bigger than 1024. The node JavaScript interpreter performs
+quite consistently and independently of the size, but Perl and PHP are
+also quite fast for a significant portion of the size range. %Pablo,
+                                        %arriba se ha puesto como
+                                        %Node.js. Al menos debería
+                                        %ponerse en mayúsculas en
+                                        %todas las ocurrencias, no? 
 
-In this case, the underlying operation is string copy. Languages such as node, Perl or PHP whose main focus is in data processing are optimized for that kind of thing. System-oriented languages such as C or C++, on the other hand, are not so that they fare much worse in this kind of operation.
+In this case, the underlying operation is string or array copy. Languages such
+as Node.js, Perl or PHP whose main focus is in data processing are
+optimized for that kind of thing. System-oriented languages such as C
+or C++, on the other hand, are not so that they fare much worse in
+this kind of operation. 
 
-If we proceed to the last benchmark, the OneMax function which is shown in Figure \ref{fig:time:mo} we see that the behaviour for all languages is essentially the same, scaling linearly with the chromosome size due to the fact that the only way of counting ones is to loop over the data structure noting them and adding one to a counter. C is now the fastest, followed by node, and Lua the slowest, followed by the implementation of Perl that uses {\tt Algorithm::Evolutionary}. However, in the {\em Simple} implementation of Perl, performance reached is on a par with Scala and Go, both compiled languages. In this case we extended, for some languages, chromosome size up to $2^{16}$. We did not do it for all languages, since it took them more than one hour to perform the 100K function calls. Lua was not even able to complete them for length = $2^{14}$. Besides, Lua performance increased with length faster than the rest of the languages, making it the worst of the set. 
+If we proceed to the last benchmark, the OneMax function,  which is
+shown in Figure \ref{fig:time:mo} we see that the behaviour for all
+languages except Java is essentially the same, scaling linearly with the
+chromosome size due to the fact that the only way of counting ones is
+to loop over the data structure noting them and adding one to a
+counter. C is now the fastest, followed by node, and Lua the slowest,
+followed by the implementation of Perl that uses {\tt
+  Algorithm::Evolutionary}. However, in the {\em Simple}
+implementation of Perl, performance reached is on a par with Scala and
+Go, both compiled languages. In this case we extended, for some
+languages, chromosome size up to $2^{16}$. We did not do it for all
+languages, since it took them more than one hour to perform the 100K
+function calls. Lua was not even able to complete them for length =
+$2^{14}$. Besides, Lua performance increased with length faster than
+the rest of the languages, making it the worst of the set. 
 
 Please note that in these last two tests we have not included the same languages as in the first one. In some cases an implementation was not available. 
 
