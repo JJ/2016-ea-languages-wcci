@@ -45,8 +45,8 @@ measures.mo <- read.csv('measures-maxones.csv')
   and the fitness function OneMax evaluation, and measured the speed for several
   popular, and some not so popular, languages. Our measures confirm
   that, in fact, Java, C and C++ not only are the fastest, but also
-  have a behaviour that is independent of the size of the 
-  chromosome. However, we have found other compiled language such as
+  have a behaviour that is independent of the size of the chromosome. % interesting finding !!
+  However, we have found other compiled language such as
   Go or interpreted languages such as Python to be fast enough for
   most purposes. Besides, these experiments show which of these measures are, in fact, the best for choosing an implementation language based on its performance.
 \end{abstract}
