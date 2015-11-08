@@ -30,17 +30,15 @@ measures.mo <- read.csv('measures-maxones.csv')
 \maketitle
 
 \begin{abstract}
-  Although the speed 
- is important in EA implementation, several issues must be taken 
-  into account
+  Although performance is important, several other issues should be taken 
+  into account when choosing a particular language for implementing an evolutionary algorithm. 
   such as the fact that the speed of different languages when carrying
   out an operation will depend on several factors, including the size 
   of the operands, the version of the language and underlying factors such as the operating system. However, it is usual to rely on compiled languages,
-  namely Java and C/C++, for carrying out any implementation without
+  namely Java or C/C++, for carrying out any implementation without
   considering other languages or rejecting them outright on the basis
   of performance. Since there are a myriad of languages nowadays, it
-  %Pablo: podemos añadir "those languages can have other advantages, such as hardware independence, or ..."
-  is interesting however to find out their speed when performing operations that
+  is interesting however to measure their speed when performing operations that
   are usual in evolutionary algorithms. That is why in this paper we have chosen
   three evolutionary algorithm operations: bitflip mutation, crossover
   and the fitness function OneMax and measured the speed for several
@@ -130,11 +128,10 @@ languages such as Python, Lua, Javascript or Go, which, in fact, do
 reach interesting performance marks. 
 
 Coming up next, we will present the state of the art of the analysis
-of implementations of evolutionary algorithms. Next we will present
-the test we have used for this paper and its rationale, and finally we
-will present the results of examining four different languages running
-the most widely used evolutionary algorithm operator:
-mutation. Finally, we will draw the conclusions and present future
+of implementations of evolutionary algorithms. Next we will present in Section \ref{sec:exp}
+the tests we have used for this paper and its rationale along with the languages we have chosen for carrying them out. Finally, in Section \ref{sec:res} we
+will present the results of measuring the performance of eleven languages running some widely used evolutionary algorithm operators and functions
+mutation, crossover and onemax. Finally, we will draw the conclusions and present future
 lines of work. 
 
 \section{State of the art}
@@ -145,7 +142,7 @@ matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, which implies t
 paying attention to the particular way an algorithm is implemented
 might result in speed improvements that outclass those achieved by 
 using the {\em a priori} fastest language available. In fact, careful
-coding and choosing the right tools  \cite{ae09,1515367} in
+coding and choosing the right tools \cite{ae09,1515367} in
 interpreted languages can make them as fast, or even faster, than
 compiled languages such as Java. 
 
@@ -177,6 +174,7 @@ Next we will explain the operations used for the benchmark and how
 they have been tested. 
 
 \section{Experimental setup}
+\label{sec:exp}
 
 First, a particular problem was chosen for testing different
 languages and also data representations: performing bit-flip mutation
@@ -299,7 +297,8 @@ languages are presented in the next two subsections.
     
     \subsubsection{Compiled languages}
     \label{ss}
-Compiled languages are represented by Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. 
+
+    Compiled languages are represented by Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. This list of languages is rather comprehensive, including the most popular compiled languages in scientific computing as well as two languages that are emerging in popularity: Go and Scala. 
 
 Scala \cite{odersky2004overview} is a strongly-typed 
 functional language that compiles to a Java Virtual Machine 
@@ -326,9 +325,9 @@ These four languages will be tested against a set of interpreted languages descr
 
 \subsubsection{Interpreted languages}
 
-Interpreted languages are represented by Lua, PHP, Julia, Perl and Javascript. 
+Interpreted languages are represented by Lua, PHP, Julia, Perl, Python and Javascript. These include three popular languages, Perl, Python and Javascript, Python being also the most popular in the scientific computing environment, and then three other languages seldom seen in the EC arena, but popular in their particular niches. 
 
-Lua \cite{ierusalimschy1996lua} is a popular embedded languages designed for easy
+Lua \cite{ierusalimschy1996lua} is a popular embedded language designed for easy
 implementation, including a minimalistic grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as % todo
 There are no known frameworks for EAs written in Lua, although an evoluntionary algorithm that runs in a Canon camera has been found in YouTube.
 
