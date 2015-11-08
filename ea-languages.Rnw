@@ -387,9 +387,24 @@ that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time}
 \end{figure}
 %
-We can look at this figure in several ways. First, let us look at the {\em flat} lines, which represent those languages whose speed is independent of the length. These are C and Java, a fact that can be explained by the fact that the PHP implementation might, in fact, be very close to that of C. The rest of the languages are affected by operand length one way or another, but it is interesting to note that Java and Go are, in fact, faster when the length grows. The rest generally takes longer to process longer strings, although some languages such as Perl (in a {\em simple} implementation that uses the {\em Algorithm::Evolutionary::Simple} library), Lua or Python have a {\em flat} segment that goes up to considerable lengths. 
+We can look at this figure in several ways. First, let us look at the
+{\em flat} lines, which represent those languages whose speed is
+independent of the length. These are C and Java, a fact that can be
+explained by the fact that the PHP implementation might, in fact, be
+very close to that of C. The rest of the languages are affected by
+operand length one way or another, but it is interesting to note that
+Java and Go are, in fact, faster when the length grows. The rest
+generally takes longer to process longer strings, although some
+languages such as Perl (in a {\em simple} implementation that uses the
+{\em Algorithm::Evolutionary::Simple} library), Lua or Node.js have a
+{\em flat} segment that goes up to considerable lengths. 
 
-Please note that, although the fastest in this case are always compiled languages, PHP is faster than C++ and some languages such as Python faster than Scala. Perl is the slowest, but the {\em simple} implementation beats Scala for non-trivial lengths of the string. This leads to blurring the clear-cut distinction between {\em fast} compiled languages and {\em slow} scripting languages. 
+Please note that, although the fastest in this case are always
+compiled languages, PHP is faster than C++ and some languages such as
+Python faster than Scala. Perl is the slowest, but the {\em simple}
+implementation beats Scala for non-trivial lengths of the string. This
+leads to the blurring the clear-cut distinction between {\em fast}
+compiled languages and {\em slow} scripting languages.  
 
 \begin{figure}[h!tb]
   \centering
@@ -415,8 +430,9 @@ that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time:mo}
 \end{figure}
 
-This scenario is even more blurred if we look at the results for
-crossover in Figure \ref{fig:time:xo}. The fastest overall are Go and,
+This scenario is even more blurred if we look at the measures taken
+for the
+crossover operator in Figure \ref{fig:time:xo}. The fastest overall are Go and,
 once again, Java, but the slowest is another compiled language, C++,
 at least for sizes bigger than 64. The scaling of 
 this performance is similar for C, which becomes the second slowest
@@ -427,6 +443,10 @@ also quite fast for a significant portion of the size range. %Pablo,
                                         %Node.js. Al menos debería
                                         %ponerse en mayúsculas en
                                         %todas las ocurrencias, no? 
+%Cambiado todo.
+Python, on the other hand, shows in this occasion a behavior that
+degrades for the high end of the size range, becoming slower than Lua
+or any Perl implementation. 
 
 In this case, the underlying operation is string or array copy. Languages such
 as Node.js, Perl or PHP whose main focus is in data processing are
@@ -450,7 +470,18 @@ function calls. Lua was not even able to complete them for length =
 $2^{14}$. Besides, Lua performance increased with length faster than
 the rest of the languages, making it the worst of the set. 
 
-Please note that in these last two tests we have not included the same languages as in the first one. In some cases an implementation was not available. 
+We should maybe make some kind of explanation for the speed shown for
+Java, which is consistent and shows more or less the same measures
+when we run the benchmark repeatedly. We should note here that Java
+uses a built-in primitive, {\tt cardinality}, that measures the number
+of bits of the set that are, effectively, set. We fail to understand
+how the speed increases so much in the high end of the size range, but
+it might be due to a change to a more efficient implementation on the
+Java side. It is quite clear, however, that using this data structure
+and associated operators makes Java stand out among the rest. 
+
+After this overview of the results, we will proceed to present the
+conclusions. 
 
 
 \section{Conclusions}
@@ -465,18 +496,41 @@ scientific community and programmers at large. %PABLO: onemax no es
                                         %area" o algo así 
 % Used in implementations :-) - JJ
 
-In general, performance results do not place interpreted and compiled languages in different categories. The performance of a whole algorithm will depend on the times a particular function is called, and of course the fitness function, which is usually the bottleneck in any evolutionary algorithm. However, for these atomic functions interpreted and compiled languages go on a par, with no clear winners across all three functions tested. If there is one loser, we could say it is Lua, whose performance for OneMax and big sizes is quite disappointing. However, Lua might be the only option for in-game or in-web server evolution. %Pablo: he puesto un punto antes del However, para que no sea tan larga la frase. 
+In general, performance results do not place interpreted and compiled
+languages in different categories. The performance of the
+implementation of a whole
+algorithm will depend on the times a particular function is called,
+and of course the time it takes to evaluate the fitness function, which is usually the bottleneck in
+any evolutionary algorithm. However, for these atomic functions
+interpreted and compiled languages go on a par, with no category
+emerging as a clear winner across all three functions tested. However,
+Java is almost always among the fastest across all three functions,
+together with C or Go. And if there is one loser, we could say
+it is Lua, whose performance for OneMax and big sizes is quite
+disappointing. However, Lua might be the only option for in-game or
+in-web server evolution, the same as Perl, which also acts as the
+slowest in some benchmarks and sizes, might be a good option to
+interface with databases or as a web server back-end. 
 
-Go has also emerged as a very interesting contender in the arena, with very fast performance for all functions and a graceful degradation with size, even if the implementation is quite novice and can probably be improved with more experience in that area. Scala, in that sense, is also a fast alternative to the more mainstream Java. 
+Go has also emerged as a very interesting contender in the arena, with
+very fast performance for all functions and a graceful degradation
+with size, even if the implementation is quite novice and can probably
+be improved with more experience in that area. Scala, in that sense,
+is also a fast alternative to the more mainstream Java. On the other
+hand, we do not think that Julia will ever become popular, since its
+performance is never the worst, but not very good either. 
 
 Among interpreted languages, Python and the Node.js implementation of
 JavaScript offer the best results, although the difference to Perl is
-not too big; besides, PHP, largely not considered a general-purpose
+not too big in some benchmarks; besides, PHP, largely not considered a general-purpose
 language, is indeed the fastest in some of the tests. 
 
-All these tests lead us to the conclusion that there is no language
+All these tests lead us to the conclusion that there is no type of language
 that is superior to all others across all sizes and problems
-considered. There is no free lunch also in the implementation in
+considered, although if you use Java you will be close to the best or
+reach the best performance; the performance of other compiled
+languages will vary wildly across languages and functions. There is no
+free lunch also in the implementation in 
 evolutionary algorithms, and the fact that heterogeneous, asynchronous
 distributed architectures are now possible leads us to propose them as
 an alternative to the single-language frameworks that are the most
