@@ -315,11 +315,11 @@ Scala; however, its increasing popularity within the programmer, and,
 over all, data science community makes it quite likely to find one in the
 near future. 
 
-Java is probably the most popular language within the evolutionary algorithm community, with several well established free software frameworks available, such as jMetal, JCLEC or ECJ. It is a multiplatform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
+Java is probably the most popular language within the evolutionary algorithm community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multiplatform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
 
-C is still a popular language, despite being free of the paradigms that are so popular nowaday: object orientation or concurrency. It is not so popular within the EA community, who usually opt for its object-oriented version, C++, that has representatives such as ParadisEO or MALLBA. 
+C is still one of the most popular languages, despite being free of the paradigms that are so popular nowadays: object orientation or concurrency. It is not so popular within the EA community, who usually opt for its object-oriented version, C++, that has representatives such as ParadisEO \cie{liefooghe2011software} or MALLBA \cite{alba2002mallba}. 
 
-Go was a language initially introduced by Google, but that has dug into the niches that were dominated formerly by C. It is also a compiled language designed for system programming, and is concurrent. 
+Go \cite{pike2009go} was a language initially introduced by Google, but that has dug into the niches that were dominated formerly by C. It is also a compiled language designed for system programming, and is concurrent. 
 
 These four languages will be tested against a set of interpreted languages described below. 
 
@@ -327,7 +327,7 @@ These four languages will be tested against a set of interpreted languages descr
 
 Interpreted languages are represented by Lua, PHP, Julia, Perl and Javascript. 
 
-Lua is a popular embedded languages designed for easy
+Lua \cite{ierusalimschy1996lua} is a popular embedded languages designed for easy
 implementation, including a minimalistic grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as % todo
 There are no known frameworks for EAs written in Lua, although an evoluntionary algorithm that runs in a Canon camera has been found in YouTube.
 
@@ -336,26 +336,19 @@ algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
 satisfactory results, although its main enphasis is not on speed, but on freedom for the programmer to code using any style and paradigm. The module and tools ecosystem built around it make it extremely interesting for any kind of programming. Our implementation of Perl uses different open-source libraries and in some cases also different versions of the language. Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
 
 JavaScript is an interpreted language that follows a ECMA standard and with many different implementations, including the different ones embedded in all internet browsers. Node.js is one such implementation of JavaScript with an asynchronous input/output loop and designed to run standalone in servers or the command line. Node.js uses a the V8 JIT compiler to create bytecode when in reads the
-script, and 
-% Mario: and node.js, a JavaScript framework
-% la implementación que usa es Google V8. 
-% Según: https://developers.google.com/v8/design
-% V8 compiles JavaScript source code directly into machine code when it is first executed.   
-has been used lately 
+script, and has been used lately 
 % by our research group 
 as part the NodEO
 library \cite{DBLP:conf/gecco/GuervosVGES14} and the volunteer computing
-framework NodIO \cite{DBLP:journals/corr/GuervosG15}, as well as other libraries focused on the browser. 
+framework NodIO \cite{DBLP:journals/corr/GuervosG15}, as well as other libraries focused on the browser \cite{rivas2014object}. 
 
 PHP is a language that is most commonly known for the creation of web sites. In fact, it is an interpreted and general-purpose language with enphasis on string processing. There is no known implementation of evolutionary algorithms in PHP.
 
-Python is probably the most popular scripting languages, head to head with JavaScript. It is directly supported by major corporations such as google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as % todo
-use it.
+Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
 
-Julia is the last language tested. It is a modern and interpreted language % I really don't know anything about.
+Julia \cie{bezanson2012julia} is the last language tested. It is a modern, interpreted and dynamic language used mainly for technical computing. It cannot be called exactly popular, but we have included it for completeness, mainly. 
 
-The interpreter versions and repositories for these languages are shown in the Table
-\ref{tab:files}. 
+The interpreter versions and repositories for these languages are shown in the Table \ref{tab:files}. 
 
 \subsection{Implementation notes}
 
