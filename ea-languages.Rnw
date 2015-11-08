@@ -34,14 +34,15 @@ measures.mo <- read.csv('measures-maxones.csv')
   into account when choosing a particular language for implementing an evolutionary algorithm,
   such as the fact that the speed of different languages when carrying
   out an operation will depend on several factors, including the size 
-  of the operands, the version of the language and underlying factors such as the operating system. However, it is usual to rely on compiled languages,
+  of the operands, the version of the language and underlying factors 
+  such as the operating system. However, it is usual to rely on compiled languages,
   namely Java or C/C++, for carrying out any implementation without
   considering other languages or rejecting them outright on the basis
   of performance. Since there are a myriad of languages nowadays, it
   is interesting however to measure their speed when performing operations that
   are usual in evolutionary algorithms. That is why in this paper we have chosen
   three evolutionary algorithm operations: bitflip mutation, crossover
-  and the fitness function OneMax and measured the speed for several
+  and the fitness function OneMax evaluation, and measured the speed for several
   popular, and some not so popular, languages. Our measures confirm
   that, in fact, Java, C and C++ not only are the fastest, but also
   have a behaviour that is independent of the size of the 
