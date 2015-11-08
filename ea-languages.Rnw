@@ -15,6 +15,7 @@
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
+library(RColorBrewer)
 measures.bf <- read.csv('measures-bitflip.csv')
 measures.xo <- read.csv('measures-xover.csv')
 measures.mo <- read.csv('measures-maxones.csv')
@@ -317,7 +318,7 @@ near future.
 
 Java is probably the most popular language within the evolutionary algorithm community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multiplatform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
 
-C is still one of the most popular languages, despite being free of the paradigms that are so popular nowadays: object orientation or concurrency. It is not so popular within the EA community, who usually opt for its object-oriented version, C++, that has representatives such as ParadisEO \cie{liefooghe2011software} or MALLBA \cite{alba2002mallba}. 
+C is still one of the most popular languages, despite being free of the paradigms that are so popular nowadays: object orientation or concurrency. It is not so popular within the EA community, who usually opt for its object-oriented version, C++, that has representatives such as ParadisEO \cite{liefooghe2011software} or MALLBA \cite{alba2002mallba}. 
 
 Go \cite{pike2009go} was a language initially introduced by Google, but that has dug into the niches that were dominated formerly by C. It is also a compiled language designed for system programming, and is concurrent. 
 
@@ -346,7 +347,7 @@ PHP is a language that is most commonly known for the creation of web sites. In 
 
 Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
 
-Julia \cie{bezanson2012julia} is the last language tested. It is a modern, interpreted and dynamic language used mainly for technical computing. It cannot be called exactly popular, but we have included it for completeness, mainly. 
+Julia \cite{bezanson2012julia} is the last language tested. It is a modern, interpreted and dynamic language used mainly for technical computing. It cannot be called exactly popular, but we have included it for completeness, mainly. 
 
 The interpreter versions and repositories for these languages are shown in the Table \ref{tab:files}. 
 
@@ -362,7 +363,7 @@ until reaching $2^{15}$, that is, 32768. This upper length was chosen to
 have an ample range, but also so small as to be able to run the
 benchmarks within one hour. Results are shown next. In some cases and when the whole test took less than one hour, length was taken up to $2^{16}$. 
 
-I most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this unequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
+In most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this unequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
 
 Every program used also native capabilities for measuring time, using system calls to check time before and after operations were performed. This might result in slightly different behavior, but it is the best system available, so it is what we used. 
 
@@ -371,12 +372,14 @@ All programs produced the same ouput, a comma separated value of language, opera
 \section{Results and analysis}
 \label{sec:res}
 
-We will examine first the peformance for the bitflip operation, that is graphed in Figure \ref{fig:time}
+We will examine first the peformance for the bitflip operation, that is graphed in Figure \ref{fig:time}.
 
 \begin{figure}[h!tb]
   \centering
 <<results-bf, cache=FALSE,echo=FALSE>>=
-ggplot(measures.bf,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Bitflip")+scale_y_log10()+scale_x_log10()
+colourCount = length(unique(measures.bf$languagerepresentation))
+getPalette = colorRampPalette(brewer.pal(9, "Set1"))
+ggplot(measures.bf,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Bitflip")+scale_y_log10()+scale_x_log10()+scale_color_manual(name='Language',values=getPalette(colourCount))
 @ 
 \caption{Plot of time needed to perform 100K mutations in strings with
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
@@ -391,7 +394,8 @@ Please note that, although the fastest in this case are always compiled language
 \begin{figure}[h!tb]
   \centering
 <<results-xo, cache=FALSE,echo=FALSE>>=
-ggplot(measures.xo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Crossover")+scale_y_log10()+scale_x_log10()
+colourCount = length(unique(measures.xo$languagerepresentation))
+ggplot(measures.xo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Crossover")+scale_y_log10()+scale_x_log10()+scale_color_manual(name='Language',values=getPalette(colourCount))
 @ 
 \caption{Plot of time needed to perform 100K crossover operations in strings with
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
@@ -402,7 +406,8 @@ that $x$ and $y$ both have a logarithmic scale.}
 \begin{figure}[h!tb]
   \centering
 <<results-mo, cache=FALSE,echo=FALSE>>=
-ggplot(measures.mo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Onemax")+scale_y_log10()+scale_x_log10()
+colourCount = length(unique(measures.mo$languagerepresentation))
+ggplot(measures.mo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Onemax")+scale_y_log10()+scale_x_log10()+scale_color_manual(name='Language',values=getPalette(colourCount))
 @ 
 \caption{Plot of time needed to perform 100K OneMax evaluations in strings with
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
