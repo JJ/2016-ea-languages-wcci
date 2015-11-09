@@ -330,17 +330,17 @@ These four languages will be tested against a set of interpreted languages descr
 
 \subsubsection{Interpreted languages}
 
-Interpreted languages are represented by Lua, PHP, Julia, Perl, Python and Javascript. These include three popular languages, Perl, Python and Javascript, Python being also the most popular in the scientific computing environment, and then three other languages seldom seen in the EC arena, but popular in their particular niches. 
+Interpreted languages are represented by Lua, PHP, Julia, Perl, Python and JavaScript. These include three popular languages, Perl, Python and JavaScript, Python being also the most popular in the scientific computing environment, and then three other languages seldom seen in the EC arena, but popular in their particular niches. 
 
 Lua \cite{ierusalimschy1996lua} is a popular embedded language designed for easy
-implementation, including a minimalistic grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as % todo
+implementation, including a minimalistic grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as Game Engines.% todo
 There are no known frameworks for EAs written in Lua, although an evoluntionary algorithm that runs in a Canon camera has been found in YouTube.
 
-Perl is an interpreted language been used extensively for evolutionary
+Perl is an interpreted language that has been used extensively for evolutionary
 algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
 satisfactory results, although its main enphasis is not on speed, but on freedom for the programmer to code using any style and paradigm. The module and tools ecosystem built around it make it extremely interesting for any kind of programming. Our implementation of Perl uses different open-source libraries and in some cases also different versions of the language. Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
 
-JavaScript is an interpreted language that follows a ECMA standard and with many different implementations, including the different ones embedded in all internet browsers. Node.js is one such implementation of JavaScript with an asynchronous input/output loop and designed to run standalone in servers or the command line. Node.js uses a the V8 JIT compiler to create bytecode when in reads the
+JavaScript is an interpreted language that follows an ECMA standard and with many different implementations, including the different ones embedded in all internet browsers. Node.js is one such implementation of JavaScript with an asynchronous input/output loop and designed to run standalone in servers or the command line. Node.js uses a the V8 JIT compiler to create native machine code when in reads the
 script, and has been used lately 
 % by our research group 
 as part the NodEO
@@ -349,7 +349,7 @@ framework NodIO \cite{DBLP:journals/corr/GuervosG15}, as well as other libraries
 
 PHP is a language that is most commonly known for the creation of web sites. In fact, it is an interpreted and general-purpose language with enphasis on string processing. There is no known implementation of evolutionary algorithms in PHP.
 
-Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
+Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as Google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
 
 Julia \cite{bezanson2012julia} is the last language tested. It is a modern, interpreted and dynamic language used mainly for technical computing. It cannot be called exactly popular, but we have included it for completeness, mainly. 
 
@@ -369,7 +369,7 @@ benchmarks within one hour. Results are shown next. In some cases and when the w
 
 In most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this unequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
 
-Every program used also native capabilities for measuring time, using system calls to check time before and after operations were performed. This might result in slightly different behavior, but it is the best system available, so it is what we used. 
+Every program used also provies native capabilities for measuring time, using system calls to check the time before and after operations were performed. This might result in a slightly different behavior, but it is the best system available, so it is what we used. 
 
 All programs produced the same ouput, a comma separated value of language, operand length and time. Results were eventually collated and are available in the same repository than this paper, together with the code in several languages that was produced also specially for this.
 
@@ -385,7 +385,7 @@ colourCount = length(unique(measures.bf$languagerepresentation))
 getPalette = colorRampPalette(brewer.pal(9, "Set1"))
 ggplot(measures.bf,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Bitflip")+scale_y_log10()+scale_x_log10()+scale_color_manual(name='Language',values=getPalette(colourCount))
 @ 
-\caption{Plot of time needed to perform 100K mutations in strings with
+\caption{Plot of the time needed to perform 100K mutations in strings with
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time}
