@@ -66,8 +66,11 @@ Let us emphasize that running speed is not everything. In many cases,
 % Pablo, cuando pones ``podemos poner'' estás diciendo ``ponlas tú''. O las pones o no las pones, y si las pones, ya veremos si encajan o no. - JJ
 ease of integration with existing or legacy tools, coding speed or
 availability of parallel or distributed frameworks are much more
-important than how fast a single CPU program runs. However, in some
-case, mainly when the size of the problem or the running time of the
+important than how fast a single CPU program runs. There are also
+restrictions inherent to the application at hand, such as embedded 
+or web based systems where certain languages must be used.
+However, in some
+cases, mainly when the size of the problem or the running time of the
 algorithm call for the maximum running speed available, it is
 interesting at least to know which languages can be used to obtain the
 best performance. 
@@ -93,9 +96,9 @@ realm of evolutionary algorithm operators, some interpreted and
 unpopular languages such as {\tt awk} can be the fastest option
 available for evolving particular data structures such as regular
 expressions \cite{awk}. Besides, benchmarks should include a wide variety
-of sizes, since the implementation of loops and memory management
-might make the time needed to perform particular operations not depend
-linearly on sizes.
+of sizes, because the time needed to perform particular operations 
+does not always depends linearly on size, as performance is also affected 
+by technichal details for instance the implementation of loops and memory management.
 
 For the purposes of this paper, we will try to be more extensive on
 the number of languages tested than on the number of operations. In
@@ -108,7 +111,7 @@ and crossover. Besides, a fitness function usually employed as a
 baseline for evolutionary algorithms will be used: OneMax. 
 
 In general, programs do not spend the majority of the time applying
-them; this post in the ranking rather goes to selection operators and
+them; this place in the ranking rather goes to selection operators and
 other higher-level, population-handling ones, as well as usually the
 fitness function. However, these functions are well covered by usual
 benchmarks so you can usually rely on any of them for choosing a
@@ -122,14 +125,14 @@ HIFF, OneMax or Royal Road.
 Finally, our intention is not so much to choose the winner of the
 competition of fastest language for evolutionary algorithms as much as
 to check the variety of speeds available and to know what order of
-magnitude these differences are. This will can be used to aid in the
-decision of choosing a language for implementing an evolutionary
+magnitude these differences are. This work can be used to aid in 
+making the decision of a language for implementing an evolutionary
 algorithm, or at least to justify the choice of non-mainstream
-languages such as Python, Lua, Javascript or Go, which, in fact, do
+languages such as Python, Lua, JavaScript or Go, which, in fact, do
 reach interesting performance marks. 
 
 Coming up next, we will present the state of the art of the analysis
-of implementations of evolutionary algorithms. Next we will present in Section \ref{sec:exp}
+of evolutionary algorithm implementations. Next we will present in Section \ref{sec:exp}
 the tests we have used for this paper and its rationale along with the languages we have chosen for carrying them out. Finally, in Section \ref{sec:res} we
 will present the results of measuring the performance of eleven languages running some widely used evolutionary algorithm operators and functions
 mutation, crossover and onemax. Finally, we will draw the conclusions and present future
@@ -160,13 +163,14 @@ Even so and when speed matters, the benchmarks performed in those papers were re
 particular problem sizes and to very specific languages. They also
 test a single language for the whole evolutionary algorithm; however,
 it might happen that, since different operations are involved, the
-ranking varies depending on the operation and on the size. This, in an
-environment such as the Kappa architecture \cite{KappaArch} or
+ranking varies depending on the operation and on the size. This
+can be of special interest in
+environments such as the Kappa architecture \cite{KappaArch} or
 web-services based frameworks \cite{garcia2010distributed,DBLP:journals/soco/Garcia-SanchezGCAG13} where
 different parts of an application might be written in different
-languages and loosely connected, might make the particular speed in
-particular languages an issue so that they are used to implement
-particular operations, as opposed to monolithic architectures written
+languages. An advantage of these loosely connected systems is that they might 
+change the language used for a particular operation if they encounter
+performance issues, as opposed to monolithic architectures written
 in a single language. 
 
 This is, as a matter of fact, the state of the art such as we have found them. That is why we think it is important to take real measures so that decisions on implementation are based on facts strictly related to evolutionary algorithms, instead of relying on common lore. 
@@ -229,7 +233,7 @@ Being as it is a loop, we should expect that the time needed would grow linearly
 \subsection{Available data structures}
 \label{ss:ds}
 
-Chromosomes can be represented in at several different ways: an
+Chromosomes can be represented in several different ways: an
 array or vector of boolean values, or any other scalar value that can
 be assimilated to it, or as a bitstring using generally ``1'' for true
 values or ``0'' for false values. Different data structures will have
@@ -299,7 +303,7 @@ languages are presented in the next two subsections.
     \subsubsection{Compiled languages}
     \label{ss}
 
-    Compiled languages are represented by Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. This list of languages is rather comprehensive, including the most popular compiled languages in scientific computing as well as two languages that are emerging in popularity: Go and Scala. 
+    Compiled languages are represented by Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. Also JavaScript is compiled to native machine code when it runs in the V8 JavaScript Engine used by both Node.js and Google Chrome web browser.  This list of languages is rather comprehensive, including the most popular compiled languages in scientific computing as well as two languages that are emerging in popularity: Go and Scala. 
 
 Scala \cite{odersky2004overview} is a strongly-typed 
 functional language that compiles to a Java Virtual Machine 
@@ -326,17 +330,17 @@ These four languages will be tested against a set of interpreted languages descr
 
 \subsubsection{Interpreted languages}
 
-Interpreted languages are represented by Lua, PHP, Julia, Perl, Python and Javascript. These include three popular languages, Perl, Python and Javascript, Python being also the most popular in the scientific computing environment, and then three other languages seldom seen in the EC arena, but popular in their particular niches. 
+Interpreted languages are represented by Lua, PHP, Julia, Perl, Python and JavaScript. These include three popular languages, Perl, Python and JavaScript, Python being also the most popular in the scientific computing environment, and then three other languages seldom seen in the EC arena, but popular in their particular niches. 
 
 Lua \cite{ierusalimschy1996lua} is a popular embedded language designed for easy
-implementation, including a minimalistic grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as % todo
+implementation, including a minimalistic grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as Game Engines.% todo
 There are no known frameworks for EAs written in Lua, although an evoluntionary algorithm that runs in a Canon camera has been found in YouTube.
 
-Perl is an interpreted language been used extensively for evolutionary
+Perl is an interpreted language that has been used extensively for evolutionary
 algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
 satisfactory results, although its main enphasis is not on speed, but on freedom for the programmer to code using any style and paradigm. The module and tools ecosystem built around it make it extremely interesting for any kind of programming. Our implementation of Perl uses different open-source libraries and in some cases also different versions of the language. Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
 
-JavaScript is an interpreted language that follows a ECMA standard and with many different implementations, including the different ones embedded in all internet browsers. Node.js is one such implementation of JavaScript with an asynchronous input/output loop and designed to run standalone in servers or the command line. Node.js uses a the V8 JIT compiler to create bytecode when in reads the
+JavaScript is an interpreted language that follows an ECMA standard and with many different implementations, including the different ones embedded in all internet browsers. Node.js is one such implementation of JavaScript with an asynchronous input/output loop and designed to run standalone in servers or the command line. Node.js uses a the V8 JIT compiler to create native machine code when in reads the
 script, and has been used lately 
 % by our research group 
 as part the NodEO
@@ -345,7 +349,7 @@ framework NodIO \cite{DBLP:journals/corr/GuervosG15}, as well as other libraries
 
 PHP is a language that is most commonly known for the creation of web sites. In fact, it is an interpreted and general-purpose language with enphasis on string processing. There is no known implementation of evolutionary algorithms in PHP.
 
-Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
+Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as Google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
 
 Julia \cite{bezanson2012julia} is the last language tested. It is a modern, interpreted and dynamic language used mainly for technical computing. It cannot be called exactly popular, but we have included it for completeness, mainly. 
 
@@ -367,7 +371,7 @@ $2^{16}$.
 
 In most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this unequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
 
-Every program used also native capabilities for measuring time, using system calls to check time before and after operations were performed. This might result in slightly different behavior, but it is the best system available, so it is what we used. 
+Every program used also provies native capabilities for measuring time, using system calls to check the time before and after operations were performed. This might result in a slightly different behavior, but it is the best system available, so it is what we used. 
 
 All programs produced the same ouput, a comma separated value of language, operand length and time. Results were eventually collated and are available in the same repository than this paper, together with the code in several languages that was produced also specially for this.
 
@@ -383,7 +387,7 @@ colourCount = length(unique(measures.bf$languagerepresentation))
 getPalette = colorRampPalette(brewer.pal(9, "Set1"))
 ggplot(measures.bf,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Bitflip")+scale_y_log10()+scale_x_log10()+scale_color_manual(name='Language',values=getPalette(colourCount))
 @ 
-\caption{Plot of time needed to perform 100K mutations in strings with
+\caption{Plot of the time needed to perform 100K mutations in strings with
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time}
