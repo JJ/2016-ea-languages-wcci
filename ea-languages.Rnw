@@ -98,7 +98,7 @@ available for evolving particular data structures such as regular
 expressions \cite{awk}. Besides, benchmarks should include a wide variety
 of sizes, because the time needed to perform particular operations 
 does not always depends linearly on size, as performance is also affected 
-by technichal details for instance the implementation of loops and memory management.
+by technical details for instance the implementation of loops and memory management.
 
 For the purposes of this paper, we will try to be more extensive on
 the number of languages tested than on the number of operations. In
@@ -135,7 +135,7 @@ Coming up next, we will present the state of the art of the analysis
 of evolutionary algorithm implementations. Next we will present in Section \ref{sec:exp}
 the tests we have used for this paper and its rationale along with the languages we have chosen for carrying them out. Finally, in Section \ref{sec:res} we
 will present the results of measuring the performance of eleven languages running some widely used evolutionary algorithm operators and functions
-mutation, crossover and onemax. Finally, we will draw the conclusions and present future
+mutation, crossover and OneMax. Finally, we will draw the conclusions and present future
 lines of work. 
 
 \section{State of the art}
@@ -187,9 +187,9 @@ on a binary string. In fact, this is not usually the part of the
 program an evolutionary algorithm spends the most time in
 \cite{nesmachnow2011time}. In general, that is the fitness function,
 and then reproduction-related functions: chromosome ranking, for
-instance. However, mutation is an operation that is performed quite frequently and somentimes once for every newly generated individual; it is also quintessential to
+instance. However, mutation is an operation that is performed quite frequently and sometimes once for every newly generated individual; it is also quintessential to
 the algorithm itself and one of the pillars of the canonical genetic algorithm, so it allows the comparison of the different
-languages in the proper context. Crossover is also part of that canonical algorithm, and MaxOnes or Count-Ones or Onemax is a fitness function frequently used as baseline for comparison of evolutionary algorithms. 
+languages in the proper context. Crossover is also part of that canonical algorithm, and MaxOnes or Count-Ones or OneMax is a fitness function frequently used as baseline for comparison of evolutionary algorithms. 
 
 In this section we will outline first
 the specifics of the implementation and the rationale behind them in
@@ -218,7 +218,7 @@ The next operation, {\em two-point crossover} is performed as follows:\begin{ite
 
 A priori this operation seems quite similar to the first one. However, it involves copying of strings, an operation that will scale in a different way than simply running over a string and modifying one bit.
 
-Finally, {\em onemax} follows this procedure\begin{itemize}
+Finally, {\em OneMax} follows this procedure\begin{itemize}
 \item Generate a random string.
 \item Run over the string. 
 \item If the bit is set to one, add one to a counter.
@@ -234,7 +234,7 @@ Being as it is a loop, we should expect that the time needed would grow linearly
 \label{ss:ds}
 
 Chromosomes can be represented in several different ways: an
-array or vector of boolean values, or any other scalar value that can
+array or vector of Boolean values, or any other scalar value that can
 be assimilated to it, or as a bitstring using generally ``1'' for true
 values or ``0'' for false values. Different data structures will have
 an impact on the result, since the operations that are applied to them
@@ -258,7 +258,7 @@ general, it can be divided into three different fields:\begin{itemize}
 
 The memory and speed efficiency of these data structures is different, and it is advisable for anyone implementing an evolutionary algorithm to check all possible data structures before committing, out of inertia, to the easiest one. Once again, implementation matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and differences in evolutionary algorithm performance for different data structures can be, indeed, quite big. 
 
-Not all data structures, however, are easily available for every language, or easy to deal with. We will check in the next subsection which ones have been used in every lauguage. 
+Not all data structures, however, are easily available for every language, or easy to deal with. We will check in the next subsection which ones have been used in every language. 
 
 
 \subsection{Languages tested}
@@ -320,7 +320,7 @@ Scala; however, its increasing popularity within the programmer, and,
 over all, data science community makes it quite likely to find one in the
 near future. 
 
-Java is probably the most popular language within the evolutionary algorithm community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multiplatform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
+Java is probably the most popular language within the evolutionary algorithm community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multi-platform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
 
 C is still one of the most popular languages, despite being free of the paradigms that are so popular nowadays: object orientation or concurrency. It is not so popular within the EA community, who usually opt for its object-oriented version, C++, that has representatives such as ParadisEO \cite{liefooghe2011software} or MALLBA \cite{alba2002mallba}. 
 
@@ -333,12 +333,12 @@ These four languages will be tested against a set of interpreted languages descr
 Interpreted languages are represented by Lua, PHP, Julia, Perl, Python and JavaScript. These include three popular languages, Perl, Python and JavaScript, Python being also the most popular in the scientific computing environment, and then three other languages seldom seen in the EC arena, but popular in their particular niches. 
 
 Lua \cite{ierusalimschy1996lua} is a popular embedded language designed for easy
-implementation, including a minimalistic grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as Game Engines.% todo
-There are no known frameworks for EAs written in Lua, although an evoluntionary algorithm that runs in a Canon camera has been found in YouTube.
+implementation, including a minimalist grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as Game Engines.% todo
+There are no known frameworks for EAs written in Lua, although an evolutionary algorithm that runs in a Canon camera has been found in YouTube.
 
 Perl is an interpreted language that has been used extensively for evolutionary
 algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
-satisfactory results, although its main enphasis is not on speed, but on freedom for the programmer to code using any style and paradigm. The module and tools ecosystem built around it make it extremely interesting for any kind of programming. Our implementation of Perl uses different open-source libraries and in some cases also different versions of the language. Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
+satisfactory results, although its main emphasis is not on speed, but on freedom for the programmer to code using any style and paradigm. The module and tools ecosystem built around it make it extremely interesting for any kind of programming. Our implementation of Perl uses different open-source libraries and in some cases also different versions of the language. Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
 
 JavaScript is an interpreted language that follows an ECMA standard and with many different implementations, including the different ones embedded in all internet browsers. Node.js is one such implementation of JavaScript with an asynchronous input/output loop and designed to run standalone in servers or the command line. Node.js uses a the V8 JIT compiler to create native machine code when in reads the
 script, and has been used lately 
@@ -347,7 +347,7 @@ as part the NodEO
 library \cite{DBLP:conf/gecco/GuervosVGES14} and the volunteer computing
 framework NodIO \cite{DBLP:journals/corr/GuervosG15}, as well as other libraries focused on the browser \cite{rivas2014object}. 
 
-PHP is a language that is most commonly known for the creation of web sites. In fact, it is an interpreted and general-purpose language with enphasis on string processing. There is no known implementation of evolutionary algorithms in PHP.
+PHP is a language that is most commonly known for the creation of web sites. In fact, it is an interpreted and general-purpose language with emphasis on string processing. There is no known implementation of evolutionary algorithms in PHP.
 
 Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as Google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
 
@@ -357,7 +357,7 @@ The interpreter versions and repositories for these languages are shown in the T
 
 \subsection{Implementation notes}
 
-When available, open source implementations of the operators and onemax were used. 
+When available, open source implementations of the operators and OneMax were used. 
 In all cases except in Scala, implementation took less than one hour and was
 inspired by the initial implementation made in Perl. Adequate data and control
 structures were used for running the application, which applies
@@ -369,16 +369,16 @@ benchmarks within one hour. Results are shown next. In some cases and
 when the whole test took less than one hour, length was taken up to
 $2^{16}$.  
 
-In most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this unequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
+In most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this inequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
 
-Every program used also provies native capabilities for measuring time, using system calls to check the time before and after operations were performed. This might result in a slightly different behavior, but it is the best system available, so it is what we used. 
+Every program used also provides native capabilities for measuring time, using system calls to check the time before and after operations were performed. This might result in a slightly different behavior, but it is the best system available, so it is what we used. 
 
-All programs produced the same ouput, a comma separated value of language, operand length and time. Results were eventually collated and are available in the same repository than this paper, together with the code in several languages that was produced also specially for this.
+All programs produced the same output, a comma separated value of language, operand length and time. Results were eventually collated and are available in the same repository than this paper, together with the code in several languages that was produced also specially for this.
 
 \section{Results and analysis}
 \label{sec:res}
 
-We will examine first the peformance for the bitflip operation, that is graphed in Figure \ref{fig:time}.
+We will examine first the performance for the bitflip operation, that is graphed in Figure \ref{fig:time}.
 
 \begin{figure}[h!tb]
   \centering
@@ -543,8 +543,6 @@ an alternative to the single-language frameworks that are the most
 usual nowadays. %Pablo me mola esta frase, me la apunto para el futuro
                 %:) 
 
-
-
 Future lines of work might include a more extensive measurement of
 other operators such as  tournament selection and other selection
 algorithms. A priori, they are essentially CPU integer
@@ -552,23 +550,21 @@ operations and their behavior might be, in principle, very similar to %Pablo: ar
 the one shown in these operations. This remains to be proved, however, but it is left
 as future line of work.
 
-It would also be intesresting to mix and match different languages,
+It would also be interesting to mix and match different languages,
 choosing every one for its performance, in a hybrid
 architecture. Communication might have some overhead, but it might be
 offset by performance. Combining some compiled languages such as Go or
 C with others characterized by its speed in some string operations,
-like Perl or programing ease, might result in the best of both worlds:
+like Perl or programming ease, might result in the best of both worlds:
 performance and rapid prototyping. Creating a whole multi-language
 framework along these lines is a challenge that might be interesting
 in the future. 
 
 Focusing only in the part of measuring algorithms and in the interest
-of reproducibility, we intend to create
+of reproductibility, we intend to create
 a Docker container with all the tests so that it can be downloaded and
 run in any machine, checking for differences in different underlying
 architectures. 
-
-
 
 
 \section{Acknowledgements}
