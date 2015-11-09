@@ -361,7 +361,9 @@ mutation to a single generated chromosome a hundred thousand
 times. The length of the mutated string starts at 16 and is doubled
 until reaching $2^{15}$, that is, 32768. This upper length was chosen to
 have an ample range, but also so small as to be able to run the
-benchmarks within one hour. Results are shown next. In some cases and when the whole test took less than one hour, length was taken up to $2^{16}$. 
+benchmarks within one hour. Results are shown next. In some cases and
+when the whole test took less than one hour, length was taken up to
+$2^{16}$.  
 
 In most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this unequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
 
@@ -539,25 +541,46 @@ usual nowadays. %Pablo me mola esta frase, me la apunto para el futuro
 
 
 
-%Future lines of work might include a more extensive measurement of
-%other operators such as crossover, tournament selection and other  % [pedro] de acuerdo con el abstract, esto se ha hecho, ¿no?
-%selection algorithms. However, they are essentially CPU integer
-%operations and their behavior might be, in principle, very similar to %Pablo: arriba behaviour estaba en americano
-%the one shown here. This remains to be proved, however, but it is left
-%as future line of work. 
+Future lines of work might include a more extensive measurement of
+other operators such as  tournament selection and other selection
+algorithms. A priori, they are essentially CPU integer
+operations and their behavior might be, in principle, very similar to %Pablo: arriba behaviour estaba en americano
+the one shown in these operations. This remains to be proved, however, but it is left
+as future line of work.
+
+It would also be intesresting to mix and match different languages,
+choosing every one for its performance, in a hybrid
+architecture. Communication might have some overhead, but it might be
+offset by performance. Combining some compiled languages such as Go or
+C with others characterized by its speed in some string operations,
+like Perl or programing ease, might result in the best of both worlds:
+performance and rapid prototyping. Creating a whole multi-language
+framework along these lines is a challenge that might be interesting
+in the future. 
+
+Focusing only in the part of measuring algorithms and in the interest
+of reproducibility, we intend to create
+a Docker container with all the tests so that it can be downloaded and
+run in any machine, checking for differences in different underlying
+architectures. 
 
 
 
 
 \section{Acknowledgements}
 
-%% This paper is part of the open science effort at the university of
-%% Granada. It has been written using {\tt knitr}, and its source as well as
-%% the data used to create it can be downloaded from
+This paper is part of the open science effort at the university of
+%% Granada.
+Miskatonic,
+It has been written using {\tt knitr}, and its source as well as
+the data used to create it can be downloaded from \url{hidden.url}- 
 %% \href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub
 %%   repository}. It has been supported in part by  
 %% \href{http://geneura.wordpress.com}{GeNeura Team}. 
 
+It has been supported by \\
+several \\
+agencies taking this much space
 %% This work has been supported in part SPIP2014-01437 (Direcci\'on General
 %% de Tr\'afico), PRY142/14 (Fundaci\'on P\'ublica Andaluza Centro de
 %% Estudios Andaluces en la IX Convocatoria de Proyectos de
