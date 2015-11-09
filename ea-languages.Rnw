@@ -303,7 +303,7 @@ languages are presented in the next two subsections.
     \subsubsection{Compiled languages}
     \label{ss}
 
-    Compiled languages are represented by Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. This list of languages is rather comprehensive, including the most popular compiled languages in scientific computing as well as two languages that are emerging in popularity: Go and Scala. 
+    Compiled languages are represented by Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. Also JavaScript is compiled to native machine code when it runs in the V8 JavaScript Engine used by both Node.js and Google Chrome web browser.  This list of languages is rather comprehensive, including the most popular compiled languages in scientific computing as well as two languages that are emerging in popularity: Go and Scala. 
 
 Scala \cite{odersky2004overview} is a strongly-typed 
 functional language that compiles to a Java Virtual Machine 
