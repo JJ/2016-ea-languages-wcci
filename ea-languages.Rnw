@@ -66,8 +66,11 @@ Let us emphasize that running speed is not everything. In many cases,
 % Pablo, cuando pones ``podemos poner'' estás diciendo ``ponlas tú''. O las pones o no las pones, y si las pones, ya veremos si encajan o no. - JJ
 ease of integration with existing or legacy tools, coding speed or
 availability of parallel or distributed frameworks are much more
-important than how fast a single CPU program runs. However, in some
-case, mainly when the size of the problem or the running time of the
+important than how fast a single CPU program runs. There are also
+restrictions inherent to the application at hand, such as embedded 
+or web based systems where certain languages must be used.
+However, in some
+cases, mainly when the size of the problem or the running time of the
 algorithm call for the maximum running speed available, it is
 interesting at least to know which languages can be used to obtain the
 best performance. 
@@ -93,9 +96,9 @@ realm of evolutionary algorithm operators, some interpreted and
 unpopular languages such as {\tt awk} can be the fastest option
 available for evolving particular data structures such as regular
 expressions \cite{awk}. Besides, benchmarks should include a wide variety
-of sizes, since the implementation of loops and memory management
-might make the time needed to perform particular operations not depend
-linearly on sizes.
+of sizes, because the time needed to perform particular operations 
+does not always depends linearly on size, as performance is also affected 
+by technichal details for instance the implementation of loops and memory management.
 
 For the purposes of this paper, we will try to be more extensive on
 the number of languages tested than on the number of operations. In
@@ -108,7 +111,7 @@ and crossover. Besides, a fitness function usually employed as a
 baseline for evolutionary algorithms will be used: OneMax. 
 
 In general, programs do not spend the majority of the time applying
-them; this post in the ranking rather goes to selection operators and
+them; this place in the ranking rather goes to selection operators and
 other higher-level, population-handling ones, as well as usually the
 fitness function. However, these functions are well covered by usual
 benchmarks so you can usually rely on any of them for choosing a
@@ -122,14 +125,14 @@ HIFF, OneMax or Royal Road.
 Finally, our intention is not so much to choose the winner of the
 competition of fastest language for evolutionary algorithms as much as
 to check the variety of speeds available and to know what order of
-magnitude these differences are. This will can be used to aid in the
-decision of choosing a language for implementing an evolutionary
+magnitude these differences are. This work can be used to aid in 
+making the decision of a language for implementing an evolutionary
 algorithm, or at least to justify the choice of non-mainstream
-languages such as Python, Lua, Javascript or Go, which, in fact, do
+languages such as Python, Lua, JavaScript or Go, which, in fact, do
 reach interesting performance marks. 
 
 Coming up next, we will present the state of the art of the analysis
-of implementations of evolutionary algorithms. Next we will present in Section \ref{sec:exp}
+of evolutionary algorithm implementations. Next we will present in Section \ref{sec:exp}
 the tests we have used for this paper and its rationale along with the languages we have chosen for carrying them out. Finally, in Section \ref{sec:res} we
 will present the results of measuring the performance of eleven languages running some widely used evolutionary algorithm operators and functions
 mutation, crossover and onemax. Finally, we will draw the conclusions and present future
