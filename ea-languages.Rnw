@@ -163,13 +163,14 @@ Even so and when speed matters, the benchmarks performed in those papers were re
 particular problem sizes and to very specific languages. They also
 test a single language for the whole evolutionary algorithm; however,
 it might happen that, since different operations are involved, the
-ranking varies depending on the operation and on the size. This, in an
-environment such as the Kappa architecture \cite{KappaArch} or
+ranking varies depending on the operation and on the size. This
+can be of special interest in
+environments such as the Kappa architecture \cite{KappaArch} or
 web-services based frameworks \cite{garcia2010distributed,DBLP:journals/soco/Garcia-SanchezGCAG13} where
 different parts of an application might be written in different
-languages and loosely connected, might make the particular speed in
-particular languages an issue so that they are used to implement
-particular operations, as opposed to monolithic architectures written
+languages. An advantage of these loosely connected systems is that they might 
+change the language used for a particular operation if they encounter
+performance issues, as opposed to monolithic architectures written
 in a single language. 
 
 This is, as a matter of fact, the state of the art such as we have found them. That is why we think it is important to take real measures so that decisions on implementation are based on facts strictly related to evolutionary algorithms, instead of relying on common lore. 
@@ -232,7 +233,7 @@ Being as it is a loop, we should expect that the time needed would grow linearly
 \subsection{Available data structures}
 \label{ss:ds}
 
-Chromosomes can be represented in at several different ways: an
+Chromosomes can be represented in several different ways: an
 array or vector of boolean values, or any other scalar value that can
 be assimilated to it, or as a bitstring using generally ``1'' for true
 values or ``0'' for false values. Different data structures will have
