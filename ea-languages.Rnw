@@ -216,7 +216,10 @@ The next operation, {\em two-point crossover} is performed as follows:\begin{ite
   \item Building two new chromosomes including the original from position 0 to the first point, interchanged bits from the first point to the second, and the original ones from the second position to the end of the strings.
 \end{itemize}
 
-A priori this operation seems quite similar to the first one. However, it involves copying of strings, an operation that will scale in a different way than simply running over a string and modifying one bit.
+A priori this operation seems quite similar to the first one. However,
+it involves copying of strings, an operation that will scale in a
+different way than simply running over a string and modifying one
+bit. 
 
 Finally, {\em OneMax} follows this procedure\begin{itemize}
 \item Generate a random string.
@@ -225,7 +228,18 @@ Finally, {\em OneMax} follows this procedure\begin{itemize}
 \item Return the counter.
 \end{itemize}
 
-Despite its apparent simplicity, counting the number of ones in a string is an extremely complicated operation, which is in fact used by human resources teams to examine the prowess of candidates in the creation of algorithms and in the knowledge of a language. The straightforward way of carrying it out is using a loop that looks, one by one, at the bits in the string and adds 1 to the counter. However, in most cases that might not be the fastest way. At any rate, this fitness function is quite similar to others that decode the bits of a binary chromosome and, even if it is quite clearly not the only existent fitness function, it is one that is widely used in evolutionary algorithms and whose speed can be applied to other similar functions.
+Despite its apparent simplicity, counting the number of ones in a
+string is an extremely complicated operation, which is in fact used by
+human resources teams to examine the prowess of candidates in the
+creation of algorithms and in the knowledge of a language. The
+straightforward way of carrying it out is using a loop that looks, one
+by one, at the bits in the string and adds 1 to the counter. However,
+in most cases that might not be the fastest way. At any rate, this
+fitness function is quite similar to others that decode the bits of a
+binary chromosome and, even if it is quite clearly not the only
+existent fitness function, it is one that is widely used in
+evolutionary algorithms and whose speed can be applied to other
+similar functions. 
 
 Being as it is a loop, we should expect that the time needed would grow linearly with the chromosome size. We will check whether this is true or not for the different languages below. 
 
@@ -444,12 +458,7 @@ at least for sizes bigger than 64. The scaling of
 this performance is similar for C, which becomes the second slowest
 for sizes bigger than 1024. The Node.js JavaScript interpreter performs
 quite consistently and independently of the size, but Perl and PHP are
-also quite fast for a significant portion of the size range. %Pablo,
-                                        %arriba se ha puesto como
-                                        %Node.js. Al menos debería
-                                        %ponerse en mayúsculas en
-                                        %todas las ocurrencias, no? 
-%Cambiado todo.
+also quite fast for a significant portion of the size range. 
 Python, on the other hand, shows in this occasion a behavior that
 degrades for the high end of the size range, becoming slower than Lua
 or any Perl implementation. 
@@ -489,18 +498,13 @@ and associated operators makes Java stand out among the rest.
 After this overview of the results, we will proceed to present the
 conclusions. 
 
-
 \section{Conclusions}
 
 Our main intention in this paper was to measure the performance of
 usual functions found in evolutionary algorithm frameworks: mutation, crossover
 and OneMax, for several compiled and interpreted languages with a wide
 range of use and popularity within the evolutionary computation and
-scientific community and programmers at large. %PABLO: onemax no es
-                                        %una función "found in EAs",
-                                        %más bien, "used in the EA
-                                        %area" o algo así 
-% Used in implementations :-) - JJ
+scientific community and programmers at large. 
 
 In general, performance results do not place interpreted and compiled
 languages in different categories. The performance of the
