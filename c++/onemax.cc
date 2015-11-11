@@ -1,1 +1,1 @@
-onemax-d.cc
+onemax-d2.cc
