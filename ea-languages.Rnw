@@ -51,6 +51,12 @@ measures.mo <- read.csv('measures-maxones.csv')
   most purposes. Besides, these experiments show which of these measures are, in fact, the best for choosing an implementation language based on its performance.
 \end{abstract}
 
+\begin{keywords}
+Performance optimization, benchmark, implementation of evolutionary
+algorithms. 
+\end{keywords}
+
+
 \section{Introduction}
 
 It is usual in soft computing to try and use languages such as C++ or
@@ -365,9 +371,13 @@ PHP is a language that is most commonly known for the creation of web sites. In 
 
 Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as Google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
 
-Julia \cite{bezanson2012julia} is the last language tested. It is a modern, interpreted and dynamic language used mainly for technical computing. It cannot be called exactly popular, but we have included it for completeness, mainly. 
+Julia \cite{bezanson2012julia} is the last language tested. It is a
+modern, interpreted and dynamic language used mainly for technical
+computing. It cannot be called exactly popular, but we have included
+it for completeness, mainly. 
 
-The interpreter versions and repositories for these languages are shown in the Table \ref{tab:files}. 
+The interpreter versions and repositories for these languages are
+shown in Table \ref{tab:files}. 
 
 \subsection{Implementation notes}
 
