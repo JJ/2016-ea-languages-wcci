@@ -2,15 +2,7 @@
 
 \usepackage{cite}
 \usepackage{array}
-% *** GRAPHICS RELATED PACKAGES ***
-%
-\ifCLASSINFOpdf
-  \usepackage[pdftex]{graphicx}
-  \graphicspath{{../img/}}
-\else
-  \usepackage[dvips]{graphicx}
-  \graphicspath{{../img/}}
-\fi
+
 
 
 \usepackage[utf8]{inputenc}
@@ -24,8 +16,8 @@
 \usepackage{subfigure}
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
 %\SweaveOpts{concordance=TRUE}
+
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
