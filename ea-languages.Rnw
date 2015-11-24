@@ -1,4 +1,17 @@
-\documentclass[runningheads,a4paper]{llncs}
+\documentclass[conference,twocolumns]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{array}
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{graphicx}
+  \graphicspath{{../img/}}
+\else
+  \usepackage[dvips]{graphicx}
+  \graphicspath{{../img/}}
+\fi
+
 
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
@@ -11,6 +24,7 @@
 \usepackage{subfigure}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 %\SweaveOpts{concordance=TRUE}
 
 <<setup, cache=FALSE,echo=FALSE>>=
@@ -22,10 +36,27 @@ measures.mo <- read.csv('measures-maxones.csv')
 @ 
 
 \title{Benchmarking languages for evolutionary algorithms}
-\titlerunning{Benchmarking EAs}
 
-\author{A. U. Thor}
-\institute{Midgardian Polytechnic}
+
+%PABLO: in conference mode this is how to create the authors
+\author{\IEEEauthorblockN{Michael Shell}
+\IEEEauthorblockA{School of Electrical and\\
+Computer Engineering\\
+Georgia Institute of Technology\\
+Atlanta, Georgia 30332--0250\\
+Email: mshell@ece.gatech.edu}
+\and
+\IEEEauthorblockN{Homer Simpson}
+\IEEEauthorblockA{Twentieth Century Fox\\
+Springfield, USA\\
+Email: homer@thesimpsons.com}
+\and
+\IEEEauthorblockN{James Kirk\\
+and Montgomery Scott}
+\IEEEauthorblockA{Starfleet Academy\\
+San Francisco, California 96678-2391\\
+Telephone: (800) 555--1212\\
+Fax: (888) 555--1212}}
 
 \maketitle
 
@@ -50,11 +81,9 @@ measures.mo <- read.csv('measures-maxones.csv')
   in fact, the best for choosing an implementation language based on its performance.
 \end{abstract}
 
-\begin{keywords}
-Performance optimization, benchmark, implementation of evolutionary
-algorithms. 
-\end{keywords}
-
+\begin{IEEEkeywords}
+Per\-formance optimization, bench\-mark, implementation of evolutionary algorithms. 
+\end{IEEEkeywords}
 
 \section{Introduction}
 
@@ -602,9 +631,9 @@ agencies taking this much space
 %% Granada).  
   
 
-\bibliographystyle{splncs}
+\bibliographystyle{IEEEtran}
 \bibliography{geneura,languages,GA-general}
-
+%\bibliography{languages}
 \end{document}
 %%% Local Variables:
 %%% ispell-local-dictionary: "english"
