@@ -16,8 +16,6 @@
 \usepackage{subfigure}
 
 \begin{document}
-%\SweaveOpts{concordance=TRUE}
-
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
@@ -31,12 +29,11 @@ measures.mo <- read.csv('measures-maxones.csv')
 
 
 %PABLO: in conference mode this is how to create the authors
-\author{\IEEEauthorblockN{Michael Shell}
-\IEEEauthorblockA{School of Electrical and\\
-Computer Engineering\\
-Georgia Institute of Technology\\
-Atlanta, Georgia 30332--0250\\
-Email: mshell@ece.gatech.edu}
+\author{\IEEEauthorblockN{Juan-Julián Merelo-Guervós}
+\IEEEauthorblockA{CITIC and Computer Architecture and Technology
+  Department\\
+University of Granada (Spain)\\
+Email: jmerelo@ugr.es}
 \and
 \IEEEauthorblockN{Homer Simpson}
 \IEEEauthorblockA{Twentieth Century Fox\\
