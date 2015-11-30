@@ -38,10 +38,10 @@ Georgia Institute of Technology\\
 Atlanta, Georgia 30332--0250\\
 Email: mshell@ece.gatech.edu}
 \and
-\IEEEauthorblockN{Homer Simpson}
-\IEEEauthorblockA{Twentieth Century Fox\\
-Springfield, USA\\
-Email: homer@thesimpsons.com}
+\IEEEauthorblockN{Victor M. Rivas}
+\IEEEauthorblockA{Department of Computer Sciences\\
+University of Jaen (Spain)\\
+Email: vrivas@ujaen.es}
 \and
 \IEEEauthorblockN{James Kirk\\
 and Montgomery Scott}
