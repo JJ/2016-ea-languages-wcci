@@ -53,6 +53,11 @@ Fax: (888) 555--1212}
 \IEEEauthorblockA{Computer Architecture and Technology Department\\
 University of Granada (Spain)\\
 Email: iblancasa@ugr.es}
+\and
+\IEEEauthorblockN{Pedro A. Castillo}
+\IEEEauthorblockA{Computer Architecture and Technology Department\\
+University of Granada (Spain)\\
+Email: pacv@ugr.es}
 }
 
 \maketitle
@@ -540,7 +545,8 @@ Our main intention in this paper was to measure the performance of
 usual functions found in evolutionary algorithm frameworks: mutation, crossover
 and OneMax, for several compiled and interpreted languages with a wide
 range of use and popularity within the evolutionary computation and
-scientific community and programmers at large.
+scientific community and programmers at large.  
+% and to determine how these programming languages affect the performance in EA experiments
 
 In general, performance results do not place interpreted and compiled
 languages in different categories. The performance of the
