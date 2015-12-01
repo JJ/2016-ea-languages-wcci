@@ -8,7 +8,7 @@ const unsigned LENGTH	 =  65536;
 
 int main()
 {
-	std::mt19937 engine;
+	std::minstd_rand engine;
 
 	for (unsigned length = 16; length <= LENGTH; length <<= 1)
 	{
@@ -25,6 +25,6 @@ int main()
 		auto stop = std::chrono::high_resolution_clock::now();
 
 		std::chrono::duration<double> t = stop - start;
-		std::cout << "std::tr2::dynamic_bitset<>, " << length << ", " << t.count() << std::endl;
+		std::cout << "std::tr2::dynamic_bitset, " << length << ", " << t.count() << std::endl;
 	}
 }

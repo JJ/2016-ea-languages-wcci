@@ -21,7 +21,8 @@ int main()
 		clock_gettime(CLOCK_REALTIME, &start);
 
 		for (unsigned i = 0; i < ITERATIONS; ++i)
-			for (unsigned j = 0; j < length; ++j)
+/*			for (unsigned j = 0; j < length; ++j)*/
+			for (unsigned j = rand() & (length - 1); j < length; ++j)
 				if (rand() & 1)
 				{
 					char tmp = bits1[j];

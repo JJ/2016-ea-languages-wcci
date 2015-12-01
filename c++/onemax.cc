@@ -4,30 +4,30 @@
 #include <random>
 
 const unsigned ITERATIONS = 100000;
-const unsigned LENGTH     =  65536;
+const unsigned LENGTH	 =  65536;
 
 int main()
 {
-    std::mt19937 engine;
-    unsigned result = 0;
+	std::minstd_rand engine;
+	unsigned result = 0;
 
-    for (unsigned length = 16; length <= LENGTH; length <<= 1)
-    {
-        std::tr2::dynamic_bitset<> bits(length);
+	for (unsigned length = 16; length <= LENGTH; length <<= 1)
+	{
+		std::tr2::dynamic_bitset<> bits(length);
 
-        for (unsigned i = 0; i < length; ++i)
-            bits[i] = engine() & 1;
+		for (unsigned i = 0; i < length; ++i)
+			bits[i] = engine() & 1;
 
-        auto start = std::chrono::high_resolution_clock::now();
+		auto start = std::chrono::high_resolution_clock::now();
 
-        for (unsigned i = 0; i < ITERATIONS; ++i)
-            result += bits.count();
+		for (unsigned i = 0; i < ITERATIONS; ++i)
+			result += bits.count();
 
-        auto stop = std::chrono::high_resolution_clock::now();
+		auto stop = std::chrono::high_resolution_clock::now();
 
-        std::chrono::duration<double> t = stop - start;
-        std::cout << "std::tr2::dynamic_bitset<>, " << length << ", " << t.count() << std::endl;
-    }
+		std::chrono::duration<double> t = stop - start;
+		std::cout << "std::tr2::dynamic_bitset, " << length << ", " << t.count() << std::endl;
+	}
 
-    return result; // avoid code elision
+	return result; // avoid code elision
 }
