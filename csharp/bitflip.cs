@@ -33,7 +33,7 @@ namespace bitflip
 		long ticks = stopwatch.ElapsedTicks;
 		double s = (double)ticks / Stopwatch.Frequency;
 		
-		Console.WriteLine (String.Format(new CultureInfo("en-US"),"CSharp-BitVector,{0},{1:F6}",length,s));
+		Console.WriteLine (String.Format(new CultureInfo("en-US"),"CSharp-BitVector,{0},{1}",length,s));
 	    }
 	}
     }
