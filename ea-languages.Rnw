@@ -329,7 +329,7 @@ languages are presented in the next two subsections.
       Python & 2.7.3 & http://git.io/vBSYb & String\\
       Go & go1.2.1 & http://git.io/vBSYp & Bit Vector \\
       Julia & 0.2.1 & http://git.io/vBSOe & Bit Vector \\
-      C & 4.8.2 & http://git.io/v8T57 & char string \\
+      C & 4.8.2 & http://git.io/v8T57 & char vector \\
 %     C & 4.8.2 & http://git.io/v8kvU
 %      C++ & 4.8.4 & \url{http://git.io/v8T57} \\
       C++ & 4.8.4 & http://git.io/v8T57 & bitset  \\
