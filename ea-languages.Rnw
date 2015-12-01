@@ -330,7 +330,7 @@ languages are presented in the next two subsections.
       C & 4.8.2 & http://git.io/v8T57 & char string \\
 %     C & 4.8.2 & http://git.io/v8kvU
 %      C++ & 4.8.4 & \url{http://git.io/v8T57} \\
-      C++ & 4.8.4 & http://git.io/v8T57 & String  \\
+      C++ & 4.8.4 & http://git.io/v8T57 & bitset  \\
 %      Java & 1.7.0_45 & \url{http://git.io/v8TdR} \\
       Java & 1.8.0\_66 & URL & Bitset \\
 %      PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
