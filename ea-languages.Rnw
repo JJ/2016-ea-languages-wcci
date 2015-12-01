@@ -68,10 +68,11 @@ Email: iblancasa@ugr.es}
   considering other languages or rejecting them outright on the basis
   of performance. Since there are a myriad of languages nowadays, it
   is interesting to measure their speed when performing usual operations in evolutionary algorithms.
-  That is why in this paper three evolutionary algorithm operations have been chosen: bitflip mutation, crossover
-  and the OneMax evaluation fitness function, and have been measured the speed for both
-  popular and not so popular languages. The results confirm
-  that Java, C and C++ not only are the fastest, but also
+  That is why in this paper three evolutionary algorithm operations have been chosen: 
+  bitflip mutation, crossover and the OneMax evaluation fitness function, and have 
+  been measured the speed for both popular and not so popular languages
+  in order to determine how these programming languages affect the performance in evolutionary algorithm experiments. 
+  The results confirm that Java, C and C++ not only are the fastest, but also
   have a behaviour that is independent of the size of the chromosome. % interesting finding !!
   Additionally, results show that other languages, such as Go (compiled) or Python (interpreted) are fast enough for
   most purposes. Besides, these experiments show which of these measures are,
