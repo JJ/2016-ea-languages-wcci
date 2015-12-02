@@ -9,7 +9,6 @@ auto:
 	latexmk -bibtex -f -pdf -pvc
 
 clean:
-	-rm $(PDF) $(TEX)
 	latexmk -C
 	for i in $(SUB); do $(MAKE) -C $$i clean; done
 

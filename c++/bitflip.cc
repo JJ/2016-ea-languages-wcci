@@ -24,7 +24,10 @@ int main()
 
 		auto stop = std::chrono::high_resolution_clock::now();
 
-		std::chrono::duration<double> t = stop - start;
-		std::cout << "std::tr2::dynamic_bitset, " << length << ", " << t.count() << std::endl;
+		std::cout << "C++-dynamic_bitset, " 
+		          << length << ", " 
+		          << std::chrono::nanoseconds(stop - start).count()
+		          << std::endl;
+
 	}
 }

@@ -9,7 +9,10 @@ EXE = $(basename $(SRC))
 
 ###############################################################################
 
+default: $(EXE)
+
 all: $(EXE)
+	for i in $^; do echo $$i; ./$$i; done
 
 clean:
 	$(RM) -rf $(EXE) $(TXT)

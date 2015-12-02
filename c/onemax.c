@@ -14,20 +14,19 @@ int main()
 		struct timespec start, stop;
 		char bits[length];
 
-	   
+		for (unsigned i = 0; i < length; i++ )
+			bits[i] = rand() & 1;
+
 
 		clock_gettime(CLOCK_REALTIME, &start);
 
-	for (unsigned i = 0; i < ITERATIONS; ++i) {
-	  for (unsigned i = 0; i < length; i++ )
-		bits[i] = rand() & 1;
-	  for (unsigned j = 0; j < length; ++j)
-		result += bits[j];
-	}
+		for (unsigned i = 0; i < ITERATIONS; ++i) 
+			for (unsigned j = 0; j < length; ++j)
+				result += bits[j];
 
 		clock_gettime(CLOCK_REALTIME, &stop);
 
-		printf("C-char[], %u, %f\n", length, (stop.tv_sec - start.tv_sec) + (stop.tv_nsec - start.tv_nsec) / 1e9);
+		printf("C-char[], %u, %ld\n", length, (stop.tv_sec - start.tv_sec) * 1000000000 + (stop.tv_nsec - start.tv_nsec));
 	}
 
 	return result;

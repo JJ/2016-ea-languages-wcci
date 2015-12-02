@@ -29,7 +29,7 @@ int main()
 			unsigned t1 = rand() & (length - 1), 
 			         t2 = rand() & (length - 1);
 			unsigned b = MIN(t1, t2), 
-					 e = MAX(t1, t2);
+			         e = MAX(t1, t2);
 			while (b != e)
 			{
 				char tmp = bits1[b];
@@ -41,7 +41,7 @@ int main()
 		
 		clock_gettime(CLOCK_REALTIME, &stop);
 
-		printf("C-char[], %u, %f\n", length, (stop.tv_sec - start.tv_sec) + (stop.tv_nsec - start.tv_nsec) / 1e9);
+		printf("C-char[], %u, %ld\n", length, (stop.tv_sec - start.tv_sec) * 1000000000 + (stop.tv_nsec - start.tv_nsec));
 	}
 
 	return 0;

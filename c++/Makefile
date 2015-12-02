@@ -14,7 +14,7 @@ DAT = $(EXE:=.dat)
 
 default: $(EXE)
 
-all: $(PERF) $(dat)
+all: $(DAT)
 
 clean:
 	$(RM) -rf $(EXE) $(PERF) $(DAT) *.perf.old

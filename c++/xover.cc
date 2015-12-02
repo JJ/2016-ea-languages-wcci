@@ -1,13 +1,12 @@
 #include <algorithm>
 #include <chrono>
 #include <tr2/dynamic_bitset>
+#include <iomanip>
 #include <iostream>
 #include <random>
 
 const unsigned ITERATIONS = 100000;
 const unsigned LENGTH	 =  32768;
-
-char r = 0; // avoid code elision
 
 int main()
 {
@@ -39,15 +38,13 @@ int main()
 				bits2[b] = tmp;
 				++b;
 			}
-
-			r += bits1.count() + bits2.count(); // avoid code elision
 		}
 
 		auto stop = std::chrono::high_resolution_clock::now();
 
-		std::chrono::duration<double> t = stop - start;
-		std::cout << "std::tr2::dynamic_bitset, " << length << ", " << t.count() << std::endl;
+		std::cout << "C++-dynamic_bitset, " 
+		          << length << ", " 
+		          << std::chrono::nanoseconds(stop - start).count()
+		          << std::endl;
 	}
-	
-	return r; // avoid code elision
 }
