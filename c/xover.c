@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
 const unsigned ITERATIONS = 100000;
 const unsigned LENGTH	 =  32768;
 
@@ -20,16 +23,22 @@ int main()
 
 		clock_gettime(CLOCK_REALTIME, &start);
 
+		// two point crossover
 		for (unsigned i = 0; i < ITERATIONS; ++i)
-/*			for (unsigned j = 0; j < length; ++j)*/
-			for (unsigned j = rand() & (length - 1); j < length; ++j)
-				if (rand() & 1)
-				{
-					char tmp = bits1[j];
-					bits1[j] = bits2[j];
-					bits2[j] = tmp;
-				}
-
+		{
+			unsigned t1 = rand() & (length - 1), 
+			         t2 = rand() & (length - 1);
+			unsigned b = MIN(t1, t2), 
+					 e = MAX(t1, t2);
+			while (b != e)
+			{
+				char tmp = bits1[b];
+				bits1[b] = bits2[b];
+				bits2[b] = tmp;
+				++b;
+			}
+		}
+		
 		clock_gettime(CLOCK_REALTIME, &stop);
 
 		printf("C-char[], %u, %f\n", length, (stop.tv_sec - start.tv_sec) + (stop.tv_nsec - start.tv_nsec) / 1e9);

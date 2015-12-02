@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <chrono>
 #include <tr2/dynamic_bitset>
 #include <iostream>
@@ -5,6 +6,8 @@
 
 const unsigned ITERATIONS = 100000;
 const unsigned LENGTH	 =  32768;
+
+char r = 0; // avoid code elision
 
 int main()
 {
@@ -22,19 +25,29 @@ int main()
 
 		auto start = std::chrono::high_resolution_clock::now();
 
+		// two point crossover
 		for (unsigned i = 0; i < ITERATIONS; ++i)
-//			for (unsigned j = 0; j < length; ++j)
-			for (unsigned j = engine() & (length - 1); j < length; ++j)
-				if (engine() & 1)
-				{
-					auto tmp = bits1[j];
-					bits1[j] = bits2[j];
-					bits2[j] = tmp;
-				}
+		{
+			auto mm = std::minmax(engine() & (length - 1), 
+			                      engine() & (length - 1));
+			unsigned b = mm.first, 
+					 e = mm.second;
+			while (b != e)
+			{
+				bool tmp = bits1[b];
+				bits1[b] = bits2[b];
+				bits2[b] = tmp;
+				++b;
+			}
+
+			r += bits1.count() + bits2.count(); // avoid code elision
+		}
 
 		auto stop = std::chrono::high_resolution_clock::now();
 
 		std::chrono::duration<double> t = stop - start;
 		std::cout << "std::tr2::dynamic_bitset, " << length << ", " << t.count() << std::endl;
 	}
+	
+	return r; // avoid code elision
 }
