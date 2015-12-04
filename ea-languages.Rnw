@@ -3,8 +3,6 @@
 \usepackage{cite}
 \usepackage{array}
 
-
-
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{amssymb}
@@ -22,7 +20,7 @@ library("ggplot2")
 library(RColorBrewer)
 measures.bf <- read.csv('measures-bitflip.csv')
 measures.xo <- read.csv('measures-xover.csv')
-measures.mo <- read.csv('measures-maxones.csv')
+measures.mo <- read.csv('measures-maxones.csv',header=TRUE,sep=",",dec=".")
 @
 
 
@@ -340,9 +338,9 @@ languages are presented in the next two subsections.
 %      C++ & 4.8.4 & \url{http://git.io/v8T57} \\
       C++ & 4.8.4 & http://git.io/v8T57 & bitset  \\
 %      Java & 1.7.0_45 & \url{http://git.io/v8TdR} \\
-      Java & 1.8.0\_66 & URL & Bitset \\
-%      PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
-      PHP & 5.5.9 & URL & String \\ % vrivas, 5-nov-2015
+      Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset \\
+      PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
+      Rust &  1.4.0  & \url{github.com/JJ/RustEO} & BitVector \\ 
       \hline
       \end{tabular}
       \caption{Languages used and file written to carry out the
@@ -373,7 +371,12 @@ near future.
 
 Java is probably the most popular language within the evolutionary algorithm community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multi-platform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
 
-C is still one of the most popular languages, despite being free of the paradigms that are so popular nowadays: object orientation or concurrency. It is not so popular within the EA community, who usually opt for its object-oriented version, C++, that has representatives such as ParadisEO \cite{liefooghe2011software} or MALLBA \cite{alba2002mallba}.
+C is still one of the most popular languages, despite being free of
+the paradigms that are so popular nowadays: object orientation or
+concurrency. It is not so popular within the EA community, who usually
+opt for its object-oriented version, C++, that has representatives
+such as ParadisEO \cite{liefooghe2011software} or MALLBA
+\cite{alba2002mallba}. 
 
 Go \cite{pike2009go} was a language initially introduced by Google, but that has dug into the niches that were dominated formerly by C. It is also a compiled language designed for system programming, and is concurrent.
 
