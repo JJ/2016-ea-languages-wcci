@@ -32,27 +32,20 @@ namespace xover
 				
 
 
-					//  FROM POINT
-					int point =  rnd.Next (length);
-					for (int j = point; j < length; j++)
-						if (Convert.ToBoolean (rnd.Next (0, 2))) {
-							bool tmp = bits1 [j];
-							bits1 [j] = bits2 [j];
-							bits2 [j] = tmp;
+					//  TWO POINT
+					int point1 =  rnd.Next (length);
+					int point2 =  rnd.Next (length);
+					int min = Math.Min (point1, point2);
+					int max = Math.Max (point1, point2);
 
-						}
-					
-					/*
-					 *  ALL THE ARRAY
-					for (int j = 0; j < length; j++)
-						if (Convert.ToBoolean (rnd.Next (0, 2))) {
-							bool tmp = bits1 [j];
-							bits1 [j] = bits2 [j];
-							bits2 [j] = tmp;
+
+					for (int j = min; j <= max; j++){
 						
-						}
-						*/
+							bool tmp = bits1 [j];
+							bits1 [j] = bits2 [j];
+							bits2 [j] = tmp;
 
+						}
 
 				}
 				    
