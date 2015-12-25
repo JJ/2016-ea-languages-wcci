@@ -1,16 +1,16 @@
 languagerepresentation,length,time
-java-BitSet, 16 , 0.006365081
-java-BitSet, 32 , 0.001434606
-java-BitSet, 64 , 0.001450037
-java-BitSet, 128 , 0.001361699
-java-BitSet, 256 , 0.001350813
-java-BitSet, 512 , 0.001240836
-java-BitSet, 1024 , 9.87883E-4
-java-BitSet, 2048 , 9.65223E-4
-java-BitSet, 4096 , 9.8046E-4
-java-BitSet, 8192 , 0.001253525
-java-BitSet, 16384 , 0.001028226
-java-BitSet, 32768 , 9.95842E-4
+Java-BitSet, 16 , 0.006365081
+Java-BitSet, 32 , 0.001434606
+Java-BitSet, 64 , 0.001450037
+Java-BitSet, 128 , 0.001361699
+Java-BitSet, 256 , 0.001350813
+Java-BitSet, 512 , 0.001240836
+Java-BitSet, 1024 , 9.87883E-4
+Java-BitSet, 2048 , 9.65223E-4
+Java-BitSet, 4096 , 9.8046E-4
+Java-BitSet, 8192 , 0.001253525
+Java-BitSet, 16384 , 0.001028226
+Java-BitSet, 32768 , 9.95842E-4
 C-char[], 16, 0.002878
 C-char[], 32, 0.002853
 C-char[], 64, 0.002882
@@ -107,30 +107,30 @@ lua-BitString, 4096, 0.212481
 lua-BitString, 8192, 0.313104
 lua-BitString, 16384, 0.499307
 lua-BitString, 32768, 1.002433
-Scala-BitString, 16, 0.102091416
-Scala-BitString, 32, 0.095777542
-Scala-BitString, 64, 0.101559384
-Scala-BitString, 128, 0.175467864
-Scala-BitString, 256, 0.291961654
-Scala-BitString, 512, 0.543536866
-Scala-BitString, 1024, 1.048159561
-Scala-BitString, 2048, 2.045480113
-Scala-BitString, 4096, 4.013996806
-Scala-BitString, 8192, 7.971866285
-Scala-BitString, 16384, 16.108280682
-Scala-BitString, 32768, 31.840029826
-Scala-BitVector, 16, 0.155553478
-Scala-BitVector, 32, 0.074070048
-Scala-BitVector, 64, 0.174346903
-Scala-BitVector, 128, 0.217574241
-Scala-BitVector, 256, 0.302030114
-Scala-BitVector, 512, 0.39647925
-Scala-BitVector, 1024, 0.701886181
-Scala-BitVector, 2048, 1.37931235
-Scala-BitVector, 4096, 2.589416408
-Scala-BitVector, 8192, 4.830687234
-Scala-BitVector, 16384, 9.481107916
-Scala-BitVector, 32768, 18.845344725
+Scala-BitString, 16, 0.069225338
+Scala-BitString, 32, 0.062408061
+Scala-BitString, 64, 0.088108213
+Scala-BitString, 128, 0.153541935
+Scala-BitString, 256, 0.287573328
+Scala-BitString, 512, 0.544505181
+Scala-BitString, 1024, 1.070608829
+Scala-BitString, 2048, 2.09180867
+Scala-BitString, 4096, 4.099220507
+Scala-BitString, 8192, 8.213048196
+Scala-BitString, 16384, 16.482310471
+Scala-BitString, 32768, 32.911675214
+Scala-BitVector, 16, 0.016529038
+Scala-BitVector, 32, 0.005922658
+Scala-BitVector, 64, 0.009432891
+Scala-BitVector, 128, 0.004669446
+Scala-BitVector, 256, 0.004896946
+Scala-BitVector, 512, 0.005041901
+Scala-BitVector, 1024, 0.004841881
+Scala-BitVector, 2048, 0.014118012
+Scala-BitVector, 4096, 0.010579235
+Scala-BitVector, 8192, 0.010540947
+Scala-BitVector, 16384, 0.012124191
+Scala-BitVector, 32768, 0.010561297
 node-BitString, 16, 0.210897321
 node-BitString, 32, 0.214522753
 node-BitString, 64, 0.215479091
@@ -143,28 +143,40 @@ node-BitString, 4096, 0.515902097
 node-BitString, 8192, 0.991518485
 node-BitString, 16384, 2.025618263
 node-BitString, 32768, 3.815266667
-python-BitString, 16, 0.084355
-python-BitString, 32, 0.085305
-python-BitString, 64, 0.085183
-python-BitString, 128, 0.08618
-python-BitString, 256, 0.087315
-python-BitString, 512, 0.096779
-python-BitString, 1024, 0.10814
-python-BitString, 2048, 0.115889
-python-BitString, 4096, 0.133936
-python-BitString, 8192, 0.164235
-python-BitString, 16384, 0.226656
-python-BitString, 32768, 0.36292
-PHP-bitstring, 16, 0.021941184997559
-PHP-bitstring, 32, 0.022264003753662
-PHP-bitstring, 64, 0.021641969680786
-PHP-bitstring, 128, 0.022403001785278
-PHP-bitstring, 256, 0.022532939910889
-PHP-bitstring, 512, 0.022615909576416
-PHP-bitstring, 1024, 0.022220134735107
-PHP-bitstring, 2048, 0.022724151611328
-PHP-bitstring, 4096, 0.022691011428833
-PHP-bitstring, 8192, 0.022722005844116
-PHP-bitstring, 16384, 0.02197790145874
-PHP-bitstring, 32768, 0.021615028381348
+python-BitString, 16, 0.11388
+python-BitString, 32, 0.124214
+python-BitString, 64, 0.147883
+python-BitString, 128, 0.187275
+python-BitString, 256, 0.238703
+python-BitString, 512, 0.354447
+python-BitString, 1024, 0.579848
+python-BitString, 2048, 1.03412
+python-BitString, 4096, 1.96719
+python-BitString, 8192, 3.952052
+python-BitString, 16384, 7.844721
+python-BitString, 32768, 15.901667
+PHP-BitString, 16, 0.021941184997559
+PHP-BitString, 32, 0.022264003753662
+PHP-BitString, 64, 0.021641969680786
+PHP-BitString, 128, 0.022403001785278
+PHP-BitString, 256, 0.022532939910889
+PHP-BitString, 512, 0.022615909576416
+PHP-BitString, 1024, 0.022220134735107
+PHP-BitString, 2048, 0.022724151611328
+PHP-BitString, 4096, 0.022691011428833
+PHP-BitString, 8192, 0.022722005844116
+PHP-BitString, 16384, 0.02197790145874
+PHP-BitString, 32768, 0.021615028381348
+CSharp-BitVector,16,0.0019007
+CSharp-BitVector,32,0.0017432
+CSharp-BitVector,64,0.0018836
+CSharp-BitVector,128,0.0021962
+CSharp-BitVector,256,0.0018554
+CSharp-BitVector,512,0.0017323
+CSharp-BitVector,1024,0.001726
+CSharp-BitVector,2048,0.0017464
+CSharp-BitVector,4096,0.0017518
+CSharp-BitVector,8192,0.0017144
+CSharp-BitVector,16384,0.0017219
+CSharp-BitVector,32768,0.0017374
 
