@@ -58,6 +58,10 @@ Email: iblancasa@ugr.es}
 \IEEEauthorblockA{Computer Architecture and Technology Department\\
 University of Granada (Spain)\\
 Email: pacv@ugr.es}
+\and
+\IEEEauthorblockN{Mario García-Valdez}
+\IEEEauthorblockA{Tijuana Institute of Technology (México)\\
+Email: mario@tectijuana.edu.mx}
 }
 
 \maketitle
