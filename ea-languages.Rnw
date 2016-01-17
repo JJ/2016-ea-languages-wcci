@@ -22,7 +22,8 @@ measures.mo <- read.csv('measures-maxones.csv')
 @ 
 
 \title{Benchmarking languages for evolutionary algorithms}
-\titlerunning{Benchmarking EAs}
+%\titlerunning{Benchmarking EAs}
+%\authorrunning{JJ Merelo et al.}
 
 \author{JJ Merelo\inst{1} \and  Pedro Castillo\inst{1} \and  Israel Blancas\inst{1} \and  Gustavo Romero\inst{1} \and  Pablo García-Sanchez\inst{1} \and  Antonio Fernández-Ares\inst{1} \and  Víctor Rivas\inst{2} \and Mario García-Valdez\inst{3}}
 \institute{Department of Computer Architecture and Technlogy and CITIC
