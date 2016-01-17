@@ -24,8 +24,11 @@ measures.mo <- read.csv('measures-maxones.csv')
 \title{Benchmarking languages for evolutionary algorithms}
 \titlerunning{Benchmarking EAs}
 
-\author{A. U. Thor}
-\institute{Midgardian Polytechnic}
+\author{JJ Merelo\inst{1} \and  Pedro Castillo\inst{1} \and  Israel Blancas\inst{1} \and  Gustavo Romero\inst{1} \and  Pablo García-Sanchez\inst{1} \and  Antonio Fernández-Ares\inst{1} \and  Víctor Rivas\inst{2} \and Mario García-Valdez\inst{3}}
+\institute{Department of Computer Architecture and Technlogy and CITIC
+(\url{http://citic.ugr.es}, University of Granada (Spain) \and Department of
+Informatics, University of Jaén (Spain) \and Instituto Politécnico de
+Tijuana (México) }
 
 \maketitle
 
@@ -277,33 +280,41 @@ languages are presented in the next two subsections.
       \hline
       Language & Version & URL & Data structures \\
       \hline
-      Scala & 2.11.7 & URL & String, Bit Vector \\
-      Lua & 5.2.3 & URL & String \\
-      Perl & v5.20.0 & URL & String, Bit Vector \\
-      JavaScript & node.js 5.0.0 & URL & String \\ 
-      Python & 2.7.3 & URL & String\\ 
-      Go & go1.2.1 & URL & Bit Vector \\
-      Julia & 0.2.1 & URL & Bit Vector \\
-      C & 4.8.2 & URL & char string \\
+      Scala & 2.11.7 & \url{git.io/benchscl} & String, Bit Vector \\
+      Lua & 5.2.3 & \url{github.com/JJ/LunEO} & String \\
+      Perl & v5.20.0 & \url{git.io/bperl} & String, Bit Vector \\
+      JavaScript & node.js 5.0.0 & \url{git.io/bnode} & String \\ 
+      Python & 2.7.3 & \url{git.io/vBSYb} & String\\ 
+      Go & go1.2.1 & \url{github.com/JJ/goEO} & Bit Vector \\
+      Julia & 0.2.1 & \url{github.com/iblancasa/JuliEO} & Bit Vector \\
+      C & 4.8.2 & \url{http://git.io/v8kvU} & char string \\
 %     C & 4.8.2 & http://git.io/v8kvU
 %      C++ & 4.8.4 & \url{http://git.io/v8T57} \\
-      C++ & 4.8.4 & URL & String  \\
+      C++ & 4.8.4 & \url{http://git.io/v8T57} & String  \\
 %      Java & 1.7.0_45 & \url{http://git.io/v8TdR} \\
-      Java & 1.8.0\_66 & URL & Bitset \\
+      Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset \\
 %      PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
-      PHP & 5.5.9 & URL & String \\ % vrivas, 5-nov-2015
+      PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
       \hline 
       \end{tabular}
       \caption{Languages used and file written to carry out the
         benchmark. No special flags were used for the interpreter or
-        compiler. URLs have been hidden for double-blind revision \label{tab:files}}
+        compiler. \label{tab:files}}
     \end{table}
 %    
     
     \subsubsection{Compiled languages}
     \label{ss}
 
-    Compiled languages are represented by Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. Also JavaScript is compiled to native machine code when it runs in the V8 JavaScript Engine used by both Node.js and Google Chrome web browser.  This list of languages is rather comprehensive, including the most popular compiled languages in scientific computing as well as two languages that are emerging in popularity: Go and Scala. 
+    Compiled languages are represented by Scala, Java, Go, C and
+    C++. Scala and Java both use Java bytecode and run in the Java
+    Virtual Machine. Go, C and C++ compile to a binary that runs
+    natively on the target operating system. Also JavaScript is
+    compiled to native machine code when it runs in the V8 JavaScript
+    Engine used by both Node.js and Google Chrome web browser.  This
+    list of languages is rather comprehensive, including the most
+    popular compiled languages in scientific computing as well as two
+    languages that are emerging in popularity: Go and Scala.  
 
 Scala \cite{odersky2004overview} is a strongly-typed 
 functional language that compiles to a Java Virtual Machine 
@@ -314,7 +325,7 @@ used in Scala: {\tt String} and {\tt Vector[Boolean]}. They both have
 the same underlying type, {\tt IndexedSeq} and in fact the overloading
 of operators allows us to use the same syntax independently of the
 type. The benchmark is available under a GPL
-license, at the URL shown in Table \ref{tab:files}\footnote{All URLs have been hidden for double-blind review}. As far as we know,
+license, at the URL shown in Table \ref{tab:files}. As far as we know,
 there are no  evolutionary algorithm frameworks published in
 Scala; however, its increasing popularity within the programmer, and,
 over all, data science community makes it quite likely to find one in the
@@ -570,23 +581,15 @@ architectures.
 \section{Acknowledgements}
 
 This paper is part of the open science effort at the university of
-%% Granada.
-Miskatonic,
-It has been written using {\tt knitr}, and its source as well as
-the data used to create it can be downloaded from \url{hidden.url}- 
-%% \href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub
-%%   repository}. It has been supported in part by  
-%% \href{http://geneura.wordpress.com}{GeNeura Team}. 
+Granada. It has been written using {\tt knitr}, and its source as well as
+the data used to create it can be downloaded from 
+\href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub
+  repository} \url{https://github.com/geneura-papers/2015-ea-languages}. It has been supported in part by \href{http://geneura.wordpress.com}{GeNeura Team}. 
 
-It has been supported by \\
-several \\
-agencies taking this much space
-%% This work has been supported in part SPIP2014-01437 (Direcci\'on General
-%% de Tr\'afico), PRY142/14 (Fundaci\'on P\'ublica Andaluza Centro de
-%% Estudios Andaluces en la IX Convocatoria de Proyectos de
-%% Investigaci\'on), TIN2014-56494-C4-3-P (Spanish Ministry of Economy
-%% and Competitivity), and PYR-2014-17 GENIL project (CEI-BIOTIC
-%% Granada).  
+This work has been supported in part by projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness), SPIP2014-01437 (Direcci{\'o}n
+General de Tr{\'a}fico), PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza
+Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de
+Investigaci{\'o}n), and project V17-2015 of the Microprojects program 2015 from CEI BioTIC Granada. 
   
 
 \bibliographystyle{splncs}
