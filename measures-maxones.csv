@@ -167,3 +167,28 @@ Rust-BitVector,1024,3.437434906
 Rust-BitVector,2048,6.858557940
 Rust-BitVector,4096,13.696823025
 Rust-BitVector,8192,27.426972689
+Haskell-Mutable Vector, 16, 0.000066
+Haskell-Mutable Vector, 32, 0.000081
+Haskell-Mutable Vector, 64, 0.000142
+Haskell-Mutable Vector, 128, 0.000355
+Haskell-Mutable Vector, 256, 0.00209
+Haskell-Mutable Vector, 512, 0.002796
+Haskell-Mutable Vector, 1024, 0.004168
+Haskell-Mutable Vector, 2048, 0.009827
+Haskell-Mutable Vector, 4096, 0.028905
+Haskell-Mutable Vector, 8192, 0.102805
+Haskell-Mutable Vector, 16384, 0.302909
+Haskell-Mutable Vector, 32768, 0.971055
+Haskell-Mutable Vector, 65536, 3.663348
+C# BitVector,16,0.0000213
+C# BitVector,32,0.0000003
+C# BitVector,64,0.0000005
+C# BitVector,128,0.0000006
+C# BitVector,256,0.0000013
+C# BitVector,512,0.0000025
+C# BitVector,1024,0.0000041
+C# BitVector,2048,0.0000083
+C# BitVector,4096,0.0000161
+C# BitVector,8192,0.0000328
+C# BitVector,16384,0.000064
+C# BitVector,32768,0.0001279

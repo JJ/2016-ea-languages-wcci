@@ -155,4 +155,22 @@ Scala-BitVector, 4096, 36.445573232
 Scala-BitVector, 8192, 72.447136535
 Scala-BitVector, 16384, 144.688775524
 Scala-BitVector, 32768, 290.245904784
+Haskell-Mutable Vector, 16, 0.721813s
+Haskell-Mutable Vector, 32, 1.305108s
+Haskell-Mutable Vector, 64, 2.762788s
+Haskell-Mutable Vector, 128, 6.008637s
+Haskell-Mutable Vector, 256, 14.833909s
+Haskell-Mutable Vector, 512, 40.075974s
+CSharp-BitVector,16,0.0060532
+CSharp-BitVector,32,0.0069607
+CSharp-BitVector,64,0.0081424
+CSharp-BitVector,128,0.0121073
+CSharp-BitVector,256,0.0181279
+CSharp-BitVector,512,0.0315882
+CSharp-BitVector,1024,0.0580618
+CSharp-BitVector,2048,0.1121263
+CSharp-BitVector,4096,0.2171852
+CSharp-BitVector,8192,0.4276909
+CSharp-BitVector,16384,0.8600997
+CSharp-BitVector,32768,1.7328797
 

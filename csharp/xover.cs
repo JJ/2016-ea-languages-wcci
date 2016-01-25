@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
+using System.Globalization;
 
 namespace xover
 {
@@ -54,8 +54,9 @@ namespace xover
 
 				long ticks = stopwatch.ElapsedTicks;
 				double s = (double)ticks / Stopwatch.Frequency;
+				
+				Console.WriteLine (String.Format(new CultureInfo("en-US"),"CSharp-BitVector,{0},{1}",length,s));
 
-				Console.WriteLine ("{0},{1}",length,s);
 			}
 		}
 	}

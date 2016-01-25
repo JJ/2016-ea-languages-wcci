@@ -343,13 +343,11 @@ languages are presented in the next two subsections.
       Go & go1.2.1 & http://git.io/vBSYp & Bit Vector \\
       Julia & 0.2.1 & http://git.io/vBSOe & Bit Vector \\
       C & 4.8.2 & http://git.io/v8T57 & char vector \\
-%     C & 4.8.2 & http://git.io/v8kvU
-%      C++ & 4.8.4 & \url{http://git.io/v8T57} \\
       C++ & 4.8.4 & http://git.io/v8T57 & bitset  \\
-%      Java & 1.7.0_45 & \url{http://git.io/v8TdR} \\
       Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset \\
       PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
       Rust &  1.4.0  & \url{https://github.com/JJ/RustEO} & BitVector \\ 
+      Haskell & ghc 7.10.3 & \url{http://git.io/v8T57} & Mutable Vector \\ 
       \hline
       \end{tabular}
       \caption{Languages used and file written to carry out the
