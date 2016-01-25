@@ -173,8 +173,11 @@ languages such as Python, Lua, JavaScript or Go, which, in fact, do
 reach interesting performance marks.
 
 Coming up next, we will present the state of the art of the analysis
-of evolutionary algorithm implementations. Next we will present in Section \ref{sec:exp}
-the tests we have used for this paper and its rationale along with the languages we have chosen for carrying them out. Finally, in Section \ref{sec:res} we
+of evolutionary algorithm implementations. Next we will present in
+Section \ref{sec:exp} 
+the tests we have used for this paper and its rationale along with the
+languages we have chosen for carrying them out. Finally, in Section
+\ref{sec:res} we 
 will present the results of measuring the performance of eleven languages running some widely used evolutionary algorithm operators and functions
 mutation, crossover and OneMax. Finally, we will draw the conclusions and present future
 lines of work.
