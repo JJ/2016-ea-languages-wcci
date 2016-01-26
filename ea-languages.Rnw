@@ -340,7 +340,7 @@ languages are presented in the next two subsections.
       \hline
       Scala & 2.11.7 & http://git.io/vBSYH & String, Bit Vector \\
       Lua & 5.2.3 & http://git.io/vBSY7 & String \\
-      Perl & v5.20.0 & URL & String, Bit Vector \\
+      Perl & v5.20.0 & \url{git.io/bperl} & String, Bit Vector \\
       JavaScript & node.js 5.0.0 & http://git.io/vBSYd & String \\
       Python & 2.7.3 & http://git.io/vBSYb & String\\
       Go & go1.2.1 & http://git.io/vBSYp & Bit Vector \\
@@ -374,7 +374,7 @@ used in Scala: {\tt String} and {\tt Vector[Boolean]}. They both have
 the same underlying type, {\tt IndexedSeq} and in fact the overloading
 of operators allows us to use the same syntax independently of the
 type. The benchmark is available under a GPL
-license, at the URL shown in Table \ref{tab:files}\footnote{All URLs have been hidden for double-blind review}. As far as we know,
+license, at the URL shown in Table \ref{tab:files}. As far as we know,
 there are no  evolutionary algorithm frameworks published in
 Scala; however, its increasing popularity within the programmer, and,
 over all, data science community makes it quite likely to find one in the
@@ -638,23 +638,16 @@ architectures.
 \section{Acknowledgements}
 
 This paper is part of the open science effort at the university of
-%% Granada.
-Miskatonic,
-It has been written using {\tt knitr}, and its source as well as
-the data used to create it can be downloaded from \url{hidden.url}-
-%% \href{https://github.com/geneura-papers/2015-ea-languages}{the GitHub
-%%   repository}. It has been supported in part by
-%% \href{http://geneura.wordpress.com}{GeNeura Team}.
-
-It has been supported by \\
-several \\
-agencies taking this much space
-%% This work has been supported in part SPIP2014-01437 (Direcci\'on General
-%% de Tr\'afico), PRY142/14 (Fundaci\'on P\'ublica Andaluza Centro de
-%% Estudios Andaluces en la IX Convocatoria de Proyectos de
-%% Investigaci\'on), TIN2014-56494-C4-3-P (Spanish Ministry of Economy
-%% and Competitivity), and PYR-2014-17 GENIL project (CEI-BIOTIC
-%% Granada).
+Granada. It has been written using {\tt knitr}, and its source as well as
+the data used to create it can be downloaded from 
+\href{https://github.com/JJ/2016-ea-languages-wcci}{the GitHub
+  repository} \url{https://github.com/JJ/2016-ea-languages-wcci/}. It
+has been supported in part by
+\href{http://geneura.wordpress.com}{GeNeura Team}, projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness), SPIP2014-01437 (Direcci{\'o}n
+General de Tr{\'a}fico), PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza
+Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de
+Investigaci{\'o}n), and project V17-2015 of the Microprojects program
+2015 from CEI BioTIC Granada.  
 
 
 \bibliographystyle{IEEEtran}
