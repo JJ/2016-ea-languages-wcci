@@ -95,18 +95,18 @@ C-char[], 4096, 4.240845
 C-char[], 8192, 8.438042
 C-char[], 16384, 16.643888
 C-char[], 32768, 33.249835
-PHP-bitstring, 16, 0.084987878799438
-PHP-bitstring, 32, 0.083945989608765
-PHP-bitstring, 64, 0.084114074707031
-PHP-bitstring, 128, 0.084746122360229
-PHP-bitstring, 256, 0.086251974105835
-PHP-bitstring, 512, 0.088663101196289
-PHP-bitstring, 1024, 0.099147796630859
-PHP-bitstring, 2048, 0.10781407356262
-PHP-bitstring, 4096, 0.12345600128174
-PHP-bitstring, 8192, 0.16549801826477
-PHP-bitstring, 16384, 0.24688696861267
-PHP-bitstring, 32768, 0.42579698562622
+PHP-BitString, 16, 0.084987878799438
+PHP-BitString, 32, 0.083945989608765
+PHP-BitString, 64, 0.084114074707031
+PHP-BitString, 128, 0.084746122360229
+PHP-BitString, 256, 0.086251974105835
+PHP-BitString, 512, 0.088663101196289
+PHP-BitString, 1024, 0.099147796630859
+PHP-BitString, 2048, 0.10781407356262
+PHP-BitString, 4096, 0.12345600128174
+PHP-BitString, 8192, 0.16549801826477
+PHP-BitString, 16384, 0.24688696861267
+PHP-BitString, 32768, 0.42579698562622
 Java-BitSet,16 , 0.019414981
 Java-BitSet,32 , 0.006734073
 Java-BitSet,64 , 0.007040646
@@ -119,18 +119,18 @@ Java-BitSet,4096 , 0.030648571
 Java-BitSet,8192 , 0.046580861
 Java-BitSet,16384 , 0.082599738
 Java-BitSet,32768 , 0.15565695
-python-bitstring, 16, 0.191942
-python-bitstring, 32, 0.187645
-python-bitstring, 64, 0.185287
-python-bitstring, 128, 0.184696
-python-bitstring, 256, 0.189651
-python-bitstring, 512, 0.187854
-python-bitstring, 1024, 0.188472
-python-bitstring, 2048, 0.201052
-python-bitstring, 4096, 0.38871
-python-bitstring, 8192, 0.318437
-python-bitstring, 16384, 0.858042
-python-bitstring, 32768, 5.511306
+python-BitString, 16, 0.191942
+python-BitString, 32, 0.187645
+python-BitString, 64, 0.185287
+python-BitString, 128, 0.184696
+python-BitString, 256, 0.189651
+python-BitString, 512, 0.187854
+python-BitString, 1024, 0.188472
+python-BitString, 2048, 0.201052
+python-BitString, 4096, 0.38871
+python-BitString, 8192, 0.318437
+python-BitString, 16384, 0.858042
+python-BitString, 32768, 5.511306
 Scala-BitString, 16, 0.744348217
 Scala-BitString, 32, 1.084732938
 Scala-BitString, 64, 2.088636449
@@ -155,12 +155,12 @@ Scala-BitVector, 4096, 36.445573232
 Scala-BitVector, 8192, 72.447136535
 Scala-BitVector, 16384, 144.688775524
 Scala-BitVector, 32768, 290.245904784
-Haskell-Mutable Vector, 16, 0.721813s
-Haskell-Mutable Vector, 32, 1.305108s
-Haskell-Mutable Vector, 64, 2.762788s
-Haskell-Mutable Vector, 128, 6.008637s
-Haskell-Mutable Vector, 256, 14.833909s
-Haskell-Mutable Vector, 512, 40.075974s
+Haskell-Mutable Vector, 16, 0.721813
+Haskell-Mutable Vector, 32, 1.305108
+Haskell-Mutable Vector, 64, 2.762788
+Haskell-Mutable Vector, 128, 6.008637
+Haskell-Mutable Vector, 256, 14.833909
+Haskell-Mutable Vector, 512, 40.075974
 CSharp-BitVector,16,0.0060532
 CSharp-BitVector,32,0.0069607
 CSharp-BitVector,64,0.0081424

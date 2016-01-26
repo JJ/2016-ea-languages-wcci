@@ -434,7 +434,15 @@ benchmarks within one hour. Results are shown next. In some cases and
 when the whole test took less than one hour, length was taken up to
 $2^{16}$.
 
-In most cases, and specially in the ones where no implementation was readily available, we wrote small programs with very little overhead that called the functions directly. That means that using classes, function-call chains, and other artifacts, will add an overhead to the benchmark; besides, this implies that the implementation is not exactly the same for all languages. However, this inequality reflects what would be available for anyone implementing an evolutionary algorithm and, when we think it might have an influence on the final result, we will note it.
+In most cases, and specially in the ones where no implementation was
+readily available, we wrote small programs with very little overhead
+that called the functions directly. That means that using classes,
+function-call chains, and other artifacts, will add an overhead to the
+benchmark; besides, this implies that the implementation is not
+exactly the same for all languages. However, this inequality reflects
+what would be available for anyone implementing an evolutionary
+algorithm and, when we think it might have an influence on the final
+result, we will note it. 
 
 Every program used also provides native capabilities for measuring time, using system calls to check the time before and after operations were performed. This might result in a slightly different behavior, but it is the best system available, so it is what we used.
 
