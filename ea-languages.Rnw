@@ -325,8 +325,11 @@ Not all data structures, however, are easily available for every language, or ea
 Eleven
 languages have been chosen for performing the
 benchmark. The primary reason for choosing these languages was the
-availability of open source implementations for the authors, but also we have tried to be inclusive in by considering languages that
-represent different philosophies in language design and also languages traditionally used in the implementation of evolutionary algorithms together with others that are not so popular. These
+availability of open source implementations for the authors, but also
+we have tried to be inclusive in by considering languages that 
+represent different philosophies in language design and also languages
+traditionally used in the implementation of evolutionary algorithms
+together with others that are not so popular. These 
 languages are presented in the next two subsections.
 
 \begin{table}[htb]
@@ -348,11 +351,12 @@ languages are presented in the next two subsections.
       PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
       Rust &  1.4.0  & \url{https://github.com/JJ/RustEO} & BitVector \\ 
       Haskell & ghc 7.10.3 & \url{http://git.io/v8T57} & Mutable Vector \\ 
+      Octave & 3.8.1 & http://git.io/v8T57 & BitVector \\ 
       \hline
       \end{tabular}
       \caption{Languages used and file written to carry out the
         benchmark. No special flags were used for the interpreter or
-        compiler. URLs have been hidden for double-blind revision \label{tab:files}}
+        compiler. \label{tab:files}}
     \end{table}
 %
 
