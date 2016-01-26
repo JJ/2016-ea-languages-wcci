@@ -1,7 +1,6 @@
 ITERATIONS = 100000;
 MAXLENGTH = 32768;
 
-
 disp('Mutation');
 mutationBitFlip(ITERATIONS, MAXLENGTH);
 

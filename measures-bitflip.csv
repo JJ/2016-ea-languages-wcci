@@ -179,17 +179,29 @@ CSharp-BitVector,4096,0.0017518
 CSharp-BitVector,8192,0.0017144
 CSharp-BitVector,16384,0.0017219
 CSharp-BitVector,32768,0.0017374
-Hakell-Mutable Vector, 16, 0.058724
-Hakell-Mutable Vector, 32, 0.053379
-Hakell-Mutable Vector, 64, 0.053981
-Hakell-Mutable Vector, 128, 0.052435
-Hakell-Mutable Vector, 256, 0.053245
-Hakell-Mutable Vector, 512, 0.052082
-Hakell-Mutable Vector, 1024, 0.052918
-Hakell-Mutable Vector, 2048, 0.052054
-Hakell-Mutable Vector, 4096, 0.053278
-Hakell-Mutable Vector, 8192, 0.053122
-Hakell-Mutable Vector, 16384, 0.053171
-Hakell-Mutable Vector, 32768, 0.052274
-Hakell-Mutable Vector, 65536, 0.050485
+Haskell-Mutable Vector, 16, 0.058724
+Haskell-Mutable Vector, 32, 0.053379
+Haskell-Mutable Vector, 64, 0.053981
+Haskell-Mutable Vector, 128, 0.052435
+Haskell-Mutable Vector, 256, 0.053245
+Haskell-Mutable Vector, 512, 0.052082
+Haskell-Mutable Vector, 1024, 0.052918
+Haskell-Mutable Vector, 2048, 0.052054
+Haskell-Mutable Vector, 4096, 0.053278
+Haskell-Mutable Vector, 8192, 0.053122
+Haskell-Mutable Vector, 16384, 0.053171
+Haskell-Mutable Vector, 32768, 0.052274
+Haskell-Mutable Vector, 65536, 0.050485
+Octave-Vector,16,5.949632
+Octave-Vector,32,5.972886
+Octave-Vector,64,5.961098
+Octave-Vector,128,6.022706
+Octave-Vector,256,6.255022
+Octave-Vector,512,6.142733
+Octave-Vector,1024,6.294511
+Octave-Vector,2048,6.249316
+Octave-Vector,4096,6.109180
+Octave-Vector,8192,6.094409
+Octave-Vector,16384,6.050228
+Octave-Vector,32768,6.064820
 

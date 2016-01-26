@@ -1,6 +1,6 @@
 function [] = mutationBitFlip (ITERATIONS, MAXLENGTH)
-
-for len=16:MAXLENGTH,
+len=16
+while ( len<= MAXLENGTH )
 	sol = rand(1, len)>.5;
 	tic;
 	for i=1:ITERATIONS,
@@ -8,7 +8,8 @@ for len=16:MAXLENGTH,
 		sol(j) = 1 - sol(j);
 	end
 	t = toc;
-	fprintf (1, '%d\t%f\n', len, t/ITERATIONS);
-end
+	fprintf (1, 'Octave-Vector,%d,%f\n', len, t);
+        len = len*2;
+endwhile
 
  

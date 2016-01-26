@@ -180,15 +180,27 @@ Haskell-Mutable Vector, 8192, 0.102805
 Haskell-Mutable Vector, 16384, 0.302909
 Haskell-Mutable Vector, 32768, 0.971055
 Haskell-Mutable Vector, 65536, 3.663348
-C# BitVector,16,0.0000213
-C# BitVector,32,0.0000003
-C# BitVector,64,0.0000005
-C# BitVector,128,0.0000006
-C# BitVector,256,0.0000013
-C# BitVector,512,0.0000025
-C# BitVector,1024,0.0000041
-C# BitVector,2048,0.0000083
-C# BitVector,4096,0.0000161
-C# BitVector,8192,0.0000328
-C# BitVector,16384,0.000064
-C# BitVector,32768,0.0001279
+CSharp-BitVector,16,0.0000213
+CSharp-BitVector,32,0.0000003
+CSharp-BitVector,64,0.0000005
+CSharp-BitVector,128,0.0000006
+CSharp-BitVector,256,0.0000013
+CSharp-BitVector,512,0.0000025
+CSharp-BitVector,1024,0.0000041
+CSharp-BitVector,2048,0.0000083
+CSharp-BitVector,4096,0.0000161
+CSharp-BitVector,8192,0.0000328
+CSharp-BitVector,16384,0.000064
+CSharp-BitVector,32768,0.0001279
+Octave-Vector,16,0.236794
+Octave-Vector,32,0.237249
+Octave-Vector,64,0.235136
+Octave-Vector,128,0.237935
+Octave-Vector,256,0.253109
+Octave-Vector,512,0.255395
+Octave-Vector,1024,0.273916
+Octave-Vector,2048,0.307022
+Octave-Vector,4096,0.395399
+Octave-Vector,8192,0.550059
+Octave-Vector,16384,0.874954
+Octave-Vector,32768,1.479951

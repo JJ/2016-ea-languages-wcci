@@ -173,4 +173,16 @@ CSharp-BitVector,4096,0.2171852
 CSharp-BitVector,8192,0.4276909
 CSharp-BitVector,16384,0.8600997
 CSharp-BitVector,32768,1.7328797
+Octave-Vector,16,7.226437
+Octave-Vector,32,7.154273
+Octave-Vector,64,7.171814
+Octave-Vector,128,7.219337
+Octave-Vector,256,7.286929
+Octave-Vector,512,7.298546
+Octave-Vector,1024,7.606605
+Octave-Vector,2048,7.585081
+Octave-Vector,4096,7.596948
+Octave-Vector,8192,7.762893
+Octave-Vector,16384,7.853589
+Octave-Vector,32768,8.083412
 

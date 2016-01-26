@@ -1,6 +1,6 @@
 function [] = xover (ITERATIONS, MAXLENGTH)
-
-for len=16:MAXLENGTH,
+len=16
+while ( len<= MAXLENGTH )
 	sol1 = rand(1, len)>.5;
 	sol2 = rand(1, len)>.5;
 	tic;
@@ -10,7 +10,8 @@ for len=16:MAXLENGTH,
 		h2 = [sol2(1:j),sol1((j+1):len)];
 	end
 	t = toc;
-	fprintf (1, '%d\t%f\n', len, t/ITERATIONS);
-end
+	fprintf (1, 'Octave-Vector,%d,%f\n', len, t);
+        len = len*2;
+endwhile
 
  
