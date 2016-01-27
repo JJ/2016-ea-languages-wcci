@@ -267,19 +267,37 @@ they have been tested.
 \section{Experimental setup}
 \label{sec:exp}
 
-First, a particular problem was chosen for testing different
-languages and also data representations: performing bit-flip mutation
-on a binary string. In fact, this is not usually the part of the
-program an evolutionary algorithm spends the most time in
-\cite{nesmachnow2011time}. In general, that is the fitness function,
-and then reproduction-related functions: chromosome ranking, for
-instance. However, mutation is an operation that is performed quite frequently and sometimes once for every newly generated individual; it is also quintessential to
-the algorithm itself and one of the pillars of the canonical genetic algorithm, so it allows the comparison of the different
-languages in the proper context. Crossover is also part of that canonical algorithm, and MaxOnes or Count-Ones or OneMax is a fitness function frequently used as baseline for comparison of evolutionary algorithms.
+Several operations: bitflip mutation, crossover and count-ones or onemax, have been chosen for testing different
+languages and also data representations. This is not the complete set
+of EA operations or the most time-consuming \cite{nesmachnow2011time}, but are representative
+because they have to be implemented in all evolutionary algorithms,
+the last one as a baseline test. In general, the fitness function in
+non-trivial or academic problems will be the speed bottleneck,
+followed in most cases by reproduction-related functions: chromosome ranking, for
+instance. However, there are many different ways to implement this and
+they cannot be covered in this paper, so we will stick to the most
+common and usual functions, which we will describe next. 
+
+The first one, {\em bitflip mutation}, changes a single bit chosen
+randomly from the random function included in the standard library on
+a binary string. However, mutation is an operation that is performed
+quite frequently and sometimes once for every newly generated
+individual; it is also quintessential to 
+the algorithm itself and one of the pillars of the canonical genetic
+algorithm, so it allows the comparison of the different 
+languages in the proper context. 
+
+
+Crossover is also part of that canonical EA, and MaxOnes or Count-Ones or OneMax is a fitness
+function frequently used as baseline for comparison of evolutionary
+algorithms. Its implementation is trickier than it seems a priori, and
+making the fastest implementation in a particular language might be
+more difficult than it a priori seems. 
 
 In this section we will outline first
-the specifics of the implementation and the rationale behind them in
-subsection \ref{ss:operators}, to proceed to outline the different
+the specifics of the implementation and expand the rationale behind
+choosing them for this paper in
+subsection \ref{ss:operators}. Then we will proceed to outline the different
 data structures that have been used here in subsection \ref{ss:ds} to
 finally present the different languages that have been tested and the
 peculiarities of its implementation \ref{ss:lang}.
