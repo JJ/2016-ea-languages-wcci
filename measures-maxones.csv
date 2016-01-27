@@ -216,4 +216,15 @@ clojure-persistentvector, 4096, 0.001325802
 clojure-persistentvector, 8192, 0.005958637
 clojure-persistentvector, 16384, 9.48503E-4
 clojure-persistentvector, 32768, 9.63053E-4
+clisp-simple_bit_vector, 16, 0.01800000
+clisp-simple_bit_vector, 32, 0.02500000
+clisp-simple_bit_vector, 64, 0.04700000
+clisp-simple_bit_vector, 128, 0.12300000
+clisp-simple_bit_vector, 256, 0.35100000
+clisp-simple_bit_vector, 512, 1.12600000
+clisp-simple_bit_vector, 1024, 3.98500000
+clisp-simple_bit_vector, 2048, 15.67800000
+clisp-simple_bit_vector, 4096, 56.75800000
+clisp-simple_bit_vector, 8192, 214.50800000
+clisp-simple_bit_vector, 16384, 815.74600000
 

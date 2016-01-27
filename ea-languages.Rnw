@@ -285,7 +285,9 @@ existent fitness function, it is one that is widely used in
 evolutionary algorithms and whose speed can be applied to other
 similar functions.
 
-Being as it is a loop, we should expect that the time needed would grow linearly with the chromosome size. We will check whether this is true or not for the different languages below.
+Being as it is a loop, we should expect that the time needed would
+grow linearly with the chromosome size. We will check whether this is
+true or not for the different languages below. 
 
 
 \subsection{Available data structures}
@@ -316,7 +318,9 @@ general, it can be divided into three different fields:\begin{itemize}
 
 The memory and speed efficiency of these data structures is different, and it is advisable for anyone implementing an evolutionary algorithm to check all possible data structures before committing, out of inertia, to the easiest one. Once again, implementation matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and differences in evolutionary algorithm performance for different data structures can be, indeed, quite big.
 
-Not all data structures, however, are easily available for every language, or easy to deal with. We will check in the next subsection which ones have been used in every language.
+Not all data structures, however, are easily available for every
+language, or easy to deal with. We will check in the next subsection
+which ones have been used in every language. 
 
 
 \subsection{Languages tested}
@@ -332,40 +336,49 @@ traditionally used in the implementation of evolutionary algorithms
 together with others that are not so popular. These 
 languages are presented in the next two subsections.
 
-\begin{table}[htb]
+\begin{table*}[h!tb]
     \centering
-    \begin{tabular}{l|c|l|l}
+    \begin{tabular}{l|c|l|l|l}
       \hline
-      Language & Version & URL & Data structures \\
+      Language & Version & URL & Data structures & Type\\
       \hline
-      Scala & 2.11.7 & http://git.io/vBSYH & String, Bit Vector \\
-      Lua & 5.2.3 & http://git.io/vBSY7 & String \\
-      Perl & v5.20.0 & \url{git.io/bperl} & String, Bit Vector \\
-      JavaScript & node.js 5.0.0 & http://git.io/vBSYd & String \\
-      Python & 2.7.3 & http://git.io/vBSYb & String\\
-      Go & go1.2.1 & http://git.io/vBSYp & Bit Vector \\
-      Julia & 0.2.1 & http://git.io/vBSOe & Bit Vector \\
-      C & 4.8.2 & http://git.io/v8T57 & char vector \\
-      C++ & 4.8.4 & http://git.io/v8T57 & bitset  \\
-      Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset \\
-      PHP & 5.5.9 & \url{http://git.io/v8k9g} & String \\ % vrivas, 5-nov-2015
-      Rust &  1.4.0  & \url{https://github.com/JJ/RustEO} & BitVector \\ 
-      Haskell & ghc 7.10.3 & \url{http://git.io/v8T57} & Mutable Vector \\ 
-      Octave & 3.8.1 & http://git.io/v8T57 & BitVector \\ 
-      Clojure & 1.8.0 & http://git.io/v8T57 & Persistent Vector \\ 
-      Common Lisp & 0.13.7 & http://git.io/v8T57 & Simple Bit Vector \\ 
+      C & 4.8.2 & \url{http://git.io/v8T57} & char vector & Compiled \\
+      C++ & 4.8.4 & \url{http://git.io/v8T57} & bitset  & Compiled\\
+      Clojure & 1.8.0 & \url{http://git.io/v8T57} & Persistent Vector &  Intepreted \\ 
+      Common Lisp & 0.13.7 & \url{http://git.io/v8T57} & Simple Bit Vector &  Compiled\\ 
+      Go & go1.2.1 & \url{http://git.io/vBSYp} & Bit Vector & Compiled\\
+      Haskell & ghc 7.10.3 & \url{http://git.io/v8T57} & Mutable Vector & Compiled \\ 
+      Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset & Compiled\\
+      JavaScript & node.js 5.0.0 & \url{http://git.io/vBSYd} & String & Interpreted\\
+      Julia & 0.2.1 & \url{http://git.io/vBSOe} & Bit Vector & Compiled \\
+      Lua & 5.2.3 & \url{http://git.io/vBSY7} & String & Interpreted\\
+      Octave & 3.8.1 & \url{http://git.io/v8T57} & BitVector & Interpreted \\ 
+      PHP & 5.5.9 & \url{http://git.io/v8k9g} & String & Interpreted\\ % vrivas, 5-nov-2015
+      Perl & v5.20.0 & \url{git.io/bperl} & String, Bit Vector & Interpreted \\
+      Python & 2.7.3 & \url{http://git.io/vBSYb} & String & Interpreted\\
+      Rust &  1.4.0  & \url{https://github.com/JJ/RustEO} & BitVector  & Compiled \\ 
+      Scala & 2.11.7 & \url{http://git.io/vBSYH} & String, Bit Vector & Compiled \\
       \hline
       \end{tabular}
+      \vspace{5mm}
       \caption{Languages used and file written to carry out the
         benchmark. No special flags were used for the interpreter or
         compiler. \label{tab:files}}
-    \end{table}
+    \end{table*}
 %
 
     \subsubsection{Compiled languages}
     \label{ss}
 
-    Compiled languages are represented by Rust, Scala, Java, Go, C and C++. Scala and Java both use Java bytecode and run in the Java Virtual Machine. Go, C and C++ compile to a binary that runs natively on the target operating system. Also JavaScript is compiled to native machine code when it runs in the V8 JavaScript Engine used by both Node.js and Google Chrome web browser.  This list of languages is rather comprehensive, including the most popular compiled languages in scientific computing as well as two languages that are emerging in popularity: Go and Scala.
+    Compiled languages are represented by Rust, Scala, Java, Go, C and
+    C++. Scala and Java both use Java bytecode and run in the Java
+    Virtual Machine. Go, C and C++ compile to a binary that runs
+    natively on the target operating system. Also JavaScript is
+    compiled to native machine code when it runs in the V8 JavaScript
+    Engine used by both Node.js and Google Chrome web browser.  This
+    list of languages is rather comprehensive, including the most
+    popular compiled languages in scientific computing as well as two
+    languages that are emerging in popularity: Go and Scala. 
 
 Scala \cite{odersky2004overview} is a strongly-typed
 functional language that compiles to a Java Virtual Machine
