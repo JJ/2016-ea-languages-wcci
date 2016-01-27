@@ -246,9 +246,15 @@ where we could envision different parts of an application might be written in di
 languages. An advantage of these loosely connected systems is that they might
 change the language used for a particular operation if they encounter
 performance issues, as opposed to monolithic architectures written
-in a single language.
+in a single language. However, these type of architectures have not
+been found, so far, in the area of evolutionary algorithms. 
 
-This is, as a matter of fact, the state of the art such as we have found them. That is why we think it is important to take real measures so that decisions on implementation are based on facts strictly related to evolutionary algorithms, instead of relying on common lore.
+In this paper we have tried to extend the state of the art in the
+measurements of performance of EAs in different languages by
+performing the most extensive testing made so far. This test will
+establish a baseline of measurement that can be used with new
+languages and also for overall performance of particular operations in
+evolutionary algorithm libraries.
 
 Next we will explain the operations used for the benchmark and how
 they have been tested.
