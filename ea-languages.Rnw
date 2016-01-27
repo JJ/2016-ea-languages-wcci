@@ -195,7 +195,7 @@ algorithm, or at least to justify the choice of non-mainstream
 languages such as Python, Lua, Scala, JavaScript or Go, which, in fact, do
 reach interesting performance marks.
 
-Coming up next, we will present the state of the art of the analysis
+Coming up next in Section \ref{sec:soa}, we will present the state of the art of the analysis
 of evolutionary algorithm implementations. Next we will present in
 Section \ref{sec:exp} 
 the tests we have used for this paper and its rationale along with the
@@ -209,14 +209,15 @@ and present future
 lines of work.
 
 \section{State of the art}
+\label{sec:soa}
 
-In fact, the examination of the running time of an evolutionary
+As a matter of fact, the examination of the running time of an evolutionary
 algorithm has received some attention from early on. Implementation
 matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, which implies that
 paying attention to the particular way an algorithm is implemented
 might result in speed improvements that outclass those achieved by
-using the {\em a priori} fastest language available. In fact, careful
-coding and choosing the right tools \cite{ae09,1515367} in
+using the {\em a priori} fastest language available. Some authors have
+even proved that careful and expert coding and choosing the right tools \cite{ae09,1515367} in
 interpreted languages can make them as fast, or even faster, than
 compiled languages such as Java.
 
@@ -224,20 +225,24 @@ However, most papers devoted to the implementation of evolutionary
 algorithms in languages other than C or Java try to prove that, for
 the particular type of problems used in scientific computing in general, the running speed is not as important
 as coding speed or even learning speed, since most scientific programs
-are, in fact, run a few times while a lot of time is spent on coding
+are, in fact, run only a few times, each one of them lasting all of a
+few seconds, while a lot of time is spent on coding
 them. That is why expressive languages such as Perl, JavaScript or
 Python are, in many cases, superior to these fast-to-run
 languages.
 
-Even so and when speed matters, the benchmarks performed in those papers were restricted to
+Even so and when speed matters, the benchmarks performed in the papers
+mentioned above were restricted to
 particular problem sizes and to very specific languages. They also
 test a single language for the whole evolutionary algorithm; however,
 it might happen that, since different operations are involved, the
-ranking varies depending on the operation and on the size. This
+place in the ranking for different languages is different depending on
+the operation and on the size. This 
 can be of special interest in
-environments such as the Kappa architecture \cite{KappaArch} or
-web-services based frameworks \cite{garcia2010distributed,DBLP:journals/soco/Garcia-SanchezGCAG13} where
-different parts of an application might be written in different
+environments such as the Kappa \cite{KappaArch}, microservices \cite{namiot2014micro} or
+web-services based frameworks
+\cite{garcia2010distributed,DBLP:journals/soco/Garcia-SanchezGCAG13}
+where we could envision different parts of an application might be written in different
 languages. An advantage of these loosely connected systems is that they might
 change the language used for a particular operation if they encounter
 performance issues, as opposed to monolithic architectures written
