@@ -168,7 +168,8 @@ baseline for EAs will also be used: OneMax.
 We have to admit that, in general, programs do not spend the majority
 of the time applying them; this place in the ranking rather goes to
 selection operators and other higher-level, population-handling ones, as well as the
-fitness function which, in most cases, occupies the majority of the  % "the majority of"  => "most of"
+fitness function which, in most cases, occupies most of the  % "the majority of"  => "most of"
+% Do changes, do not suggest them if you are sure! - JJ
 running time. However, these functions are well covered by usual
 general purpose
 benchmarks so you can usually rely on any of them for choosing a
@@ -210,7 +211,10 @@ and present future lines of work.
 \label{sec:soa}
 
 As a matter of fact, the examination of the running time of an evolutionary
-algorithm has received some attention from early on. Implementation
+algorithm has received some attention from early on, with programming
+environments reviewed already in 1994 \cite{jose1994genetic}; this
+survey focused on implementation aspects, but shows that most of them
+used C or C++; Java was not even an option then. Implementation
 matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, which implies that
 paying attention to the particular way an algorithm is implemented
 might result in speed improvements that outclass those achieved by
