@@ -216,4 +216,16 @@ clisp-simple_bit_vector, 4096, 1.32400000
 clisp-simple_bit_vector, 8192, 2.64700000
 clisp-simple_bit_vector, 16384, 5.45600000
 clisp-simple_bit_vector, 32768, 10.89600000
+clojure-transientvector, 16, 0.115354
+clojure-transientvector, 32, 0.182472
+clojure-transientvector, 64, 0.416126
+clojure-transientvector, 128, 0.881404
+clojure-transientvector, 256, 1.850173
+clojure-transientvector, 512, 3.493414
+clojure-transientvector, 1024, 7.379661
+clojure-transientvector, 2048, 17.594057
+clojure-transientvector, 4096, 34.15405
+clojure-transientvector, 8192, 67.47179
+clojure-transientvector, 16384, 133.99176
+clojure-transientvector, 32768, 281.00436
 
