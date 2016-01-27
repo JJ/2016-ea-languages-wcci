@@ -185,16 +185,29 @@ Octave-Vector,4096,7.596948
 Octave-Vector,8192,7.762893
 Octave-Vector,16384,7.853589
 Octave-Vector,32768,8.083412
-clojure-persistentvector, 16, 0.16332398
-clojure-persistentvector, 32, 0.1955516
-clojure-persistentvector, 64, 0.41059694
-clojure-persistentvector, 128, 0.82088697
-clojure-persistentvector, 256, 1.6923044
-clojure-persistentvector, 512, 3.4038017
-clojure-persistentvector, 1024, 7.297043
-clojure-persistentvector, 2048, 21.12927
-clojure-persistentvector, 4096, 42.468647
-clojure-persistentvector, 8192, 87.23971
-clojure-persistentvector, 16384, 170.61722
-clojure-persistentvector, 32768, 342.27603
+clojure-persistentvector, 16, 0.19519982
+clojure-persistentvector, 32, 0.1957756
+clojure-persistentvector, 64, 0.36539584
+clojure-persistentvector, 128, 0.7551583
+clojure-persistentvector, 256, 1.604802
+clojure-persistentvector, 512, 3.3813457
+clojure-persistentvector, 1024, 6.875326
+clojure-persistentvector, 2048, 19.563562
+clojure-persistentvector, 4096, 39.55029
+clojure-persistentvector, 8192, 78.92864
+clojure-persistentvector, 16384, 161.68542
+clojure-persistentvector, 32768, 327.56238
+clisp-simple_bit_vector, 16, 0.18400000
+clisp-simple_bit_vector, 32, 0.21400000
+clisp-simple_bit_vector, 64, 0.27900000
+clisp-simple_bit_vector, 128, 0.40800000
+clisp-simple_bit_vector, 256, 0.67200000
+clisp-simple_bit_vector, 512, 1.18900000
+clisp-simple_bit_vector, 1024, 2.26000000
+clisp-simple_bit_vector, 2048, 4.49500000
+clisp-simple_bit_vector, 4096, 9.04800000
+clisp-simple_bit_vector, 8192, 17.22200000
+clisp-simple_bit_vector, 16384, 34.31500000
+clisp-simple_bit_vector, 32768, 68.24900000
+
 

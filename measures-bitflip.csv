@@ -204,4 +204,16 @@ Octave-Vector,4096,6.109180
 Octave-Vector,8192,6.094409
 Octave-Vector,16384,6.050228
 Octave-Vector,32768,6.064820
+clisp-simple_bit_vector, 16, 0.00600000
+clisp-simple_bit_vector, 32, 0.01100000
+clisp-simple_bit_vector, 64, 0.02200000
+clisp-simple_bit_vector, 128, 0.04400000
+clisp-simple_bit_vector, 256, 0.08500000
+clisp-simple_bit_vector, 512, 0.16600000
+clisp-simple_bit_vector, 1024, 0.33000000
+clisp-simple_bit_vector, 2048, 0.66300000
+clisp-simple_bit_vector, 4096, 1.32400000
+clisp-simple_bit_vector, 8192, 2.64700000
+clisp-simple_bit_vector, 16384, 5.45600000
+clisp-simple_bit_vector, 32768, 10.89600000
 

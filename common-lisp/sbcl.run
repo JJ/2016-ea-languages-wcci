@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#from http://stackoverflow.com/questions/9055589/how-can-i-run-sbcl-code-under-a-unix-like-operating-system-in-a-convenient-way
+
+sbcl --noinform --load "$1" --quit --end-toplevel-options "$@"
