@@ -217,14 +217,16 @@ and present future lines of work.
 
 As a matter of fact, the examination of the running time of an evolutionary
 algorithm has received some attention from early on, with programming
-environments reviewed already in 1994 \cite{jose1994genetic}; this
+environments reviewed already in 1994 \cite{jose1994genetic}. This initial
+%Pablo: Paloma told me that semicolons are evil
 survey focused on implementation aspects, but shows that most of them
 used C or C++; Java was not even an option then. Implementation
+%Pablo: well, here the semicolon is not that bad :)
 matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, which implies that
 paying attention to the particular way an algorithm is implemented
 might result in speed improvements that outclass those achieved by
 using the {\em a priori} fastest language available. Some authors have
-even proved that careful and expert coding and choosing the right tools \cite{ae09,1515367} in
+even proved that careful and expert coding, and choosing the right tools \cite{ae09,1515367} in
 interpreted languages can make them as fast, or even faster, than
 compiled languages such as Java.
 
@@ -236,20 +238,21 @@ are, in fact, run only a few times, each one of them lasting all of a
 few seconds, while a lot of time is spent on coding
 them. That is why expressive languages such as Perl, JavaScript or
 Python are, in many cases, superior to these fast-to-run
-languages.
+languages. %Pablo: citation to the specific paper that says this?
 
-Even so and when speed matters, the benchmarks performed in the papers
+Even so, and when speed matters, the benchmarks performed in the papers
 mentioned above were restricted to
 particular problem sizes and to very specific languages. They also
-test a single language for the whole EA; however,
+test a single language for the whole EA. However,
 it might happen that, since different operations are involved, the
 place in the ranking for different languages is different depending on
 the operation and on the size. This 
 can be of special interest in
 environments such as the Kappa \cite{KappaArch}, microservices \cite{namiot2014micro} or
-web-services based frameworks
-\cite{garcia2010distributed,DBLP:journals/soco/Garcia-SanchezGCAG13}
-where we could envision different parts of an application might be written in different
+service-oriented frameworks 
+\cite{garcia2010distributed,DBLP:journals/soco/Garcia-SanchezGCAG13} %Pablo: oh, good references! BTW, I changes web-services to service-oriented (more general)
+where we could envision that different parts of an application might be written in different
+%Pablo: "an application" or maybe better, "an EA"?
 languages. An advantage of these loosely connected systems is that they might
 change the language used for a particular operation if they encounter
 performance issues, as opposed to monolithic architectures written
