@@ -50,6 +50,11 @@ Email: iblancasa@ugr.es}
 University of Granada (Spain)\\
 Email: pacv@ugr.es}
 \and
+\IEEEauthorblockN{Gustavo Romero}
+\IEEEauthorblockA{Computer Architecture and Technology Department\\
+University of Granada (Spain)\\
+Email: gustavo@ugr.es}
+\and
 \IEEEauthorblockN{Mario García-Valdez}
 \IEEEauthorblockA{Tijuana Institute of Technology (Mexico)\\
 Email: mario@tectijuana.edu.mx}
@@ -84,46 +89,47 @@ Email: mario@tectijuana.edu.mx}
 \end{abstract}
 
 \begin{IEEEkeywords}
-Per\-formance optimization, bench\-mark, implementation of evolutionary algorithms.
+Per\-formance optimization, bench\-mark, implementation of
+evolutionary algorithms, onemax, programming languages.
 \end{IEEEkeywords}
 
 \section{Introduction}
 
-It is usual in soft computing to try and use languages such as C++ or
-Java with the rationale that they are the fastest tools available for
-the kind of algorithms and problems that are solved by them. However,
-while there are benchmarks available for the languages at large and
-they have been tested in a variety of environments, it remains to be
-seen how fast are these languages at the tasks that are done usually
-by evolutionary algorithms.
-
-Let us emphasize that running speed is not everything. In many cases,
-%Pablo: algunas de estas cosas podemos poner en el abstract
-% Pablo, cuando pones ``podemos poner'' estás diciendo ``ponlas tú''. O las pones o no las pones, y si las pones, ya veremos si encajan o no. - JJ
+Most released evolutionary algorithms implementations, and also most
+experiments published, use mainstream compiled languages such as C/C++
+or Java. In general, researchers consider that compilation makes
+running the experiment faster and thus make, in general, the algorithm
+more efficient. On the other hand,
+the choice of a particular language might be constrained by the
+application at hand; some optimization frameworks might need to link
+to resources such as embedded
+or web based systems, forcing them to rely on a particular language or
+a set of languages. Past experience or simply know-how in teams will
+also make some languages, outside the ones mentioned above, have a
+different set of languages to choose for our implementation. Besides,
+running speed is not everything. In many cases, 
 ease of integration with existing or legacy tools, coding speed or
 availability of parallel or distributed frameworks are much more
-important than how fast a single CPU program runs. There are also
-restrictions inherent to the application at hand, such as embedded
-or web based systems where certain languages must be used.
-However, in some
+important than how fast a single CPU program runs. In some
 cases, mainly when the size of the problem or the running time of the
 algorithm call for the maximum running speed available, it is
 interesting at least to know which languages can be used to obtain the
-best performance.
+best performance, or at least which one is fastest among the set of
+languages the research team is able to handle. 
 
-In this case it is quite clear that efficiency matters, as said in
- \cite{anderson2010efficiency}. And, as a matter of fact, in general and restricting the concept
- of {\em speed} to {\em speed of
-  the compiled/interpreted application} it might be the case that some
+That is why when efficiency matters, as said in
+ \cite{anderson2010efficiency} and, in general, if we restrict
+ performance to {\em speed of the compiled/interpreted application
+   when run} it might be the case that some
 languages are faster to others, as evidenced by benchmarks such as
 \cite{prechelt2000empirical,fulghamcomputer}. Taken in general or even
 restricting it to some particular set of problems such as floating
 point computation, some compiled languages tend to be faster than
-interpreted languages.
+interpreted languages as proved in the papers mentioned above.
 
-But, in the same spirit of the {\em There is no free lunch} theorem
-\cite{Wolpert-1997-NFL} we can affirm there is a {\em no fast lunch}
-theorem for the implementation of evolutionary optimization, in the
+However, in the same spirit of the {\em There is no free lunch} theorem
+\cite{Wolpert-1997-NFL} we could affirm there is a {\em no fast lunch}
+theorem for the implementation of evolutionary optimization problems, in the
 sense that, while there are particular languages that might be the
 fastest for particular problem sizes and specially fitness functions,
 these two constraints cannot be disregarded, and,
@@ -134,37 +140,56 @@ available for evolving particular data structures such as regular
 expressions \cite{awk}. Besides, benchmarks should include a wide variety
 of sizes, because the time needed to perform particular operations
 does not always depends linearly on size, as performance is also affected
-by technical details for instance the implementation of loops and memory management.
+by technical details for instance the implementation of loops and
+memory management. In fact, if running speed is the only issue
+languages such as Fortran, and implementations on GPUs would be the
+way to go for all researchers. As that is not the case, we can
+conclude that we are looking for languages that are, if not the
+fastests, fast enough, and also within the set of languages that is
+used nowadays. Besides, it might be the case that some emerging
+language whose popularity in the area of evolutionary algorithms is
+not too big, is, in fact, faster than the well known C++ or Java. 
 
 For the purposes of this paper, we will try to be more extensive on
-the number of languages tested than on the number of operations. In
+the number of languages tested than on the number of operations,
+choosing from a varied set of languages placed with different paradigms. 
+Since in
 general, evolutionary algorithms use fitness functions that can have
-any size and shape, so it is not easy to cover them all and further
+any size and shape, it is not easy to cover them all and further
 characterization might be needed. We are going to focus on
 combinatorial optimization problems, which are usually represented
-using bit strings and the two most characteristics operators: mutation
+using bit strings or other structures similar to them and the two most characteristics operators: mutation
 and crossover. Besides, a fitness function usually employed as a
-baseline for evolutionary algorithms will be used: OneMax.
+baseline for evolutionary algorithms will also be used: OneMax. 
 
-In general, programs do not spend the majority of the time applying
-them; this place in the ranking rather goes to selection operators and
-other higher-level, population-handling ones, as well as usually the
-fitness function. However, these functions are well covered by usual
+We have to admit that, in general, programs do not spend the majority
+of the time applying them; this place in the ranking rather goes to
+selection operators and other higher-level, population-handling ones, as well as the
+fitness function which, in most cases, occupies the majority of the
+running time. However, these functions are well covered by usual
+general purpose
 benchmarks so you can usually rely on any of them for choosing a
-language to implement your evolutionary algorithm. This makes the
+language to implement that part of your evolutionary algorithm. This makes the
 scope or interest of this paper certainly restricted to the set of
 problems in which classical bit-wise operations are performed and
 where fitness does not take most of the time: Testing new operators or
 implementing parallel or other kind of algorithms on functions such as
-HIFF, OneMax or Royal Road.
+HIFF, OneMax or Royal Road. However, the objective of this paper is
+not to optimize the total running time of evolutionary algorithms by
+choosing the best language or data structure but rather to prove that
+there are many interesting options with a good performance that should
+be considered by EA (evolutionary algorithm) practitioners. We were
+interested also in checking out the design decisions that the
+different languages forced us to do and what was the impact on overall
+performance. 
 
-Finally, our intention is not so much to choose the winner of the
+Let us remark that our intention is not so much to choose the winner of the
 competition of fastest language for evolutionary algorithms as much as
 to check the variety of speeds available and to know what order of
 magnitude these differences are. This work can be used to aid in
 making the decision of a language for implementing an evolutionary
 algorithm, or at least to justify the choice of non-mainstream
-languages such as Python, Lua, JavaScript or Go, which, in fact, do
+languages such as Python, Lua, Scala, JavaScript or Go, which, in fact, do
 reach interesting performance marks.
 
 Coming up next, we will present the state of the art of the analysis
@@ -173,8 +198,11 @@ Section \ref{sec:exp}
 the tests we have used for this paper and its rationale along with the
 languages we have chosen for carrying them out. Finally, in Section
 \ref{sec:res} we 
-will present the results of measuring the performance of eleven languages running some widely used evolutionary algorithm operators and functions
-mutation, crossover and OneMax. Finally, we will draw the conclusions and present future
+will present the results of measuring the performance of eleven
+languages running some widely used evolutionary algorithm operators
+and functions 
+mutation, crossover and OneMax. Finally, we will draw the conclusions
+and present future 
 lines of work.
 
 \section{State of the art}
@@ -342,7 +370,7 @@ languages are presented in the next two subsections.
       \hline
       C & 4.8.2 & \url{http://git.io/v8T57} & char vector & Compiled \\
       C++ & 4.8.4 & \url{http://git.io/v8T57} & bitset  & Compiled\\
-      Clojure & 1.8.0 & \url{http://git.io/v8T57} & Persistent Vector &  Intepreted \\ 
+      Clojure & 1.8.0 & \url{http://git.io/v8T57} & Persistent Vector &  Interpreted \\ 
       Common Lisp & 0.13.7 & \url{http://git.io/v8T57} & Simple Bit Vector &  Compiled\\ 
       Go & go1.2.1 & \url{http://git.io/vBSYp} & Bit Vector & Compiled\\
       Haskell & ghc 7.10.3 & \url{http://git.io/v8T57} & Mutable Vector & Compiled \\ 
@@ -649,7 +677,7 @@ run in any machine, checking for differences in different underlying
 architectures.
 
 
-\section{Acknowledgements}
+\section{Acknowledgements*}
 
 This paper is part of the open science effort at the university of
 Granada. It has been written using {\tt knitr}, and its source as well as
@@ -669,7 +697,8 @@ Investigaci{\'o}n), and project V17-2015 of the Microprojects program
 %\bibliography{languages}
 \end{document}
 
+
 %%% Local Variables:
 %%% ispell-local-dictionary: "english"
 %%% hunspell-local-dictionary: "english"
-%%% End:%
+%%% End:
