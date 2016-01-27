@@ -500,13 +500,11 @@ Scala; however, its increasing popularity within the programmer, and,
 over all, data science community makes it quite likely to find one in the
 near future.
 
-Clojure \cite{hickey2008clojure}  is a dialect of Lisp, 
-and shares with Lisp the code-as-data philosophy and a powerful macro system. 
-Clojure encourages immutability and immutable data structures. Is compiled 
-to run on the Java Virtual Machine, but there are also comilers to 
-Common Language Runtime, and JavaScript engines. 
 
-C\# is  Similar to Java, it is object-oriented, c
+C\# \cite{hejlsberg2003c} is a general-purpose, object-oriented programming language
+designed for the Common Language Infrastructure.  In recent
+versions C# has added several major features to accommodate functional-style programming, 
+and dynamic binding. 
 
 
 
@@ -516,6 +514,14 @@ as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a
 multi-platform language, with compiled {\em bytecode} running in any
 operating system with a native Java virtual machine (JVM). % todo:
                                         % include references. 
+
+Clojure \cite{hickey2008clojure}  is a dialect of Lisp, 
+and shares with Lisp the code-as-data philosophy and a powerful macro system and
+Is compiled to run on the Java Virtual Machine. Clojure as a Java library consumer,  
+can call EA libraries in Java and supports the dynamic implementation 
+of Java interfaces and classes.
+
+
 C is still one of the most popular languages, despite being free of
 the paradigms that are so popular nowadays: object orientation or
 concurrency. It is not so popular within the EA community, who usually
