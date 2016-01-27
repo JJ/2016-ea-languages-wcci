@@ -78,8 +78,8 @@ Email: mario@tectijuana.edu.mx}
   scale and perform better, but also in some cases  have a behaviour
   that is independent of the size of the chromosome. Additionally,
   results show that other languages, such as Go (compiled) or Python
-  (interpreted) are fast enough for 
-  most purposes. Besides, these experiments show which of these measures are,
+  (interpreted) are fast enough for most purposes.  % Should we indicate a % of speedup?
+  Besides, these experiments show which of these measures are,  % "measures" ? 
   in fact, the best for choosing an implementation language based on
   its performance. 
 \end{abstract}
