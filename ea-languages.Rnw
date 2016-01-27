@@ -430,9 +430,9 @@ languages are presented in the next two subsections.
     \subsubsection{Compiled languages}
     \label{ss}
 
-    Compiled languages are represented by Rust, Scala, Java, Common Lisp, Clojure, Go, C, C# and
+    Compiled languages are represented by Rust, Scala, Java, Common Lisp, Clojure, Go, C, C\# and
     C++. Scala, Clojure and Java use Java bytecode and run in the Java
-    Virtual Machine.  C# runs in the Common Language Runtime. Go, Common Lisp, C and C++ compile to a binary that runs
+    Virtual Machine.  C\# runs in the Common Language Runtime. Go, Common Lisp, C and C++ compile to a binary that runs
     natively on the target operating system. Also JavaScript is
     compiled to native machine code when it runs in the V8 JavaScript
     Engine used by both Node.js and Google Chrome web browser.  This
@@ -454,6 +454,15 @@ there are no  EA frameworks published in
 Scala; however, its increasing popularity within the programmer, and,
 over all, data science community makes it quite likely to find one in the
 near future.
+
+Clojure \cite{hickey2008clojure}  is a dialect of Lisp, 
+and shares with Lisp the code-as-data philosophy and a powerful macro system. 
+Clojure encourages immutability and immutable data structures. Is compiled 
+to run on the Java Virtual Machine, but there are also comilers to 
+Common Language Runtime, and JavaScript engines. 
+
+C\# is  Similar to Java, it is object-oriented, c
+
 
 
 Java is probably the most popular language within the EA community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multi-platform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
