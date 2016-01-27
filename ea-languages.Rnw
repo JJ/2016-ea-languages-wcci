@@ -421,15 +421,16 @@ which ones have been used in every language.
 \subsection{Languages tested}
 \label{ss:lang}
 
-Eleven
-languages have been chosen for performing the
-benchmark. The primary reason for choosing these languages was the
+In this paper, 15 languages have been chosen for performing all
+benchmarks; additionally, another language, Rust, has been tested for
+one of them. The primary reason for choosing these languages was the
 availability of open source implementations for the authors, but also
 we have tried to be inclusive in by considering languages that 
-represent different philosophies in language design and also languages
+represent different philosophies in language design as well as languages
 traditionally used in the implementation of EAs
 together with others that are not so popular. These 
-languages are presented in the next two subsections.
+languages are presented in the next two subsections and listed in
+Table \ref{tab:files}. 
 
 \begin{table*}[h!tb]
     \centering
@@ -466,9 +467,13 @@ languages are presented in the next two subsections.
     \subsubsection{Compiled languages}
     \label{ss}
 
-    Compiled languages are represented by Rust, Scala, Java, Common Lisp, Clojure, Go, C, C\# and
+    These languages run in different ways, but there are
+    representatives of both compiled (native and to bytecode) and
+    interpreted. 
+    Compiled languages are represented by Haskell, Rust, Scala, Java, Common Lisp, Clojure, Go, C, C\# and
     C++. Scala, Clojure and Java use Java bytecode and run in the Java
-    Virtual Machine.  C\# runs in the Common Language Runtime. Go, Common Lisp, C and C++ compile to a binary that runs
+    Virtual Machine.  C\# runs in the Common Language Runtime. Go,
+    Common Lisp, C and C++ compile to a binary that runs 
     natively on the target operating system. Also JavaScript is
     compiled to native machine code when it runs in the V8 JavaScript
     Engine used by both Node.js and Google Chrome web browser.  This
@@ -492,8 +497,12 @@ over all, data science community makes it quite likely to find one in the
 near future.
 
 
-Java is probably the most popular language within the EA community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multi-platform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
-
+Java is probably the most popular language within the EA community,
+with several well established free software frameworks available, such
+as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a
+multi-platform language, with compiled {\em bytecode} running in any
+operating system with a native Java virtual machine (JVM). % todo:
+                                        % include references. 
 C is still one of the most popular languages, despite being free of
 the paradigms that are so popular nowadays: object orientation or
 concurrency. It is not so popular within the EA community, who usually
@@ -501,9 +510,19 @@ opt for its object-oriented version, C++, that has representatives
 such as ParadisEO \cite{liefooghe2011software} or MALLBA
 \cite{alba2002mallba}. 
 
-Go \cite{pike2009go} was a language initially introduced by Google, but that has dug into the niches that were dominated formerly by C. It is also a compiled language designed for system programming, and is concurrent.
+Go \cite{pike2009go} was a language initially introduced by Google,
+but that has dug into the niches that were dominated formerly by C. It
+is also a compiled language designed for system programming, and is
+concurrent. 
 
-These four languages will be tested against a set of interpreted languages described below.
+Haskell \cite{hudak1992report} is also purely functional language with
+an efficient native compiler. Although it keeps being a niche
+language, its popularity is increasing with applications such as
+Pandoc and literary programming being its most popular cases. Since it
+works functionally, we have included it in this paper to check it
+against other functional languages. 
+
+These languages will be tested against a set of interpreted languages described below.
 
 \subsubsection{Interpreted languages}
 
