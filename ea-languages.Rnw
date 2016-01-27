@@ -70,10 +70,11 @@ Email: mario@tectijuana.edu.mx}
   performing usual operations in evolutionary algorithms. In this
   paper we have tested three basic evolutionary algorithm operations
   over binary chromosomes:  % have been chosen: 
-  bitflip mutation, crossover and the OneMax fitness
-  function. Performance tests
-  have been the speed for both popular and not so popular computer
-  languages. In general, the results confirm that compiled languages
+  bitflip mutation, crossover and the OneMax fitness function. 
+  Performance tests have been the speed for both popular and not so popular computer languages
+  % Maybe we could write this previous sentence as follows:
+  %   As performance metric, the speed for both popular and not so popular computer languages has been used.
+  In general, the results confirm that compiled languages
   scale and perform better, but also in some cases  have a behaviour
   that is independent of the size of the chromosome. Additionally,
   results show that other languages, such as Go (compiled) or Python
