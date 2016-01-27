@@ -76,15 +76,17 @@ Email: mario@tectijuana.edu.mx}
   paper we have tested three basic evolutionary algorithm operations
   over binary chromosomes:  % have been chosen: 
   bitflip mutation, crossover and the OneMax fitness function. 
-  Performance tests have been the speed for both popular and not so popular computer languages
+  %Performance tests have been the speed for both popular and not so popular computer languages
   % Maybe we could write this previous sentence as follows:
-  %   As performance metric, the speed for both popular and not so popular computer languages has been used.
+  As a performance measure, the speed for both popular and not so
+  popular computer languages has been used. 
   In general, the results confirm that compiled languages
   scale and perform better, but also in some cases  have a behaviour
   that is independent of the size of the chromosome. Additionally,
   results show that other languages, such as Go (compiled) or Python
   (interpreted) are fast enough for most purposes.  % Should we indicate a % of speedup?
-  Besides, these experiments show which of these measures are,  % "measures" ? 
+  % we would have to create a ránking - JJ
+  Besides, these experiments show which of these operations are,  % "measures" ? 
   in fact, the best for choosing an implementation language based on
   its performance. 
 \end{abstract}
