@@ -168,7 +168,7 @@ baseline for evolutionary algorithms will also be used: OneMax.
 We have to admit that, in general, programs do not spend the majority
 of the time applying them; this place in the ranking rather goes to
 selection operators and other higher-level, population-handling ones, as well as the
-fitness function which, in most cases, occupies the majority of the
+fitness function which, in most cases, occupies the majority of the  % "the majority of"  => "most of"
 running time. However, these functions are well covered by usual
 general purpose
 benchmarks so you can usually rely on any of them for choosing a
@@ -181,7 +181,7 @@ HIFF, OneMax or Royal Road. However, the objective of this paper is
 not to optimize the total running time of evolutionary algorithms by
 choosing the best language or data structure but rather to prove that
 there are many interesting options with a good performance that should
-be considered by EA (evolutionary algorithm) practitioners. We were
+be considered by EA (evolutionary algorithm) practitioners. We were  % this acronym should be defined before, and used along the rest of the text
 interested also in checking out the design decisions that the
 different languages forced us to do and what was the impact on overall
 performance. 
