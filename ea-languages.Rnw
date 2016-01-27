@@ -1,4 +1,4 @@
-+\documentclass[conference,twocolumns]{IEEEtran}
+\documentclass[conference,twocolumns]{IEEEtran}
 
 \usepackage{cite}
 \usepackage{array}
@@ -445,9 +445,9 @@ languages are presented in the next two subsections.
     \subsubsection{Compiled languages}
     \label{ss}
 
-    Compiled languages are represented by Rust, Scala, Java, Common Lisp, Clojure, Go, C, C# and
+    Compiled languages are represented by Rust, Scala, Java, Common Lisp, Clojure, Go, C, C\# and
     C++. Scala, Clojure and Java use Java bytecode and run in the Java
-    Virtual Machine.  C# runs in the Common Language Runtime. Go, Common Lisp, C and C++ compile to a binary that runs
+    Virtual Machine.  C\# runs in the Common Language Runtime. Go, Common Lisp, C and C++ compile to a binary that runs
     natively on the target operating system. Also JavaScript is
     compiled to native machine code when it runs in the V8 JavaScript
     Engine used by both Node.js and Google Chrome web browser.  This
