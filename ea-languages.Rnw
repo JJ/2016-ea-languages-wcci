@@ -645,7 +645,8 @@ in the future.
 
 Focusing only in the part of measuring algorithms and in the interest
 of reproductibility, we intend to create
-a Docker container with all the tests so that it can be downloaded and
+a Docker container with all the tests so that it can be downloaded and % maybe we should include an URL to specify what Docker is
+% https://www.docker.com/what-docker 
 run in any machine, checking for differences in different underlying
 architectures.
 
