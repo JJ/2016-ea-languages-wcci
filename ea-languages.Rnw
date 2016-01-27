@@ -443,8 +443,9 @@ Table \ref{tab:files}.
       \hline
       C & 4.8.2 & \url{http://git.io/v8T57} & char vector & Compiled \\
       C++ & 4.8.4 & \url{http://git.io/v8T57} & bitset  & Compiled\\
-      Clojure & 1.8.0 & \url{http://git.io/v8T57} & Persistent Vector &  Interpreted \\ 
-      Common Lisp & 0.13.7 & \url{http://git.io/v8T57} & Simple Bit Vector &  Compiled\\ 
+      C\# & 4.8.4 & \url{https://git.io/vzHif} & Bit Vector  & Compiled\\
+      Clojure & 1.8.0 & \url{https://git.io/vzHif} & Persistent Vector &  Interpreted \\ 
+      Common Lisp & 0.13.7 & \url{https://git.io/vzHif} & Simple Bit Vector &  Compiled\\ 
       Go & go1.2.1 & \url{http://git.io/vBSYp} & Bit Vector & Compiled\\
       Haskell & ghc 7.10.3 & \url{http://git.io/v8T57} & Mutable Vector & Compiled \\ 
       Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset & Compiled\\
@@ -504,7 +505,8 @@ near future.
 C\# \cite{hejlsberg2003c} is a general-purpose, object-oriented programming language
 designed for the Common Language Infrastructure.  In recent
 versions C# has added several major features to accommodate functional-style programming, 
-and dynamic binding. 
+and dynamic binding. For this work the c\# was compiled to run in the Mono runtime, an 
+implementation of the ECMA Common Language Infrastructure (CLI).
 
 
 
@@ -520,6 +522,10 @@ and shares with Lisp the code-as-data philosophy and a powerful macro system and
 Is compiled to run on the Java Virtual Machine. Clojure as a Java library consumer,  
 can call EA libraries in Java and supports the dynamic implementation 
 of Java interfaces and classes.
+
+Common Lisp is also a dialect of Lisp, in this work we used the Steel Bank Common Lisp (SBCL) 
+implementation \cite{rhodes2008sbcl}, a free high performance native compiler that has
+been ported to multiple hardware architectures and operating systems. 
 
 
 C is still one of the most popular languages, despite being free of
