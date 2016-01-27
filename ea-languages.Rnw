@@ -383,14 +383,33 @@ general, it can be divided into three different fields:\begin{itemize}
   specific primitive type for the Boolean false and true values; for
   those who have, sometimes they have specific implementations that
   make this data structure the most efficient.
-\item {\em Bitsets}: bits are bits, and you can simply use bits packed
+  \item {\em Vectors} of integers or even characters can also be used
+    in the case of the language lacking a specific data structure for
+    bits or Booleans. 
+\item {\em Bitsets}: since the internal representation of any data
+  structure is composed, at a low level, by a set of bits,  you can
+  simply use bits packed 
   into bytes for representing chromosomes, with 32 bits packed in a
-  single 4 byte data structure. Memory-wise the most efficient,
+  single 4 byte data structure and bigger number of bytes used as
+  needed . Memory-wise the most efficient,
   without low-level access operators it can indeed be the slowest, and
   in any case not too efficient for decoding to function parameters.
 \end{itemize}
 
-The memory and speed efficiency of these data structures is different, and it is advisable for anyone implementing an EA to check all possible data structures before committing, out of inertia, to the easiest one. Once again, implementation matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and differences in EA performance for different data structures can be, indeed, quite big.
+Besides, many languages, including functional ones, differentiate
+between Mutable and Constant data structures, with different internal
+representations assigned to every one of them, and extensive
+optimizations used in Immutable or constant data structures. In the
+case they are available, we will use them, in some cases comparing it
+with Mutable data structures. 
+
+The memory and speed efficiency of these data structures is different,
+and it is advisable for anyone implementing an EA to check all
+possible data structures before committing, out of inertia, to the
+easiest one. Once again, implementation matters
+\cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and
+differences in EA performance for different data structures can be,
+indeed, quite big. 
 
 Not all data structures, however, are easily available for every
 language, or easy to deal with. We will check in the next subsection
