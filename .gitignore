@@ -132,3 +132,17 @@ auto/
 
 c/demo-c
 c++/demo-c++
+
+#Haskell
+*.hi
+*.o
+
+#csharp
+*.exe
+
+#cl
+*.fasl
+
+#clojure
+clojure/lib
+.lein-deps-sum

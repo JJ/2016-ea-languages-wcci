@@ -352,6 +352,8 @@ languages are presented in the next two subsections.
       Rust &  1.4.0  & \url{https://github.com/JJ/RustEO} & BitVector \\ 
       Haskell & ghc 7.10.3 & \url{http://git.io/v8T57} & Mutable Vector \\ 
       Octave & 3.8.1 & http://git.io/v8T57 & BitVector \\ 
+      Clojure & 1.8.0 & http://git.io/v8T57 & Persistent Vector \\ 
+      Common Lisp & 0.13.7 & http://git.io/v8T57 & Simple Bit Vector \\ 
       \hline
       \end{tabular}
       \caption{Languages used and file written to carry out the
