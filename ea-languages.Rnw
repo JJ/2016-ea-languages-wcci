@@ -579,8 +579,8 @@ conclusions.
 \section{Conclusions}
 
 Our main intention in this paper was to measure the performance of
-usual functions found in evolutionary algorithm frameworks: mutation, crossover
-and OneMax, for several compiled and interpreted languages with a wide
+usual functions found in evolutionary algorithm frameworks: mutation, crossover  % "found"  =>  "used"
+and OneMax, for several compiled and interpreted languages with a wide  % instead of "onemax", better say "fitness function"
 range of use and popularity within the evolutionary computation and
 scientific community and programmers at large.  
 % and to determine how these programming languages affect the performance in EA experiments
@@ -656,13 +656,15 @@ This paper is part of the open science effort at the university of
 Granada. It has been written using {\tt knitr}, and its source as well as
 the data used to create it can be downloaded from 
 \href{https://github.com/JJ/2016-ea-languages-wcci}{the GitHub
-  repository} \url{https://github.com/JJ/2016-ea-languages-wcci/}. It
-has been supported in part by
-\href{http://geneura.wordpress.com}{GeNeura Team}, projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness), SPIP2014-01437 (Direcci{\'o}n
-General de Tr{\'a}fico), PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza
-Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de
-Investigaci{\'o}n), and project V17-2015 of the Microprojects program
-2015 from CEI BioTIC Granada.  
+  repository} \url{https://github.com/JJ/2016-ea-languages-wcci/}. 
+It has been supported in part by
+\href{http://geneura.wordpress.com}{GeNeura Team}, 
+projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness), 
+SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico), 
+PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces 
+en la IX Convocatoria de Proyectos de Investigaci{\'o}n), 
+PROY-PP2015-06 (Plan Propio 2015 UGR), 
+and project V17-2015 of the Microprojects program 2015 from CEI BioTIC Granada.  
 
 
 \bibliographystyle{IEEEtran}
