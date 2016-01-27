@@ -144,9 +144,9 @@ expressions \cite{awk}. Besides, benchmarks should include a wide variety
 of sizes, because the time needed to perform particular operations
 does not always depends linearly on size, as performance is also affected
 by technical details for instance the implementation of loops and
-memory management. In fact, if running speed is the only issue
+memory management. In fact, if running speed is the only issue,
 languages such as Fortran, and implementations on GPUs would be the
-way to go for all researchers. As that is not the case, we can
+way to go for all researchers. However, as that is not the case, we can
 conclude that we are looking for languages that are, if not the
 fastests, fast enough, and also within the set of languages that is
 used nowadays. Besides, it might be the case that some emerging
@@ -168,7 +168,7 @@ baseline for evolutionary algorithms will also be used: OneMax.
 We have to admit that, in general, programs do not spend the majority
 of the time applying them; this place in the ranking rather goes to
 selection operators and other higher-level, population-handling ones, as well as the
-fitness function which, in most cases, occupies the majority of the
+fitness function which, in most cases, occupies the majority of the  % "the majority of"  => "most of"
 running time. However, these functions are well covered by usual
 general purpose
 benchmarks so you can usually rely on any of them for choosing a
@@ -181,7 +181,7 @@ HIFF, OneMax or Royal Road. However, the objective of this paper is
 not to optimize the total running time of evolutionary algorithms by
 choosing the best language or data structure but rather to prove that
 there are many interesting options with a good performance that should
-be considered by EA (evolutionary algorithm) practitioners. We were
+be considered by EA (evolutionary algorithm) practitioners. We were  % this acronym should be defined before, and used along the rest of the text
 interested also in checking out the design decisions that the
 different languages forced us to do and what was the impact on overall
 performance. 
@@ -624,7 +624,7 @@ conclusions.
 
 Our main intention in this paper was to measure the performance of
 usual functions found in evolutionary algorithm frameworks: mutation, crossover  % "found"  =>  "used"
-and OneMax, for several compiled and interpreted languages with a wide  % instead of "onemax", better say "fitness function"
+and OneMax, for several compiled and interpreted languages with a wide  % instead of "onemax", better say "fitness function" (in line 165 it is presented as I propose)
 range of use and popularity within the evolutionary computation and
 scientific community and programmers at large.  
 % and to determine how these programming languages affect the performance in EA experiments
