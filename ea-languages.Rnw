@@ -445,7 +445,7 @@ Table \ref{tab:files}.
       C++ & 4.8.4 & \url{http://git.io/v8T57} & bitset  & Compiled\\
       C\# & mono 4.2  & \url{https://git.io/vzHDI} & Bit Vector  & Compiled\\
       Clojure & 1.8.0 & \url{https://git.io/vzHDe} & Persistent Vector &  Interpreted \\ 
-      Common Lisp & 0.13.7 & \url{https://git.io/vzHif} & Simple Bit Vector &  Compiled\\ 
+      Common Lisp & 0.13.7 & \url{https://git.io/vzHyR} & Simple Bit Vector &  Compiled\\ 
       Go & go1.2.1 & \url{http://git.io/vBSYp} & Bit Vector & Compiled\\
       Haskell & ghc 7.10.3 & \url{https://git.io/vzHMw} & Mutable Vector & Compiled \\ 
       Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset & Compiled\\
