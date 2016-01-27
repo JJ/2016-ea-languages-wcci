@@ -98,7 +98,7 @@ evolutionary algorithms, onemax, programming languages.
 
 \section{Introduction}
 
-Most released evolutionary algorithms implementations, and also most
+Most released evolutionary algorithms (EA) implementations, and also most
 experiments published, use mainstream compiled languages such as C/C++
 or Java. In general, researchers consider that compilation makes
 running the experiment faster and thus make, in general, the algorithm
@@ -137,7 +137,7 @@ sense that, while there are particular languages that might be the
 fastest for particular problem sizes and specially fitness functions,
 these two constraints cannot be disregarded, and,
 specially, for non-trivial problem sizes and limiting ourselves to the
-realm of evolutionary algorithm operators, some interpreted and
+realm of EA operators, some interpreted and
 unpopular languages such as {\tt awk} can be the fastest option
 available for evolving particular data structures such as regular
 expressions \cite{awk}. Besides, benchmarks should include a wide variety
@@ -150,20 +150,20 @@ way to go for all researchers. However, as that is not the case, we can
 conclude that we are looking for languages that are, if not the
 fastests, fast enough, and also within the set of languages that is
 used nowadays. Besides, it might be the case that some emerging
-language whose popularity in the area of evolutionary algorithms is
+language whose popularity in the area of EAs is
 not too big, is, in fact, faster than the well known C++ or Java. 
 
 For the purposes of this paper, we will try to be more extensive on
 the number of languages tested than on the number of operations,
 choosing from a varied set of languages placed with different paradigms. 
 Since in
-general, evolutionary algorithms use fitness functions that can have
+general, EAs use fitness functions that can have
 any size and shape, it is not easy to cover them all and further
 characterization might be needed. We are going to focus on
 combinatorial optimization problems, which are usually represented
 using bit strings or other structures similar to them and the two most characteristics operators: mutation
 and crossover. Besides, a fitness function usually employed as a
-baseline for evolutionary algorithms will also be used: OneMax. 
+baseline for EAs will also be used: OneMax. 
 
 We have to admit that, in general, programs do not spend the majority
 of the time applying them; this place in the ranking rather goes to
@@ -172,22 +172,22 @@ fitness function which, in most cases, occupies the majority of the  % "the majo
 running time. However, these functions are well covered by usual
 general purpose
 benchmarks so you can usually rely on any of them for choosing a
-language to implement that part of your evolutionary algorithm. This makes the
+language to implement that part of your EA. This makes the
 scope or interest of this paper certainly restricted to the set of
 problems in which classical bit-wise operations are performed and
 where fitness does not take most of the time: Testing new operators or
 implementing parallel or other kind of algorithms on functions such as
 HIFF, OneMax or Royal Road. However, the objective of this paper is
-not to optimize the total running time of evolutionary algorithms by
+not to optimize the total running time of EAs by
 choosing the best language or data structure but rather to prove that
 there are many interesting options with a good performance that should
-be considered by EA (evolutionary algorithm) practitioners. We were  % this acronym should be defined before, and used along the rest of the text
+be considered by EA practitioners. We were  % this acronym should be defined before, and used along the rest of the text
 interested also in checking out the design decisions that the
 different languages forced us to do and what was the impact on overall
 performance. 
 
 Let us remark that our intention is not so much to choose the winner of the
-competition of fastest language for evolutionary algorithms as much as
+competition of fastest language for EAs as much as
 to check the variety of speeds available and to know what order of
 magnitude these differences are. This work can be used to aid in
 making the decision of a language for implementing an evolutionary
@@ -196,17 +196,15 @@ languages such as Python, Lua, Scala, JavaScript or Go, which, in fact, do
 reach interesting performance marks.
 
 Coming up next in Section \ref{sec:soa}, we will present the state of the art of the analysis
-of evolutionary algorithm implementations. Next we will present in
+of EA implementations. Next we will present in
 Section \ref{sec:exp} 
 the tests we have used for this paper and its rationale along with the
 languages we have chosen for carrying them out. Finally, in Section
 \ref{sec:res} we 
 will present the results of measuring the performance of eleven
-languages running some widely used evolutionary algorithm operators
-and functions 
+languages running some widely used EA operators and functions 
 mutation, crossover and OneMax. Finally, we will draw the conclusions
-and present future 
-lines of work.
+and present future lines of work.
 
 \section{State of the art}
 \label{sec:soa}
@@ -234,7 +232,7 @@ languages.
 Even so and when speed matters, the benchmarks performed in the papers
 mentioned above were restricted to
 particular problem sizes and to very specific languages. They also
-test a single language for the whole evolutionary algorithm; however,
+test a single language for the whole EA; however,
 it might happen that, since different operations are involved, the
 place in the ranking for different languages is different depending on
 the operation and on the size. This 
@@ -248,7 +246,7 @@ change the language used for a particular operation if they encounter
 performance issues, as opposed to monolithic architectures written
 in a single language.
 
-This is, as a matter of fact, the state of the art such as we have found them. That is why we think it is important to take real measures so that decisions on implementation are based on facts strictly related to evolutionary algorithms, instead of relying on common lore.
+This is, as a matter of fact, the state of the art such as we have found them. That is why we think it is important to take real measures so that decisions on implementation are based on facts strictly related to EAs, instead of relying on common lore.
 
 Next we will explain the operations used for the benchmark and how
 they have been tested.
@@ -259,12 +257,12 @@ they have been tested.
 First, a particular problem was chosen for testing different
 languages and also data representations: performing bit-flip mutation
 on a binary string. In fact, this is not usually the part of the
-program an evolutionary algorithm spends the most time in
+program an EA spends the most time in
 \cite{nesmachnow2011time}. In general, that is the fitness function,
 and then reproduction-related functions: chromosome ranking, for
 instance. However, mutation is an operation that is performed quite frequently and sometimes once for every newly generated individual; it is also quintessential to
 the algorithm itself and one of the pillars of the canonical genetic algorithm, so it allows the comparison of the different
-languages in the proper context. Crossover is also part of that canonical algorithm, and MaxOnes or Count-Ones or OneMax is a fitness function frequently used as baseline for comparison of evolutionary algorithms.
+languages in the proper context. Crossover is also part of that canonical algorithm, and MaxOnes or Count-Ones or OneMax is a fitness function frequently used as baseline for comparison of EAs.
 
 In this section we will outline first
 the specifics of the implementation and the rationale behind them in
@@ -316,7 +314,7 @@ in most cases that might not be the fastest way. At any rate, this
 fitness function is quite similar to others that decode the bits of a
 binary chromosome and, even if it is quite clearly not the only
 existent fitness function, it is one that is widely used in
-evolutionary algorithms and whose speed can be applied to other
+EAs and whose speed can be applied to other
 similar functions.
 
 Being as it is a loop, we should expect that the time needed would
@@ -350,7 +348,7 @@ general, it can be divided into three different fields:\begin{itemize}
   in any case not too efficient for decoding to function parameters.
 \end{itemize}
 
-The memory and speed efficiency of these data structures is different, and it is advisable for anyone implementing an evolutionary algorithm to check all possible data structures before committing, out of inertia, to the easiest one. Once again, implementation matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and differences in evolutionary algorithm performance for different data structures can be, indeed, quite big.
+The memory and speed efficiency of these data structures is different, and it is advisable for anyone implementing an EA to check all possible data structures before committing, out of inertia, to the easiest one. Once again, implementation matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and differences in EA performance for different data structures can be, indeed, quite big.
 
 Not all data structures, however, are easily available for every
 language, or easy to deal with. We will check in the next subsection
@@ -366,7 +364,7 @@ benchmark. The primary reason for choosing these languages was the
 availability of open source implementations for the authors, but also
 we have tried to be inclusive in by considering languages that 
 represent different philosophies in language design and also languages
-traditionally used in the implementation of evolutionary algorithms
+traditionally used in the implementation of EAs
 together with others that are not so popular. These 
 languages are presented in the next two subsections.
 
@@ -425,12 +423,12 @@ the same underlying type, {\tt IndexedSeq} and in fact the overloading
 of operators allows us to use the same syntax independently of the
 type. The benchmark is available under a GPL
 license, at the URL shown in Table \ref{tab:files}. As far as we know,
-there are no  evolutionary algorithm frameworks published in
+there are no  EA frameworks published in
 Scala; however, its increasing popularity within the programmer, and,
 over all, data science community makes it quite likely to find one in the
 near future.
 
-Java is probably the most popular language within the evolutionary algorithm community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multi-platform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
+Java is probably the most popular language within the EA community, with several well established free software frameworks available, such as JCLEC \cite{ventura2008jclec} or ECJ \cite{luke2006ecj}. It is a multi-platform language, with compiled {\em bytecode} running in any operating system with a native Java virtual machine (JVM). % todo: include references.
 
 C is still one of the most popular languages, despite being free of
 the paradigms that are so popular nowadays: object orientation or
@@ -449,7 +447,7 @@ Interpreted languages are represented by Lua, PHP, Julia, Perl, Python and JavaS
 
 Lua \cite{ierusalimschy1996lua} is a popular embedded language designed for easy
 implementation, including a minimalist grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as Game Engines.% todo
-There are no known frameworks for EAs written in Lua, although an evolutionary algorithm that runs in a Canon camera has been found in YouTube.
+There are no known frameworks for EAs written in Lua, although an EA that runs in a Canon camera has been found in YouTube.
 
 Perl is an interpreted language that has been used extensively for evolutionary
 algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
@@ -462,9 +460,9 @@ as part the NodEO
 library \cite{DBLP:conf/gecco/GuervosVGES14} and the volunteer computing
 framework NodIO \cite{DBLP:journals/corr/GuervosG15}, as well as other libraries focused on the browser \cite{rivas2014object}.
 
-PHP is a language that is most commonly known for the creation of web sites. In fact, it is an interpreted and general-purpose language with emphasis on string processing. There is no known implementation of evolutionary algorithms in PHP.
+PHP is a language that is most commonly known for the creation of web sites. In fact, it is an interpreted and general-purpose language with emphasis on string processing. There is no known implementation of EAs in PHP.
 
-Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as Google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the evolutionary algorithm arena. In fact, several evolutionary algorithm frameworks, such as DEAP \cite{fortin2012deap} use it.
+Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as Google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the EA arena. In fact, several EA frameworks, such as DEAP \cite{fortin2012deap} use it.
 
 Julia \cite{bezanson2012julia} is the last language tested. It is a
 modern, interpreted and dynamic language used mainly for technical
@@ -614,7 +612,7 @@ conclusions.
 \section{Conclusions}
 
 Our main intention in this paper was to measure the performance of
-usual functions found in evolutionary algorithm frameworks: mutation, crossover  % "found"  =>  "used"
+usual functions found in EA frameworks: mutation, crossover  % "found"  =>  "used"
 and OneMax, for several compiled and interpreted languages with a wide  % instead of "onemax", better say "fitness function" (in line 165 it is presented as I propose)
 range of use and popularity within the evolutionary computation and
 scientific community and programmers at large.  
@@ -625,7 +623,7 @@ languages in different categories. The performance of the
 implementation of a whole
 algorithm will depend on the times a particular function is called,
 and of course the time it takes to evaluate the fitness function, which is usually the bottleneck in
-any evolutionary algorithm. However, for these atomic functions
+any EA. However, for these atomic functions
 interpreted and compiled languages go on a par, with no category
 emerging as a clear winner across all three functions tested. However,
 Java is almost always among the fastest across all three functions,
@@ -655,7 +653,7 @@ considered, although if you use Java you will be close to the best or
 reach the best performance; the performance of other compiled
 languages will vary wildly across languages and functions. There is no
 free lunch also in the implementation in
-evolutionary algorithms, and the fact that heterogeneous, asynchronous
+EAs, and the fact that heterogeneous, asynchronous
 distributed architectures are now possible leads us to propose them as
 an alternative to the single-language frameworks that are the most
 usual nowadays. %Pablo me mola esta frase, me la apunto para el futuro
