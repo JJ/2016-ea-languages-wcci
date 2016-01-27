@@ -424,7 +424,7 @@ which ones have been used in every language.
 \subsection{Languages tested}
 \label{ss:lang}
 
-In this paper, 15 languages have been chosen for performing all
+In this paper, 16 languages have been chosen for performing all
 benchmarks; additionally, another language, Rust, has been tested for
 one of them. The primary reason for choosing these languages was the
 availability of open source implementations for the authors, but also
@@ -443,11 +443,11 @@ Table \ref{tab:files}.
       \hline
       C & 4.8.2 & \url{http://git.io/v8T57} & char vector & Compiled \\
       C++ & 4.8.4 & \url{http://git.io/v8T57} & bitset  & Compiled\\
-      C\# & 4.8.4 & \url{https://git.io/vzHif} & Bit Vector  & Compiled\\
-      Clojure & 1.8.0 & \url{https://git.io/vzHif} & Persistent Vector &  Interpreted \\ 
+      C\# & mono 4.2  & \url{https://git.io/vzHDI} & Bit Vector  & Compiled\\
+      Clojure & 1.8.0 & \url{https://git.io/vzHDe} & Persistent Vector &  Interpreted \\ 
       Common Lisp & 0.13.7 & \url{https://git.io/vzHif} & Simple Bit Vector &  Compiled\\ 
       Go & go1.2.1 & \url{http://git.io/vBSYp} & Bit Vector & Compiled\\
-      Haskell & ghc 7.10.3 & \url{http://git.io/v8T57} & Mutable Vector & Compiled \\ 
+      Haskell & ghc 7.10.3 & \url{https://git.io/vzHMw} & Mutable Vector & Compiled \\ 
       Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset & Compiled\\
       JavaScript & node.js 5.0.0 & \url{http://git.io/vBSYd} & String & Interpreted\\
       Julia & 0.2.1 & \url{http://git.io/vBSOe} & Bit Vector & Compiled \\
@@ -640,7 +640,7 @@ languages such as Perl (in a {\em simple} implementation that uses the
 
 Please note that, although the fastest in this case are always
 compiled languages, PHP is faster than C++ and some languages such as
-Python faster than Scala. Perl is the slowest, but the {\em simple}
+Python is faster than Scala. Perl is the slowest, but the {\em simple}
 implementation beats Scala for non-trivial lengths of the string. This
 leads to the blurring the clear-cut distinction between {\em fast}
 compiled languages and {\em slow} scripting languages.
