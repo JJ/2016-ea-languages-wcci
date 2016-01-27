@@ -61,15 +61,15 @@ Email: mario@tectijuana.edu.mx}
   It is not usual in the evolutionary algorithms area to benchmark
   different operations in order to choose the best language for a
   single or multilanguage implementation, relying instead on common
-  practice or on usual frameworks using in mainstream languages. That
-  is why  it is usual to rely on compiled languages (namely Java or
-  C/C++) when implementing, without 
+  practice or on usual frameworks using in mainstream languages. % maybe "or on usual frameworks used in mainstream languages"
+  That is why  it is usual to rely on compiled languages (namely Java 
+  or C/C++) when implementing, without 
   considering other languages or rejecting them outright on the basis
   of performance. Since there are a myriad of languages nowadays, we
   considered an interesting challenge to measure their speed when
   performing usual operations in evolutionary algorithms. In this
   paper we have tested three basic evolutionary algorithm operations
-  over binary chromosomes have been chosen: 
+  over binary chromosomes:  % have been chosen: 
   bitflip mutation, crossover and the OneMax fitness
   function. Performance tests
   have been the speed for both popular and not so popular computer
