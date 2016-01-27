@@ -1,4 +1,4 @@
-+\documentclass[conference,twocolumns]{IEEEtran}
+\documentclass[conference,twocolumns]{IEEEtran}
 
 \usepackage{cite}
 \usepackage{array}
@@ -308,30 +308,40 @@ Essentially, mutation is performed by \begin{enumerate}
 
 \item Generating a random integer from 0 to the length of the chromosome.
 \item Choosing the bit in that position and flipping it
-\item Building a chromosome with the value of that bit changed.
+\item Building a chromosome with the value of that bit changed or
+  returning the chromosome with that bit changed.
 
 \end{enumerate}
 
 These operations deal mostly with random number generation and then
-list, string or vector processing. In general, copying and creating
+list, string or vector processing. In general, the time needed for copying and creating
 strings could depend on the length, but its implementation might vary
-from one language to another. 
+from one language to another and in some cases copying is not even
+used, working directly with the changed chromosome. 
 
-The next operation, {\em two-point crossover} is performed as follows:\begin{itemize}
-  \item Generating two random integers with a range from 0 to the length of the chromosomes.
-  \item Building two new chromosomes including the original from position 0 to the first point, interchanged bits from the first point to the second, and the original ones from the second position to the end of the strings.
+The next operation, {\em two-point crossover} is performed as follows:
+\begin{itemize}
+  \item Generating two random integers with a range from 0 to the
+    length of the chromosomes. It might be necessary to check that the
+    second is greater than the first.
+  \item Building two new chromosomes including the original from
+    position 0 to the first point, interchanged bits from the first
+    point to the second, and the original ones from the second
+    position to the end of the strings. 
 \end{itemize}
 
 A priori this operation seems quite similar to the first one. However,
-it involves copying of strings, an operation that will scale in a
-different way than simply running over a string and modifying one
+it necessarily involves copying of strings, an operation that will scale in a
+different way than simply running over a string or accessing one of
+its components and modifying one
 bit.
 
-Finally, {\em OneMax} follows this procedure\begin{itemize}
+Finally, {\em OneMax} follows this procedure
+\begin{itemize}
 \item Generate a random string.
-\item Run over the string.
+\item Loop over the string.
 \item If the bit is set to one, add one to a counter.
-\item Return the counter.
+\item Return the value counter.
 \end{itemize}
 
 Despite its apparent simplicity, counting the number of ones in a
@@ -339,23 +349,28 @@ string is an extremely complicated operation, which is in fact used by
 human resources teams to examine the prowess of candidates in the
 creation of algorithms and in the knowledge of a language. The
 straightforward way of carrying it out is using a loop that looks, one
-by one, at the bits in the string and adds 1 to the counter. However,
-in most cases that might not be the fastest way. At any rate, this
+by one, at the bits in the string and adds 1 to the counter if they
+are set to this value; or simply adds the value of the bit to the counter. However,
+in most cases using {\em external} loops might not be the fastest way. At any rate, this
 fitness function is quite similar to others that decode the bits of a
 binary chromosome and, even if it is quite clearly not the only
 existent fitness function, it is one that is widely used in
 EAs and whose speed can be applied to other
 similar functions.
 
-Being as it is a loop, we should expect that the time needed would
+In most cases, the function is implemented as a loop. Thus, we should
+expect that the time needed would 
 grow linearly with the chromosome size. We will check whether this is
-true or not for the different languages below. 
+true or not for the different languages in the next section. 
+
+Next we will have a look at the data structures used in the different
+languages. 
 
 
 \subsection{Available data structures}
 \label{ss:ds}
 
-Chromosomes can be represented in several different ways: an
+Chromosomes in EAs can be represented in several different ways: an
 array or vector of Boolean values, or any other scalar value that can
 be assimilated to it, or as a bitstring using generally ``1'' for true
 values or ``0'' for false values. Different data structures will have
@@ -371,14 +386,35 @@ general, it can be divided into three different fields:\begin{itemize}
   specific primitive type for the Boolean false and true values; for
   those who have, sometimes they have specific implementations that
   make this data structure the most efficient.
-\item {\em Bitsets}: bits are bits, and you can simply use bits packed
+  \item {\em Vectors} of integers or even characters can also be used
+    in the case of the language lacking a specific data structure for
+    bits or Booleans. 
+\item {\em Bitsets}: since the internal representation of any data
+  structure is composed, at a low level, by a set of bits,  you can
+  simply use bits packed 
   into bytes for representing chromosomes, with 32 bits packed in a
-  single 4 byte data structure. Memory-wise the most efficient,
+  single 4 byte data structure and bigger number of bytes used as
+  needed . Memory-wise the most efficient,
   without low-level access operators it can indeed be the slowest, and
   in any case not too efficient for decoding to function parameters.
 \end{itemize}
 
-The memory and speed efficiency of these data structures is different, and it is advisable for anyone implementing an EA to check all possible data structures before committing, out of inertia, to the easiest one. Once again, implementation matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and differences in EA performance for different data structures can be, indeed, quite big.
+Besides, many languages, including functional ones, differentiate
+between Mutable and Constant data structures, with different internal
+representations assigned to every one of them, and extensive
+optimizations used in Immutable or constant data structures. Immutable
+vectors were introduced by Clojure in 2006, and they have extended to
+other functional languages such as Scala. In the
+case they are available, we will use them, in some cases comparing it
+with Mutable data structures. 
+
+The memory and speed efficiency of these data structures is different,
+and it is advisable for anyone implementing an EA to check all
+possible data structures before committing, out of inertia, to the
+easiest one. Once again, implementation matters
+\cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and
+differences in EA performance for different data structures can be,
+indeed, quite big. 
 
 Not all data structures, however, are easily available for every
 language, or easy to deal with. We will check in the next subsection
@@ -433,9 +469,9 @@ languages are presented in the next two subsections.
     \subsubsection{Compiled languages}
     \label{ss}
 
-    Compiled languages are represented by Rust, Scala, Java, Common Lisp, Clojure, Go, C, C# and
+    Compiled languages are represented by Rust, Scala, Java, Common Lisp, Clojure, Go, C, C\# and
     C++. Scala, Clojure and Java use Java bytecode and run in the Java
-    Virtual Machine.  C# runs in the Common Language Runtime. Go, Common Lisp, C and C++ compile to a binary that runs
+    Virtual Machine.  C\# runs in the Common Language Runtime. Go, Common Lisp, C and C++ compile to a binary that runs
     natively on the target operating system. Also JavaScript is
     compiled to native machine code when it runs in the V8 JavaScript
     Engine used by both Node.js and Google Chrome web browser.  This
