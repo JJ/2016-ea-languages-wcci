@@ -25,10 +25,8 @@ measures.mo <- read.csv('measures-maxones.csv',header=TRUE,sep=",",dec=".")
 @
 
 
-\title{A comparison of implementation of basic evolutionary algorithms
-  functions in different languages} 
-% \title{How different programming languages affect the performance in evolutionary algorithm experiments}
-
+\title{A comparison of implementations of basic evolutionary
+ algorithm  operations in different languages} 
 
 %PABLO: in conference mode this is how to create the authors
 \author{\IEEEauthorblockN{Juan-Julián Merelo-Guervós}
@@ -41,13 +39,6 @@ Email: jmerelo@ugr.es}
 \IEEEauthorblockA{Department of Computer Sciences\\
 University of Jaén (Spain)\\
 Email: vrivas@ujaen.es}
-\and
-\IEEEauthorblockN{James Kirk\\
-and Montgomery Scott}
-\IEEEauthorblockA{Starfleet Academy\\
-San Francisco, California 96678-2391\\
-Telephone: (800) 555--1212\\
-Fax: (888) 555--1212}
 \and
 \IEEEauthorblockN{Israel Blancas-Álvarez}
 \IEEEauthorblockA{Computer Architecture and Technology Department\\
@@ -67,25 +58,29 @@ Email: mario@tectijuana.edu.mx}
 \maketitle
 
 \begin{abstract}
-  %% Victor, 23/nov/2015: Toqueteo el abstract haciendo frases más cortas
-  Although performance is important, several other issues should be taken
-  into account when choosing a particular language for implementing an evolutionary algorithm. For instance,
-  the speed of different languages when carrying
-  out an operation depends on several factors, like the size
-  of the operands, the version of the language or even the underlying operating system.
-  However, it is usual to rely on compiled languages (namely Java or C/C++) when implementing, without
+  It is not usual in the evolutionary algorithms area to benchmark
+  different operations in order to choose the best language for a
+  single or multilanguage implementation, relying instead on common
+  practice or on usual frameworks using in mainstream languages. That
+  is why  it is usual to rely on compiled languages (namely Java or
+  C/C++) when implementing, without 
   considering other languages or rejecting them outright on the basis
-  of performance. Since there are a myriad of languages nowadays, it
-  is interesting to measure their speed when performing usual operations in evolutionary algorithms.
-  That is why in this paper three evolutionary algorithm operations have been chosen: 
-  bitflip mutation, crossover and the OneMax evaluation fitness function, and have 
-  been measured the speed for both popular and not so popular languages
-  in order to determine how these programming languages affect the performance in evolutionary algorithm experiments. 
-  The results confirm that Java, C and C++ not only are the fastest, but also
-  have a behaviour that is independent of the size of the chromosome. % interesting finding !!
-  Additionally, results show that other languages, such as Go (compiled) or Python (interpreted) are fast enough for
+  of performance. Since there are a myriad of languages nowadays, we
+  considered an interesting challenge to measure their speed when
+  performing usual operations in evolutionary algorithms. In this
+  paper we have tested three basic evolutionary algorithm operations
+  over binary chromosomes have been chosen: 
+  bitflip mutation, crossover and the OneMax fitness
+  function. Performance tests
+  have been the speed for both popular and not so popular computer
+  languages. In general, the results confirm that compiled languages
+  scale and perform better, but also in some cases  have a behaviour
+  that is independent of the size of the chromosome. Additionally,
+  results show that other languages, such as Go (compiled) or Python
+  (interpreted) are fast enough for 
   most purposes. Besides, these experiments show which of these measures are,
-  in fact, the best for choosing an implementation language based on its performance.
+  in fact, the best for choosing an implementation language based on
+  its performance. 
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -253,7 +248,10 @@ Essentially, mutation is performed by \begin{enumerate}
 
 \end{enumerate}
 
-These operations deal mostly with random number generation and then list, string or vector processing. In general, copying and creating strings could depend on the length, but its implementation might vary from one language to another.
+These operations deal mostly with random number generation and then
+list, string or vector processing. In general, copying and creating
+strings could depend on the length, but its implementation might vary
+from one language to another. 
 
 The next operation, {\em two-point crossover} is performed as follows:\begin{itemize}
   \item Generating two random integers with a range from 0 to the length of the chromosomes.
@@ -354,15 +352,16 @@ languages are presented in the next two subsections.
       Lua & 5.2.3 & \url{http://git.io/vBSY7} & String & Interpreted\\
       Octave & 3.8.1 & \url{http://git.io/v8T57} & BitVector & Interpreted \\ 
       PHP & 5.5.9 & \url{http://git.io/v8k9g} & String & Interpreted\\ % vrivas, 5-nov-2015
-      Perl & v5.20.0 & \url{git.io/bperl} & String, Bit Vector & Interpreted \\
+      Perl & v5.20.0 & \url{http://git.io/bperl} & String, Bit Vector & Interpreted \\
       Python & 2.7.3 & \url{http://git.io/vBSYb} & String & Interpreted\\
       Rust &  1.4.0  & \url{https://github.com/JJ/RustEO} & BitVector  & Compiled \\ 
       Scala & 2.11.7 & \url{http://git.io/vBSYH} & String, Bit Vector & Compiled \\
       \hline
       \end{tabular}
       \vspace{5mm}
-      \caption{Languages used and file written to carry out the
-        benchmark. No special flags were used for the interpreter or
+      \caption{Languages, versions, URLs, data structure and type of
+        language used to carry out the
+        benchmarks. No special flags were used for the interpreter or
         compiler. \label{tab:files}}
     \end{table*}
 %
