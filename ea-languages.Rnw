@@ -399,7 +399,9 @@ general, it can be divided into three different fields:\begin{itemize}
 Besides, many languages, including functional ones, differentiate
 between Mutable and Constant data structures, with different internal
 representations assigned to every one of them, and extensive
-optimizations used in Immutable or constant data structures. In the
+optimizations used in Immutable or constant data structures. Immutable
+vectors were introduced by Clojure in 2006, and they have extended to
+other functional languages such as Scala. In the
 case they are available, we will use them, in some cases comparing it
 with Mutable data structures. 
 
