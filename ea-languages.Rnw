@@ -60,7 +60,7 @@ University of Granada (Spain)\\
 Email: pacv@ugr.es}
 \and
 \IEEEauthorblockN{Mario García-Valdez}
-\IEEEauthorblockA{Tijuana Institute of Technology (México)\\
+\IEEEauthorblockA{Tijuana Institute of Technology (Mexico)\\
 Email: mario@tectijuana.edu.mx}
 }
 
@@ -654,6 +654,7 @@ Investigaci{\'o}n), and project V17-2015 of the Microprojects program
 \bibliography{geneura,languages,GA-general}
 %\bibliography{languages}
 \end{document}
+
 %%% Local Variables:
 %%% ispell-local-dictionary: "english"
 %%% hunspell-local-dictionary: "english"

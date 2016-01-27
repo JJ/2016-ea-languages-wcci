@@ -185,4 +185,16 @@ Octave-Vector,4096,7.596948
 Octave-Vector,8192,7.762893
 Octave-Vector,16384,7.853589
 Octave-Vector,32768,8.083412
+clojure-persistentvector, 16, 0.16332398
+clojure-persistentvector, 32, 0.1955516
+clojure-persistentvector, 64, 0.41059694
+clojure-persistentvector, 128, 0.82088697
+clojure-persistentvector, 256, 1.6923044
+clojure-persistentvector, 512, 3.4038017
+clojure-persistentvector, 1024, 7.297043
+clojure-persistentvector, 2048, 21.12927
+clojure-persistentvector, 4096, 42.468647
+clojure-persistentvector, 8192, 87.23971
+clojure-persistentvector, 16384, 170.61722
+clojure-persistentvector, 32768, 342.27603
 
