@@ -55,31 +55,27 @@ Email: mromang08@correo.ugr.es}
 
 \begin{abstract}
   It is not usual in the evolutionary algorithms area to benchmark
-  different operations in order to choose the best language for a
-  single or multilanguage implementation, relying instead on common
-  practice or on usual frameworks using mainstream languages. % maybe "or on usual frameworks used in mainstream languages"
-  That is why  it is usual to rely on compiled languages (namely Java 
-  or C/C++) when implementing evolutionary algorithms, without 
-  considering other languages or rejecting them outright on the basis
-  of performance. Since there are a myriad of languages nowadays, we
-  considered an interesting challenge to measure their speed when
-  performing usual operations in evolutionary algorithms. In this
-  paper we have tested three basic evolutionary algorithm operations
-  over binary chromosomes:  % have been chosen: 
-  bitflip mutation, crossover and the OneMax fitness function. 
-  %Performance tests have been the speed for both popular and not so popular computer languages
-  % Maybe we could write this previous sentence as follows:
-  As a performance measure, the speed for both popular and not so
-  popular computer languages have been used. 
-  In general, the results confirm that compiled languages
-  scale and perform better, but also in some cases  have a behaviour
-  that is independent of the size of the chromosome. Additionally,
-  results show that other languages, such as Go (compiled) or Python
-  (interpreted) are fast enough for most purposes.  % Should we indicate a % of speedup?
-  % we would have to create a ranking - JJ
-  Besides, these experiments show which of these operations are,  % "measures" ? 
-  in fact, the best for choosing an implementation language based on
-  its performance. 
+different operations in order to choose the best language for a single
+or multilanguage implementation, relying instead on common practice or
+on usual frameworks using mainstream languages. % maybe "or on usual
+frameworks used in mainstream languages" That is why it is usual to
+rely on compiled languages (namely Java or C/C++) when implementing
+evolutionary algorithms, without considering other languages or
+rejecting them outright on the basis of performance. Since there are a
+myriad of languages nowadays, we considered an interesting challenge
+to measure their speed when performing usual operations in
+evolutionary algorithms. In this paper we have tested three basic
+evolutionary algorithm operations over binary chromosomes: bitflip
+mutation, crossover and the OneMax fitness function.  As a performance
+measure, the speed for both popular and not so popular computer
+languages have been used.  In general, the results confirm that
+compiled languages scale and perform better, but also in some cases
+have a behaviour that is independent of the size of the
+chromosome. Additionally, results show that other languages, such as
+Go (compiled) or Python (interpreted) are fast enough for most
+purposes.  Besides, these experiments show which of these operations
+are, in fact, the best for choosing an implementation language based
+on its performance.
 \end{abstract}
 
 \begin{IEEEkeywords}
