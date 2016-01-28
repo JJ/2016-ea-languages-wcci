@@ -1,6 +1,7 @@
 import Data.Sequence hiding (take)
 import Data.Time
 import Control.Applicative
+import Control.DeepSeq
 import System.Random
 
 iterations = 100000
@@ -16,16 +17,16 @@ benchmark n = do
   -- Random vector generation
   gen <- newStdGen
   let rbools = randoms gen :: [Bool]
-  let vector = fromList $ Prelude.take n rbools
+  let vector = fromList $ take n rbools
 
   -- Timing
   start <- getCurrentTime
 
   -- Random bitflips
-  let rflips = randomRs (0,n-1) gen :: [Int]
+  let rflips = take iterations $ randomRs (0,n-1) gen :: [Int]
   let changedvector = foldl bitflip vector rflips
 
-  stop <- getCurrentTime
+  stop <- (changedvector `deepseq` getCurrentTime)
   let diffTime = diffUTCTime stop start
 
   -- Printing

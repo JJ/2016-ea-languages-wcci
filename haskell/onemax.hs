@@ -2,6 +2,7 @@ import Data.Sequence hiding (take)
 import Data.Time
 import Data.Foldable hiding (concat)
 import Control.Applicative
+import Control.DeepSeq
 import System.Random
 
 
@@ -23,7 +24,7 @@ benchmark n = do
   -- Counting
   let count = onemax vector
 
-  stop <- getCurrentTime
+  stop <- (count `deepseq` getCurrentTime)
   let diffTime = diffUTCTime stop start
 
   -- Printing
