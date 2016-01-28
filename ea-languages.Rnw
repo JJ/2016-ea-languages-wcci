@@ -34,7 +34,7 @@ measures.mo <- read.csv('measures-maxones.csv',header=TRUE,sep=",",dec=".")
 \IEEEauthorblockA{CITIC and Computer Architecture and Technology
   Department\\
 University of Granada (Spain)\\
-Email: (jmerelo|iblancasa|pacv|gustavo)@ugr.es}
+Email: (jmerelo,iblancasa,pacv,gustavo)@ugr.es}
 \and
 \IEEEauthorblockN{Victor M. Rivas}
 \IEEEauthorblockA{Department of Computer Sciences\\
@@ -716,47 +716,31 @@ result in better performance boosts than choosing a particular language.
 
 \section{Conclusions}
 
-Our main intention in this paper was to measure the performance of
-usual functions found in EA frameworks: mutation, crossover  % "found"  =>  "used"
-and OneMax, for several compiled and interpreted languages with a wide  % instead of "onemax", better say "fitness function" (in line 165 it is presented as I propose)
-range of use and popularity within the evolutionary computation and
-scientific community and programmers at large.  
-% and to determine how these programming languages affect the performance in EA experiments
+In this paper we have measured the performance of an extensive
+collection of languages in simple and common evolutionary algorithm
+operations: mutation, crossover and onemax. 
 
-In general, performance results do not place interpreted and compiled
-languages in different categories. The performance of the
-implementation of a whole
-algorithm will depend on the times a particular function is called,
-and of course the time it takes to evaluate the fitness function, which is usually the bottleneck in
-any EA. However, for these atomic functions
-interpreted and compiled languages go on a par, with no category
-emerging as a clear winner across all three functions tested. However,
-Java is almost always among the fastest across all three functions,
-together with C or Go. And if there is one loser, we could say
-it is Lua, whose performance for OneMax and big sizes is quite
-disappointing. However, Lua might be the only option for in-game or
-in-web server evolution, the same as Perl, which also acts as the
-slowest in some benchmarks and sizes, might be a good option to
-interface with databases or as a web server back-end.
+We can conclude that the language usually considered the fastest,
+Java, indeed holds that position. However, compiled languages need not
+be much faster than interpreted languages with Perl, for instance,
+having a speed which is very close to C and Clojure, a scripting
+language that compiles to the Java Virtual Machine, being faster than
+both. But in this case it is using a particular data structure, and
+our tests also show that data structures and code layout have to be
+chosen carefully with performance in mind. An incorrect choice and the
+performance of fast languages such as Scala will disappear. 
 
-Go has also emerged as a very interesting contender in the arena, with
-very fast performance for all functions and a graceful degradation
-with size, even if the implementation is quite novice and can probably
-be improved with more experience in that area. Scala, in that sense,
-is also a fast alternative to the more mainstream Java. On the other
-hand, we do not think that Julia will ever become popular, since its
-performance is never the worst, but not very good either.
-
-Among interpreted languages, Python and the Node.js implementation of
-JavaScript offer the best results, although the difference to Perl is
-not too big in some benchmarks; besides, PHP, largely not considered a general-purpose
-language, is indeed the fastest in some of the tests.
+Among interpreted languages Perl, node and PHP are the fastest, with
+languages such as octave or Python having lower performance that
+should be expected. Haskell, on the other hand, has a fast
+performance, but it should be noted that in a particular case we
+could not perform the test due to excessive time, so this advantage
+should extend only to particular lengths. 
 
 All these tests lead us to the conclusion that there is no type of language
-that is superior to all others across all sizes and problems
-considered, although if you use Java you will be close to the best or
-reach the best performance; the performance of other compiled
-languages will vary wildly across languages and functions. There is no
+that is superior to all others across all sizes, problems and data
+structures, although if you use Java with BitSets or C\# you will be
+close to the best or reach the best running speed. There is no
 free lunch also in the implementation in
 EAs, and the fact that heterogeneous, asynchronous
 distributed architectures are now possible leads us to propose them as
@@ -767,11 +751,10 @@ usual nowadays. %Pablo me mola esta frase, me la apunto para el futuro
 Future lines of work might include a more extensive measurement of
 other operators such as  tournament selection and other selection
 algorithms. A priori, they are essentially CPU integer
-operations and their behavior might be, in principle, very similar to %Pablo: arriba behaviour estaba en americano
+operations and their behavior might be, in principle, very similar to 
 the one shown in these operations. This remains to be proved, however, but it is left
-as future line of work.
-
-It would also be interesting to mix and match different languages,
+as future line of work. It would also be interesting to mix and match
+different languages, 
 choosing every one for its performance, in a hybrid
 architecture. Communication might have some overhead, but it might be
 offset by performance. Combining some compiled languages such as Go or
