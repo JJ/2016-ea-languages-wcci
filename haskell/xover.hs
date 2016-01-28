@@ -2,6 +2,7 @@ import Prelude hiding (splitAt)
 import Data.Sequence hiding (take,zip)
 import Data.Time
 import Control.Applicative
+import Control.DeepSeq
 import System.Random
 
 iterations = 100000
@@ -31,11 +32,13 @@ benchmark n = do
     -- Random crossings
     gen1 <- newStdGen
     gen2 <- newStdGen
-    let unordcross = uncurry zip $ (randoms gen1 :: [Int], randoms gen2 :: [Int])
+    let crosspoint1 = take iterations $ randomRs (0,n-1) gen1 :: [Int]
+    let crosspoint2 = take iterations $ randomRs (0,n-1) gen2 :: [Int]
+    let unordcross = uncurry zip $ (crosspoint1, crosspoint2)
     let cross = map (\(a,b) -> (max a b, min a b)) unordcross
     let (cvector1,cvector2) = foldl xover (vector1,vector2) cross
 
-    stop <- getCurrentTime
+    stop <- ((cvector1,cvector2) `deepseq` getCurrentTime)
     let diffTime = diffUTCTime stop start
 
     -- Printing
