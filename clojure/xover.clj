@@ -8,23 +8,22 @@
 (loop [len 16]
   (if (<= len maxlength)
     (do
-      (let [arr1 (into [] (map (fn [_] (if (zero? (rand-int 2)) 1 0)) (range len)))
-            arr2 (into [] (map (fn [_] (if (zero? (rand-int 2)) 1 0)) (range len)))]
+      (let [arr1 (transient (into [] (map (fn [_] (if (zero? (rand-int 2)) 1 0)) (range len))))
+            arr2 (transient (into [] (map (fn [_] (if (zero? (rand-int 2)) 1 0)) (range len))))]
         (let [start (. System (nanoTime))]
           (dotimes [k iterations]
             (let [point1 (rand-int len)
                   point2 (rand-int len)
                   mn (min point1 point2)
                   mx (max point1 point2)]
-              (let [newarr1 (into
-                             (into (subvec arr1 0 mn)
-                                   (subvec arr2 mn mx))
-                             (subvec arr1 mx))
-                    newarr2 (into
-                             (into (subvec arr2 0 mn)
-                                   (subvec arr1 mn mx))
-                             (subvec arr2 mx))])))
-          (println (str "clojure-persistentvector, " len ", " (float (/ (- (. System (nanoTime)) start) 1000000000))))
+              (dotimes [j (- mx mn)]
+                (let [tmp (get arr1 (+ j mn))]
+                  (assoc! arr1 (+ j mn) (get arr2 (+ j mn)))
+                  (assoc! arr2 (+ j mn) tmp)))
+              ))
+          (println (str "clojure-transientvector, " len ", " (float (/ (- (. System (nanoTime)) start) 1000000000))))
           ))
       (recur (bit-shift-left len 1)))
     true))
+
+(dotimes )
