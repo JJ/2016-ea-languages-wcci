@@ -810,7 +810,8 @@ the data used to create it can be downloaded from
   repository} \url{https://github.com/JJ/2016-ea-languages-wcci/}. 
 It has been supported in part by
 \href{http://geneura.wordpress.com}{GeNeura Team}, 
-projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness), 
+projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness),
+Conacyt Project PROINNOVA-220590, 
 SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico), 
 PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces 
 en la IX Convocatoria de Proyectos de Investigaci{\'o}n), 
