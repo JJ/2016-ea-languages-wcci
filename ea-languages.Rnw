@@ -410,7 +410,10 @@ optimizations used in Immutable or constant data structures. Immutable
 vectors were introduced by Clojure in 2006, and they have extended to
 other functional languages such as Scala. In the
 case they are available, we will use them, in some cases comparing it
-with Mutable data structures. 
+with Mutable data structures. In the special case of the bitflip 
+operator a Mutable data structure can be more efficient, because many
+of the elements are modified in a loop.
+
 
 The memory and speed efficiency of these data structures is different,
 and it is advisable for anyone implementing an EA to check all
@@ -632,7 +635,7 @@ that $x$ and $y$ both have a logarithmic scale.}
 %
 We can look at this figure in several ways. First, let us look at the
 {\em flat} lines, which represent those languages whose speed is
-independent of the length. These are C and Java, a fact that can be
+independent of the length. These are C, C\# and Java, a fact that can be
 explained by the fact that the PHP implementation might, in fact, be
 very close to that of C. The rest of the languages are affected by
 operand length one way or another, but it is interesting to note that
@@ -644,8 +647,8 @@ languages such as Perl (in a {\em simple} implementation that uses the
 
 Please note that, although the fastest in this case are always
 compiled languages, PHP is faster than C++ and some languages such as
-Python is faster than Scala. Perl is the slowest, but the {\em simple}
-implementation beats Scala for non-trivial lengths of the string. This
+Python is faster than Scala. Perl is one of the slowest, but the {\em simple}
+implementation beats Scala and Clojure for non-trivial lengths of the string. This
 leads to the blurring the clear-cut distinction between {\em fast}
 compiled languages and {\em slow} scripting languages.
 
@@ -793,7 +796,9 @@ of reproductibility, we intend to create
 a Docker container with all the tests so that it can be downloaded and % maybe we should include an URL to specify what Docker is
 % https://www.docker.com/what-docker 
 run in any machine, checking for differences in different underlying
-architectures.
+architectures. Also a repository in GitHub, could host different implementations
+and other members of the EA community could participate with ideas and
+best practices can be documented and discussed.
 
 
 \section{Acknowledgements*}
