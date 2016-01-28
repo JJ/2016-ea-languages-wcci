@@ -76,7 +76,7 @@ Email: mromang08@correo.ugr.es}
   that is independent of the size of the chromosome. Additionally,
   results show that other languages, such as Go (compiled) or Python
   (interpreted) are fast enough for most purposes.  % Should we indicate a % of speedup?
-  % we would have to create a ránking - JJ
+  % we would have to create a ranking - JJ
   Besides, these experiments show which of these operations are,  % "measures" ? 
   in fact, the best for choosing an implementation language based on
   its performance. 
@@ -138,7 +138,7 @@ memory management. In fact, if running speed is the only issue,
 languages such as Fortran, and implementations on GPUs would be the
 way to go for all researchers. However, as that is not the case, we can
 conclude that we are looking for languages that are, if not the
-fastests, fast enough, and also within the set of languages that are
+fastest, fast enough, and also within the set of languages that are
 used nowadays. Besides, it might be the case that some emerging
 language whose popularity in the area of EAs is
 not too big, is, in fact, faster than the well known C++ or Java. 
@@ -185,8 +185,8 @@ making the decision of a language for implementing an evolutionary
 algorithm, or at least to justify the choice of non-mainstream
 languages such as Python, Lua, Scala, JavaScript or Go, which, in fact, do
 reach interesting performance marks. Also having a repository with the
-implemantation of basic EA operators in different languages could be useful
-to researchers or students that are learning to program, or evaluationg different
+implementation of basic EA operators in different languages could be useful
+to researchers or students that are learning to program, or evaluating different
 technologies. 
 
 Coming up next in Section \ref{sec:soa}, we will present the state of the art of the analysis
@@ -378,7 +378,7 @@ general, it can be divided into three different fields:\begin{itemize}
   make this data structure the most efficient.
   \item {\em Vectors} of integers or even characters can also be used
     in the case of the language lacking a specific data structure for
-    bits or Booleans. 
+    bits or Beans. 
 \item {\em Bitsets}: since the internal representation of any data
   structure is composed, at a low level, by a set of bits,  you can
   simply use bits packed 
@@ -612,9 +612,17 @@ what would be available for anyone implementing an evolutionary
 algorithm and, when we think it might have an influence on the final
 result, we will note it. 
 
-Every program used also provides native capabilities for measuring time, using system calls to check the time before and after operations were performed. This might result in a slightly different behavior, but it is the best system available, so it is what we used.
+Every program used also provides native capabilities for measuring
+time, using system calls to check the time before and after operations
+were performed. This might result in a slightly different behavior,
+but it is the best system available, so it is what we used. 
 
-All programs produced the same output, a comma separated value of language, operand length and time. Results were eventually collated and are available in the same repository than this paper, together with the code in several languages that was produced also specially for this.
+All programs produced the same output, a comma separated set of values
+that includes the language and data structure used, operand length and
+time in seconds. Results were eventually collated 
+and are available in the same repository than this paper, together
+with the code in several languages that was produced also specially
+for this. 
 
 \section{Results and analysis}
 \label{sec:res}
@@ -685,22 +693,22 @@ that $x$ and $y$ both have a logarithmic scale.}
   \centering
 <<results-ratios,message=FALSE, cache=FALSE,echo=FALSE>>=
 ratios <- read.csv('ratios.dat')
-ggplot(ratios,aes(x=reorder(Language, -Ratio, FUN=median),Language,y=Ratio))+ geom_boxplot(notch=TRUE)+ theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_y_log10()
+ggplot(ratios,aes(x=reorder(Language, -Ratio, FUN=median),Language,y=Ratio))+ geom_boxplot(notch=TRUE)+ theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_y_log10()+labs(x='Language')
 @ 
 \caption{Boxplot of scaled performance compared to baseline Julia. Please note
 that $y$ has a logarithmic scale.}
 \label{fig:ratios}
 \end{figure}
 
-We should maybe make some kind of explanation for the speed shown for
-Java, which is consistent and shows more or less the same measures
-when we run the benchmark repeatedly. We should note here that Java
+The remarkable speed Java shows is consistent, so we should note here
+that Java 
 uses a built-in primitive, {\tt cardinality}, that measures the number
 of bits of the set that are, effectively, set. We fail to understand
 how the speed increases so much in the high end of the size range, but
 it might be due to a change to a more efficient implementation on the
 Java side. It is quite clear, however, that using this data structure
-and associated operators makes Java stand out among the rest.
+and associated operators makes Java stand out among the rest. This
+speedup might not translate to other operations.
 
 To have a general idea of performance and be able to compare across
 benchmarks and sizes, we have used Julia as a baseline for comparison
@@ -713,7 +721,7 @@ boxplot in Figure \ref{fig:ratios}. The performance of Java and C\# is
 quite similar, although the latter is more consistent. Clojure and
 Haskell have a remarkable position in the ranking, better than Scala,
 Go and C, which take the following positions. However, the fact that
-Scala and clojure are also at the other end of the scale with
+Scala and Clojure are also at the other end of the scale with
 different data structures indicate that it is important to know the
 language well and that choosing a particular data structure might
 result in better performance boosts than choosing a particular language.
@@ -722,9 +730,13 @@ result in better performance boosts than choosing a particular language.
 
 In this paper we have measured the performance of an extensive
 collection of languages in simple and common evolutionary algorithm
-operations: mutation, crossover and onemax. 
+operations: mutation, crossover and onemax with the objective of
+finding out which languages are faster at these operations and what
+are the actual differences across languages, language types and data
+structures. 
 
-We can conclude that the language usually considered the fastest,
+We can conclude that the language usually considered the fastest among
+the practitioners,
 Java, indeed holds that position. However, compiled languages need not
 be much faster than interpreted languages with Perl, for instance,
 having a speed which is very close to C and Clojure, a scripting
@@ -732,38 +744,36 @@ language that compiles to the Java Virtual Machine, being faster than
 both. But in this case it is using a particular data structure, and
 our tests also show that data structures and code layout have to be
 chosen carefully with performance in mind. An incorrect choice and the
-performance of fast languages such as Scala will disappear. 
+performance advantage of fast languages such as Scala will disappear. 
 
 Among interpreted languages Perl, node and PHP are the fastest, with
-languages such as octave or Python having lower performance that
-should be expected. Haskell, on the other hand, has a fast
-performance, but it should be noted that in a particular case we
+languages such as Octave or Python having lower performance that
+should be expected. Haskell, on the other hand, is included among the
+fastest, but it should be noted that in a particular case we 
 could not perform the test due to excessive time, so this advantage
 should extend only to particular lengths. 
 
 All these tests lead us to the conclusion that there is no type of language
-that is superior to all others across all sizes, problems and data
+that is superior to all others across all chromosome sizes, problems and data
 structures, although if you use Java with BitSets or C\# you will be
 close to the best or reach the best running speed. There is no
 free lunch also in the implementation in
 EAs, and the fact that heterogeneous, asynchronous
 distributed architectures are now possible leads us to propose them as
 an alternative to the single-language frameworks that are the most
-usual nowadays. %Pablo me mola esta frase, me la apunto para el futuro
-                %:)
+usual nowadays. 
 
 Future lines of work might include a more extensive measurement of
 other operators such as  tournament selection and other selection
-algorithms. A priori, they are essentially CPU integer
+algorithms. A priori, these are essentially CPU integer
 operations and their behavior might be, in principle, very similar to 
 the one shown in these operations. This remains to be proved, however, but it is left
 as future line of work. It would also be interesting to mix and match
-different languages, 
-choosing every one for its performance, in a hybrid
+different languages, choosing every one for its performance, in a hybrid
 architecture. Communication might have some overhead, but it might be
 offset by performance. Combining some compiled languages such as Go or
 C with others characterized by its speed in some string operations,
-like Perl or programming ease, might result in the best of both worlds:
+like Perl or programming ease, like Python, might result in the best of both worlds:
 performance and rapid prototyping. Creating a whole multi-language
 framework along these lines is a challenge that might be interesting
 in the future.
