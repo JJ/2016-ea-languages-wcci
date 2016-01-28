@@ -29,39 +29,21 @@ measures.mo <- read.csv('measures-maxones.csv',header=TRUE,sep=",",dec=".")
  algorithm  operations in different languages} 
 
 %PABLO: in conference mode this is how to create the authors
-\author{\IEEEauthorblockN{Juan-Julián Merelo-Guervós}
+\author{\IEEEauthorblockN{Juan-Julián Merelo-Guervós,Israel
+    Blancas-Álvarez, Pedro A. Castillo, Gustavo Romero }
 \IEEEauthorblockA{CITIC and Computer Architecture and Technology
   Department\\
 University of Granada (Spain)\\
-Email: jmerelo@ugr.es}
+Email: (jmerelo|iblancasa|pacv|gustavo)@ugr.es}
 \and
 \IEEEauthorblockN{Victor M. Rivas}
 \IEEEauthorblockA{Department of Computer Sciences\\
 University of Jaén (Spain)\\
 Email: vrivas@ujaen.es}
 \and
-\IEEEauthorblockN{Israel Blancas-Álvarez}
-\IEEEauthorblockA{Computer Architecture and Technology Department\\
-University of Granada (Spain)\\
-Email: iblancasa@ugr.es}
-\and
-\IEEEauthorblockN{Pedro A. Castillo}
-\IEEEauthorblockA{Computer Architecture and Technology Department\\
-University of Granada (Spain)\\
-Email: pacv@ugr.es}
-\and
-\IEEEauthorblockN{Gustavo Romero}
-\IEEEauthorblockA{Computer Architecture and Technology Department\\
-University of Granada (Spain)\\
-Email: gustavo@ugr.es}
-\and
-\IEEEauthorblockN{Mario García-Valdez}
+\IEEEauthorblockN{Mario García-Valdez, Amaury Hernández-Águila}
 \IEEEauthorblockA{Tijuana Institute of Technology (Mexico)\\
-Email: mario@tectijuana.edu.mx}
-\and
-\IEEEauthorblockN{Amaury Hernández-Águila}
-\IEEEauthorblockA{Tijuana Institute of Technology (Mexico)\\
-Email: amherag@tectijuana.edu.mx}
+Email: {amherag,mario}@tectijuana.edu.mx}
 \and
 \IEEEauthorblockN{Mario Román}
 \IEEEauthorblockA{University of Granada (Spain)\\
@@ -444,7 +426,8 @@ represent different philosophies in language design as well as languages
 traditionally used in the implementation of EAs
 together with others that are not so popular. These 
 languages are presented in the next two subsections and listed in
-Table \ref{tab:files}. 
+Table \ref{tab:files}. We will examine in turn compiled languages
+(next) and interpreted languages in the next subsubsection.
 
 \begin{table*}[h!tb]
     \centering
@@ -455,13 +438,13 @@ Table \ref{tab:files}.
       C & 4.8.2 & \url{http://git.io/v8T57} & char vector & Compiled \\
       C++ & 4.8.4 & \url{http://git.io/v8T57} & bitset  & Compiled\\
       C\# & mono 4.2  & \url{https://git.io/vzHDI} & Bit Vector  & Compiled\\
-      Clojure & 1.8.0 & \url{https://git.io/vzHDe} & Persistent Vector &  Interpreted \\ 
+      Clojure & 1.8.0 & \url{https://git.io/vzHDe} & Persistent Vector &  Compiled \\ 
       Common Lisp & 0.13.7 & \url{https://git.io/vzHyR} & Simple Bit Vector &  Compiled\\ 
       Go & go1.2.1 & \url{http://git.io/vBSYp} & Bit Vector & Compiled\\
       Haskell & ghc 7.10.3 & \url{https://git.io/vzHMw} & Mutable Vector & Compiled \\ 
       Java & 1.8.0\_66 & \url{http://git.io/v8TdR} & Bitset & Compiled\\
       JavaScript & node.js 5.0.0 & \url{http://git.io/vBSYd} & String & Interpreted\\
-      Julia & 0.2.1 & \url{http://git.io/vBSOe} & Bit Vector & Compiled \\
+      Julia & 0.2.1 & \url{http://git.io/vBSOe} & Bit Vector & Interpreted \\
       Lua & 5.2.3 & \url{http://git.io/vBSY7} & String & Interpreted\\
       Octave & 3.8.1 & \url{http://git.io/v8T57} & BitVector & Interpreted \\ 
       PHP & 5.5.9 & \url{http://git.io/v8k9g} & String & Interpreted\\ % vrivas, 5-nov-2015
@@ -480,7 +463,7 @@ Table \ref{tab:files}.
 %
 
     \subsubsection{Compiled languages}
-    \label{ss}
+    \label{ss:compiled}
 
 
     These languages run in different ways, but there are
@@ -497,6 +480,7 @@ Table \ref{tab:files}.
     popular compiled languages in scientific computing as well as three
     languages that are emerging in popularity: Go, Scala and Clojure. 
 
+    
 Scala \cite{odersky2004overview} is a strongly-typed
 functional language that compiles to a Java Virtual Machine
 bytecode. Scala is in many cases faster than Java
@@ -512,14 +496,11 @@ Scala; however, its increasing popularity within the programmer, and,
 over all, data science community makes it quite likely to find one in the
 near future.
 
-
 C\# \cite{hejlsberg2003c} is a general-purpose, object-oriented programming language
 designed for the Common Language Infrastructure.  In recent
-versions C# has added several major features to accommodate functional-style programming, 
-and dynamic binding. For this work the c\# was compiled to run in the Mono runtime, an 
+versions C\# has added several major features to accommodate functional-style programming, 
+and dynamic binding. For this work the C\# scripts were compiled to run in the Mono runtime, an 
 implementation of the ECMA Common Language Infrastructure (CLI).
-
-
 
 Java is probably the most popular language within the EA community,
 with several well established free software frameworks available, such
@@ -537,7 +518,6 @@ of Java interfaces and classes.
 Common Lisp is also a dialect of Lisp, in this work we used the Steel Bank Common Lisp (SBCL) 
 implementation \cite{rhodes2008sbcl}, a free high performance native compiler that has
 been ported to multiple hardware architectures and operating systems. 
-
 
 C is still one of the most popular languages, despite being free of
 the paradigms that are so popular nowadays: object orientation or
@@ -558,24 +538,37 @@ Pandoc and literary programming being its most popular cases. Since it
 works functionally, we have included it in this paper to check it
 against other functional languages. 
 
-These languages will be tested against a set of interpreted languages described below.
+The Rust language \cite{hoarerust} is only tested in one function, and
+used here only as another type of emerging language whose performance
+would be interesting to measure. Rust is multi-paradigm and type-safe,
+but supports also purely functional programming.  
+
+These languages will be tested against a set of interpreted languages
+described below. 
 
 \subsubsection{Interpreted languages}
 
-Interpreted languages are represented by Lua, PHP, Julia, Perl, Python and JavaScript. These include three popular languages, Perl, Python and JavaScript, Python being also the most popular in the scientific computing environment, and then three other languages seldom seen in the EC arena, but popular in their particular niches.
+Interpreted languages are represented by Lua, PHP, Julia, Perl, Python
+and JavaScript. These include three popular languages, Perl, Python
+and JavaScript, Python being also the most popular in the scientific
+computing environment, and then three other languages seldom seen in
+the EC arena, but popular in their particular niches. 
 
 Lua \cite{ierusalimschy1996lua} is a popular embedded language designed for easy
 implementation, including a minimalist grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as Game Engines.% todo
 There are no known frameworks for EAs written in Lua, although an EA that runs in a Canon camera has been found in YouTube.
 
 Perl is an interpreted language that has been used extensively for evolutionary
-algorithms \cite{ae09,merelo14:noisy,DBLP:conf/cec/GuervosMCCV13} with
+algorithms \cite{ae09,DBLP:conf/cec/GuervosMCCV13} with
 satisfactory results, although its main emphasis is not on speed, but on freedom for the programmer to code using any style and paradigm. The module and tools ecosystem built around it make it extremely interesting for any kind of programming. Our implementation of Perl uses different open-source libraries and in some cases also different versions of the language. Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
 
-JavaScript is an interpreted language that follows an ECMA standard and with many different implementations, including the different ones embedded in all internet browsers. Node.js is one such implementation of JavaScript with an asynchronous input/output loop and designed to run standalone in servers or the command line. Node.js uses a the V8 JIT compiler to create native machine code when in reads the
-script, and has been used lately
-% by our research group
-as part the NodEO
+JavaScript is an interpreted language that follows an ECMA standard
+and with many different implementations, including the different ones
+embedded in all internet browsers. Node.js is one such implementation
+of JavaScript with an asynchronous input/output loop and designed to
+run standalone in servers or the command line. Node.js uses a the V8
+JIT compiler to create native machine code when in reads the 
+script, and has been used lately as part the NodEO
 library \cite{DBLP:conf/gecco/GuervosVGES14} and the volunteer computing
 framework NodIO \cite{DBLP:journals/corr/GuervosG15}, as well as other libraries focused on the browser \cite{rivas2014object}.
 
@@ -623,7 +616,7 @@ All programs produced the same output, a comma separated value of language, oper
 \label{sec:res}
 
 We will examine first the performance for the bitflip operation, that is graphed in Figure \ref{fig:time}.
-
+%
 \begin{figure}[h!tb]
   \centering
 <<results-bf, cache=FALSE,echo=FALSE>>=
@@ -637,24 +630,23 @@ that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time}
 \end{figure}
 %
-We can look at this figure in several ways. First, let us look at the
-{\em flat} lines, which represent those languages whose speed is
-independent of the length. These are C, C\# and Java, a fact that can be
-explained by the fact that the PHP implementation might, in fact, be
-very close to that of C. The rest of the languages are affected by
-operand length one way or another, but it is interesting to note that
-Java and Go are, in fact, faster when the length grows. The rest
-generally takes longer to process longer strings, although some
-languages such as Perl (in a {\em simple} implementation that uses the
-{\em Algorithm::Evolutionary::Simple} library), Lua or Node.js have a
-{\em flat} segment that goes up to considerable lengths.
+First, let us look at the {\em flat} lines, which represent those languages whose speed is
+independent of the length. In many cases it corresponds to
+implementations that do not perform any kind of copy, so that
+exclusive fact  has nothing to do with speed. Even so, Java, CSharp,
+Go, Scala show a remarkably fast behavior, almost one order of
+magnitude faster than other languages. PHP is the fastest of
+interpreted languages, with speed on a par with interpreted
+languages and faster than C++. Clojure, on the other hand, is very slow.
 
 Please note that, although the fastest in this case are always
 compiled languages, PHP is faster than C++ and some languages such as
 Python is faster than Scala. Perl is one of the slowest, but the {\em simple}
 implementation beats Scala and Clojure for non-trivial lengths of the string. This
 leads to the blurring the clear-cut distinction between {\em fast}
-compiled languages and {\em slow} scripting languages.
+compiled languages and {\em slow} scripting languages. But please note
+too that, for bigger sizes, the difference between the slowest and the
+fastest can be several orders of magnitude, up to 5. 
 
 \begin{figure}[h!tb]
   \centering
@@ -681,10 +673,8 @@ that $x$ and $y$ both have a logarithmic scale.}
 \end{figure}
 
 This scenario is even more blurred if we look at the measures taken
-for the
-crossover operator in Figure \ref{fig:time:xo}. The fastest overall are Go and,
-once again, Java, but the slowest is another compiled language, C++,
-at least for sizes bigger than 64. The scaling of
+for the crossover operator in Figure \ref{fig:time:xo}. The fastest overall are Go, C\# and,
+once again, Java, but C++ is among the slowest, on a par with Scala (if it uses a BitString). The scaling of
 this performance is similar for C, which becomes the second slowest
 for sizes bigger than 1024. The Node.js JavaScript interpreter performs
 quite consistently and independently of the size, but Perl and PHP are
@@ -697,10 +687,9 @@ In this case, the underlying operation is string or array copy. Languages such
 as Node.js, Perl or PHP whose main focus is in data processing are
 optimized for that kind of thing. System-oriented languages such as C
 or C++, on the other hand, are not so that they fare much worse in
-this kind of operation.
+this kind of operation. But it is also interesting to note that, in this case, using contant structures can result in faster operation, as in the case of Scala. 
 
-If we proceed to the last benchmark, the OneMax function,  which is
-shown in Figure \ref{fig:time:mo} we see that the behaviour for all
+If we proceed to the last benchmark, the OneMax function shown in Figure \ref{fig:time:mo} we see that the behaviour for all
 languages except Java is essentially the same, scaling linearly with the
 chromosome size due to the fact that the only way of counting ones is
 to loop over the data structure noting them and adding one to a
@@ -805,7 +794,7 @@ and other members of the EA community could participate with ideas and
 best practices can be documented and discussed.
 
 
-\section{Acknowledgements*}
+\section*{Acknowledgements}
 
 This paper is part of the open science effort at the university of
 Granada. It has been written using {\tt knitr}, and its source as well as
@@ -815,8 +804,7 @@ the data used to create it can be downloaded from
 It has been supported in part by
 \href{http://geneura.wordpress.com}{GeNeura Team}, 
 projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness),
-Conacyt Project PROINNOVA-220590, 
-SPIP2014-01437 (Direcci{\'o}n General de Tr{\'a}fico), 
+Conacyt Project PROINNOVA-220590,
 PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces 
 en la IX Convocatoria de Proyectos de Investigaci{\'o}n), 
 PROY-PP2015-06 (Plan Propio 2015 UGR), 
