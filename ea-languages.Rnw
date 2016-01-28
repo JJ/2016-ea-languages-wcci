@@ -705,7 +705,14 @@ particular language and length and the speed for Julia. Julia has been
 chosen because it is never the best or the worst, staying in the
 middle. Ratios higher than 1 mean that the particular language+data
 structure is faster than Julia, <1 the opposite. Please check the
-boxplot in Figure \ref{fig:ratios}.
+boxplot in Figure \ref{fig:ratios}. The performance of Java and C\# is
+quite similar, although the latter is more consistent. Clojure and
+Haskell have a remarkable position in the ranking, better than Scala,
+Go and C, which take the following positions. However, the fact that
+Scala and clojure are also at the other end of the scale with
+different data structures indicate that it is important to know the
+language well and that choosing a particular data structure might
+result in better performance boosts than choosing a particular language.
 
 \section{Conclusions}
 
@@ -776,12 +783,10 @@ in the future.
 
 Focusing only in the part of measuring algorithms and in the interest
 of reproductibility, we intend to create
-a Docker container with all the tests so that it can be downloaded and % maybe we should include an URL to specify what Docker is
-% https://www.docker.com/what-docker 
-run in any machine, checking for differences in different underlying
-architectures. Also a repository in GitHub, could host different implementations
-and other members of the EA community could participate with ideas and
-best practices can be documented and discussed.
+a virtual machine image with all the tests so that it can be downloaded and
+run anywhere. A comprehensive repository with tests and comments will
+also be a good forum where different languages and implementations can
+be discussed.  
 
 
 \section*{Acknowledgements}
