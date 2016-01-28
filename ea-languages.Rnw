@@ -71,9 +71,9 @@ Email: amherag@tectijuana.edu.mx}
   It is not usual in the evolutionary algorithms area to benchmark
   different operations in order to choose the best language for a
   single or multilanguage implementation, relying instead on common
-  practice or on usual frameworks using in mainstream languages. % maybe "or on usual frameworks used in mainstream languages"
+  practice or on usual frameworks using mainstream languages. % maybe "or on usual frameworks used in mainstream languages"
   That is why  it is usual to rely on compiled languages (namely Java 
-  or C/C++) when implementing, without 
+  or C/C++) when implementing evolutionary algorithms, without 
   considering other languages or rejecting them outright on the basis
   of performance. Since there are a myriad of languages nowadays, we
   considered an interesting challenge to measure their speed when
@@ -84,7 +84,7 @@ Email: amherag@tectijuana.edu.mx}
   %Performance tests have been the speed for both popular and not so popular computer languages
   % Maybe we could write this previous sentence as follows:
   As a performance measure, the speed for both popular and not so
-  popular computer languages has been used. 
+  popular computer languages have been used. 
   In general, the results confirm that compiled languages
   scale and perform better, but also in some cases  have a behaviour
   that is independent of the size of the chromosome. Additionally,
@@ -112,9 +112,8 @@ the choice of a particular language might be constrained by the
 application at hand; some optimization frameworks might need to link
 to resources such as embedded
 or web based systems, forcing them to rely on a particular language or
-a set of languages. Past experience or simply know-how in teams will
-also make some languages, outside the ones mentioned above, have a
-different set of languages to choose for our implementation. Besides,
+a set of languages. Past experience or simply the know-how in teams will
+also make them to choose languages outside the ones mentioned above. Besides,
 running speed is not everything. In many cases, 
 ease of integration with existing or legacy tools, coding speed or
 availability of parallel or distributed frameworks are much more
@@ -153,7 +152,7 @@ memory management. In fact, if running speed is the only issue,
 languages such as Fortran, and implementations on GPUs would be the
 way to go for all researchers. However, as that is not the case, we can
 conclude that we are looking for languages that are, if not the
-fastests, fast enough, and also within the set of languages that is
+fastests, fast enough, and also within the set of languages that are
 used nowadays. Besides, it might be the case that some emerging
 language whose popularity in the area of EAs is
 not too big, is, in fact, faster than the well known C++ or Java. 
@@ -199,7 +198,10 @@ magnitude these differences are. This work can be used to aid in
 making the decision of a language for implementing an evolutionary
 algorithm, or at least to justify the choice of non-mainstream
 languages such as Python, Lua, Scala, JavaScript or Go, which, in fact, do
-reach interesting performance marks.
+reach interesting performance marks. Also having a repository with the
+implemantation of basic EA operators in different languages could be useful
+to researchers or students that are learning to program, or evaluationg different
+technologies. 
 
 Coming up next in Section \ref{sec:soa}, we will present the state of the art of the analysis
 of EA implementations. Next we will present in
