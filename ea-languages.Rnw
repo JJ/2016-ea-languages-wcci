@@ -498,7 +498,8 @@ over all, data science community makes it quite likely to find one in the
 near future.
 
 C\# \cite{hejlsberg2003c} is a general-purpose, object-oriented programming language
-designed for the Common Language Infrastructure.  In recent
+designed for the Common Language Infrastructure, a virtual machine
+designed as an alternative to the Java Virtual Machine.  In recent
 versions C\# has added several major features to accommodate functional-style programming, 
 and dynamic binding. For this work the C\# scripts were compiled to run in the Mono runtime, an 
 implementation of the ECMA Common Language Infrastructure (CLI). This
