@@ -62,6 +62,10 @@ Email: mario@tectijuana.edu.mx}
 \IEEEauthorblockN{Amaury Hernández-Águila}
 \IEEEauthorblockA{Tijuana Institute of Technology (Mexico)\\
 Email: amherag@tectijuana.edu.mx}
+\and
+\IEEEauthorblockN{Mario Román}
+\IEEEauthorblockA{University of Granada (Spain)\\
+Email: mromang08@correo.ugr.es}
 
 }
 
