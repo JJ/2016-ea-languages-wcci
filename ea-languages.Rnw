@@ -469,7 +469,8 @@ Table \ref{tab:files}. We will examine in turn compiled languages
     These languages run in different ways, but there are
     representatives of both compiled (native and to bytecode) and
     interpreted. 
-    Compiled languages are represented by Haskell, Rust, Scala, Java, Common Lisp, Clojure, Go, C, C\# and
+    Compiled languages are represented by Haskell, Rust, Scala, Java,
+    Common Lisp, Clojure, Go, C, C\# and 
     C++. Scala, Clojure and Java use Java bytecode and run in the Java
     Virtual Machine.  C\# runs in the Common Language Runtime. Go,
     Common Lisp, C and C++ compile to a binary that runs 
@@ -500,7 +501,9 @@ C\# \cite{hejlsberg2003c} is a general-purpose, object-oriented programming lang
 designed for the Common Language Infrastructure.  In recent
 versions C\# has added several major features to accommodate functional-style programming, 
 and dynamic binding. For this work the C\# scripts were compiled to run in the Mono runtime, an 
-implementation of the ECMA Common Language Infrastructure (CLI).
+implementation of the ECMA Common Language Infrastructure (CLI). This
+is an open source version of the runtime, which allowed us to run it
+in Linux.
 
 Java is probably the most popular language within the EA community,
 with several well established free software frameworks available, such
