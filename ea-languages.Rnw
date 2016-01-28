@@ -689,7 +689,8 @@ optimized for that kind of thing. System-oriented languages such as C
 or C++, on the other hand, are not so that they fare much worse in
 this kind of operation. But it is also interesting to note that, in this case, using contant structures can result in faster operation, as in the case of Scala. 
 
-If we proceed to the last benchmark, the OneMax function shown in Figure \ref{fig:time:mo} we see that the behaviour for all
+If we proceed to the last benchmark, the OneMax function shown in
+Figure \ref{fig:time:mo} we see that the behaviour for all 
 languages except Java is essentially the same, scaling linearly with the
 chromosome size due to the fact that the only way of counting ones is
 to loop over the data structure noting them and adding one to a
