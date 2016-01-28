@@ -222,7 +222,7 @@ algorithm has received some attention from early on, with programming
 environments reviewed already in 1994 \cite{jose1994genetic}. This initial
 %Pablo: Paloma told me that semicolons are evil
 survey focused on implementation aspects, but shows that most of them
-used C or C++; Java was not even an option then. Implementation
+used C or C++; Java was not even an option back then. Implementation
 %Pablo: well, here the semicolon is not that bad :)
 matters \cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, which implies that
 paying attention to the particular way an algorithm is implemented
@@ -260,7 +260,9 @@ change the language used for a particular operation if they encounter
 performance issues, as opposed to monolithic architectures written
 in a single language.
 
-This is, as a matter of fact, the state of the art such as we have found them. That is why we think it is important to take real measures so that decisions on implementation are based on facts strictly related to EAs, instead of relying on common lore.
+This is, as a matter of fact, the state of the art such as we have found them. 
+That is why we think it is important to take real measures so that decisions 
+on implementation are based on facts strictly related to EAs, instead of relying on common lore.
 
 Next we will explain the operations used for the benchmark and how
 they have been tested.
