@@ -646,7 +646,12 @@ implementation beats Scala and Clojure for non-trivial lengths of the string. Th
 leads to the blurring the clear-cut distinction between {\em fast}
 compiled languages and {\em slow} scripting languages. But please note
 too that, for bigger sizes, the difference between the slowest and the
-fastest can be several orders of magnitude, up to 5. 
+fastest can be several orders of magnitude, up to 5. The situation is
+quite similar in Figures \ref{fig:time:xo} and \ref{fig:time:mo}. In
+general, some compiled languages show higher performance, although in
+some cases languages such as Node.js can achieve similar speeds for
+some sizes. Scaling behavior is also similar, due to copy and other
+linear operations like loops.
 
 \begin{figure}[h!tb]
   \centering
@@ -671,39 +676,17 @@ lengths increasing by a factor of two from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time:mo}
 \end{figure}
-
-This scenario is even more blurred if we look at the measures taken
-for the crossover operator in Figure \ref{fig:time:xo}. The fastest overall are Go, C\# and,
-once again, Java, but C++ is among the slowest, on a par with Scala (if it uses a BitString). The scaling of
-this performance is similar for C, which becomes the second slowest
-for sizes bigger than 1024. The Node.js JavaScript interpreter performs
-quite consistently and independently of the size, but Perl and PHP are
-also quite fast for a significant portion of the size range.
-Python, on the other hand, shows in this occasion a behavior that
-degrades for the high end of the size range, becoming slower than Lua
-or any Perl implementation.
-
-In this case, the underlying operation is string or array copy. Languages such
-as Node.js, Perl or PHP whose main focus is in data processing are
-optimized for that kind of thing. System-oriented languages such as C
-or C++, on the other hand, are not so that they fare much worse in
-this kind of operation. But it is also interesting to note that, in this case, using contant structures can result in faster operation, as in the case of Scala. 
-
-If we proceed to the last benchmark, the OneMax function shown in
-Figure \ref{fig:time:mo} we see that the behaviour for all 
-languages except Java is essentially the same, scaling linearly with the
-chromosome size due to the fact that the only way of counting ones is
-to loop over the data structure noting them and adding one to a
-counter. C is now the fastest, followed by Node.js, and Lua the slowest,
-followed by the implementation of Perl that uses {\tt
-  Algorithm::Evolutionary}. However, in the {\em Simple}
-implementation of Perl, performance reached is on a par with Scala and
-Go, both compiled languages. In this case we extended, for some
-languages, chromosome size up to $2^{16}$. We did not do it for all
-languages, since it took them more than one hour to perform the 100K
-function calls. Lua was not even able to complete them for length =
-$2^{14}$. Besides, Lua performance increased with length faster than
-the rest of the languages, making it the worst of the set.
+%
+\begin{figure}[h!tb]
+  \centering
+<<results-ratios,message=FALSE, cache=FALSE,echo=FALSE>>=
+ratios <- read.csv('ratios.dat')
+ggplot(ratios,aes(x=reorder(Language, -Ratio, FUN=median),Language,y=Ratio))+ geom_boxplot(notch=TRUE)+ theme(axis.text.x = element_text(angle = 90, hjust = 1))+scale_y_log10()
+@ 
+\caption{Boxplot of scaled performance compared to baseline Julia. Please note
+that $y$ has a logarithmic scale.}
+\label{fig:ratios}
+\end{figure}
 
 We should maybe make some kind of explanation for the speed shown for
 Java, which is consistent and shows more or less the same measures
@@ -715,8 +698,14 @@ it might be due to a change to a more efficient implementation on the
 Java side. It is quite clear, however, that using this data structure
 and associated operators makes Java stand out among the rest.
 
-After this overview of the results, we will proceed to present the
-conclusions.
+To have a general idea of performance and be able to compare across
+benchmarks and sizes, we have used Julia as a baseline for comparison
+and expressed all times as the ratio between the time needed for a
+particular language and length and the speed for Julia. Julia has been
+chosen because it is never the best or the worst, staying in the
+middle. Ratios higher than 1 mean that the particular language+data
+structure is faster than Julia, <1 the opposite. Please check the
+boxplot in Figure \ref{fig:ratios}.
 
 \section{Conclusions}
 

@@ -27,8 +27,8 @@ for my $f ( @measure_files ) {
   for my $len ( keys %measures ) {
     next if $len > 60000; # No Julia
     for my $lg ( keys %{$measures{$len}} ) {
-      my $ratio = $measures{$len}{$lg} / $measures{$len}{'julia-BitString'};
-#      say "$len, $lg, ", $measures{$len}{$lg} / $measures{$len}{'julia-BitString'};
+      my $ratio = $measures{$len}{'julia-BitString'}/$measures{$len}{$lg};
+#      say "$len, $lg, ", $measures{$len}{'julia-BitString'}/$measures{$len}{$lg} /;
       say "$lg, $ratio";
     }
   }
