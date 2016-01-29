@@ -580,6 +580,8 @@ PHP is a language that is most commonly known for the creation of web sites. In 
 
 Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as Google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the EA arena. In fact, several EA frameworks, such as DEAP \cite{fortin2012deap} use it.
 
+Gnu Octave \cite{}eaton2005high
+
 Julia \cite{bezanson2012julia} is the last language tested. It is a
 modern, interpreted and dynamic language used mainly for technical
 computing. It cannot be called exactly popular, but we have included
