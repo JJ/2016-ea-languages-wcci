@@ -110,14 +110,14 @@ That is why when efficiency matters, as said in
  \cite{anderson2010efficiency} and, in general, if we restrict
  performance to {\em speed of the compiled/interpreted application
    when run} it might be the case that some
-languages are faster to others, as evidenced by benchmarks such as
+languages are faster than others, as evidenced by benchmarks such as
 \cite{prechelt2000empirical,fulghamcomputer}. Taken in general or even
 restricting it to some particular set of problems such as floating
 point computation, some compiled languages tend to be faster than
 interpreted languages as proved in the papers mentioned above.
 
-However, in the same spirit of the {\em There is no free lunch} theorem
-\cite{Wolpert-1997-NFL} we could affirm there is a {\em no fast lunch}
+However, in the same spirit of the {\em No Free Lunch} theorem
+\cite{Wolpert-1997-NFL} we could consider there is a {\em no fast lunch}
 theorem for the implementation of evolutionary optimization problems, in the
 sense that, while there are particular languages that might be the
 fastest for particular problem sizes and specially fitness functions,
@@ -254,7 +254,7 @@ they have been tested.
 
 Several operations: bitflip mutation, crossover and count-ones or onemax, have been chosen for testing different
 languages and also data representations. This is not the complete set
-of EA operations or the most time-consuming \cite{nesmachnow2011time}, but are representative
+of EA operations or the most time-consuming \cite{nesmachnow2011time}, but they are representative
 because they have to be implemented in all evolutionary algorithms,
 the last one as a baseline test. In general, the fitness function in
 non-trivial or academic problems will be the speed bottleneck,
