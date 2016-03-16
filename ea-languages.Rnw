@@ -558,19 +558,22 @@ described below.
 
 \subsubsection{Interpreted languages}
 
-Interpreted languages are represented by Lua, PHP, Julia, Perl, Python
-and JavaScript. These include three popular languages, Perl, Python
+Represented by Lua, PHP, Julia, Perl, Python
+and JavaScript, three popular languages, Perl, Python
 and JavaScript, Python being also the most popular in the scientific
-computing environment, and then three other languages seldom seen in
-the EC arena, but popular in their particular niches. 
-
-Lua \cite{ierusalimschy1996lua} is a popular embedded language designed for easy
-implementation, including a minimalist grammar so that its interpreter can be reduced to a few hundreds of Ks. Indeed, it can be lately found in places such as Game Engines.% todo
-There are no known frameworks for EAs written in Lua, although an EA that runs in a Canon camera has been found in YouTube.
+computing environment
+%% , and then three other languages seldom seen in
+%% the EC arena, but popular in their particular niches. 
 
 Perl is an interpreted language that has been used extensively for evolutionary
 algorithms \cite{ae09,DBLP:conf/cec/GuervosMCCV13} with
-satisfactory results, although its main emphasis is not on speed, but on freedom for the programmer to code using any style and paradigm. The module and tools ecosystem built around it make it extremely interesting for any kind of programming. Our implementation of Perl uses different open-source libraries and in some cases also different versions of the language. Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
+satisfactory results, although its main emphasis is not on speed, but
+on freedom for the programmer to code using any style and
+paradigm. The module and tools ecosystem built around it make it
+extremely interesting for any kind of programming. Our implementation
+of Perl uses different open-source libraries and in some cases also
+different versions of the language. 
+%% Perl produces new even minor versions every spring, with the current version being 5.22. Odd minor versions such as 5.23 are considered development versions, with features that are, later on, implemented on the stable versions of the language.
 
 JavaScript is an interpreted language that follows an ECMA standard
 and with many different implementations, including the different ones
@@ -586,15 +589,20 @@ PHP is a language that is most commonly known for the creation of web sites. In 
 
 Python is probably the most popular scripting language, head to head with JavaScript. It is directly supported by major corporations such as Google, and its different implementations (including one for the Java Virtual Machine, Jython) make it a very strong contender in the EA arena. In fact, several EA frameworks, such as DEAP \cite{fortin2012deap} use it.
 
-GNU Octave \cite{eaton2005high} is a free interactive environment for numerical computation 
-and is intended to be compatible with MATLAB. The Octave scripting language is executed using an interpreter and supports 
-many common C standard library functions. 
-
+Lua \cite{ierusalimschy1996lua} is a popular embedded language designed for easy
+implementation, including a minimalist grammar so that its interpreter
+can be reduced to a few hundreds of Ks. % Indeed, it can be lately found in places such as Game Engines.% todo
+%There are no known frameworks for EAs written in Lua, although an EA that runs in a Canon camera has been found in YouTube.
+GNU Octave \cite{eaton2005high} is a free interpreter and interactive environment for numerical computation 
+and is intended to be compatible with MATLAB. 
+%% The Octave scripting language is executed using an interpreter and supports 
+%% many common C standard library functions. 
+%
 Julia \cite{bezanson2012julia} is the last language tested. It is a
 modern, interpreted and dynamic language used mainly for technical
 computing. It cannot be called exactly popular, but we have included
 it for completeness, mainly.
-
+%
 The interpreter versions and repositories for these languages are
 shown in Table \ref{tab:files}.
 
