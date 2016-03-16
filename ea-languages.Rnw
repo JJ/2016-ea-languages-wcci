@@ -54,16 +54,16 @@ Email: mromang08@correo.ugr.es}
 \maketitle
 
 \begin{abstract}
-  It is not usual in the evolutionary algorithms area to benchmark
+  It is not usual practice in the evolutionary algorithms area to benchmark
 different operations in order to choose the best language for a single
-or multilanguage implementation, relying instead on common practice or
-on usual frameworks using mainstream languages. % maybe "or on usual
-frameworks used in mainstream languages" That is why it is usual to
-rely on compiled languages (namely Java or C/C++) when implementing
+or multilanguage implementation. Researchers rely instead on common practice or
+frameworks using mainstream languages. 
+That is why it is usual practice to
+choose compiled languages (namely Java or C/C++) when implementing
 evolutionary algorithms, without considering other languages or
-rejecting them outright on the basis of performance. Since there are a
-myriad of languages nowadays, we considered an interesting challenge
-to measure their speed when performing usual operations in
+rejecting them outright on the basis of performance. Since there is a
+myriad of languages nowadays, we considered it an interesting challenge
+to measure their speed when performing frequent operations in
 evolutionary algorithms. In this paper we have tested three basic
 evolutionary algorithm operations over binary chromosomes: bitflip
 mutation, crossover and the OneMax fitness function.  As a performance
@@ -95,7 +95,7 @@ application at hand; some optimization frameworks might need to link
 to resources such as embedded
 or web based systems, forcing them to rely on a particular language or
 a set of languages. Past experience or simply the know-how in teams will
-also make them to choose languages outside the ones mentioned above. Besides,
+also make them to choose languages outside the ones mentioned above. But,
 running speed is not everything. In many cases, 
 ease of integration with existing or legacy tools, coding speed or
 availability of parallel or distributed frameworks are much more
