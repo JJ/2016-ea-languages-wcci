@@ -213,11 +213,14 @@ might result in speed improvements that outclass those achieved by
 using the {\em a priori} fastest language available. Some authors have
 even proved that careful and expert coding, and choosing the right tools \cite{ae09,1515367} in
 interpreted languages can make them as fast, or even faster, than
-compiled languages such as Java.
+compiled languages such as Java. For instance, Alba et al. examined
+the performance of different data structures, all of them using the
+same language, in \cite{alba2007influence}. 
 
 However, most papers devoted to the implementation of evolutionary
 algorithms in languages other than C or Java try to prove that, for
-the particular type of problems used in scientific computing in general, the running speed is not as important
+the particular type of problems used in scientific computing in
+general, the running speed is not as important 
 as coding speed or even learning speed, since most scientific programs
 are, in fact, run only a few times, each one of them lasting all of a
 few seconds, while a lot of time is spent on coding
@@ -243,7 +246,12 @@ switch the language used for a particular operation if they encounter
 performance issues, as opposed to monolithic architectures written
 in a single language.
 
-This is, as a matter of fact, the state of the art such as we have found them. 
+This is, as a matter of fact, the state of the art such as we have
+found them. One of the most recent papers we have found
+\cite{nesmachnow2015empirical} focuses on a single language, C++, and
+changes aspects of the implementation, but no effort has been made to
+work with different languages and their most efficient data
+structures. 
 That is why we think it is important to take real measures so that decisions 
 on implementation are based on facts strictly related to EAs, instead
 of relying on common lore. 
