@@ -813,11 +813,11 @@ the data used to create it can be downloaded from
 It has been supported in part by
 \href{http://geneura.wordpress.com}{GeNeura Team}, 
 projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness),
-Conacyt Project PROINNOVA-220590,
+project 5622.15-P from Tecnol{\'o}gico Nacional de M{\'exico},
 PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces 
 en la IX Convocatoria de Proyectos de Investigaci{\'o}n), 
-PROY-PP2015-06 (Plan Propio 2015 UGR), 
-and project V17-2015 of the Microprojects program 2015 from CEI BioTIC Granada.  
+PROY-PP2015-06 (Plan Propio 2015 UGR) and project V17-2015 of the Microprojects 
+program 2015 from CEI BioTIC Granada.  
 
 
 \bibliographystyle{IEEEtran}
