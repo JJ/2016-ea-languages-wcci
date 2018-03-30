@@ -699,7 +699,7 @@ that $x$ and $y$ both have a logarithmic scale.}
   \centering
 <<results-mo, cache=FALSE,echo=FALSE>>=
 colourCount = length(unique(measures.mo$languagerepresentation))
-ggplot(measures.mo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point() +  ggtitle("Evolutionary algorithm language benchmarks: Onemax")+scale_y_log10()+scale_x_log10()+scale_color_manual(name='Language',values=getPalette(colourCount))
+ggplot(measures.mo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point()  + ggtitle("Evolutionary algorithm language benchmarks: Onemax") + scale_y_log10()+scale_x_log10() + scale_color_manual(name='Language',values=getPalette(colourCount)) + theme( legend.text=element_text(size=10))
 @
 \caption{Plot of time needed to perform 100K OneMax evaluations in strings with
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
