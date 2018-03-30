@@ -1,0 +1,216 @@
+\documentclass[conference,twocolumns]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{array}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{subfigure}
+
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+
+<<setup, cache=FALSE,echo=FALSE>>=
+library("ggplot2")
+library(RColorBrewer)
+measures.bf <- read.csv('measures-bitflip.csv')
+measures.xo <- read.csv('measures-xover.csv')
+measures.mo <- read.csv('measures-maxones.csv',header=TRUE,sep=",",dec=".")
+@
+
+
+\title{Improvement through releases of evolutionary algorithms in Perl
+6} 
+
+%PABLO: in conference mode this is how to create the authors
+\author{\IEEEauthorblockN{Juan-Julián Merelo-Guervós}
+\IEEEauthorblockA{CITIC and Computer Architecture and Technology
+  Department\\
+University of Granada (Spain)\\
+Email: jmerelo@ugr.es}
+}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+Per\-formance optimization, bench\-mark, implementation of
+evolutionary algorithms, onemax, programming languages.
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+
+
+\section{State of the art}
+\label{sec:soa}
+
+
+
+\section{Experimental setup}
+\label{sec:exp}
+
+Several operations: bitflip mutation, crossover and count-ones or onemax, have been chosen for testing different
+languages and also data representations. This is not the complete set
+of EA operations or the most time-consuming \cite{nesmachnow2011time}, but they are representative
+of evolutionary operators used in most evolutionary algorithms. In general, the fitness function in
+non-trivial or academic problems will be the speed bottleneck,
+followed in most cases by reproduction-related functions: chromosome ranking, for
+instance. However, there are many different ways to implement this and
+they cannot be covered in this paper, so we will stick to the most
+common and usual functions, which we will describe next. 
+
+The other operator chosen, crossover, is also part of that canonical EA, and MaxOnes or Count-Ones or OneMax is a fitness
+function frequently used as baseline for comparison of evolutionary
+algorithms. Its implementation is trickier than it seems a priori, and
+making the fastest implementation in a particular language might be
+more difficult than it a priori seems. 
+
+
+In this section we will outline first
+the specifics of the implementation and expand the rationale behind
+choosing them for this paper in
+subsection \ref{ss:operators}. Then we will proceed to outline the different
+data structures that have been used here in subsection \ref{ss:ds} to
+finally present the different languages that have been tested and the
+peculiarities of its implementation \ref{ss:lang}.
+
+\subsection{Functions and operators included in the benchmark}
+\label{ss:operators}
+
+Finally, {\em OneMax} follows this procedure
+\begin{itemize}
+\item Generate a random string.
+\item Loop over the string.
+\item If the bit is set to one, add one to a counter.
+\item Return the value counter.
+\end{itemize}
+
+Despite its apparent simplicity, counting the number of ones in a
+string is an extremely complicated operation, which is in fact used by
+human resources teams to examine the prowess of candidates in the
+creation of algorithms and in the knowledge of a language. The
+straightforward way of carrying it out is using a loop that looks, one
+by one, at the bits in the string and adds 1 to the counter if they
+are set to this value; or simply adds the value of the bit to the counter. However,
+in most cases using {\em external} loops might not be the fastest way. At any rate, this
+fitness function is quite similar to others that decode the bits of a
+binary chromosome and, even if it is quite clearly not the only
+existent fitness function, it is one that is widely used in
+EAs and whose speed can be applied to other
+similar functions.
+
+In most cases, the function is implemented as a loop. Thus, we should
+expect that the time needed would 
+grow linearly with the chromosome size. We will check whether this is
+true or not for the different languages in the next section. 
+
+Next we will have a look at the data structures used in the different
+languages. 
+
+
+\subsection{Available data structures}
+\label{ss:ds}
+
+Chromosomes in EAs can be represented in several different ways: an
+array or vector of Boolean values, or any other scalar value that can
+be assimilated to it, or as a bitstring using generally ``1'' for true
+values or ``0'' for false values. Different data structures will have
+an impact on the result, since the operations that are applied to them
+are, in many cases, completely different and thus the underlying
+implementation is more or less efficient. Besides, languages use
+different native data structures to represent this information. In
+general, it can be divided into three different fields:\begin{itemize}
+\item {\em Strings}: representing a set bit by 1 and unset by 0, it is
+  a data structure present in all languages and simple to use in
+  most.
+\item {\em Vector of Boolean values}: not all languages have a
+  specific primitive type for the Boolean false and true values; for
+  those who have, sometimes they have specific implementations that
+  make this data structure the most efficient.
+  \item {\em Vectors} of integers or even characters can also be used
+    in the case of the language lacking a specific data structure for
+    bits or Beans. 
+\item {\em Bitsets}: since the internal representation of any data
+  structure is composed, at a low level, by a set of bits,  you can
+  simply use bits packed 
+  into bytes for representing chromosomes, with 32 bits packed in a
+  single 4 byte data structure and bigger number of bytes used as
+  needed . Memory-wise the most efficient,
+  without low-level access operators it can indeed be the slowest, and
+  in any case not too efficient for decoding to function parameters.
+\end{itemize}
+
+Besides, many languages, including functional ones, differentiate
+between Mutable and Constant data structures, with different internal
+representations assigned to every one of them, and extensive
+optimizations used in Immutable or constant data structures. Immutable
+vectors were introduced by Clojure in 2006, and they have extended to
+other functional languages such as Scala. In the
+case they are available, we will use them, in some cases comparing it
+with Mutable data structures. In the special case of the bitflip 
+operator a Mutable data structure can be more efficient, because many
+of the elements are modified in a loop.
+
+
+The memory and speed efficiency of these data structures is different,
+and it is advisable for anyone implementing an EA to check all
+possible data structures before committing, out of inertia, to the
+easiest one. Once again, implementation matters
+\cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and
+differences in EA performance for different data structures can be,
+indeed, quite big. 
+
+Not all data structures, however, are easily available for every
+language, or easy to deal with. We will check in the next subsection
+which ones have been used in every language. 
+
+\section{Results and analysis}
+\label{sec:res}
+%
+\begin{figure}[h!tb]
+  \centering
+<<results-mo, cache=FALSE,echo=FALSE>>=
+colourCount = length(unique(measures.mo$languagerepresentation))
+ggplot(measures.mo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point()  + ggtitle("Evolutionary algorithm language benchmarks: Onemax") + scale_y_log10()+scale_x_log10() + scale_color_manual(name='Language',values=getPalette(colourCount)) + theme( legend.text=element_text(size=10))
+@
+\caption{Plot of time needed to perform 100K OneMax evaluations in strings with
+lengths increasing by a factor of two from 16 to $2^{15}$. Please note
+that $x$ and $y$ both have a logarithmic scale.}
+\label{fig:time:mo}
+\end{figure}
+%
+\section{Conclusions}
+
+\section*{Acknowledgements}
+
+This paper is part of the open science effort at the university of
+Granada. It has been written using {\tt knitr}, and its source as well as
+the data used to create it can be downloaded from 
+\href{https://github.com/JJ/2016-ea-languages-wcci}{the GitHub
+  repository} \url{https://github.com/JJ/2016-ea-languages-wcci/}. 
+It has been supported in part by
+\href{http://geneura.wordpress.com}{GeNeura Team}, 
+projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness),
+project 5622.15-P from Tecnol{\'o}gico Nacional de M{\'exico}.  
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{geneura,languages,GA-general}
+%\bibliography{languages}
+\end{document}
+
+
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% hunspell-local-dictionary: "english"
+%%% End:
