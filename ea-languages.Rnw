@@ -265,24 +265,23 @@ they have been tested.
 Several operations: bitflip mutation, crossover and count-ones or onemax, have been chosen for testing different
 languages and also data representations. This is not the complete set
 of EA operations or the most time-consuming \cite{nesmachnow2011time}, but they are representative
-because they have to be implemented in all evolutionary algorithms,
-the last one as a baseline test. In general, the fitness function in
+of evolutionary operators used in most evolutionary algorithms. In general, the fitness function in
 non-trivial or academic problems will be the speed bottleneck,
 followed in most cases by reproduction-related functions: chromosome ranking, for
 instance. However, there are many different ways to implement this and
 they cannot be covered in this paper, so we will stick to the most
 common and usual functions, which we will describe next. 
 
-The first one, {\em bitflip mutation}, changes a single bit chosen
+The first one, {\em bitflip mutation}, is a basic mutation operator that changes a single bit chosen
 randomly from the random function included in the standard library on
-a binary string. However, mutation is an operation that is performed
+a binary string. However, mutation in general is an operation that is performed
 quite frequently and sometimes once for every newly generated
 individual; it is also quintessential to 
 the algorithm itself and one of the pillars of the canonical genetic
-algorithm, so it allows the comparison of the different 
-languages in the proper context. 
+algorithm. Bitflip mutation was selected because it allows the comparison of the different 
+languages in the proper context, with out using complex software constructs. 
 
-The other function chosen, crossover, is also part of that canonical EA, and MaxOnes or Count-Ones or OneMax is a fitness
+The other operator chosen, crossover, is also part of that canonical EA, and MaxOnes or Count-Ones or OneMax is a fitness
 function frequently used as baseline for comparison of evolutionary
 algorithms. Its implementation is trickier than it seems a priori, and
 making the fastest implementation in a particular language might be
@@ -521,7 +520,7 @@ operating system with a native Java virtual machine (JVM). % todo:
 
 Clojure \cite{hickey2008clojure}  is a dialect of Lisp, 
 and shares with Lisp the code-as-data philosophy and a powerful macro system and
-Is compiled to run on the Java Virtual Machine. Clojure as a Java library consumer,  
+is compiled to run on the Java Virtual Machine. Clojure as a Java library consumer,  
 can call EA libraries in Java and supports the dynamic implementation 
 of Java interfaces and classes.
 
@@ -638,7 +637,7 @@ but it is the best system available, so it is what we used.
 All programs produced the same output, a comma separated set of values
 that includes the language and data structure used, operand length and
 time in seconds. Results were eventually collated 
-and are available in the same repository than this paper, together
+and are available in the same repository as this paper, together
 with the code in several languages that was produced also specially
 for this. 
 
@@ -671,7 +670,7 @@ languages and faster than C++. Clojure, on the other hand, is very slow.
 
 Please note that, although the fastest in this case are always
 compiled languages, PHP is faster than C++ and some languages such as
-Python is faster than Scala. Perl is one of the slowest, but the {\em simple}
+Python are faster than Scala. Perl is one of the slowest, but the {\em simple}
 implementation beats Scala and Clojure for non-trivial lengths of the string. This
 leads to the blurring the clear-cut distinction between {\em fast}
 compiled languages and {\em slow} scripting languages. But please note
@@ -734,7 +733,7 @@ and expressed all times as the ratio between the time needed for a
 particular language and length and the speed for Julia. Julia has been
 chosen because it is never the best or the worst, staying in the
 middle. Ratios higher than 1 mean that the particular language+data
-structure is faster than Julia, <1 the opposite. Please check the
+structure is faster than Julia, and less than 1 the opposite. Please check the
 boxplot in Figure \ref{fig:ratios}. The performance of Java and C\# is
 quite similar, although the latter is more consistent. Clojure and
 Haskell have a remarkable position in the ranking, better than Scala,
@@ -814,11 +813,11 @@ the data used to create it can be downloaded from
 It has been supported in part by
 \href{http://geneura.wordpress.com}{GeNeura Team}, 
 projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness),
-Conacyt Project PROINNOVA-220590,
+project 5622.15-P from Tecnol{\'o}gico Nacional de M{\'exico},
 PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces 
 en la IX Convocatoria de Proyectos de Investigaci{\'o}n), 
-PROY-PP2015-06 (Plan Propio 2015 UGR), 
-and project V17-2015 of the Microprojects program 2015 from CEI BioTIC Granada.  
+PROY-PP2015-06 (Plan Propio 2015 UGR) and project V17-2015 of the Microprojects 
+program 2015 from CEI BioTIC Granada.  
 
 
 \bibliographystyle{IEEEtran}
