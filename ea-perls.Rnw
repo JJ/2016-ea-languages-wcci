@@ -19,14 +19,11 @@
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
 library(RColorBrewer)
-measures.bf <- read.csv('measures-bitflip.csv')
-measures.xo <- read.csv('measures-xover.csv')
 measures.mo <- read.csv('measures-maxones.csv',header=TRUE,sep=",",dec=".")
 @
 
 
-\title{Improvement through releases of evolutionary algorithms in Perl
-6} 
+\title{Performance improvements of evolutionary algorithms in Perl 6} 
 
 %PABLO: in conference mode this is how to create the authors
 \author{\IEEEauthorblockN{Juan-Julián Merelo-Guervós}
@@ -39,6 +36,16 @@ Email: jmerelo@ugr.es}
 \maketitle
 
 \begin{abstract}
+  
+  Perl 6 is a new language that belongs to the Perl family but has
+  actually been designed from scratch. Through its two-year old
+  (released) history, it has increased performance in several orders
+  of magnitude, arriving recently to the point where it can be safely
+  used in production. In this paper, we are going to compare the
+  historical and current performance of Perl 6 in a single problem,
+  OneMax, to those of other interpreted languages; besides, we will
+  also use implicit concurrency and see what kind of performance and
+  scaling can we expect from it.  
 
 \end{abstract}
 
@@ -49,7 +56,22 @@ evolutionary algorithms, onemax, programming languages.
 
 \section{Introduction}
 
+Performance has always been a concern in scientific
+computing. Generally, you will want to use the fastest language
+available to be able to run your experiments in as little time as
+possible. However, while implementation matters
+\cite{DBLP:conf/iwann/MereloRACML11}, ease of programming, available
+libraries and supporting community are sometimes bigger concerns,
+since in scientific computing the target is to optimize
+time-to-publish the paper, not only time from pressing {\em Enter} to
+obtaining the results, and that includes time to get toe program done
+itself, as well as process results.
 
+In that sense, interpreted languages such as Python, Perl or JavaScript
+\cite{fortin2012deap,DBLP:conf/ijcci/FarisAMCM1,DBLP:conf/gecco/GuervosVGES1,perl-ea,hidaka2017development,rivas2014object,ae09}
+offer fast prototyping, if not the fastest implementation, which
+usually belongs to compiled languages such as Haskell or Java
+\cite{DBLP:conf/evoW/MereloCBRGFRV16}. 
 
 \section{State of the art}
 \label{sec:soa}
