@@ -1,0 +1,168 @@
+languagerepresentation, length, time
+lua-BitString, 16, 0.138472
+lua-BitString, 32, 0.153188
+lua-BitString, 64, 0.189082
+lua-BitString, 128, 0.195775
+lua-BitString, 256, 0.227511
+lua-BitString, 512, 0.260409
+lua-BitString, 1024, 0.287016
+lua-BitString, 2048, 0.345132
+lua-BitString, 4096, 0.443664
+lua-BitString, 8192, 0.628303
+lua-BitString, 16384, 1.024463
+lua-BitString, 32768, 1.94307
+node-BitString, 16, 0.160806589
+node-BitString, 32, 0.157202745
+node-BitString, 64, 0.157618616
+node-BitString, 128, 0.156915225
+node-BitString, 256, 0.157834305
+node-BitString, 512, 0.15672511
+node-BitString, 1024, 0.156460626
+node-BitString, 2048, 0.157259448
+node-BitString, 4096, 0.157262506
+node-BitString, 8192, 0.157161797
+node-BitString, 16384, 0.160300963
+node-BitString, 32768, 0.168783221
+julia-BitString, 16, 1.0098631381988525
+julia-BitString, 32, 1.022557020187378
+julia-BitString, 64, 1.0162079334259033
+julia-BitString, 128, 1.014193058013916
+julia-BitString, 256, 1.0335490703582764
+julia-BitString, 512, 1.0296671390533447
+julia-BitString, 1024, 1.155466079711914
+julia-BitString, 2048, 1.4064691066741943
+julia-BitString, 4096, 1.8243751525878906
+julia-BitString, 8192, 2.638934850692749
+julia-BitString, 16384, 4.075515031814575
+julia-BitString, 32768, 6.779500961303711
+C++-BitString, 16, 0.27911
+C++-BitString, 32, 0.507671
+C++-BitString, 64, 0.973914
+C++-BitString, 128, 1.91343
+C++-BitString, 256, 3.73445
+C++-BitString, 512, 7.47594
+C++-BitString, 1024, 14.8943
+C++-BitString, 2048, 29.8744
+C++-BitString, 4096, 58.858
+C++-BitString, 8192, 117.86
+C++-BitString, 16384, 236.469
+C++-BitString, 32768, 469.746
+perlsimple-BitString, 16, 0.093017
+perlsimple-BitString, 32, 0.09311
+perlsimple-BitString, 64, 0.093369
+perlsimple-BitString, 128, 0.096936
+perlsimple-BitString, 256, 0.10122
+perlsimple-BitString, 512, 0.106117
+perlsimple-BitString, 1024, 0.113045
+perlsimple-BitString, 2048, 0.116048
+perlsimple-BitString, 4096, 0.135422
+perlsimple-BitString, 8192, 0.180865
+perlsimple-BitString, 16384, 0.275157
+perlsimple-BitString, 32768, 0.452528
+perl5.20-BitString, 16, 0.090559
+perl5.20-BitString, 32, 0.091816
+perl5.20-BitString, 64, 0.092669
+perl5.20-BitString, 128, 0.096617
+perl5.20-BitString, 256, 0.09943
+perl5.20-BitString, 512, 0.101426
+perl5.20-BitString, 1024, 0.105078
+perl5.20-BitString, 2048, 0.132514
+perl5.20-BitString, 4096, 0.164535
+perl5.20-BitString, 8192, 0.238537
+perl5.20-BitString, 16384, 0.395068
+perl5.20-BitString, 32768, 0.70701
+C-char[], 16, 0.023034
+C-char[], 32, 0.033206
+C-char[], 64, 0.065305
+C-char[], 128, 0.129805
+C-char[], 256, 0.259115
+C-char[], 512, 0.518837
+C-char[], 1024, 1.035489
+C-char[], 2048, 2.108138
+C-char[], 4096, 4.240845
+C-char[], 8192, 8.438042
+C-char[], 16384, 16.643888
+C-char[], 32768, 33.249835
+PHP-BitString, 16, 0.084987878799438
+PHP-BitString, 32, 0.083945989608765
+PHP-BitString, 64, 0.084114074707031
+PHP-BitString, 128, 0.084746122360229
+PHP-BitString, 256, 0.086251974105835
+PHP-BitString, 512, 0.088663101196289
+PHP-BitString, 1024, 0.099147796630859
+PHP-BitString, 2048, 0.10781407356262
+PHP-BitString, 4096, 0.12345600128174
+PHP-BitString, 8192, 0.16549801826477
+PHP-BitString, 16384, 0.24688696861267
+PHP-BitString, 32768, 0.42579698562622
+Python-BitString, 16, 0.191942
+Python-BitString, 32, 0.187645
+Python-BitString, 64, 0.185287
+Python-BitString, 128, 0.184696
+Python-BitString, 256, 0.189651
+Python-BitString, 512, 0.187854
+Python-BitString, 1024, 0.188472
+Python-BitString, 2048, 0.201052
+Python-BitString, 4096, 0.38871
+Python-BitString, 8192, 0.318437
+Python-BitString, 16384, 0.858042
+Python-BitString, 32768, 5.511306
+Scala-BitString, 16, 0.744348217
+Scala-BitString, 32, 1.084732938
+Scala-BitString, 64, 2.088636449
+Scala-BitString, 128, 4.035128035
+Scala-BitString, 256, 8.192925495
+Scala-BitString, 512, 16.072171438
+Scala-BitString, 1024, 31.783877309
+Scala-BitString, 2048, 64.634910485
+Scala-BitString, 4096, 128.377681939
+Scala-BitString, 8192, 260.548575546
+Scala-BitString, 16384, 531.343119435
+Scala-BitString, 32768, 1069.655612513
+Scala-BitVector, 16, 0.27609606
+Scala-BitVector, 32, 0.37891259
+Scala-BitVector, 64, 0.720946991
+Scala-BitVector, 128, 1.273745151
+Scala-BitVector, 256, 2.42401833
+Scala-BitVector, 512, 4.659423727
+Scala-BitVector, 1024, 9.148627659
+Scala-BitVector, 2048, 18.344673342
+Scala-BitVector, 4096, 36.445573232
+Scala-BitVector, 8192, 72.447136535
+Scala-BitVector, 16384, 144.688775524
+Scala-BitVector, 32768, 290.245904784
+Octave-Vector,16,7.226437
+Octave-Vector,32,7.154273
+Octave-Vector,64,7.171814
+Octave-Vector,128,7.219337
+Octave-Vector,256,7.286929
+Octave-Vector,512,7.298546
+Octave-Vector,1024,7.606605
+Octave-Vector,2048,7.585081
+Octave-Vector,4096,7.596948
+Octave-Vector,8192,7.762893
+Octave-Vector,16384,7.853589
+Octave-Vector,32768,8.083412
+clisp-simple_bit_vector, 16, 0.18400000
+clisp-simple_bit_vector, 32, 0.21400000
+clisp-simple_bit_vector, 64, 0.27900000
+clisp-simple_bit_vector, 128, 0.40800000
+clisp-simple_bit_vector, 256, 0.67200000
+clisp-simple_bit_vector, 512, 1.18900000
+clisp-simple_bit_vector, 1024, 2.26000000
+clisp-simple_bit_vector, 2048, 4.49500000
+clisp-simple_bit_vector, 4096, 9.04800000
+clisp-simple_bit_vector, 8192, 17.22200000
+clisp-simple_bit_vector, 16384, 34.31500000
+clisp-simple_bit_vector, 32768, 68.24900000
+perl6-BitVector,16,8.601187
+perl6-BitVector,32,10.2240155
+perl6-BitVector,64,14.0194292
+perl6-BitVector,128,21.2032233
+perl6-BitVector,256,35.6363591
+perl6-BitVector,512,63.8362706
+perl6-BitVector,1024,121.5812771
+perl6-BitVector,2048,236.6089409
+perl6-BitVector,4096,472.11090822
+
+
