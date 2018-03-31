@@ -25,7 +25,6 @@ measures.mo <- read.csv('measures-maxones-2018.csv',header=TRUE,sep=",",dec=".")
 
 \title{Performance improvements of evolutionary algorithms in Perl 6} 
 
-%PABLO: in conference mode this is how to create the authors
 \author{\IEEEauthorblockN{Juan-Julián Merelo-Guervós}
 \IEEEauthorblockA{CITIC and Computer Architecture and Technology
   Department\\
@@ -68,10 +67,40 @@ obtaining the results, and that includes time to get toe program done
 itself, as well as process results.
 
 In that sense, interpreted languages such as Python, Perl or JavaScript
-\cite{fortin2012deap,DBLP:conf/ijcci/FarisAMCM1,DBLP:conf/gecco/GuervosVGES1,perl-ea,hidaka2017development,rivas2014object,ae09}
+\cite{fortin2012deap,DBLP:conf/ijcci/FarisAMCM16,DBLP:conf/gecco/GuervosVGES14,perl-ea,hidaka2017development,rivas2014object,ae09}
 offer fast prototyping, if not the fastest implementation, which
 usually belongs to compiled languages such as Haskell or Java
-\cite{DBLP:conf/evoW/MereloCBRGFRV16}. 
+\cite{DBLP:conf/evoW/MereloCBRGFRV16}. However, as proved in the cited
+paper, that is not always the case and new languages deserve a chance
+to be tested, mainly if they offer functionalities that might make the
+implementation of evolutionary algorithms faster or more straightforward.
+
+Besides, performance in a language is not a static thing; while some
+languages are happy enough with the level they achieve and focus on
+other functionalities, newer languages focus on performance in every
+new release, offering improvements of several orders of
+magnitude. This has been the case of Perl 6
+\cite{Tang:2007:PRI:1190216.1190218}, a new, concurrent, dynamic and
+multi-paradigm language that has been in development since 2000 and
+released in December 2015. Since then, it has had a release cycle of
+one, or sometimes more, releases every month, with stable releases
+every four months. While initial tests discouraged us from including
+its figures in the paper where we benchmarked many languages for
+evolutionary algorithms \cite{DBLP:conf/evoW/GuervosBCRGRVHR17}, the
+increase in performance has been continuous, as well as the
+implementation of implicit paralellism features. 
+
+This paper is specially focused on benchmarking this language for
+evolutionary algorithms, with the intention of proposing it as
+production-ready in a scientific computing or evolutionary computation
+experiment. 
+
+The rest of the paper is organized as follows. We will briefly present
+the state of the art in benchmarking evolutionary algorithms in the
+next section, followed by the set of experiments used to test
+performance in Section \ref{sec:exp}. Results and charts will be
+presentes in Section \ref{sec:res}, and we will close the paper by
+stating our conclusions. 
 
 \section{State of the art}
 \label{sec:soa}
@@ -151,7 +180,8 @@ an impact on the result, since the operations that are applied to them
 are, in many cases, completely different and thus the underlying
 implementation is more or less efficient. Besides, languages use
 different native data structures to represent this information. In
-general, it can be divided into three different fields:\begin{itemize}
+general, it can be divided into three different fields:
+\begin{itemize}
 \item {\em Strings}: representing a set bit by 1 and unset by 0, it is
   a data structure present in all languages and simple to use in
   most.
@@ -229,7 +259,7 @@ project 5622.15-P from Tecnol{\'o}gico Nacional de M{\'exico}.
 
 \bibliographystyle{IEEEtran}
 \bibliography{geneura,languages,GA-general}
-%\bibliography{languages}
+
 \end{document}
 
 
