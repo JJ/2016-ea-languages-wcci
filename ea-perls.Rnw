@@ -3,6 +3,7 @@
 %%% ispell-local-dictionary: "english"
 %%% End:
 
+\usepackage[utf8]{inputenc}
 \usepackage{booktabs} % For formal tables
 \usepackage{graphicx}
 \usepackage{rotating}
@@ -26,19 +27,6 @@ Conference 2018}{July 15--19, 2018}{Kyoto, Japan}
 
 \acmArticle{4}
 \acmPrice{15.00}
-
-\usepackage{cite}
-\usepackage{array}
-
-\usepackage[utf8]{inputenc}
-\usepackage{hyperref}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\setcounter{tocdepth}{3}
-\usepackage{graphicx}
-\usepackage{multirow}
-\usepackage{rotating}
-\usepackage{subfigure}
 
 \begin{document}
 
