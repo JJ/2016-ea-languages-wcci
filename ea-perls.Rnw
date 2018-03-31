@@ -19,7 +19,7 @@
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
 library("RColorBrewer")
-measures.mo <- read.csv('measures-maxones.csv',header=TRUE,sep=",",dec=".")
+measures.mo <- read.csv('measures-maxones-2018.csv',header=TRUE,sep=",",dec=".")
 @
 
 
@@ -37,7 +37,7 @@ Email: jmerelo@ugr.es}
 
 \begin{abstract}
   
-  Perl 6 is a new language that belongs to the Perl family but has
+  Perl 6 is a recently released language that belongs to the Perl family but has
   actually been designed from scratch. Through its two-year old
   (released) history, it has increased performance in several orders
   of magnitude, arriving recently to the point where it can be safely
@@ -199,17 +199,18 @@ which ones have been used in every language.
 \section{Results and analysis}
 \label{sec:res}
 %
-\begin{figure}[h!tb]
+\begin{figure*}[h!tb]
   \centering
 <<results-mo, cache=FALSE,echo=FALSE>>=
 colourCount = length(unique(measures.mo$languagerepresentation))
+getPalette = colorRampPalette(brewer.pal(9, "Set1"))
 ggplot(measures.mo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ geom_line() + geom_point()  + ggtitle("Evolutionary algorithm language benchmarks: Onemax") + scale_y_log10()+scale_x_log10() + scale_color_manual(name='Language',values=getPalette(colourCount)) + theme( legend.text=element_text(size=10))
 @
 \caption{Plot of time needed to perform 100K OneMax evaluations in strings with
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time:mo}
-\end{figure}
+\end{figure*}
 %
 \section{Conclusions}
 
