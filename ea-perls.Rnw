@@ -1,4 +1,31 @@
-\documentclass[conference,twocolumns]{IEEEtran}
+\documentclass[sigconf]{acmart}
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% End:
+
+\usepackage{booktabs} % For formal tables
+\usepackage{graphicx}
+\usepackage{rotating}
+\definecolor{Gray}{gray}{0.6}
+
+\setcopyright{rightsretained}
+
+% DOI
+\acmDOI{10.1145/nnnnnnn.nnnnnnn}
+
+% ISBN
+\acmISBN{978-x-xxxx-xxxx-x/YY/MM}
+
+
+%Conference
+\acmConference[GECCO '18]{the Genetic and Evolutionary Computation
+Conference 2018}{July 15--19, 2018}{Kyoto, Japan}
+\acmYear{2018}
+\copyrightyear{2018}
+
+
+\acmArticle{4}
+\acmPrice{15.00}
 
 \usepackage{cite}
 \usepackage{array}
@@ -14,7 +41,7 @@
 \usepackage{subfigure}
 
 \begin{document}
-%\SweaveOpts{concordance=TRUE}
+
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
@@ -25,14 +52,18 @@ measures.mo <- read.csv('measures-maxones-2018.csv',header=TRUE,sep=",",dec=".")
 
 \title{Performance improvements of evolutionary algorithms in Perl 6} 
 
-\author{\IEEEauthorblockN{Juan-Julián Merelo-Guervós}
-\IEEEauthorblockA{CITIC and Computer Architecture and Technology
-  Department\\
-University of Granada (Spain)\\
-Email: jmerelo@ugr.es}
+\author{Juan-Julián Merelo-Guervós}
+\orcid{1234-5678-9012}
+\affiliation{%
+  \institution{Universidad de Granada}
+  \streetaddress{Daniel Saucedo Aranda, s/n}
+  \city{Granada}
+  \country{Spain}
 }
+\email{jmerelo@ugr.es}
 
-\maketitle
+% The default list of authors is too long for headers.
+%\renewcommand{\shortauthors}{J. J. Merelo et al.}
 
 \begin{abstract}
   
@@ -48,10 +79,37 @@ Email: jmerelo@ugr.es}
 
 \end{abstract}
 
-\begin{IEEEkeywords}
-Per\-formance optimization, bench\-mark, implementation of
-evolutionary algorithms, onemax, programming languages.
-\end{IEEEkeywords}
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003752.10003809.10003716.10011136.10011797.10011799</concept_id>
+<concept_desc>Theory of computation~Evolutionary algorithms</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+
+<concept>
+<concept_id>10010520.10010521.10010537.10003100</concept_id>
+<concept_desc>Computer systems organization~Cloud computing</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+
+<concept>
+<concept_id>10010147.10010919.10010172</concept_id>
+<concept_desc>Computing methodologies~Distributed algorithms</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Theory of computation~Evolutionary algorithms}
+
+\ccsdesc[300]{Computing methodologies~Distributed algorithms}
+
+\keywords{Benchmarking, computer languages, concurrency, evolutionary
+  algorithms, Perl, Perl 6}
+
+\maketitle
+
 
 \section{Introduction}
 
@@ -257,7 +315,7 @@ projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness),
 project 5622.15-P from Tecnol{\'o}gico Nacional de M{\'exico}.  
 
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{ACM-Reference-Format}
 \bibliography{geneura,languages,GA-general}
 
 \end{document}
