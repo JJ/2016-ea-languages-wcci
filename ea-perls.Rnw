@@ -18,7 +18,7 @@
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
-library(RColorBrewer)
+library("RColorBrewer")
 measures.mo <- read.csv('measures-maxones.csv',header=TRUE,sep=",",dec=".")
 @
 
