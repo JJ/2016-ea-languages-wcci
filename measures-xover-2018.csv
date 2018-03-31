@@ -164,5 +164,9 @@ perl6-BitVector,512,63.8362706
 perl6-BitVector,1024,121.5812771
 perl6-BitVector,2048,236.6089409
 perl6-BitVector,4096,472.11090822
+perl6-BitString,16,6.4421005
+perl6-BitString,32,10.99105313
+perl6-BitString,64,19.4486820
+perl6-BitString,128,37.34867051
 
 
