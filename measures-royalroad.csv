@@ -1,11 +1,19 @@
-perl-BitString, 16, 3.77601
-perl-BitString, 32, 4.798255
-perl-BitString, 64, 6.641064
-perl-BitString, 128, 10.553434
-perl-BitString, 256, 19.4469
-perl-BitString, 512, 32.448163
-perl-BitString, 1024, 60.470829
-perl-BitString, 2048, 116.484132
-perl-BitString, 4096, 230.678799
-perl-BitString, 8192, 464.012614
-perl-BitString, 16384, 928.180566
+perl 5, 16, 3.77601
+perl 5, 32, 4.798255
+perl 5, 64, 6.641064
+perl 5, 128, 10.553434
+perl 5, 256, 19.4469
+perl 5, 512, 32.448163
+perl 5, 1024, 60.470829
+perl 5, 2048, 116.484132
+perl 5, 4096, 230.678799
+perl 5, 8192, 464.012614
+perl 5, 16384, 928.180566
+perl 6 serial,16,48.33635779
+perl 6 serial,32,98.5516783
+perl 6 serial,64,201.69898351
+perl 6 serial,128,565.3484117
+perl 6 serial,256,927.5220829
+perl 6 serial,512,2199.8861113
+perl 6 serial,1024,4391.32232891
+perl 6 serial,2048,5677.057151

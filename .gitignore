@@ -146,3 +146,12 @@ c++/demo-c++
 #clojure
 clojure/lib
 .lein-deps-sum
+
+**/target
+*.pdf
+ea-languages.tex
+ea-perls.tex
+haskell/bitflip
+haskell/mutableVector/xover
+haskell/onemax
+haskell/xover
