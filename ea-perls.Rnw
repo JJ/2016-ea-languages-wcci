@@ -153,7 +153,42 @@ stating our conclusions.
 \section{State of the art}
 \label{sec:soa}
 
+As a matter of fact, there is very little scientific literature on
+Perl 6, much less applied to scientific computing. The paper by Audrey
+Tang \cite{Tang:2007:PRI:1190216.1190218}, one of the early
+programmers of a Perl 6 compiler in Haskell called Pugs, is one of the
+few we can find. In fact, the paper where she describes the design of
+the language has had some influence in language design, including the
+design of Typed Scheme, a functional language \cite{tobin2008design}. 
 
+Its sister language, Perl, has been used for a long time in
+Evolutionary Algorithms, with an early tool but
+used for minimizing the performance of a network
+\cite{bucur2016optimizing}. Since the publication of the {\tt
+  Algorithm::Evolutionary} library circa 2002
+\cite{ecperl,perl-ea} it has been applied to many different problems,
+including solving the MasterMind puzzle \cite{DBLP:journals/evi/Maestro-MontojoSG14}. 
+In fact, its speed processing evolutionary
+algorithms has made it a great tool for evolving regular expressions
+via the DiscoverRegex and GenRegex tools \cite{ruano2018using},  and
+even optimizing the yield of analog integrated circuits \cite{guerra2015ocba}. 
+
+Perl 5 was a convenient and multi-paradigm, if not particularly
+groundbreaking language. Conceptually, you could program an
+evolutionary algorithm in pretty much the same way you would do it in
+C or C++, which were at the time much faster languages. The fact that
+it was used  proves that languages for implementing evolutionary
+algorithms are not chosen purely on its raw speed. 
+
+However, speed has to be adequate and not vary in orders of magnitude
+with respect to other, well-establishe, language. Even if slower, the
+trade-off might be interesting if a new language offers new ways of
+implementing evolutionary algorithms that give you some insight on the
+inner working of evolutionary optimization. This why in this paper we
+will set to measure the speed of Perl 6 and its evolution, in order to
+prove that it has come the time to consider it as a language for
+evolutionary optimization given the functional and concurrent
+facilities it offers. 
 
 \section{Experimental setup}
 \label{sec:exp}

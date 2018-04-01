@@ -17,3 +17,10 @@ perl 6 serial,256,927.5220829
 perl 6 serial,512,2199.8861113
 perl 6 serial,1024,4391.32232891
 perl 6 serial,2048,5677.057151
+perl 6 - parallel,16,116.71649384
+perl 6 - parallel,32,173.5407490
+perl 6 - parallel,64,347.5816927
+perl 6 - parallel,128,600.4899085
+perl 6 - parallel,256,934.3740980
+perl 6 - parallel,512,1396.68138234
+perl 6 - parallel,1024,1672.6512524
