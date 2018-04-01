@@ -241,7 +241,7 @@ variables, this {\tt \$} been applied to most kinds of containers. {\tt
 which can optionally include a type or class declaration. A fuller
 introduction to the language is outside the scope of this paper, but
 the interested reader can check the documentation at
-\url{https://docs.perl.org} for a tutorial or a more thorough
+\url{https://docs.perl6.org} for a tutorial or a more thorough
 explanation of all its features and capabilities. 
 
 The benchmark consists in 100,000 repetitions of the operation for
@@ -299,8 +299,40 @@ Despite the improvement, it needs to be compared to the rest of the
 languages we tested in the previous paper. We have excluded the
 fastest, mainly compiled, languages, to leave mainly scripting, and
 some compiled, languages. This comparison is shown in Figure
-\ref{fig:time:mo}. 
+\ref{fig:time:mo}. This chart, besides all the measures already
+published in the previous paper, includes three versionf of the
+one-max in Perl 6. One is the same as above, which uses boolean
+representation for the chromosome bits; the second uses integer
+representation for the bits and is listed as {\tt IntVector}. This
+version needed a bit of hacking which included using a Boolean bit
+generation and then transforming it to an integer number; however,
+even that step made it a bit slower than the Boolean version.
 
+The third version, listed as {\tt perl6-BitVector-hyper}, shows one of
+the unique characteristics of Perl 6: implicit parallelism. The {\tt
+  hyper} and {\tt race} methods, applied to vectors, divide the job
+into different threads, 4 by default, evaluating different parts of
+the vector in parallel, without affecting in any way the rest of the
+operation. In the case above, just changing the line to 
+\begin{lstlisting}[language=Perl]
+my $maxones = $ones.race.sum;	
+\end{lstlisting}
+made the sum to be executed in parallel, improving the performance by
+the number of threads it is using by default. We used {\tt race}
+instead of {\tt hyper} since the latter forces in-order execution; in
+our case, the order of the sums is not important and keeping order
+makes it a bit slower.
+
+The chart shows that, in fact, Perl 6 for this poperation is faster,
+for big sizes, than C++, and overall faster than the lua language or
+even Python for a particular representation. For some sizes, it can
+also be faster than Common Lisp. 
+
+In principle, by being faster than more traditional languages, we can
+prove here that Perl 6 can be not only convenient in terms of
+programming ease (just two lines where other languages need many more
+lines), but also faster. Let us, however, have a look at the rest of
+the genetic operations. 
 %
 \begin{figure*}[h!tb]
   \centering
@@ -311,9 +343,29 @@ ggplot(measures.bf,aes(x=length,y=time,colour=factor(languagerepresentation)))+ 
 \caption{Plot of time needed to perform mutation on  100K chromosomes
  with increasing lengths from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
-\label{fig:time:mo}
+\label{fig:time:bf}
 \end{figure*}
 %
+
+The very traditional bitflip mutation comparison chart is shown in
+Figure \ref{fig:time:bf}. The lines used for doing this operation are
+shown below.
+\begin{lstlisting}[language=perl]
+my $position = $range.pick;
+@ones[$position] = !@ones[$position];
+\end{lstlisting}
+In this case we are using {\tt pick} for choosing a random value in a
+range, which is the chromosome size, and flipping the bit in that
+random position. Could be done also in a single line, avoiding the
+{\tt \$position} variable; besides, we use the {\tt \@} sigil to
+clearly indicate we are dealing with a vector. We avoided it in the
+listing above since it made the operation slightly slower. 
+
+In this case, Perl 6 is considerably fast, although not the fastest,
+and the time needed is independent of the chromosome length, a good
+trait, overall. Once again, it shows a good performance in this
+operation. Let us examine the next genetic operator, crossover.
+
 %
 \begin{figure*}[h!tb]
   \centering
@@ -324,9 +376,32 @@ ggplot(measures.xo,aes(x=length,y=time,colour=factor(languagerepresentation)))+ 
 \caption{Plot of time needed to perform crossover on 100K chromosomes
  with increasing lengths from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
-\label{fig:time:mo}
+\label{fig:time:xo}
 \end{figure*}
 %
+The crossover performance comparison chart is shown in Figure
+\ref{fig:time:xo}. In this case, after initial tests, we have gone
+back again to testing a different representation: a bit string, that
+is, a string composed of 0s and 1s. Strings have a different internal
+representation than vectors, and the operations needed are
+different. While in the first case we used this line to perform the crossover:
+\begin{lstlisting}[language=perl]
+@chromosome2.splice($start,$this-len, @chromosome1[$start..($start+$this-len)]);
+\end{lstlisting}
+, in the second case we used
+\begin{lstlisting}[language=perl]
+$chromosome2.substr-rw($start,$this-len ) = $chromosome1.substr($start,$this-len);
+\end{lstlisting}
+changing from an array operation to a string operation. And we did so
+after finding a very disappointing performance, in fact the worst of
+all lenguages tested, with the first one. Using a bitstring was not
+much better, still needing almost double the time of the second-worst
+language, which is Scala in this case. The fact that these two
+functional languages have the same disappointing performance, while
+Scala is usually very fast for all applications, points to the fact
+that we might be taking the wrong, non-functional, approach to this
+operation in these languages. 
+
 \section{Conclusions}
 
 \section*{Acknowledgements}
