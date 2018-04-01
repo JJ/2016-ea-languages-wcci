@@ -1,0 +1,11 @@
+perl-BitString, 16, 3.77601
+perl-BitString, 32, 4.798255
+perl-BitString, 64, 6.641064
+perl-BitString, 128, 10.553434
+perl-BitString, 256, 19.4469
+perl-BitString, 512, 32.448163
+perl-BitString, 1024, 60.470829
+perl-BitString, 2048, 116.484132
+perl-BitString, 4096, 230.678799
+perl-BitString, 8192, 464.012614
+perl-BitString, 16384, 928.180566
