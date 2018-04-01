@@ -7,6 +7,8 @@
 \usepackage{booktabs} % For formal tables
 \usepackage{graphicx}
 \usepackage{rotating}
+\usepackage{listings}
+
 \definecolor{Gray}{gray}{0.6}
 
 \setcopyright{rightsretained}
@@ -193,138 +195,92 @@ facilities it offers.
 \section{Experimental setup}
 \label{sec:exp}
 
-Several operations: bitflip mutation, crossover and count-ones or onemax, have been chosen for testing different
-languages and also data representations. This is not the complete set
-of EA operations or the most time-consuming \cite{nesmachnow2011time}, but they are representative
-of evolutionary operators used in most evolutionary algorithms. In general, the fitness function in
-non-trivial or academic problems will be the speed bottleneck,
-followed in most cases by reproduction-related functions: chromosome ranking, for
-instance. However, there are many different ways to implement this and
-they cannot be covered in this paper, so we will stick to the most
-common and usual functions, which we will describe next. 
+In this experiment we have used the same operators and data already
+published in \cite{DBLP:conf/evoW/MereloCBRGFRV16} that is, crossover,
+mutation and one-max or count-ones. We have added the Royal Road
+function \cite{mitchell1992royal}, mainly with the objective of
+comparing Perl and Perl 6 and its parallel facilities. 
 
-The other operator chosen, crossover, is also part of that canonical EA, and MaxOnes or Count-Ones or OneMax is a fitness
-function frequently used as baseline for comparison of evolutionary
-algorithms. Its implementation is trickier than it seems a priori, and
-making the fastest implementation in a particular language might be
-more difficult than it a priori seems. 
+The functions are well known, and the main objective of these tests
+was, besides comparing performance side by side, see how this
+performance scales to big, and a bit unrealistic, chromosome
+sizes. The way the handling of data structures by particular languages
+is done makes that, sometimes, the speed of dealing with bigger sizes
+be bigger than with smaller sizes; as a matter of fact, in the above
+mentioned paper Java achieved its best performance for the biggest
+size. 
 
+We tested several data structures in Perl 6 and finally chose a vector
+(or array) of booleans as the fastest one. In fact the speed of the
+benchmark is divided in two parts: speed for randomly generating the
+vector and speed of actually counting the number of ones. In this
+case, generating a vector of {\tt Bool}s was considerably faster than
+doing the same with integers, although summing them was almost 4 times
+as slow. That is why we also test a vector of integers in the
+experiments we show below. These two operations take two lines in Perl
+6, as follows.
 
-In this section we will outline first
-the specifics of the implementation and expand the rationale behind
-choosing them for this paper in
-subsection \ref{ss:operators}. Then we will proceed to outline the different
-data structures that have been used here in subsection \ref{ss:ds} to
-finally present the different languages that have been tested and the
-peculiarities of its implementation \ref{ss:lang}.
+\begin{lstlisting}[language=Perl]
+my $ones = Bool.roll xx $len ;
+my $maxones = $ones.sum;	
+\end{lstlisting}
 
-\subsection{Functions and operators included in the benchmark}
-\label{ss:operators}
+These two lines show the advantage of this kind of language; the same
+operation needs several lines and two loops in most other,
+non-functional, languages. The first one creates an array of random
+boolean values, generated with {\tt Bool.roll}; {\tt xx} {\em
+  multiplies} by the length to yield an array of the desired
+length. And the second line just uses the {\tt sum} method, which is
+an standard method for arrays and can also be applied to arrays of
+booleans. In Perl 6, there are many possible ways of achieving the
+same, but in fact after several measurements we found this was the
+fastest, even if initially it was much slow than for other
+languages. Also, as it can be seen, Perl 6 uses {\em sigils} for
+variables, this {\tt \$} been applied to most kinds of containers. {\tt
+  Bool} is a standar type, and {\tt my} is a {\em scope} declaration
+which can optionally include a type or class declaration. A fuller
+introduction to the language is outside the scope of this paper, but
+the interested reader can check the documentation at
+\url{https://docs.perl.org} for a tutorial or a more thorough
+explanation of all its features and capabilities. 
 
-Finally, {\em OneMax} follows this procedure
-\begin{itemize}
-\item Generate a random string.
-\item Loop over the string.
-\item If the bit is set to one, add one to a counter.
-\item Return the value counter.
-\end{itemize}
+The benchmark consists in 100,000 repetitions of the operation for
+sizes that increase by 2 from 16 to, when possible, 32768. All
+experiments took place in a desktop computer with 8 cores running
+Ubuntu 14.04.5.
 
-Despite its apparent simplicity, counting the number of ones in a
-string is an extremely complicated operation, which is in fact used by
-human resources teams to examine the prowess of candidates in the
-creation of algorithms and in the knowledge of a language. The
-straightforward way of carrying it out is using a loop that looks, one
-by one, at the bits in the string and adds 1 to the counter if they
-are set to this value; or simply adds the value of the bit to the counter. However,
-in most cases using {\em external} loops might not be the fastest way. At any rate, this
-fitness function is quite similar to others that decode the bits of a
-binary chromosome and, even if it is quite clearly not the only
-existent fitness function, it is one that is widely used in
-EAs and whose speed can be applied to other
-similar functions.
-
-In most cases, the function is implemented as a loop. Thus, we should
-expect that the time needed would 
-grow linearly with the chromosome size. We will check whether this is
-true or not for the different languages in the next section. 
-
-Next we will have a look at the data structures used in the different
-languages. 
-
-
-\subsection{Available data structures}
-\label{ss:ds}
-
-Chromosomes in EAs can be represented in several different ways: an
-array or vector of Boolean values, or any other scalar value that can
-be assimilated to it, or as a bitstring using generally ``1'' for true
-values or ``0'' for false values. Different data structures will have
-an impact on the result, since the operations that are applied to them
-are, in many cases, completely different and thus the underlying
-implementation is more or less efficient. Besides, languages use
-different native data structures to represent this information. In
-general, it can be divided into three different fields:
-\begin{itemize}
-\item {\em Strings}: representing a set bit by 1 and unset by 0, it is
-  a data structure present in all languages and simple to use in
-  most.
-\item {\em Vector of Boolean values}: not all languages have a
-  specific primitive type for the Boolean false and true values; for
-  those who have, sometimes they have specific implementations that
-  make this data structure the most efficient.
-  \item {\em Vectors} of integers or even characters can also be used
-    in the case of the language lacking a specific data structure for
-    bits or Beans. 
-\item {\em Bitsets}: since the internal representation of any data
-  structure is composed, at a low level, by a set of bits,  you can
-  simply use bits packed 
-  into bytes for representing chromosomes, with 32 bits packed in a
-  single 4 byte data structure and bigger number of bytes used as
-  needed . Memory-wise the most efficient,
-  without low-level access operators it can indeed be the slowest, and
-  in any case not too efficient for decoding to function parameters.
-\end{itemize}
-
-Besides, many languages, including functional ones, differentiate
-between Mutable and Constant data structures, with different internal
-representations assigned to every one of them, and extensive
-optimizations used in Immutable or constant data structures. Immutable
-vectors were introduced by Clojure in 2006, and they have extended to
-other functional languages such as Scala. In the
-case they are available, we will use them, in some cases comparing it
-with Mutable data structures. In the special case of the bitflip 
-operator a Mutable data structure can be more efficient, because many
-of the elements are modified in a loop.
-
-
-The memory and speed efficiency of these data structures is different,
-and it is advisable for anyone implementing an EA to check all
-possible data structures before committing, out of inertia, to the
-easiest one. Once again, implementation matters
-\cite{DBLP:conf/iwann/MereloRACML11,nesmachnow2011time}, and
-differences in EA performance for different data structures can be,
-indeed, quite big. 
-
-Not all data structures, however, are easily available for every
-language, or easy to deal with. We will check in the next subsection
-which ones have been used in every language. 
+All programs are open source, and included in the same repository that
+holds this paper, as well as the repository in GitHub
+\url{https://github.com/JJ/perl6eo}. Data from the experiments is also
+freely available from the repository that holds this paper. 
 
 \section{Results and analysis}
 \label{sec:res}
 %
-\begin{figure*}[h!tb]
+\begin{figure}[h!tb]
   \centering
 <<results-perl6, cache=FALSE,echo=FALSE>>=
 getPalette = colorRampPalette(brewer.pal(9, "Set1"))
 colourCount = length(unique(measures.perl6$Version))
 ggplot(measures.perl6,aes(x=length,y=time,colour=factor(Version)))+ geom_line() + geom_point()  + ggtitle("Perl6 language benchmarks: Onemax") + scale_y_log10()+scale_x_log10() + scale_color_manual(name='Language',values=getPalette(colourCount)) + theme( legend.text=element_text(size=10))
 @
-\caption{Plot of time needed to perform 100K OneMax evaluations in strings with
+\caption{Plot of time needed to perform 100K OneMax evaluations in
+ several versions of Perl 6, from 2016 to the current one in 2018.
+ Strings have 
 lengths increasing by a factor of two from 16 to $2^{15}$. Please note
 that $x$ and $y$ both have a logarithmic scale.}
-\label{fig:time:mo}
-\end{figure*}
+\label{fig:perl6:mo}
+\end{figure}
 %
+
+The first experiment just measured the speed of the {\sf max-ones}
+function across releases of Perl 6; Perl 6 has a monthly release
+schedule, with version number corresponding to year and month. The
+result of this operation is shown in Figure \ref{fig:perl6:mo}, and it
+clearly shows the increase in speed across time, that amounts to
+almost one order of magnitude from the first version, with a
+performance that prompted us to exclude it from our initial study, to
+the current, which is much better. 
 %
 \begin{figure*}[h!tb]
   \centering
@@ -338,6 +294,13 @@ that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time:mo}
 \end{figure*}
 %
+
+Despite the improvement, it needs to be compared to the rest of the
+languages we tested in the previous paper. We have excluded the
+fastest, mainly compiled, languages, to leave mainly scripting, and
+some compiled, languages. This comparison is shown in Figure
+\ref{fig:time:mo}. 
+
 %
 \begin{figure*}[h!tb]
   \centering
