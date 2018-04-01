@@ -206,7 +206,7 @@ was, besides comparing performance side by side, see how this
 performance scales to big, and a bit unrealistic, chromosome
 sizes. The way the handling of data structures by particular languages
 is done makes that, sometimes, the speed of dealing with bigger sizes
-be bigger than with smaller sizes; as a matter of fact, in the above
+is bigger than with smaller sizes; as a matter of fact, in the above
 mentioned paper Java achieved its best performance for the biggest
 size. 
 
@@ -300,7 +300,7 @@ languages we tested in the previous paper. We have excluded the
 fastest, mainly compiled, languages, to leave mainly scripting, and
 some compiled, languages. This comparison is shown in Figure
 \ref{fig:time:mo}. This chart, besides all the measures already
-published in the previous paper, includes three versionf of the
+published in the previous paper, includes three versions of the
 one-max in Perl 6. One is the same as above, which uses boolean
 representation for the chromosome bits; the second uses integer
 representation for the bits and is listed as {\tt IntVector}. This
