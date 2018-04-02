@@ -470,9 +470,47 @@ the operators shown here. The other one, {\tt Algorithm::Genetic},
 makes extensive use of Perl 6 functionalities including roles and {\tt
   gather/take} loops. 
 
-
-
 \section{Conclusions}
+
+In this paper, we set to prove the readiness of Perl 6, a new
+programming language, for implementing evolutionary
+algorithms. Traditionally, these tests have been based purely on
+performance, to the point that the only questions asked when a new
+evolutionary algorithm library is released is: "Is it faster than
+Java/C++?". In this paper we have considered this performance, first
+historically from the first releases, and then considering the latest
+releases. Taking into account the improvements in performance
+experimented along this time, and how seriously performance issues are
+taken by the developers, we can safely assume that in the medium term
+Perl 6 will achieve levels of speed comparable with those of other
+scripting languages, which means that it could be faster than some
+compiled languages.
+
+On the other hand, a very important consideration is also the
+facilities that the language offers for the implementation of most
+classical evolutionary functions. In this case, Perl 6 offers
+functional methods that allow chaining of operations, equivalent to
+function composition, so that in many cases it is enough a single line
+of chained functions to process chromosomes. In many cases, this
+idiomatic way of doing those operations will result in faster
+operation, since idiomatic constructs are usually optimized in every
+language. In this sense, using either functions or the implicitly
+parallel methods such as {\tt .race} result in improvements in speed,
+although for the time being, and in general, Perl 6 is slower than its
+sister language, Perl.
+
+Putting both things in the balance, and in general, the conclusion is
+that the time for implementation of evolutionary algorithms in Perl 6
+has arrived, although there is still some way to go in terms of
+performance. Following closely development will make the programmer
+choose the faster alternative for the implementation of evolutionary
+algorithms, constituting an interesting and promising line of work.
+
+Another line of work will be to use explicit concurrency primitives to
+implement a concurrent evolutionary algorithms. This is something we
+will explore in a different paper. 
+
+
 
 \section*{Acknowledgements}
 
