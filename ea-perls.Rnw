@@ -55,6 +55,13 @@ measures.rr <- read.csv('measures-royalroad.csv',header=TRUE,sep=",",dec=".")
 }
 \email{jmerelo@ugr.es}
 
+\author{Mario García-Valdez}
+\affiliation{%
+  \institution{Instituto Tecnológico de Tijuana}
+  \city{Tijuana}
+  \country{Mexico}
+}
+\email{mario@tectijuana.edu.mx}
 % The default list of authors is too long for headers.
 %\renewcommand{\shortauthors}{J. J. Merelo et al.}
 
@@ -511,18 +518,22 @@ implement a concurrent evolutionary algorithms. This is something we
 will explore in a different paper. 
 
 
-
-\section*{Acknowledgements}
+\begin{acks}
 
 This paper is part of the open science effort at the university of
 Granada. It has been written using {\tt knitr}, and its source as well as
 the data used to create it can be downloaded from 
 \href{https://github.com/JJ/2016-ea-languages-wcci}{the GitHub
   repository} \url{https://github.com/JJ/2016-ea-languages-wcci/}. 
-It has been supported in part by
-\href{http://geneura.wordpress.com}{GeNeura Team}, 
-projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness).  
 
+This paper has been supported in part by
+\href{http://geneura.wordpress.com}{GeNeura Team}, 
+projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and
+Competitiveness) and DeepBio (TIN2017-85727-C4-2-P)
+
+We are also deeply grateful to the Perl 6 community, who through the
+Perl 6 IRC channel have helped greatly to improve code.
+\end{acks}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{geneura,languages,GA-general}
