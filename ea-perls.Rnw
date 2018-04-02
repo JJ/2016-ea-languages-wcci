@@ -68,15 +68,18 @@ measures.rr <- read.csv('measures-royalroad.csv',header=TRUE,sep=",",dec=".")
 \begin{abstract}
   
   Perl 6 is a recently released language that belongs to the Perl family but has
-  actually been designed from scratch. Through its two-year old
+  actually been designed from scratch. Through its two-year-old
+  % is either that or two year old - Mario
+  % maybe remove actually - Mario 
   (released) history, it has increased performance in several orders
+  % is more common: by several orders..
   of magnitude, arriving recently to the point where it can be safely
   used in production. In this paper, we are going to compare the
   historical and current performance of Perl 6 in a single problem,
   OneMax, to those of other interpreted languages; besides, we will
   also use implicit concurrency and see what kind of performance and
   scaling can we expect from it.  
-
+  
 \end{abstract}
 
 \begin{CCSXML}
@@ -118,7 +121,7 @@ computing. Generally, you will want to use the fastest language
 available to be able to run your experiments in as little time as
 possible. However, while implementation matters
 \cite{DBLP:conf/iwann/MereloRACML11}, ease of programming, available
-libraries and supporting community are sometimes bigger concerns,
+libraries and supporting community are sometimes more significant concerns,
 since in scientific computing the target is to optimize
 time-to-publish the paper, not only time from pressing {\em Enter} to
 obtaining the results, and that includes time to get toe program done
@@ -133,7 +136,7 @@ paper, that is not always the case and new languages deserve a chance
 to be tested, mainly if they offer functionalities that might make the
 implementation of evolutionary algorithms faster or more straightforward.
 
-Besides, performance in a language is not a static thing; while some
+Besides, the performance of a language is not a static thing; while some
 languages are happy enough with the level they achieve and focus on
 other functionalities, newer languages focus on performance in every
 new release, offering improvements of several orders of
@@ -141,7 +144,7 @@ magnitude. This has been the case of Perl 6
 \cite{Tang:2007:PRI:1190216.1190218}, a new, concurrent, dynamic and
 multi-paradigm language that has been in development since 2000 and
 released in December 2015. Since then, it has had a release cycle of
-one, or sometimes more, releases every month, with stable releases
+one, or sometimes more, releases every month, with a stable release
 every four months. While initial tests discouraged us from including
 its figures in the paper where we benchmarked many languages for
 evolutionary algorithms \cite{DBLP:conf/evoW/GuervosBCRGRVHR17}, the
