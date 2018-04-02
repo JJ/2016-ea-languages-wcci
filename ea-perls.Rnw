@@ -153,13 +153,13 @@ implementation of implicit parallelism features.
 
 This paper is specially focused on benchmarking this language for
 evolutionary algorithms, with the intention of proposing it as
-production-ready in a scientific computing or evolutionary computation
-experiment. 
+production-ready for scientific computing or evolutionary computation
+experiments. 
 
 The rest of the paper is organized as follows. We will briefly present
 the state of the art in benchmarking evolutionary algorithms in the
 next section, followed by the set of experiments used to test
-performance in Section \ref{sec:exp}. Results and charts will be
+the performance in Section \ref{sec:exp}. Results and charts will be
 presented in Section \ref{sec:res}, and we will close the paper by
 stating our conclusions. 
 
@@ -174,8 +174,8 @@ few we can find. In fact, the paper where she describes the design of
 the language has had some influence in language design, including the
 design of Typed Scheme, a functional language \cite{tobin2008design}. 
 
-Its sister language, Perl, has been used for a long time in
-Evolutionary Algorithms, with an early tool but
+Its sister language, Perl, has been used in
+Evolutionary Algorithms for a long time, with an early tool but
 used for minimizing the performance of a network
 \cite{bucur2016optimizing}. Since the publication of the {\tt
   Algorithm::Evolutionary} library circa 2002
@@ -183,25 +183,29 @@ used for minimizing the performance of a network
 including solving the MasterMind puzzle \cite{DBLP:journals/evi/Maestro-MontojoSG14}. 
 In fact, its speed processing evolutionary
 algorithms has made it a great tool for evolving regular expressions
-via the DiscoverRegex and GenRegex tools \cite{ruano2018using},  and
+via the DiscoverRegex and GenRegex tools \cite{ruano2018using}, and
 even optimizing the yield of analog integrated circuits \cite{guerra2015ocba}. 
 
 Perl 5 was a convenient and multi-paradigm, if not particularly
 groundbreaking language. Conceptually, you could program an
 evolutionary algorithm in pretty much the same way you would do it in
 C or C++, which were at the time much faster languages. The fact that
-it was used  proves that languages for implementing evolutionary
-algorithms are not chosen purely on its raw speed. 
+it was used proves that languages for implementing evolutionary
+algorithms are not chosen purely by their raw speed. 
 
 However, speed has to be adequate and not vary in orders of magnitude
 with respect to other, well-established, language. Even if slower, the
 trade-off might be interesting if a new language offers new ways of
+% might be worthy?
 implementing evolutionary algorithms that give you some insight on the
-inner working of evolutionary optimization. This why in this paper we
+inner workings of evolutionary optimization. This why in this paper we
 will set to measure the speed of Perl 6 and its evolution, in order to
 prove that it has come the time to consider it as a language for
 evolutionary optimization given the functional and concurrent
-facilities it offers. 
+facilities it now offers. 
+
+% Maybe add a comment about how much different are Perl 5 and Perl 6?
+% They are compatible? Can we use parts of Algorithm::Evolutionary?
 
 \section{Experimental setup}
 \label{sec:exp}
