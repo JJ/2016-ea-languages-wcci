@@ -532,7 +532,8 @@ projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and
 Competitiveness) and DeepBio (TIN2017-85727-C4-2-P)
 
 We are also deeply grateful to the Perl 6 community, who through the
-Perl 6 IRC channel have helped greatly to improve code.
+Perl 6 IRC channel and pull requests have helped greatly to improve
+the code. 
 \end{acks}
 
 \bibliographystyle{ACM-Reference-Format}
