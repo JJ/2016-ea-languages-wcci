@@ -146,7 +146,7 @@ every four months. While initial tests discouraged us from including
 its figures in the paper where we benchmarked many languages for
 evolutionary algorithms \cite{DBLP:conf/evoW/GuervosBCRGRVHR17}, the
 increase in performance has been continuous, as well as the
-implementation of implicit paralellism features. 
+implementation of implicit parallelism features. 
 
 This paper is specially focused on benchmarking this language for
 evolutionary algorithms, with the intention of proposing it as
@@ -157,7 +157,7 @@ The rest of the paper is organized as follows. We will briefly present
 the state of the art in benchmarking evolutionary algorithms in the
 next section, followed by the set of experiments used to test
 performance in Section \ref{sec:exp}. Results and charts will be
-presentes in Section \ref{sec:res}, and we will close the paper by
+presented in Section \ref{sec:res}, and we will close the paper by
 stating our conclusions. 
 
 \section{State of the art}
@@ -191,7 +191,7 @@ it was used  proves that languages for implementing evolutionary
 algorithms are not chosen purely on its raw speed. 
 
 However, speed has to be adequate and not vary in orders of magnitude
-with respect to other, well-establishe, language. Even if slower, the
+with respect to other, well-established, language. Even if slower, the
 trade-off might be interesting if a new language offers new ways of
 implementing evolutionary algorithms that give you some insight on the
 inner working of evolutionary optimization. This why in this paper we
@@ -245,7 +245,7 @@ same, but in fact after several measurements we found this was the
 fastest, even if initially it was much slow than for other
 languages. Also, as it can be seen, Perl 6 uses {\em sigils} for
 variables, this {\tt \$} been applied to most kinds of containers. {\tt
-  Bool} is a standar type, and {\tt my} is a {\em scope} declaration
+  Bool} is a stander type, and {\tt my} is a {\em scope} declaration
 which can optionally include a type or class declaration. A fuller
 introduction to the language is outside the scope of this paper, but
 the interested reader can check the documentation at
@@ -417,7 +417,7 @@ $chromosome2.substr-rw($start,$this-len ) =
 \end{lstlisting}
 changing from an array operation to a string operation. And we did so
 after finding a very disappointing performance, in fact the worst of
-all lenguages tested, with the first one. Using a bitstring was not
+all languages tested, with the first one. Using a bitstring was not
 much better, still needing almost double the time of the second-worst
 language, which is Scala in this case. The fact that these two
 functional languages have the same disappointing performance, while
@@ -452,7 +452,7 @@ my $royal-road= $ones.rotor(4)
 In this case, we are using several unique Perl 6 features and doing so
 in a functional way. For instance, {\tt | } are {\em Junctions} and
 {\tt all} becomes {\tt True} or {\tt False} if all the elements in its
-4-element block are. That is a very straighforward, and mathematically
+4-element block are. That is a very straightforward, and mathematically
 correct, way to express the Royal Road function. However, it is still
 slower than Perl by an order of magnitude, as shown in Figure
 \ref{fig:time:rr}. In fact, we had to stop the benchmark, since
@@ -463,7 +463,7 @@ load among threads. Although for smaller sizes the overhead needed to
 set up the distribution of tasks made it slower, and thus not very
 convenient for the usual sizes, it became much faster, by almost an
 order of magnitude, for bigger sizes, proving again that implicit
-paralellism very conveniently allows to work with big sets of
+parallelism very conveniently allows to work with big sets of
 elements, making the result faster. However, it is still very slow. As
 it becomes the target of optimization in subsequent releases of Perl
 6, it will probably improve in speed. The implicit parallel facilities
