@@ -40,6 +40,7 @@ measures.mo <- read.csv('measures-maxones-2018.csv',header=TRUE,sep=",",dec=".")
 measures.bf <- read.csv('measures-bitflip-2018.csv',header=TRUE,sep=",",dec=".")
 measures.xo <- read.csv('measures-xover-2018.csv',header=TRUE,sep=",",dec=".")
 measures.perl6 <- read.csv('measures-maxones-perl6.csv',header=TRUE,sep=",",dec=".")
+measures.rr <- read.csv('measures-royalroad.csv',header=TRUE,sep=",",dec=".")
 @
 
 \title{Performance improvements of evolutionary algorithms in Perl 6} 
@@ -323,16 +324,11 @@ instead of {\tt hyper} since the latter forces in-order execution; in
 our case, the order of the sums is not important and keeping order
 makes it a bit slower.
 
-The chart shows that, in fact, Perl 6 for this poperation is faster,
+The chart shows that, in fact, Perl 6 for this operation is faster,
 for big sizes, than C++, and overall faster than the lua language or
 even Python for a particular representation. For some sizes, it can
 also be faster than Common Lisp. 
 
-In principle, by being faster than more traditional languages, we can
-prove here that Perl 6 can be not only convenient in terms of
-programming ease (just two lines where other languages need many more
-lines), but also faster. Let us, however, have a look at the rest of
-the genetic operations. 
 %
 \begin{figure*}[h!tb]
   \centering
@@ -346,6 +342,12 @@ that $x$ and $y$ both have a logarithmic scale.}
 \label{fig:time:bf}
 \end{figure*}
 %
+In principle, by being faster than more traditional languages, we can
+prove here that Perl 6 can be not only convenient in terms of
+programming ease (just two lines where other languages need many more
+lines), but also faster. Let us, however, have a look at the rest of
+the genetic operations. 
+
 
 The very traditional bitflip mutation comparison chart is shown in
 Figure \ref{fig:time:bf}. The lines used for doing this operation are
@@ -384,13 +386,15 @@ The crossover performance comparison chart is shown in Figure
 back again to testing a different representation: a bit string, that
 is, a string composed of 0s and 1s. Strings have a different internal
 representation than vectors, and the operations needed are
-different. While in the first case we used this line to perform the crossover:
+different. While in the first case we could use this line to perform the crossover:
 \begin{lstlisting}[language=perl]
-@chromosome2.splice($start,$this-len, @chromosome1[$start..($start+$this-len)]);
+@chromosome2.splice($start,$this-len, 
+    @chromosome1[$start..($start+$this-len)]);
 \end{lstlisting}
 , in the second case we used
 \begin{lstlisting}[language=perl]
-$chromosome2.substr-rw($start,$this-len ) = $chromosome1.substr($start,$this-len);
+$chromosome2.substr-rw($start,$this-len ) = 
+    $chromosome1.substr($start,$this-len);
 \end{lstlisting}
 changing from an array operation to a string operation. And we did so
 after finding a very disappointing performance, in fact the worst of
@@ -401,6 +405,73 @@ functional languages have the same disappointing performance, while
 Scala is usually very fast for all applications, points to the fact
 that we might be taking the wrong, non-functional, approach to this
 operation in these languages. 
+
+In fact, changing the line to 
+\begin{lstlisting}[language=perl]
+@chromosome2.splice($start,$this-len, 
+    @chromosome1.skip($start).head($this-len));
+\end{lstlisting}
+somewhat improved the performance. In this case we are using
+functional methods to access different parts of the chromosome. There
+is around a 20\% improvement over the previous line, but still very
+slow compared to other languages. This proves, anyway, that testing
+and some help from the community are needed to extract the best
+performance out of a language; also that idiomatic constructions are
+in general preferred over generic constructions. It always pays to
+know well the language.
+
+%
+\begin{figure*}[h!tb]
+  \centering
+<<results-rr, cache=FALSE,echo=FALSE>>=
+colourCount = length(unique(measures.rr$Version))
+ggplot(measures.rr,aes(x=length,y=time,colour=factor(Version)))+ geom_line() + geom_point()  + ggtitle("Comparing Perl 5 and Perl 6 using the Royal Road Function") + scale_y_log10()+scale_x_log10() + scale_color_manual(name='Language',values=getPalette(colourCount)) + theme( legend.text=element_text(size=10))
+@
+\caption{Plot of time needed to perform 100K royal road functions on chromosomes
+ with increasing lengths from 16 to $2^{15}$. Please note
+that $x$ and $y$ both have a logarithmic scale.}
+\label{fig:time:rr}
+\end{figure*}
+%
+That is also why we have tested another function, the well known Royal
+Road, which was proposed as an example of a complicated landscape for
+evolutionary algorithms. It might also be a complicated performance
+benchmark. Perl 6 needs a single line to implement this function:
+
+\begin{lstlisting}[language=perl]
+my $royal-road= $ones.rotor(4)
+    .grep( so (*.all == True|False) ).elems ;	
+\end{lstlisting}
+
+In this case, we are using several unique Perl 6 features and doing so
+in a functional way. For instance, {\tt | } are {\em Junctions} and
+{\tt all} becomes {\tt True} or {\tt False} if all the elements in its
+4-element block are. That is a very straighforward, and mathematically
+correct, way to express the Royal Road function. However, it is still
+slower than Perl by an order of magnitude, as shown in Figure
+\ref{fig:time:rr}. In fact, we had to stop the benchmark, since
+scaling with size was very bad too.
+
+That is why we used again the {\tt .race} method, which distributes
+load among threads. Although for smaller sizes the overhead needed to
+set up the distribution of tasks made it slower, and thus not very
+convenient for the usual sizes, it became much faster, by almost an
+order of magnitude, for bigger sizes, proving again that implicit
+paralellism very conveniently allows to work with big sets of
+elements, making the result faster. However, it is still very slow. As
+it becomes the target of optimization in subsequent releases of Perl
+6, it will probably improve in speed. The implicit parallel facilities
+of Perl 6 makes it possible, however, to optimize it at a different
+level, for instance, population level, which still makes Perl 6 an
+interesting target for the implementation of evolutionary
+algorithms. In fact, there are already two implementations available
+in the Perl 6 module ecosystem, one by the author of this paper, {\tt
+  Algorithm::Evolutionary::Simple}, which includes implementations of
+the operators shown here. The other one, {\tt Algorithm::Genetic},
+makes extensive use of Perl 6 functionalities including roles and {\tt
+  gather/take} loops. 
+
+
 
 \section{Conclusions}
 
@@ -413,8 +484,7 @@ the data used to create it can be downloaded from
   repository} \url{https://github.com/JJ/2016-ea-languages-wcci/}. 
 It has been supported in part by
 \href{http://geneura.wordpress.com}{GeNeura Team}, 
-projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness),
-project 5622.15-P from Tecnol{\'o}gico Nacional de M{\'exico}.  
+projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and Competitiveness).  
 
 
 \bibliographystyle{ACM-Reference-Format}
