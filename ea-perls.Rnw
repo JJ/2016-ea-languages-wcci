@@ -68,12 +68,9 @@ measures.rr <- read.csv('measures-royalroad.csv',header=TRUE,sep=",",dec=".")
 
 \begin{abstract}
   
-  Perl 6 is a recently released language that belongs to the Perl family but has
-  actually been designed from scratch. Through its two-year-old
-  % is either that or two year old - Mario
-  % maybe remove actually - Mario 
-  (released) history, it has increased performance in several orders
-  % is more common: by several orders..
+  Perl 6 is a recently released language that belongs to the Perl family but was
+  actually designed from scratch, not as a refactoring of the Perl 5 codebase. Through its two-year-old
+  (released) history, it has increased performance by several orders
   of magnitude, arriving recently to the point where it can be safely
   used in production. In this paper, we are going to compare the
   historical and current performance of Perl 6 in a single problem,
