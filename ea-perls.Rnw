@@ -407,7 +407,8 @@ representation than vectors, and the operations needed are
 different. While in the first case we could use this line to perform the crossover:
 \begin{lstlisting}[language=perl]
 @chromosome2.splice($start,$this-len, 
-    @chromosome1[$start..($start+$this-len)]);
+    @chromosome1[$start..
+      ($start+$this-len)]);
 \end{lstlisting}
 , in the second case we used
 \begin{lstlisting}[language=perl]
