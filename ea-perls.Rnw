@@ -89,12 +89,6 @@ measures.rr <- read.csv('measures-royalroad.csv',header=TRUE,sep=",",dec=".")
 </concept>
 
 <concept>
-<concept_id>10010520.10010521.10010537.10003100</concept_id>
-<concept_desc>Computer systems organization~Cloud computing</concept_desc>
-<concept_significance>500</concept_significance>
-</concept>
-
-<concept>
 <concept_id>10010147.10010919.10010172</concept_id>
 <concept_desc>Computing methodologies~Distributed algorithms</concept_desc>
 <concept_significance>300</concept_significance>
