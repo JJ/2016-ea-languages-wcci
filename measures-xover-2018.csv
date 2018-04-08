@@ -155,17 +155,18 @@ clisp-simple_bit_vector, 4096, 9.04800000
 clisp-simple_bit_vector, 8192, 17.22200000
 clisp-simple_bit_vector, 16384, 34.31500000
 clisp-simple_bit_vector, 32768, 68.24900000
-perl6-BitVector,16,6.09451674
-perl6-BitVector,32,7.6073924
-perl6-BitVector,64,10.3773745
-perl6-BitVector,128,15.5075849
-perl6-BitVector,256,26.08851416
-perl6-BitVector,512,47.0788908
-perl6-BitVector,1024,90.2128087
-perl6-BitVector,2048,177.9071618
-perl6-BitVector,4096,351.4021501
-perl6-BitVector,8192,706.0336174
-perl6-BitVector,16384,1886.1462682
+perl6-BitVector,16,6.227835
+perl6-BitVector,32,7.47933471
+perl6-BitVector,64,10.0678685
+perl6-BitVector,128,14.4778018
+perl6-BitVector,256,23.6455378
+perl6-BitVector,512,42.533393
+perl6-BitVector,1024,80.0084927
+perl6-BitVector,2048,147.8156080
+perl6-BitVector,4096,285.75101142
+perl6-BitVector,8192,579.02133001
+perl6-BitVector,16384,1668.624396
+perl6-BitVector,32768,3317.4696041
 perl6-BitString,16,6.4421005
 perl6-BitString,32,10.99105313
 perl6-BitString,64,19.4486820
