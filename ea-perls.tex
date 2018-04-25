@@ -1,0 +1,580 @@
+\documentclass[sigconf]{acmart}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% End:
+
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs} % For formal tables
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{listings}
+
+\definecolor{Gray}{gray}{0.6}
+
+\copyrightyear{2018}
+\acmYear{2018}
+\setcopyright{acmlicensed}
+\acmConference[GECCO '18 Companion]{Genetic and Evolutionary Computation Conference Companion}{July 15--19, 2018}{Kyoto, Japan}
+\acmBooktitle{GECCO '18 Companion: Genetic and Evolutionary Computation Conference Companion, July 15--19, 2018, Kyoto, Japan}
+\acmPrice{15.00}
+\acmDOI{10.1145/3205651.3208273}
+\acmISBN{978-1-4503-5764-7/18/07}
+
+
+\title{Performance improvements of evolutionary algorithms in Perl 6} 
+
+\author{Juan-Julián Merelo-Guervós}
+\orcid{1234-5678-9012}
+\affiliation{%
+  \institution{Universidad de Granada}
+  \streetaddress{Daniel Saucedo Aranda, s/n}
+  \city{Granada}
+  \country{Spain}
+}
+\email{jmerelo@ugr.es}
+
+\author{José-Mario García-Valdez}
+\affiliation{%
+  \institution{Instituto Tecnológico de Tijuana}
+  \streetaddress{Calzada Tecnológico, s/n}
+  \city{Tijuana}
+  \country{Mexico}
+}
+\email{mario@tectijuana.edu.mx}
+% The default list of authors is too long for headers.
+%\renewcommand{\shortauthors}{J. J. Merelo et al.}
+
+\begin{abstract}
+  
+  Perl 6 is a recently released language that belongs to the Perl family but was
+  actually designed from scratch, not as a refactoring of the Perl 5 codebase. Through its two-year-old
+  (released) history, it has increased performance by several orders
+  of magnitude, arriving recently to the point where it can be safely
+  used in production. In this paper, we are going to compare the
+  historical and current performance of Perl 6 in a single problem,
+  OneMax, to those of other interpreted languages; besides, we will
+  also use implicit concurrency and see what kind of performance and
+  scaling can we expect from it.  
+  
+\end{abstract}
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003752.10003809.10003716.10011136.10011797.10011799</concept_id>
+<concept_desc>Theory of computation~Evolutionary algorithms</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+
+<concept>
+<concept_id>10010147.10010919.10010172</concept_id>
+<concept_desc>Computing methodologies~Distributed algorithms</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Theory of computation~Evolutionary algorithms}
+
+\ccsdesc[300]{Computing methodologies~Distributed algorithms}
+
+\keywords{Benchmarking, computer languages, concurrency, evolutionary
+  algorithms, Perl, Perl 6}
+
+\maketitle
+
+
+\section{Introduction}
+
+Performance has always been a concern in scientific
+computing. Generally, you will want to use the fastest language
+available to be able to run your experiments in as little time as
+possible. However, while implementation matters
+\cite{DBLP:conf/iwann/MereloRACML11}, ease of programming, available
+libraries and supporting community are sometimes more significant concerns,
+since in scientific computing the target is to optimize
+time-to-publish the paper, not only time from pressing {\em Enter} to
+obtaining the results, and that includes time to get toe program done
+itself, as well as process results.
+
+In that sense, interpreted languages such as Python, Perl or JavaScript
+\cite{fortin2012deap,DBLP:conf/ijcci/FarisAMCM16,DBLP:conf/gecco/GuervosVGES14,perl-ea,hidaka2017development,rivas2014object,ae09}
+offer fast prototyping, if not the fastest implementation, which
+usually belongs to compiled languages such as Haskell or Java
+\cite{DBLP:conf/evoW/MereloCBRGFRV16}. However, as proved in the cited
+paper, that is not always the case and new languages deserve a chance
+to be tested, mainly if they offer functionalities that might make the
+implementation of evolutionary algorithms faster or more straightforward.
+
+Besides, the performance of a language is not a static thing; while some
+languages are happy enough with the level they achieve and focus on
+other functionalities, newer languages focus on performance in every
+new release, offering improvements of several orders of
+magnitude. This has been the case of Perl 6
+\cite{Tang:2007:PRI:1190216.1190218}, a new, concurrent, dynamic and
+multi-paradigm language that has been in development since 2000 and
+released in December 2015. Since then, it has had a release cycle of
+one, or sometimes more, releases every month, with a stable release
+every four months. While initial tests discouraged us from including
+its figures in the paper where we benchmarked many languages for
+evolutionary algorithms \cite{DBLP:conf/evoW/GuervosBCRGRVHR17}, the
+increase in performance has been continuous, as well as the
+implementation of implicit parallelism features. 
+
+This paper is specially focused on benchmarking this language for
+evolutionary algorithms, with the intention of proposing it as
+production-ready for scientific computing or evolutionary computation
+experiments. 
+
+The rest of the paper is organized as follows. We will briefly present
+the state of the art in benchmarking evolutionary algorithms in the
+next section, followed by the set of experiments used to test
+the performance in Section \ref{sec:exp}. Results and charts will be
+presented in Section \ref{sec:res}, and we will close the paper by
+stating our conclusions. 
+
+\section{State of the art}
+\label{sec:soa}
+
+As a matter of fact, there is very little scientific literature on
+Perl 6, much less applied to scientific computing. The paper by Audrey
+Tang \cite{Tang:2007:PRI:1190216.1190218}, one of the early
+programmers of a Perl 6 compiler in Haskell called Pugs, is one of the
+few we can find. In fact, the paper where she describes the design of
+the language has had some influence in language design, including the
+design of Typed Scheme, a functional language \cite{tobin2008design}. 
+
+Its sister language, Perl, has been used in
+Evolutionary Algorithms for a long time, with an early tool but
+used for minimizing the performance of a network
+\cite{bucur2016optimizing}. Since the publication of the {\tt
+  Algorithm::Evolutionary} library circa 2002
+\cite{ecperl,perl-ea} it has been applied to many different problems,
+including solving the MasterMind puzzle \cite{DBLP:journals/evi/Maestro-MontojoSG14}. 
+In fact, its speed processing evolutionary
+algorithms has made it a great tool for evolving regular expressions
+via the DiscoverRegex and GenRegex tools \cite{ruano2018using}, and
+even optimizing the yield of analog integrated circuits \cite{guerra2015ocba}. 
+
+Perl 5 was a convenient and multi-paradigm, if not particularly
+groundbreaking language. Conceptually, you could program an
+evolutionary algorithm in pretty much the same way you would do it in
+C or C++, which were at the time much faster languages. The fact that
+it was used proves that languages for implementing evolutionary
+algorithms are not chosen purely by their raw speed. 
+
+However, speed has to be adequate and not vary in orders of magnitude
+with respect to other, well-established, language. Even if slower, the
+trade-off might be interesting if a new language offers new ways of
+% might be worthy?
+implementing evolutionary algorithms that give you some insight on the
+inner workings of evolutionary optimization. This why in this paper we
+will set to measure the speed of Perl 6 and its evolution, in order to
+prove that it has come the time to consider it as a language for
+evolutionary optimization given the functional and concurrent
+facilities it now offers. 
+
+% Maybe add a comment about how much different are Perl 5 and Perl 6?
+% They are compatible? Can we use parts of Algorithm::Evolutionary?
+
+\section{Experimental setup}
+\label{sec:exp}
+
+In this experiment we have used the same operators and data already
+published in \cite{DBLP:conf/evoW/MereloCBRGFRV16} that is, crossover,
+mutation and one-max or count-ones. We have added the Royal Road
+function \cite{mitchell1992royal}, mainly with the objective of
+comparing Perl and Perl 6 and its parallel facilities. 
+
+The functions are well known, and the main objective of these tests
+was, besides comparing performance side by side, see how this
+performance scales to big, and a bit unrealistic, chromosome
+sizes. The way the handling of data structures by particular languages
+is done makes that, sometimes, the speed of dealing with bigger sizes
+is faster than with smaller sizes; as a matter of fact, in the above
+mentioned paper Java achieved its best performance for the biggest chromosome
+size. 
+% Big chromosome -> large chromosome?
+We tested several data structures in Perl 6 and finally chose a vector
+(or array) of booleans as the fastest one. In fact the speed of the
+benchmark is divided in two parts: speed for randomly generating the
+vector and speed of actually counting the number of ones. In this
+case, generating a vector of {\tt Bool}s was considerably faster than
+doing the same with integers, although summing them was almost 4 times
+as slow. That is why we also test a vector of integers in the
+experiments we show below. These two operations take two lines in Perl
+6, as follows.
+
+\begin{lstlisting}[language=Perl]
+my $ones = Bool.roll xx $len ;
+my $maxones = $ones.sum;	
+\end{lstlisting}
+
+These two lines show the advantage of this kind of language; the same
+operation needs several lines and two loops in most other,
+non-functional, languages. The first one creates an array of random
+boolean values, generated with {\tt Bool.roll}; {\tt xx} {\em
+  multiplies} by the length to yield an array of the desired
+length. And the second line just uses the {\tt sum} method, which is
+an standard method for arrays and can also be applied to arrays of
+booleans. In Perl 6, there are many possible ways of achieving the
+same, but in fact after several measurements we found this was the
+fastest, even if initially it was much slower than for other
+languages. Also, as it can be seen, Perl 6 uses {\em sigils} for
+variables, this {\tt \$} been applied to most kinds of containers. % has been?
+ {\tt
+  Bool} is a standard type, and {\tt my} is a {\em scope} declaration
+which can optionally include a type or class declaration. A fuller
+introduction to the language is outside the scope of this paper, but
+the interested reader can check the documentation at
+\url{https://docs.perl6.org} for a tutorial or a more thorough
+explanation of all its features and capabilities. 
+
+The benchmark consists in 100,000 repetitions of the operation for
+sizes that are increased by 2 starting from 16 to, when possible, 32768. All
+experiments took place in a desktop computer with 8 cores running
+Ubuntu 14.04.5.
+
+All programs are open source, and included in the same GitHub repository that
+holds this paper in \url{https://github.com/JJ/perl6eo}. Data from the experiments is also
+freely available in the same place. 
+
+\section{Results and analysis}
+\label{sec:res}
+%
+\begin{figure}[h!tb]
+  \centering
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/results-perl6-1} 
+
+\end{knitrout}
+\caption{Plot of time needed to perform 100K OneMax evaluations in
+ several versions of Perl 6, from 2016 to the current in 2018.
+ Strings have 
+lengths increasing by a factor of two from 16 to $2^{15}$. Please note
+that $x$ and $y$ both have a logarithmic scale.}
+\label{fig:perl6:mo}
+\end{figure}
+%
+
+The first experiment just measured the speed of the {\sf max-ones}
+function across releases of Perl 6; Perl 6 has a monthly release
+schedule, with version number corresponding to year and month. The
+result of this operation is shown in Figure \ref{fig:perl6:mo}, and it
+clearly shows the increase in speed across time, that amounts to
+almost one order of magnitude from the first version, with a
+performance that prompted us to exclude it from our initial study, to
+the current, which is much better. 
+%
+\begin{figure*}[h!tb]
+  \centering
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/results-mo-1} 
+
+\end{knitrout}
+\caption{Plot of time needed to perform 100K OneMax function evaluations in strings with
+lengths increasing by a factor of two from 16 to $2^{15}$. Please note
+that axes $x$ and $y$ both have a logarithmic scale.}
+\label{fig:time:mo}
+\end{figure*}
+%
+
+Despite the improvement, it needs to be compared to the rest of the
+languages we tested in the previous paper. We have excluded the
+fastest, mainly compiled, languages, to leave mainly scripting, and
+some compiled, languages. This comparison is shown in Figure
+\ref{fig:time:mo}. This chart, besides all the measures already
+published in the previous paper, includes three versions of the
+one-max in Perl 6. One is the same as above, which uses a boolean
+representation for the chromosome bits; the second uses an integer
+representation for the bits and is listed as {\tt IntVector}. This
+version needed a bit of hacking which included using a Boolean bit
+generation and then transforming it to an integer number; however,
+even that step made it a bit slower than the Boolean version.
+
+%
+\begin{figure*}[h!tb]
+  \centering
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/results-bf-1} 
+
+\end{knitrout}
+\caption{Plot of time needed to perform mutation on  100K chromosomes
+ with increasing lengths from 16 to $2^{15}$. Please note
+that $x$ and $y$ both have a logarithmic scale.}
+\label{fig:time:bf}
+\end{figure*}
+%
+The third version, listed as {\tt perl6-BitVector-hyper}, shows one of
+the unique characteristics of Perl 6: implicit parallelism. The {\tt
+  hyper} and {\tt race} methods, applied to vectors, divide the job
+into different threads, 4 by default, evaluating different parts of
+the vector in parallel, without affecting in any way the rest of the
+operation. In the case above, just changing the line to 
+\begin{lstlisting}[language=Perl]
+my $maxones = $ones.race.sum;	
+\end{lstlisting}
+made the sum to be executed in parallel, improving the performance by
+the number of threads it is using by default. We used {\tt race}
+instead of {\tt hyper} since the latter forces in-order execution; in
+our case, the order of the sums is not important and keeping order
+makes it a bit slower.
+
+The chart shows that, in fact, Perl 6 for this operation is faster,
+for big sizes, than C++, and overall faster than the Lua language or
+even Python for a particular representation. For some sizes, it can
+also be faster than Common Lisp. 
+%
+\begin{figure*}[h!tb]
+  \centering
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/results-xo-1} 
+
+\end{knitrout}
+\caption{Plot of time needed to perform crossover on 100K chromosomes
+ with increasing lengths from 16 to $2^{15}$. Please note
+that $x$ and $y$ both have a logarithmic scale.}
+\label{fig:time:xo}
+\end{figure*}
+%
+
+In principle, by being faster than more traditional languages, we can
+prove here that Perl 6 can be not only convenient in terms of
+programming ease (just two lines where other languages need many more
+lines), but also faster. Let us, however, have a look at the rest of
+the genetic operations. 
+
+The very traditional bitflip mutation comparison chart is shown in
+Figure \ref{fig:time:bf}. The lines used for doing this operation are
+shown below.
+\begin{lstlisting}[language=perl]
+my $position = $range.pick;
+@ones[$position] = !@ones[$position];
+\end{lstlisting}
+In this case we are using {\tt pick} for choosing a random value in a
+range, which is the chromosome size, and flipping the bit in that
+random position. Could be done also in a single line, avoiding the
+{\tt \$position} variable; besides, we use the {\tt \@} sigil to
+clearly indicate we are dealing with a vector. We avoided it in the
+listing above since it made the operation slightly slower. 
+
+%
+\begin{figure*}[h!tb]
+  \centering
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/results-rr-1} 
+
+\end{knitrout}
+\caption{Plot of time needed to perform 100K royal road functions on chromosomes
+ with increasing lengths from 16 to $2^{15}$. Please note
+that $x$ and $y$ both have a logarithmic scale.}
+\label{fig:time:rr}
+\end{figure*}
+%
+In this case, Perl 6 is considerably fast, although not the fastest,
+and the time needed is independent of the chromosome length, a good
+trait, overall. Once again, it shows a good performance in this
+operation. Let us examine the next genetic operator, crossover.
+
+The crossover performance comparison chart is shown in Figure
+\ref{fig:time:xo}. In this case, after initial tests, we have gone
+back again to testing a different representation: a bit string, that
+is, a string composed of 0s and 1s. Strings have a different internal
+representation than vectors, and the operations needed are
+different. While in the first case we could use this line to perform the crossover:
+\begin{lstlisting}[language=perl]
+@chromosome2.splice($start,$this-len, 
+    @chromosome1[$start..
+      ($start+$this-len)]);
+\end{lstlisting}
+, in the second case we used
+\begin{lstlisting}[language=perl]
+$chromosome2.substr-rw($start,$this-len ) = 
+    $chromosome1.substr($start,$this-len);
+\end{lstlisting}
+changing from an array operation to a string operation. And we did so
+after finding a very disappointing performance, in fact the worst of
+all languages tested, with the first one. Using a bitstring was not
+much better, still needing almost double the time of the second-worst
+language, which is Scala in this case. The fact that these two
+functional languages have the same disappointing performance, while
+Scala is usually very fast for all applications, points to the fact
+that we might be taking the wrong, non-functional, approach to this
+operation in these languages. 
+
+In fact, changing the line to 
+\begin{lstlisting}[language=perl]
+@chromosome2.splice($start,$this-len, 
+    @chromosome1.skip($start).head($this-len));
+\end{lstlisting}
+somewhat improved the performance. In this case we are using
+functional methods to access different parts of the chromosome. There
+is around a 20\% improvement over the previous line, but still very
+slow compared to other languages. This proves, anyway, that testing
+and some help from the community are needed to extract the best
+performance out of a language; also that idiomatic constructions are
+in general preferred over generic constructions. It always pays to
+know the language well.
+
+That is also why we have tested another function, the well known Royal
+Road, which was proposed as an example of a complicated landscape for
+evolutionary algorithms. It might also be a complicated performance
+benchmark. Perl 6 needs a single line to implement this function:
+
+\begin{lstlisting}[language=perl]
+my $royal-road= $ones.rotor(4)
+    .grep( so (*.all == True|False) ).elems ;	
+\end{lstlisting}
+
+In this case, we are using several unique Perl 6 features and doing so
+in a functional way. For instance, {\tt | } are {\em Junctions} and
+{\tt all} becomes {\tt True} or {\tt False} if all the elements in its
+4-element block are. That is a very straightforward, and mathematically
+correct, way to express the Royal Road function. However, it is still
+slower than Perl by an order of magnitude, as shown in Figure
+\ref{fig:time:rr}. In fact, we had to stop the benchmark, since
+scaling with size was very bad too.
+
+That is why we used again the {\tt .race} method, which distributes
+load among threads. Although for smaller sizes the overhead needed to
+set up the distribution of tasks made it slower, and thus not very
+convenient for the usual sizes, it became much faster, by almost an
+order of magnitude, for bigger sizes, proving again that implicit
+parallelism very conveniently allows to work with big sets of
+elements, making the result faster. However, it is still very slow. As
+it becomes the target of optimization in subsequent releases of Perl
+6, it will probably improve in speed. The implicit parallel facilities
+of Perl 6 makes it possible, however, to optimize it at a different
+level, for instance, population level, which still makes Perl 6 an
+interesting target for the implementation of evolutionary
+algorithms. In fact, there are already two implementations available
+in the Perl 6 module ecosystem, one by the author of this paper, {\tt
+  Algorithm::Evolutionary::Simple}, which includes implementations of
+the operators shown here. The other one, {\tt Algorithm::Genetic},
+makes extensive use of Perl 6 functionalities including roles and {\tt
+  gather/take} loops. 
+
+\section{Conclusions}
+
+In this paper, we set to prove the readiness of Perl 6, a new
+programming language, for implementing evolutionary
+algorithms. Traditionally, these tests have been based purely on
+performance, to the point that the only questions asked when a new
+evolutionary algorithm library is released is: "Is it faster than
+Java/C++?". In this paper we have considered this performance, first
+historically from the first releases, and then considering the latest
+releases. Taking into account the improvements in performance
+experimented along this time, and how seriously performance issues are
+taken by the developers, we can safely assume that in the medium term
+Perl 6 will achieve levels of speed comparable with those of other
+scripting languages, which means that it could be faster than some
+compiled languages.
+
+On the other hand, a very important consideration is also the
+facilities that the language offers for the implementation of most
+classical evolutionary functions. In this case, Perl 6 offers
+functional methods that allow the chaining of operations, equivalent to
+function composition, so that in many cases a single line
+of chained functions is enough to process chromosomes. In many cases, this
+idiomatic way of doing those operations will result in a faster
+operation, since idiomatic constructs are usually optimized in every
+language. In this sense, using either functions or the implicitly
+parallel methods such as {\tt .race} results in improvements in speed,
+although for the time being, and in general, Perl 6 is still slower than its
+sister language, Perl.
+
+Putting both things in the balance, and in general, the conclusion is
+that the time for implementation of evolutionary algorithms in Perl 6
+has arrived, although there is still some way to go in terms of
+performance. Closely following the development will make the programmer
+choose the faster alternative for the implementation of evolutionary
+algorithms, constituting an interesting and promising line of work.
+
+Another line of work will be to use explicit concurrency primitives to
+implement a concurrent evolutionary algorithms. This is something we
+will explore in a different paper. 
+
+
+\begin{acks}
+
+This paper is part of the open science effort at the university of
+Granada. It has been written using {\tt knitr}, and its source as well as
+the data used to create it can be downloaded from 
+\href{https://github.com/JJ/2016-ea-languages-wcci}{the GitHub
+  repository} \url{https://github.com/JJ/2016-ea-languages-wcci/}. 
+
+This paper has been supported in part by
+\href{http://geneura.wordpress.com}{GeNeura Team}, 
+projects TIN2014-56494-C4-3-P (Spanish Ministry of Economy and
+Competitiveness) and DeepBio (TIN2017-85727-C4-2-P)
+
+We are also deeply grateful to the Perl 6 community, who through the
+Perl 6 IRC channel and pull requests have helped greatly to improve
+the code. 
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{geneura,languages,GA-general}
+
+\end{document}
+
+
+%%% Local Variables:
+%%% ispell-local-dictionary: "english"
+%%% hunspell-local-dictionary: "english"
+%%% End:
