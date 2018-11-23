@@ -1,4 +1,4 @@
-#Instructions
+# Instructions
 
 1. Download Clojure with from http://clojure.org
 

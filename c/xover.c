@@ -41,7 +41,7 @@ int main()
 		
 		clock_gettime(CLOCK_REALTIME, &stop);
 
-		printf("C-char[], %u, %ld\n", length, (stop.tv_sec - start.tv_sec) * 1000000000 + (stop.tv_nsec - start.tv_nsec));
+		printf("C-char[], %u, %.2f\n", length, ((stop.tv_sec - start.tv_sec) * 1e9 + (stop.tv_nsec - start.tv_nsec))/1e9);
 	}
 
 	return 0;
