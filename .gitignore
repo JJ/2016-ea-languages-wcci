@@ -157,4 +157,5 @@ haskell/onemax
 haskell/xover
 *.cut
 
-c++/xover
+#Executable
+xover
