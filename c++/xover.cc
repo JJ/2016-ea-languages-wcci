@@ -44,7 +44,7 @@ int main()
 
 		std::cout << "C++-dynamic_bitset, " 
 		          << length << ", " 
-		          << std::chrono::nanoseconds(stop - start).count()
+		          << std::chrono::nanoseconds(stop - start).count() /  1e9
 		          << std::endl;
 	}
 }
