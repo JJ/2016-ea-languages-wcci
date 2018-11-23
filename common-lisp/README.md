@@ -4,5 +4,4 @@
 
 3. Move the GA files to the SBCL directory.
 
-4. Open a terminal in the SBCL directory and run "./run-sbcl.sh --load
-   onemax.lisp", for example, to run onemax.
+4. Open a terminal in the SBCL directory and run "./sbcl.run onemax.lisp", for example, to run onemax.

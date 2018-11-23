@@ -156,3 +156,5 @@ haskell/mutableVector/xover
 haskell/onemax
 haskell/xover
 *.cut
+
+c++/xo ver
