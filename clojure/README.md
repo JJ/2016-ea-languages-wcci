@@ -9,9 +9,4 @@
 
 4. In the REPL, write (load-file "onemax.clj"), for example, to run onemax.
 
-Or install leiningen
-
-	sudo apt-get install leiningen
-
-And do
-	lein exec onemax.clj
+Or install leiningen from its source.
