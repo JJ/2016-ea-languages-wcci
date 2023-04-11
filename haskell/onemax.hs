@@ -6,7 +6,7 @@ import Control.DeepSeq
 import System.Random
 
 
-iterations = 100000
+iterations = 1000000
 
 onemax :: Seq Bool -> Int
 onemax v = Data.Foldable.foldl (\y -> (\x -> if x then y+1 else y)) 0 v
