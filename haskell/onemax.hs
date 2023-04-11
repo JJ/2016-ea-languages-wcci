@@ -32,6 +32,6 @@ benchmark n = do
 
 main :: IO ()
 main = do
-  sequence $ Prelude.map benchmark ((2^) <$> [4..16])
+  sequence $ Prelude.map benchmark ((2^) <$> [16..24])
   return ()
 
